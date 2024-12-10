@@ -40,7 +40,7 @@ public final class BlockReportSpamDialogs {
   /** Creates a dialog with the default cancel button listener (which dismisses the dialog). */
   private static AlertDialog.Builder createDialogBuilder(
       Activity activity, final DialogFragment fragment) {
-    return new AlertDialog.Builder(activity)
+    return new AlertDialog.Builder(activity, android.R.style.Theme_DeviceDefault_Dialog_Alert)
         .setCancelable(true)
         .setNegativeButton(android.R.string.cancel, (dialog, which) -> fragment.dismiss());
   }
