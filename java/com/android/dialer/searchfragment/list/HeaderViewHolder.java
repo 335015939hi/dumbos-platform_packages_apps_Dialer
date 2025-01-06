@@ -20,6 +20,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import com.android.R;
+
 /** ViewHolder for header rows in {@link NewSearchFragment}. */
 final class HeaderViewHolder extends RecyclerView.ViewHolder {
 

@@ -32,8 +32,9 @@ import android.telecom.TelecomManager;
 import android.telephony.TelephonyManager;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.android.R;
 import com.android.dialer.about.AboutPhoneFragment;
-import com.android.dialer.app.R;
 import com.android.dialer.assisteddialing.ConcreteCreator;
 import com.android.dialer.blocking.FilteredNumberCompat;
 import com.android.dialer.common.LogUtil;
@@ -171,8 +172,7 @@ public class DialerSettingsActivity extends AppCompatPreferenceActivity {
     if (isAssistedDialingEnabled) {
 
       Header assistedDialingSettingsHeader = new Header();
-      assistedDialingSettingsHeader.titleRes =
-          com.android.dialer.assisteddialing.ui.R.string.assisted_dialing_setting_title;
+      assistedDialingSettingsHeader.titleRes = R.string.assisted_dialing_setting_title;
       assistedDialingSettingsHeader.intent =
           new Intent("com.android.dialer.app.settings.SHOW_ASSISTED_DIALING_SETTINGS");
       target.add(assistedDialingSettingsHeader);

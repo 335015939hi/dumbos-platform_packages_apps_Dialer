@@ -26,6 +26,8 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.view.View.OnClickListener;
+
+import com.android.R;
 import com.android.contacts.common.util.ContactDisplayUtils;
 import com.android.dialer.logging.DialerImpression;
 import com.android.dialer.logging.Logger;

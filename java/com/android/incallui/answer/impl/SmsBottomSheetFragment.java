@@ -33,6 +33,8 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.android.R;
 import com.android.dialer.common.DpUtil;
 import com.android.dialer.common.FragmentUtils;
 import com.android.dialer.common.LogUtil;

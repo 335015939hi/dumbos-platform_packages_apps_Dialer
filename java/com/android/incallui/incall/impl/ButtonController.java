@@ -27,6 +27,8 @@ import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
+
+import com.android.R;
 import com.android.dialer.common.Assert;
 import com.android.incallui.incall.impl.CheckableLabeledButton.OnCheckedChangeListener;
 import com.android.incallui.incall.protocol.InCallButtonIds;

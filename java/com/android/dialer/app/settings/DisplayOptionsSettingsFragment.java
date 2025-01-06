@@ -18,7 +18,8 @@ package com.android.dialer.app.settings;
 
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
-import com.android.dialer.app.R;
+
+import com.android.R;
 
 public class DisplayOptionsSettingsFragment extends PreferenceFragment {
 

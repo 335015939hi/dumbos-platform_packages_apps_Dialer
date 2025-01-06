@@ -22,6 +22,8 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.TextureView;
 import android.view.View;
+
+import com.android.R;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.FragmentUtils;
 import com.android.dialer.common.LogUtil;

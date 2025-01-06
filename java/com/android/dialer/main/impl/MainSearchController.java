@@ -32,6 +32,8 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.widget.Toast;
+
+import com.android.R;
 import com.android.contacts.common.dialog.ClearFrequentsDialog;
 import com.android.dialer.app.calllog.CallLogActivity;
 import com.android.dialer.app.settings.DialerSettingsActivity;

@@ -29,6 +29,8 @@ import android.support.v4.os.UserManagerCompat;
 import android.telecom.Call.Details;
 import android.view.View;
 import android.widget.CheckBox;
+
+import com.android.R;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.incallui.call.CallList;

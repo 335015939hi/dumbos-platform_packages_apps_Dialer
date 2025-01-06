@@ -19,7 +19,8 @@ package com.android.dialer.app.widget;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
-import com.android.dialer.app.R;
+
+import com.android.R;
 import com.android.dialer.util.OrientationUtil;
 import com.android.dialer.widget.EmptyContentView;
 

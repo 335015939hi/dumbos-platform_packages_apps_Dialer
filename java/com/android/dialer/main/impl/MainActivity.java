@@ -20,6 +20,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
+
+import com.android.R;
 import com.android.dialer.blockreportspam.ShowBlockReportSpamDialogReceiver;
 import com.android.dialer.calllog.config.CallLogConfigComponent;
 import com.android.dialer.common.Assert;
@@ -29,7 +31,6 @@ import com.android.dialer.interactions.PhoneNumberInteraction.InteractionErrorCo
 import com.android.dialer.interactions.PhoneNumberInteraction.InteractionErrorListener;
 import com.android.dialer.main.MainActivityPeer;
 import com.android.dialer.main.impl.bottomnav.BottomNavBar.TabIndex;
-import com.android.dialer.R;
 import com.android.dialer.util.TransactionSafeActivity;
 
 /** This is the main activity for dialer. It hosts favorites, call log, search, dialpad, etc... */

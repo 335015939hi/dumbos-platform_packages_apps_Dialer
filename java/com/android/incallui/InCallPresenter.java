@@ -40,6 +40,8 @@ import android.util.ArraySet;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
+
+import com.android.R;
 import com.android.contacts.common.compat.CallCompat;
 import com.android.dialer.CallConfiguration;
 import com.android.dialer.Mode;

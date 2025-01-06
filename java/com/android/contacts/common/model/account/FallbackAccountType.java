@@ -17,9 +17,10 @@
 package com.android.contacts.common.model.account;
 
 import android.content.Context;
+
+import com.android.R;
 import com.android.contacts.common.model.dataitem.DataKind;
 import com.android.dialer.common.LogUtil;
-import com.android.dialer.contacts.resources.R;
 
 public class FallbackAccountType extends BaseAccountType {
 

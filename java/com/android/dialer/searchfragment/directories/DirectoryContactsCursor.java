@@ -22,6 +22,8 @@ import android.database.MatrixCursor;
 import android.database.MergeCursor;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
+
+import com.android.R;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.cp2.DirectoryUtils;
 import com.android.dialer.searchfragment.common.SearchCursor;

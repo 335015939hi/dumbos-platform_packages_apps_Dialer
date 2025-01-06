@@ -24,6 +24,8 @@ import android.support.annotation.IntDef;
 import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
 import android.widget.Toast;
+
+import com.android.R;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.configprovider.ConfigProviderComponent;
 import com.android.dialer.logging.DialerImpression.Type;

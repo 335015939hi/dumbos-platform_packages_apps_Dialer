@@ -23,6 +23,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 
+import com.android.R;
+
 /** Dialog for spam blocking on-boarding promotion. */
 public class SpamBlockingPromoDialogFragment extends DialogFragment {
 

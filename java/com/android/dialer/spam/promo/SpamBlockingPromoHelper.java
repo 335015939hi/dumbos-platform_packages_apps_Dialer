@@ -28,6 +28,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.os.BuildCompat;
 import android.view.View;
 import android.widget.Toast;
+
+import com.android.R;
 import com.android.dialer.configprovider.ConfigProviderComponent;
 import com.android.dialer.logging.DialerImpression;
 import com.android.dialer.logging.Logger;

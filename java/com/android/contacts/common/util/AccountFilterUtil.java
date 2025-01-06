@@ -19,8 +19,9 @@ package com.android.contacts.common.util;
 import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
+
+import com.android.R;
 import com.android.contacts.common.list.ContactListFilter;
-import com.android.dialer.contacts.resources.R;
 
 /** Utility class for account filter manipulation. */
 public class AccountFilterUtil {

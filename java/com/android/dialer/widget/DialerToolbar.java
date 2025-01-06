@@ -23,6 +23,8 @@ import android.support.annotation.StringRes;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 import android.widget.TextView;
+
+import com.android.R;
 import com.android.dialer.theme.base.ThemeComponent;
 
 /** Toolbar widget for Dialer. */

@@ -34,6 +34,8 @@ import android.view.accessibility.AccessibilityManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.android.R;
 import com.android.dialer.common.Assert;
 import com.android.dialer.compat.android.support.design.bottomsheet.BottomSheetStateCompat;
 import com.android.dialer.theme.base.ThemeComponent;

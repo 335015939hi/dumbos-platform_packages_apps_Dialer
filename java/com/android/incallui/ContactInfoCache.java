@@ -39,6 +39,8 @@ import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.ArraySet;
+
+import com.android.R;
 import com.android.contacts.common.ContactsUtils;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.concurrent.DialerExecutor;

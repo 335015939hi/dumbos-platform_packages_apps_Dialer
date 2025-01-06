@@ -22,6 +22,8 @@ import android.content.Loader.OnLoadCompleteListener;
 import android.net.Uri;
 import android.telecom.TelecomManager;
 import android.text.TextUtils;
+
+import com.android.R;
 import com.android.contacts.common.model.Contact;
 import com.android.contacts.common.model.ContactLoader;
 import com.android.dialer.common.LogUtil;

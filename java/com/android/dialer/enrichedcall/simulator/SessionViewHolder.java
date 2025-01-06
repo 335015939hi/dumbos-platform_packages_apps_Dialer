@@ -21,6 +21,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import com.android.R;
+
 /** ViewHolder for an Enriched call session. */
 class SessionViewHolder extends RecyclerView.ViewHolder {
 

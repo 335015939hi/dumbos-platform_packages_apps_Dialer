@@ -22,6 +22,8 @@ import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.View;
 import android.widget.TextView;
 
+import com.android.R;
+
 /** ViewHolder for {@link NewVoicemailAdapter} to display "Today" or "Older" divider row. */
 final class NewVoicemailHeaderViewHolder extends ViewHolder {
 

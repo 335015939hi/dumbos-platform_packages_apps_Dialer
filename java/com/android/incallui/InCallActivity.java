@@ -54,6 +54,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.CheckBox;
 import android.widget.Toast;
+
+import com.android.R;
 import com.android.contacts.common.widget.SelectPhoneAccountDialogFragment;
 import com.android.dialer.animation.AnimUtils;
 import com.android.dialer.animation.AnimationListenerAdapter;

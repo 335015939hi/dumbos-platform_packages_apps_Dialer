@@ -27,6 +27,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.os.BuildCompat;
 import android.telecom.PhoneAccountHandle;
 import android.util.ArraySet;
+
+import com.android.R;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import java.util.Set;

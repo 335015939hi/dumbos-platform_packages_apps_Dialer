@@ -28,6 +28,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.android.R;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.widget.DialerToolbar;
 import java.io.IOException;

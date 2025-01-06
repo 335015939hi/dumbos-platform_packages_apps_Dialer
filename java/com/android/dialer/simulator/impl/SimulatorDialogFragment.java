@@ -23,6 +23,8 @@ import android.support.v4.app.DialogFragment;
 import android.telecom.TelecomManager;
 import android.widget.EditText;
 
+import com.android.R;
+
 /** Holds dialog logic for creating different types of voice calls. */
 public final class SimulatorDialogFragment extends DialogFragment {
 

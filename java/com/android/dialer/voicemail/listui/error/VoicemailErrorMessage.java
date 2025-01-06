@@ -25,6 +25,8 @@ import android.support.annotation.Nullable;
 import android.telecom.PhoneAccountHandle;
 import android.view.View;
 import android.view.View.OnClickListener;
+
+import com.android.R;
 import com.android.dialer.callintent.CallInitiationType;
 import com.android.dialer.callintent.CallIntentBuilder;
 import com.android.dialer.common.Assert;

@@ -23,6 +23,8 @@ import android.support.annotation.NonNull;
 import android.telecom.DisconnectCause;
 import android.telecom.PhoneAccountHandle;
 import android.util.Pair;
+
+import com.android.R;
 import com.android.contacts.common.compat.telecom.TelecomManagerCompat;
 import com.android.dialer.callintent.CallInitiationType;
 import com.android.dialer.callintent.CallIntentBuilder;

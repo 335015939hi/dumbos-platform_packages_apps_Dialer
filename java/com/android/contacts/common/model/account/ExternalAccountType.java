@@ -31,9 +31,10 @@ import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Xml;
+
+import com.android.R;
 import com.android.contacts.common.model.dataitem.DataKind;
 import com.android.dialer.common.LogUtil;
-import com.android.dialer.contacts.resources.R;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

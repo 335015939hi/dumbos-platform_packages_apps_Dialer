@@ -26,11 +26,12 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.android.R;
 import com.android.contacts.common.MoreContactUtils;
 import com.android.contacts.common.list.ContactEntry;
 import com.android.contacts.common.list.ContactTileView;
 import com.android.contacts.common.model.ContactLoader;
-import com.android.dialer.app.R;
 import com.android.dialer.callintent.CallInitiationType;
 import com.android.dialer.callintent.CallSpecificAppData;
 import com.android.dialer.callintent.SpeedDialContactType;

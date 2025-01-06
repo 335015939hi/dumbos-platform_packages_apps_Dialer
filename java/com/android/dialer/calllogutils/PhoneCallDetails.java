@@ -24,6 +24,8 @@ import android.provider.CallLog.Calls;
 import android.support.annotation.Nullable;
 import android.telecom.PhoneAccountHandle;
 import android.text.TextUtils;
+
+import com.android.R;
 import com.android.contacts.common.ContactsUtils.UserType;
 import com.android.contacts.common.util.ContactDisplayUtils;
 import com.android.dialer.contacts.displaypreference.ContactDisplayPreferences.DisplayOrder;

@@ -30,6 +30,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.QuickContactBadge;
+
+import com.android.R;
 import com.android.dialer.common.Assert;
 import com.android.dialer.contactphoto.ContactPhotoManager;
 import com.android.dialer.dialercontact.DialerContact;
@@ -40,7 +42,6 @@ import com.android.dialer.enrichedcall.EnrichedCallManager;
 import com.android.dialer.lettertile.LetterTileDrawable;
 import com.android.dialer.searchfragment.common.Projections;
 import com.android.dialer.searchfragment.common.QueryBoldingUtil;
-import com.android.dialer.searchfragment.common.R;
 import com.android.dialer.searchfragment.common.RowClickListener;
 import com.android.dialer.searchfragment.common.SearchCursor;
 import com.android.dialer.widget.BidiTextView;
@@ -101,10 +102,7 @@ public final class SearchContactViewHolder extends ViewHolder implements OnClick
     String secondaryInfo =
         TextUtils.isEmpty(label)
             ? number
-            : context.getString(
-                com.android.dialer.contacts.resources.R.string.call_subject_type_and_number,
-                label,
-                number);
+            : context.getString(R.string.call_subject_type_and_number, label, number);
 
     nameOrNumberView.setText(QueryBoldingUtil.getNameWithQueryBolded(query, name, context));
     numberView.setText(QueryBoldingUtil.getNumberWithQueryBolded(query, secondaryInfo));
@@ -171,8 +169,7 @@ public final class SearchContactViewHolder extends ViewHolder implements OnClick
         break;
       case CallToAction.SHARE_AND_CALL:
         callToActionView.setVisibility(View.VISIBLE);
-        callToActionView.setImageDrawable(
-            context.getDrawable(com.android.dialer.contacts.resources.R.drawable.ic_phone_attach));
+        callToActionView.setImageDrawable(context.getDrawable(R.drawable.ic_phone_attach));
         callToActionView.setContentDescription(
             context.getString(R.string.description_search_call_and_share));
         callToActionView.setOnClickListener(this);

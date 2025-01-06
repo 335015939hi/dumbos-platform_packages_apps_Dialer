@@ -26,6 +26,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.android.R;
 import com.android.dialer.common.Assert;
 
 /**

@@ -27,6 +27,8 @@ import android.widget.ImageView;
 import android.widget.QuickContactBadge;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.android.R;
 import com.android.dialer.calldetails.CallDetailsActivityCommon.AssistedDialingNumberParseWorker;
 import com.android.dialer.calldetails.CallDetailsEntries.CallDetailsEntry;
 import com.android.dialer.calllogutils.CallbackActionHelper.CallbackAction;
@@ -173,7 +175,7 @@ public class CallDetailsHeaderViewHolder extends RecyclerView.ViewHolder
             TextUtils.isEmpty(contact.getNumberLabel())
                 ? contact.getDisplayNumber()
                 : context.getString(
-                    com.android.dialer.contacts.resources.R.string.call_subject_type_and_number,
+                    R.string.call_subject_type_and_number,
                     contact.getNumberLabel(),
                     contact.getDisplayNumber());
         numberView.setText(secondaryInfo);

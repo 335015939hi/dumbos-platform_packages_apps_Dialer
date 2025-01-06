@@ -31,6 +31,8 @@ import android.support.annotation.WorkerThread;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.SmsManager;
 import android.telephony.VisualVoicemailSms;
+
+import com.android.R;
 import com.android.voicemail.impl.Assert;
 import com.android.voicemail.impl.OmtpConstants;
 import com.android.voicemail.impl.OmtpService;

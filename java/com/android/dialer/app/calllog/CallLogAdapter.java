@@ -52,8 +52,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.android.R;
 import com.android.contacts.common.ContactsUtils;
-import com.android.dialer.app.R;
 import com.android.dialer.app.calllog.CallLogFragment.CallLogFragmentListener;
 import com.android.dialer.app.calllog.CallLogGroupBuilder.GroupCreator;
 import com.android.dialer.app.calllog.calllogcache.CallLogCache;

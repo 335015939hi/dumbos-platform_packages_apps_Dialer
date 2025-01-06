@@ -20,7 +20,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.android.dialer.app.R;
+
+import com.android.R;
 import com.android.dialer.app.alert.AlertManager;
 import com.android.dialer.common.Assert;
 

@@ -26,6 +26,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 import android.telecom.CallAudioState;
 import android.text.TextUtils;
+
+import com.android.R;
 import com.android.bubble.Bubble;
 import com.android.bubble.BubbleComponent;
 import com.android.bubble.BubbleInfo;

@@ -27,8 +27,9 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+
+import com.android.R;
 import com.android.dialer.animation.AnimUtils;
-import com.android.dialer.app.R;
 import com.android.dialer.util.DialerUtils;
 
 public class SearchEditTextLayout extends FrameLayout {

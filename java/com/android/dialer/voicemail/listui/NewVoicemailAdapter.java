@@ -39,6 +39,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+
+import com.android.R;
 import com.android.dialer.calllogutils.CallLogDates;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;

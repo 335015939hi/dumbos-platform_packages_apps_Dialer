@@ -30,8 +30,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+
+import com.android.R;
 import com.android.contacts.common.list.ViewPagerTabs;
-import com.android.dialer.app.R;
 import com.android.dialer.calldetails.OldCallDetailsActivity;
 import com.android.dialer.common.Assert;
 import com.android.dialer.constants.ActivityRequestCodes;

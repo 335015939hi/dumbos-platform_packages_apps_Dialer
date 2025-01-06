@@ -24,12 +24,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.QuickContactBadge;
 import android.widget.TextView;
+
+import com.android.R;
 import com.android.contacts.common.util.Constants;
 import com.android.dialer.contactphoto.ContactPhotoManager;
 import com.android.dialer.lettertile.LetterTileDrawable;
 import com.android.dialer.searchfragment.common.Projections;
 import com.android.dialer.searchfragment.common.QueryBoldingUtil;
-import com.android.dialer.searchfragment.common.R;
 import com.android.dialer.searchfragment.common.RowClickListener;
 import com.android.dialer.searchfragment.common.SearchCursor;
 

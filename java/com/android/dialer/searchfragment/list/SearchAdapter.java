@@ -26,6 +26,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+
+import com.android.R;
 import com.android.dialer.common.Assert;
 import com.android.dialer.searchfragment.common.RowClickListener;
 import com.android.dialer.searchfragment.common.SearchCursor;
@@ -201,12 +203,10 @@ public final class SearchAdapter extends RecyclerView.Adapter<ViewHolder> {
       Assert.isNotNull(allowClickListener);
       Assert.isNotNull(dismissClickListener);
       itemView
-          .findViewById(
-              com.android.dialer.searchfragment.nearbyplaces.R.id.location_permission_allow)
+          .findViewById(R.id.location_permission_allow)
           .setOnClickListener(allowClickListener);
       itemView
-          .findViewById(
-              com.android.dialer.searchfragment.nearbyplaces.R.id.location_permission_dismiss)
+          .findViewById(R.id.location_permission_dismiss)
           .setOnClickListener(dismissClickListener);
     }
   }

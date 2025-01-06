@@ -22,17 +22,16 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.Trace;
 
+import com.android.R;
+
 public class MaterialColorMapUtils {
 
   private final TypedArray sPrimaryColors;
   private final TypedArray sSecondaryColors;
 
   public MaterialColorMapUtils(Resources resources) {
-    sPrimaryColors =
-        resources.obtainTypedArray(com.android.dialer.lettertile.R.array.letter_tile_colors);
-    sSecondaryColors =
-        resources.obtainTypedArray(
-            com.android.dialer.contacts.resources.R.array.letter_tile_colors_dark);
+    sPrimaryColors = resources.obtainTypedArray(R.array.letter_tile_colors);
+    sSecondaryColors = resources.obtainTypedArray(R.array.letter_tile_colors_dark);
   }
 
   /**

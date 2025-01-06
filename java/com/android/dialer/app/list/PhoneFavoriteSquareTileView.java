@@ -23,8 +23,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.android.R;
 import com.android.contacts.common.list.ContactEntry;
-import com.android.dialer.app.R;
 import com.android.dialer.logging.InteractionEvent;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.widget.BidiTextView;

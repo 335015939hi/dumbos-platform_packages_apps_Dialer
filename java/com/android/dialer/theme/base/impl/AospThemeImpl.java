@@ -22,8 +22,9 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.StyleRes;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
+
+import com.android.R;
 import com.android.dialer.common.Assert;
-import com.android.dialer.theme.base.R;
 import com.android.dialer.theme.base.Theme;
 import javax.inject.Singleton;
 

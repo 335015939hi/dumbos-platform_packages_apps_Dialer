@@ -36,6 +36,8 @@ import android.text.BidiFormatter;
 import android.text.TextDirectionHeuristics;
 import android.text.TextUtils;
 import android.util.ArrayMap;
+
+import com.android.R;
 import com.android.contacts.common.ContactsUtils;
 import com.android.contacts.common.compat.CallCompat;
 import com.android.dialer.common.Assert;

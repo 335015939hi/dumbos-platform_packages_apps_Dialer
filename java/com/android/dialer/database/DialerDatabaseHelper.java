@@ -35,6 +35,8 @@ import android.provider.ContactsContract.Directory;
 import android.support.annotation.VisibleForTesting;
 import android.support.annotation.WorkerThread;
 import android.text.TextUtils;
+
+import com.android.R;
 import com.android.contacts.common.util.StopWatch;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.common.concurrent.DefaultFutureCallback;
@@ -42,7 +44,6 @@ import com.android.dialer.common.concurrent.DialerExecutorComponent;
 import com.android.dialer.common.concurrent.DialerFutureSerializer;
 import com.android.dialer.common.database.Selection;
 import com.android.dialer.configprovider.ConfigProviderComponent;
-import com.android.dialer.contacts.resources.R;
 import com.android.dialer.database.FilteredNumberContract.FilteredNumberColumns;
 import com.android.dialer.smartdial.util.SmartDialNameMatcher;
 import com.android.dialer.smartdial.util.SmartDialPrefix;

@@ -33,6 +33,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.telecom.TelecomManager;
 import android.text.TextUtils;
+
+import com.android.R;
 import com.android.dialer.common.Assert;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

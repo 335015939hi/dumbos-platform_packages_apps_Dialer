@@ -22,6 +22,8 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.ScrollView;
 
+import com.android.R;
+
 /** {@link ScrollView} with a max height attribute. */
 public class MaxHeightScrollView extends ScrollView {
 

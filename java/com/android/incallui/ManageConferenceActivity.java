@@ -21,6 +21,8 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import com.android.R;
+
 /** Shows the {@link ConferenceManagerFragment} */
 public class ManageConferenceActivity extends AppCompatActivity {
 

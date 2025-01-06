@@ -41,6 +41,8 @@ import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
+
+import com.android.R;
 import com.android.contacts.common.extensions.PhoneDirectoryExtenderAccessor;
 import com.android.dialer.animation.AnimUtils;
 import com.android.dialer.callcomposer.CallComposerActivity;

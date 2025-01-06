@@ -27,6 +27,9 @@ import android.support.annotation.RequiresPermission;
 import android.support.annotation.StringDef;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+
+import com.android.R;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Objects;

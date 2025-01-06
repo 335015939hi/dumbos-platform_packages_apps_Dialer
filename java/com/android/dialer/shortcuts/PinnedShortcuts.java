@@ -30,6 +30,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.WorkerThread;
 import android.support.v4.content.ContextCompat;
 import android.util.ArrayMap;
+
+import com.android.R;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import java.util.ArrayList;

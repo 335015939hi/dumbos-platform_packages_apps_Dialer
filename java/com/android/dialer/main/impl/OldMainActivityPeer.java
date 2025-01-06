@@ -54,6 +54,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.android.R;
 import com.android.contacts.common.list.OnPhoneNumberPickerActionListener;
 import com.android.dialer.animation.AnimUtils;
 import com.android.dialer.app.MainComponent;

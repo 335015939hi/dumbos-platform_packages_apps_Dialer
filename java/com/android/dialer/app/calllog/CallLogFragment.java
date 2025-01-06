@@ -45,8 +45,9 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.android.R;
 import com.android.dialer.app.Bindings;
-import com.android.dialer.app.R;
 import com.android.dialer.app.calllog.CallLogAdapter.CallFetcher;
 import com.android.dialer.app.calllog.CallLogAdapter.MultiSelectRemoveView;
 import com.android.dialer.app.calllog.calllogcache.CallLogCache;

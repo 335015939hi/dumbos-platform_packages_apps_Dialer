@@ -41,6 +41,8 @@ import android.support.annotation.VisibleForTesting;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.widget.Toast;
+
+import com.android.R;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.storage.StorageComponent;
 import java.util.ArrayList;
