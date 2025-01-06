@@ -16,10 +16,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="com.android.voicemail">
 
-  <uses-sdk
-    android:minSdkVersion="24"
-    android:targetSdkVersion="30"/>
-
   <!-- Applications using this module should merge these permissions using android_manifest_merge -->
 
   <uses-permission android:name="com.android.voicemail.permission.ADD_VOICEMAIL"/>

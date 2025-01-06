@@ -15,10 +15,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.dialer.assisteddialing.ui">
 
-  <uses-sdk
-      android:minSdkVersion="24"
-      android:targetSdkVersion="30"/>
-
   <application>
     <activity
         android:label="@string/assisted_dialing_setting_title"

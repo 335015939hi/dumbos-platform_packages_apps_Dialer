@@ -54,10 +54,6 @@
    presses home. -->
   <uses-permission android:name="android.permission.STOP_APP_SWITCHES"/>
 
-  <uses-sdk
-    android:minSdkVersion="24"
-    android:targetSdkVersion="30"/>
-
   <application>
 
   <activity
