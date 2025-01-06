@@ -36,6 +36,11 @@ import com.android.voicemail.impl.OmtpVvmCarrierConfigHelper;
 import com.android.voicemail.impl.VoicemailStatus;
 import com.android.voicemail.impl.VvmLog;
 
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+
 /**
  * Base class for network request call backs for visual voicemail syncing with the Imap server. This
  * handles retries and network requests.
@@ -129,12 +134,22 @@ public abstract class VvmNetworkRequestCallback extends ConnectivityManager.Netw
   }
 
   private static final int DEFAULT_IPV4_WAIT_DELAY_MS = 500; // in milliseconds
+  public static final int IPV4_CHECK_TIMEOUT = 2000; // in milliseconds
   private final ConditionVariable mWaitV4Cv = new ConditionVariable();
   @Override
   @CallSuper
   public void onLinkPropertiesChanged(Network network, LinkProperties lp) {
-    boolean hasIPv4 = (lp != null) &&
-            (lp.isReachable(InetAddresses.parseNumericAddress("8.8.8.8")));
+    if (lp == null) return;
+    boolean hasIPv4 = false;
+    try (final Socket socket = new Socket()) {
+      final InetAddress inetAddress = InetAddresses.parseNumericAddress("8.8.8.8");
+      final InetSocketAddress inetSocketAddress = new InetSocketAddress(inetAddress, 80);
+
+      socket.connect(inetSocketAddress, IPV4_CHECK_TIMEOUT);
+      hasIPv4 = true;
+    } catch (IOException ignored) {
+    }
+
     if(hasIPv4) {
         mWaitV4Cv.open();
     }
