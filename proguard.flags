@@ -10,3 +10,13 @@
 -keep public class * extends android.support.v4.app.Fragment {
   public <init>();
 }
+
+-dontwarn javax.naming.NamingEnumeration
+-dontwarn javax.naming.NamingException
+-dontwarn javax.naming.directory.Attribute
+-dontwarn javax.naming.directory.Attributes
+-dontwarn javax.naming.directory.InitialDirContext
+
+-dontobfuscate
+
+-keep class * extends com.google.protobuf.GeneratedMessageLite { *; }
