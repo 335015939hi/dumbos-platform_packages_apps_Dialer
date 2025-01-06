@@ -78,6 +78,8 @@
     <item name="colorMobileOriginatingChatText">@color/google_blue_900</item>
     <item name="colorMobileOriginatingChatBackground">@color/google_blue_100</item>
     <item name="colorPrimary20pct">@color/dialer_theme_color_20pct</item>
+
+    <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
   </style>
 
   <!-- TODO(a bug): investigate making this style's parent Dialer.ThemeBase.NoActionBar -->
