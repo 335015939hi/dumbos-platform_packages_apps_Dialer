@@ -3,5 +3,4 @@
   <string name="incall_enable_wifi_calling_button">ເປິດນຳໃຊ້</string>
   <string name="video_call_not_available_title">ຕອນນີ້ບໍ່ສາມາດໃຊ້ການໂທວິດີໂອໄດ້</string>
   <string name="video_call_not_available_message">ກະລຸນາລອງໂທໃໝ່ໃນພາຍຫຼັງ ຫຼື ສືບຕໍ່ສາຍເປັນການໂທແບບສຽງ.</string>
-  <string name="voice_call">ການໂທດ້ວຍສຽງ</string>
 </resources>

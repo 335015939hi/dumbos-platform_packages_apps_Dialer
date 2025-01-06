@@ -3,5 +3,4 @@
   <string name="incall_enable_wifi_calling_button">Aktivieren</string>
   <string name="video_call_not_available_title">Videoanrufe sind momentan nicht verfügbar</string>
   <string name="video_call_not_available_message">Versuche es später noch einmal oder setze den Anruf als Sprachanruf fort.</string>
-  <string name="voice_call">Sprachanruf</string>
 </resources>

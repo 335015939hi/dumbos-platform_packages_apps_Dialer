@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">Bloquer le %1$s ?</string>
-  <string name="block_number_confirmation_message_new_filtering">Vous ne recevrez plus d\'appels ni de SMS provenant de ce numéro.</string>
-  <string name="block_number_ok">BLOQUER</string>
-  <string name="unblock_number_ok">DÉBLOQUER</string>
   <string name="block_report_number_alert_title">Bloquer le %1$s ?</string>
   <string name="block_report_number_alert_details">Vous ne recevrez plus d\'appels de ce numéro.</string>
   <string name="block_number_alert_details">%1$s Cet appel sera signalé comme indésirable.</string>

@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">Estetäänkö %1$s?</string>
-  <string name="block_number_confirmation_message_new_filtering">Tästä numerosta tulevat puhelut ja tekstiviestit estetään.</string>
-  <string name="block_number_ok">ESTÄ</string>
-  <string name="unblock_number_ok">KUMOA ESTO</string>
   <string name="block_report_number_alert_title">Estetäänkö %1$s?</string>
   <string name="block_report_number_alert_details">Tästä numerosta tulevat puhelut estetään.</string>
   <string name="block_number_alert_details">%1$s. Puhelu ilmoitetaan häirikköpuheluksi.</string>

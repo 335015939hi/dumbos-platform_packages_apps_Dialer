@@ -15,9 +15,9 @@
   ~ limitations under the License
   -->
 <resources>
-  <declare-styleable name="RttCheckableButton">
-    <attr name="android:checked"/>
-    <attr name="contentDescriptionChecked" format="reference|string"/>
-    <attr name="contentDescriptionUnchecked" format="reference|string"/>
-  </declare-styleable>
+    <declare-styleable name="CheckableButton">
+        <attr name="android:checked"/>
+        <attr name="contentDescriptionChecked" format="reference|string"/>
+        <attr name="contentDescriptionUnchecked" format="reference|string"/>
+    </declare-styleable>
 </resources>

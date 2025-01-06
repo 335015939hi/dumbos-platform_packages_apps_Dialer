@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">%1$sని బ్లాక్ చేయాలా?</string>
-  <string name="block_number_confirmation_message_new_filtering">మీరు ఇకపై ఈ నంబర్ నుండి కాల్‌లు లేదా వచన సందేశాలను స్వీకరించరు.</string>
-  <string name="block_number_ok">బ్లాక్ చేయి</string>
-  <string name="unblock_number_ok">అన్‌బ్లాక్ చేయి</string>
   <string name="block_report_number_alert_title">%1$sని బ్లాక్ చేయాలా?</string>
   <string name="block_report_number_alert_details">మీరు ఇకపై ఈ నంబర్ నుండి కాల్‌లు స్వీకరించరు.</string>
   <string name="block_number_alert_details">%1$s ఈ కాల్ స్పామ్ వలె నివేదించబడుతుంది.</string>

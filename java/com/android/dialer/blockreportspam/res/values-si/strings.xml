@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">%1$s අවහිර කරන්නද?</string>
-  <string name="block_number_confirmation_message_new_filtering">ඔබට මෙම අංකයෙන් තවදුරටත් ඇමතුම් හෝ පෙළ පණිවිඩ නොලැබෙනු ඇත.</string>
-  <string name="block_number_ok">අවහිරයි</string>
-  <string name="unblock_number_ok">අවහිර නොකරන්න</string>
   <string name="block_report_number_alert_title">%1$s අවහිර කරන්නද?</string>
   <string name="block_report_number_alert_details">ඔබට මෙම අංකයෙන් තවදුරටත් ඇමතුම් නොලැබෙනු ඇත.</string>
   <string name="block_number_alert_details">%1$s මෙම ඇමතුම අයාචිත තැපෑලක් ලෙස වාර්තා කරනු ඇත.</string>

@@ -3,5 +3,4 @@
   <string name="incall_enable_wifi_calling_button">Уключыць</string>
   <string name="video_call_not_available_title">Відэавыклікі зараз недаступныя</string>
   <string name="video_call_not_available_message">Паспрабуйце зрабіць выклік пазней або працягніце выклік як галасавы.</string>
-  <string name="voice_call">Галасавы выклік</string>
 </resources>

@@ -26,7 +26,5 @@
   <string name="video_call_not_available_title">Video calling is currently not available</string>
   <!-- Message of alert dialog displayed when video call is not available. [CHAR LIMIT=NONE] -->
   <string name="video_call_not_available_message">Try calling again later or continue the call as a voice call.</string>
-  <!-- Voice call button label of alert dialog displayed when video call is not available. [CHAR LIMIT=20] -->
-  <string name="voice_call">Voice call</string>
 
 </resources>

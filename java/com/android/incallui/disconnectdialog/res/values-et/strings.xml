@@ -3,5 +3,4 @@
   <string name="incall_enable_wifi_calling_button">Luba</string>
   <string name="video_call_not_available_title">Vidokõned pole praegu saadaval</string>
   <string name="video_call_not_available_message">Proovige hiljem uuesti helistada või jätkake helistamist häälkõnena.</string>
-  <string name="voice_call">Häälkõne</string>
 </resources>

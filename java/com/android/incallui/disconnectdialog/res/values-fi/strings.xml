@@ -3,5 +3,4 @@
   <string name="incall_enable_wifi_calling_button">Ota käyttöön</string>
   <string name="video_call_not_available_title">Videopuhelut ei ole tällä hetkellä saatavilla</string>
   <string name="video_call_not_available_message">Yritä soittaa myöhemmin uudelleen tai jatka puhelua äänipuheluna.</string>
-  <string name="voice_call">Puhelu</string>
 </resources>

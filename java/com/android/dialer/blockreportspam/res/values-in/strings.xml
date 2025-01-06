@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">Blokir %1$s?</string>
-  <string name="block_number_confirmation_message_new_filtering">Anda tidak akan menerima telepon atau SMS lagi dari nomor ini.</string>
-  <string name="block_number_ok">BLOKIR</string>
-  <string name="unblock_number_ok">BEBASKAN</string>
   <string name="block_report_number_alert_title">Blokir %1$s?</string>
   <string name="block_report_number_alert_details">Anda tidak akan menerima telepon dari nomor ini lagi.</string>
   <string name="block_number_alert_details">%1$s Panggilan ini akan dilaporkan sebagai spam.</string>

@@ -3,5 +3,4 @@
   <string name="incall_enable_wifi_calling_button">Активиране</string>
   <string name="video_call_not_available_title">В момента не е възможно видеообаждане</string>
   <string name="video_call_not_available_message">Опитайте да се обадите отново по-късно или продължете обаждането като гласово.</string>
-  <string name="voice_call">Обаждане</string>
 </resources>

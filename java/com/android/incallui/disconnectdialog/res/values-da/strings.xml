@@ -3,5 +3,4 @@
   <string name="incall_enable_wifi_calling_button">Aktivér</string>
   <string name="video_call_not_available_title">Det er ikke muligt at foretage videoopkald i øjeblikket</string>
   <string name="video_call_not_available_message">Prøv at ringe igen senere, eller fortsæt med et taleopkald.</string>
-  <string name="voice_call">Foretag et taleopkald</string>
 </resources>

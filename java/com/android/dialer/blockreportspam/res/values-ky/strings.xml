@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">%1$s бөгөттөлсүнбү?</string>
-  <string name="block_number_confirmation_message_new_filtering">Бул номерден келген чалууларды же SMS билдирүүлөрдү албай каласыз.</string>
-  <string name="block_number_ok">БӨГӨТТӨӨ</string>
-  <string name="unblock_number_ok">БӨГӨТТӨН ЧЫГАРУУ</string>
   <string name="block_report_number_alert_title">%1$s бөгөттөлсүнбү?</string>
   <string name="block_report_number_alert_details">Мындан ары бул номерден келген чалуулар кабыл алынбайт.</string>
   <string name="block_number_alert_details">%1$s Бул чалуу спам деп белгиленет.</string>

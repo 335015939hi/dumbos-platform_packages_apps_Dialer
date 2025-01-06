@@ -21,18 +21,6 @@
     Block <xliff:g example="(555) 555-5555" id="number">%1$s</xliff:g>?
   </string>
 
-  <!-- Confirmation dialog message for blocking a number with new filtering enabled.
-       [CHAR LIMIT=NONE] -->
-  <string name="block_number_confirmation_message_new_filtering">
-    You will no longer receive calls or texts from this number.
-  </string>
-
-  <!-- Block number alert dialog button [CHAR LIMIT=32] -->
-  <string name="block_number_ok">BLOCK</string>
-
-  <!-- Unblock number alert dialog button [CHAR LIMIT=32] -->
-  <string name="unblock_number_ok">UNBLOCK</string>
-
   <!-- Title of alert dialog after clicking on Block/report as spam.  [CHAR LIMIT=100] -->
   <string name="block_report_number_alert_title">Block <xliff:g id="number">%1$s</xliff:g>?</string>
 

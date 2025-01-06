@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">Letiltja a következő számot: %1$s?</string>
-  <string name="block_number_confirmation_message_new_filtering">A továbbiakban nem fogad hívásokat vagy SMS-eket erről a számról.</string>
-  <string name="block_number_ok">LETILTÁS</string>
-  <string name="unblock_number_ok">TILTÁS FELOLDÁSA</string>
   <string name="block_report_number_alert_title">Letiltja a következő számot: %1$s?</string>
   <string name="block_report_number_alert_details">A jövőben nem fogad hívásokat erről a számról.</string>
   <string name="block_number_alert_details">%1$s A hívást spamként jelentjük be.</string>

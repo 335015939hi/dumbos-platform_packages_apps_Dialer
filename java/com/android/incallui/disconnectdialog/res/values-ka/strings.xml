@@ -3,5 +3,4 @@
   <string name="incall_enable_wifi_calling_button">ჩართვა</string>
   <string name="video_call_not_available_title">ვიდეოზარი ამჟამად მიუწვდომელია</string>
   <string name="video_call_not_available_message">სცადეთ, დარეკოთ მოგვიანებით ან გააგრძელოთ ხმოვანი ზარით.</string>
-  <string name="voice_call">ხმოვანი ზარი</string>
 </resources>

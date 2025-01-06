@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">要屏蔽 %1$s 吗？</string>
-  <string name="block_number_confirmation_message_new_filtering">您将不会再收到此号码的来电或短信。</string>
-  <string name="block_number_ok">屏蔽</string>
-  <string name="unblock_number_ok">取消屏蔽</string>
   <string name="block_report_number_alert_title">要屏蔽 %1$s 吗？</string>
   <string name="block_report_number_alert_details">您将不会再收到此号码的来电。</string>
   <string name="block_number_alert_details">%1$s此次来电将被举报为骚扰电话。</string>

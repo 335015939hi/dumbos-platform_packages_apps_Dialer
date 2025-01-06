@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">%1$s माथि रोक लगाउने हो?</string>
-  <string name="block_number_confirmation_message_new_filtering">तपाईँले अब उप्रान्त यस नम्बरबाट कल वा पाठ सन्देशहरू प्राप्त गर्नुहुने छैन।</string>
-  <string name="block_number_ok">रोक्नुहोस्</string>
-  <string name="unblock_number_ok">रोक हटाउनुहोस्</string>
   <string name="block_report_number_alert_title">%1$s माथि रोक लगाउने हो?</string>
   <string name="block_report_number_alert_details">तपाईं अब उप्रान्त यस नम्बरबाट कलहरू प्राप्त गर्नु हुने छैन।</string>
   <string name="block_number_alert_details">%1$s यस कललाई स्प्याम भनी रिपोर्ट गरिने छ।</string>

@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">לחסום את %1$s?</string>
-  <string name="block_number_confirmation_message_new_filtering">לא יגיעו אליך יותר שיחות או הודעות טקסט מהמספר הזה.</string>
-  <string name="block_number_ok">חסום</string>
-  <string name="unblock_number_ok">ביטול חסימה</string>
   <string name="block_report_number_alert_title">לחסום את %1$s?</string>
   <string name="block_report_number_alert_details">לא יגיעו אליך יותר שיחות מהמספר הזה.</string>
   <string name="block_number_alert_details">%1$s השיחה הזו תדווח כספאם.</string>

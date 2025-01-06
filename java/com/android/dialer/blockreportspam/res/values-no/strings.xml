@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">Vil du blokkere %1$s?</string>
-  <string name="block_number_confirmation_message_new_filtering">Du kommer ikke lenger til å motta anrop eller SMS-er fra dette nummeret.</string>
-  <string name="block_number_ok">BLOKKÉR</string>
-  <string name="unblock_number_ok">OPPHEV BLOKKERINGEN</string>
   <string name="block_report_number_alert_title">Vil du blokkere %1$s?</string>
   <string name="block_report_number_alert_details">Du får ingen flere anrop eller meldinger fra dette telefonnummeret.</string>
   <string name="block_number_alert_details">%1$s Dette anropet blir rapportert som useriøst.</string>

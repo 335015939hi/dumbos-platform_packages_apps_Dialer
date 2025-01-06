@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">%1$s ನಿರ್ಬಂಧಿಸುವುದೇ?</string>
-  <string name="block_number_confirmation_message_new_filtering">ಈ ಸಂಖ್ಯೆಯಿಂದ ನೀವು ಇನ್ನು ಮುಂದೆ ಕರೆಗಳು ಅಥವಾ ಪಠ್ಯ ಸಂದೇಶಗಳನ್ನು ಸ್ವೀಕರಿಸುವುದಿಲ್ಲ.</string>
-  <string name="block_number_ok">ನಿರ್ಬಂಧಿಸು</string>
-  <string name="unblock_number_ok">ನಿರ್ಬಂಧ ತೆಗೆ</string>
   <string name="block_report_number_alert_title">%1$s ನಿರ್ಬಂಧಿಸುವುದೇ?</string>
   <string name="block_report_number_alert_details">ನೀವು ಇನ್ನು ಮುಂದೆ ಈ ಸಂಖ್ಯೆಯಿಂದ ಕರೆಗಳನ್ನು ಸ್ವೀಕರಿಸುವುದಿಲ್ಲ.</string>
   <string name="block_number_alert_details">%1$s ಈ ಕರೆಯನ್ನು ಸ್ಪ್ಯಾಮ್ ಎಂದು ವರದಿ ಮಾಡಲಾಗುತ್ತದೆ.</string>

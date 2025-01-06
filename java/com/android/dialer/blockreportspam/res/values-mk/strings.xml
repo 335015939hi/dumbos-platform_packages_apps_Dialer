@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">Да се блокира %1$s?</string>
-  <string name="block_number_confirmation_message_new_filtering">Веќе нема да примате повици или текстуални пораки од овој број.</string>
-  <string name="block_number_ok">БЛОКИРАЈ</string>
-  <string name="unblock_number_ok">ДЕБЛОКИРАЈ</string>
   <string name="block_report_number_alert_title">Да се блокира %1$s?</string>
   <string name="block_report_number_alert_details">Веќе нема да примате повици од бројов.</string>
   <string name="block_number_alert_details">%1$s Повиков ќе се пријави како спам.</string>

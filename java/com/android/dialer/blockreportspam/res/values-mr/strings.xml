@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">%1$s ब्‍लॉक करायचा?</string>
-  <string name="block_number_confirmation_message_new_filtering">आपल्याला या नंबर वरून कॉल किंवा मजकूर प्राप्त होणार नाहीत.</string>
-  <string name="block_number_ok">अवरोधित करा</string>
-  <string name="unblock_number_ok">अनावरोधित करा</string>
   <string name="block_report_number_alert_title">%1$s ब्‍लॉक करायचा?</string>
   <string name="block_report_number_alert_details">तुम्‍ही या नंबरवरून कॉल घेऊ शकणार नाही.</string>
   <string name="block_number_alert_details">%1$s या कॉलची स्पॅम म्हणून तक्रार नोंदवली जाईल.</string>

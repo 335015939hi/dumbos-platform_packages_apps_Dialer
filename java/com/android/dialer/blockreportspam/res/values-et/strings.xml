@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">Kas soovite blokeerida numbri %1$s?</string>
-  <string name="block_number_confirmation_message_new_filtering">Te ei saa enam sellelt numbrilt kõnesid ega tekstsõnumeid.</string>
-  <string name="block_number_ok">BLOKEERI</string>
-  <string name="unblock_number_ok">DEBLOKEERI</string>
   <string name="block_report_number_alert_title">Kas soovite blokeerida numbri %1$s?</string>
   <string name="block_report_number_alert_details">Te ei saa enam sellelt numbrilt kõnesid.</string>
   <string name="block_number_alert_details">%1$s See kõne liigitatakse rämpspostiks.</string>

@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">%1$s አግድ?</string>
-  <string name="block_number_confirmation_message_new_filtering">ከአሁን በኋላ ከዚህ ቁጥር የሚመጡ ጥሪዎችን ወይም ጽሑፎችን አይቀበሉም።</string>
-  <string name="block_number_ok">አግድ</string>
-  <string name="unblock_number_ok">እገዳ አንሳ</string>
   <string name="block_report_number_alert_title">%1$s ይታገድ?</string>
   <string name="block_report_number_alert_details">ከአሁን በኋላ ከዚህ ቁጥር ጥሪዎችን ቅይቀበሉም።</string>
   <string name="block_number_alert_details">%1$s ይህ ጥሪ እንደ አይፈለጌ ሪፖርት ይደረጋል።</string>

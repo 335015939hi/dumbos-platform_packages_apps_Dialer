@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">%1$s مسدود کریں؟</string>
-  <string name="block_number_confirmation_message_new_filtering">آپ کو اب اس نمبر سے مزید کالز یا متنی پیغامات موصول نہیں ہوں گے۔</string>
-  <string name="block_number_ok">مسدود کریں</string>
-  <string name="unblock_number_ok">غیر مسدود کریں</string>
   <string name="block_report_number_alert_title">%1$s مسدود کریں؟</string>
   <string name="block_report_number_alert_details">آپ کو اس نمبر سے مزید کالز موصول نہیں ہوں گی۔</string>
   <string name="block_number_alert_details">%1$s اس کال کی بطور سپام اطلاع دی جائے گی۔</string>

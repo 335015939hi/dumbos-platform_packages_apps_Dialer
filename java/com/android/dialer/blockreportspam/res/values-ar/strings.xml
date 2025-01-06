@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">هل تريد حظر %1$s؟</string>
-  <string name="block_number_confirmation_message_new_filtering">لن تتلقي المكالمات أو المراسلات النصية بعد الآن من هذا الرقم.</string>
-  <string name="block_number_ok">حظر</string>
-  <string name="unblock_number_ok">إلغاء الحظر</string>
   <string name="block_report_number_alert_title">هل تريد حظر %1$s؟</string>
   <string name="block_report_number_alert_details">لن تتلقى المزيد من المكالمات من هذا الرقم.</string>
   <string name="block_number_alert_details">%1$s سيتم الإبلاغ عن هذه المكالمة باعتبارها غير مرغوب فيها.</string>

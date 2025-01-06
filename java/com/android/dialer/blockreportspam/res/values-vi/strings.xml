@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">Chặn %1$s?</string>
-  <string name="block_number_confirmation_message_new_filtering">Bạn sẽ không nhận được các cuộc gọi hoặc tin nhắn từ số này nữa.</string>
-  <string name="block_number_ok">CHẶN</string>
-  <string name="unblock_number_ok">BỎ CHẶN</string>
   <string name="block_report_number_alert_title">Chặn %1$s?</string>
   <string name="block_report_number_alert_details">Bạn sẽ không nhận được cuộc gọi từ số này nữa.</string>
   <string name="block_number_alert_details">%1$s Cuộc gọi này sẽ được báo cáo là spam.</string>

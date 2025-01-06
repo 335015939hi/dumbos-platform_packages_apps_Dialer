@@ -3,5 +3,4 @@
   <string name="incall_enable_wifi_calling_button">تفعيل</string>
   <string name="video_call_not_available_title">اتصال الفيديو غير متوفر حاليًا</string>
   <string name="video_call_not_available_message">حاول الاتصال مرة أخرى لاحقًا أو أكمل المكالمة كمكالمة صوتية.</string>
-  <string name="voice_call">مكالمة صوتية</string>
 </resources>

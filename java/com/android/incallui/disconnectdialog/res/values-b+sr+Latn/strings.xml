@@ -3,5 +3,4 @@
   <string name="incall_enable_wifi_calling_button">Omogući</string>
   <string name="video_call_not_available_title">Video poziv trenutno nije dostupan</string>
   <string name="video_call_not_available_message">Probajte ponovo da uputite poziv kasnije ili ga nastavite kao audio poziv.</string>
-  <string name="voice_call">Uputi audio poziv</string>
 </resources>

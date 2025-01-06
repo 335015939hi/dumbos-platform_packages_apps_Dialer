@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">Blokkeer %1$s?</string>
-  <string name="block_number_confirmation_message_new_filtering">Jy sal nie meer oproepe of SMS\'e van hierdie nommer ontvang nie.</string>
-  <string name="block_number_ok">BLOKKEER</string>
-  <string name="unblock_number_ok">DEBLOKKEER</string>
   <string name="block_report_number_alert_title">Blokkeer %1$s?</string>
   <string name="block_report_number_alert_details">Jy sal nie meer oproepe vanaf hierdie nommer ontvang nie.</string>
   <string name="block_number_alert_details">%1$s Hierdie oproep sal as strooipos aangegee word.</string>

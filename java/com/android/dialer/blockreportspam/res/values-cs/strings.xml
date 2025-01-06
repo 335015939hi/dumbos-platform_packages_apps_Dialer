@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">Blokovat číslo %1$s?</string>
-  <string name="block_number_confirmation_message_new_filtering">Z tohoto čísla už nebudete přijímat hovory ani zprávy SMS.</string>
-  <string name="block_number_ok">BLOKOVAT</string>
-  <string name="unblock_number_ok">ODBLOKOVAT</string>
   <string name="block_report_number_alert_title">Blokovat číslo %1$s?</string>
   <string name="block_report_number_alert_details">Z tohoto čísla už nebudete přijímat hovory.</string>
   <string name="block_number_alert_details">%1$s Hovor bude nahlášen jako spam.</string>

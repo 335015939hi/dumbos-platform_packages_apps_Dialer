@@ -3,5 +3,4 @@
   <string name="incall_enable_wifi_calling_button">Dayakan</string>
   <string name="video_call_not_available_title">Panggilan video tidak tersedia pada masa ini</string>
   <string name="video_call_not_available_message">Cuba hubungi semula kemudian atau teruskan panggilan sebagai panggilan suara.</string>
-  <string name="voice_call">Panggilan suara</string>
 </resources>

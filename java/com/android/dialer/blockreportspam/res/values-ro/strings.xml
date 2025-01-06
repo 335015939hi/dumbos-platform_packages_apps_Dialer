@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">Blocați %1$s?</string>
-  <string name="block_number_confirmation_message_new_filtering">Nu veți mai primi apeluri sau mesaje text de la acest număr.</string>
-  <string name="block_number_ok">BLOCAȚI</string>
-  <string name="unblock_number_ok">DEBLOCAȚI</string>
   <string name="block_report_number_alert_title">Blocați %1$s?</string>
   <string name="block_report_number_alert_details">Nu veți mai primi apeluri de la acest număr.</string>
   <string name="block_number_alert_details">%1$s Acest apel va fi raportat ca spam.</string>

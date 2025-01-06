@@ -3,5 +3,4 @@
   <string name="incall_enable_wifi_calling_button">Увімкнути</string>
   <string name="video_call_not_available_title">Наразі не можна здійснювати відеодзвінки</string>
   <string name="video_call_not_available_message">Спробуйте пізніше або перейдіть у режим голосового дзвінка.</string>
-  <string name="voice_call">Голосовий дзвінок</string>
 </resources>

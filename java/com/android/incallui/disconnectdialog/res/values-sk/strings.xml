@@ -3,5 +3,4 @@
   <string name="incall_enable_wifi_calling_button">Povoliť</string>
   <string name="video_call_not_available_title">Videohovor momentálne nie je k dispozícii</string>
   <string name="video_call_not_available_message">Skúste zavolať znova neskôr alebo pokračujte v hovore bez videa.</string>
-  <string name="voice_call">Hlasový hovor</string>
 </resources>

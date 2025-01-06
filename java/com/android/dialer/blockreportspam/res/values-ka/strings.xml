@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">გსურთ, დაბლოკოთ %1$s?</string>
-  <string name="block_number_confirmation_message_new_filtering">ამ ნომრიდან ზარებს ან ტექსტურ შეტყობინებებს აღარ მიიღებთ.</string>
-  <string name="block_number_ok">დაბლოკვა</string>
-  <string name="unblock_number_ok">განბლოკვა</string>
   <string name="block_report_number_alert_title">გსურთ, დაბლოკოთ %1$s?</string>
   <string name="block_report_number_alert_details">ამ ნომრიდან ზარებს აღარ მიიღებთ.</string>
   <string name="block_number_alert_details">%1$s ეს ზარი მოინიშნება სპამად.</string>

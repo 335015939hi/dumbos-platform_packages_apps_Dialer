@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">Blokuoti numerį %1$s?</string>
-  <string name="block_number_confirmation_message_new_filtering">Nebegausite skambučių ar teksto pranešimų iš šio numerio.</string>
-  <string name="block_number_ok">BLOKUOTI</string>
-  <string name="unblock_number_ok">PANAIKINTI BLOKAVIMĄ</string>
   <string name="block_report_number_alert_title">Blokuoti numerį %1$s?</string>
   <string name="block_report_number_alert_details">Nebegausite skambučių iš šio numerio.</string>
   <string name="block_number_alert_details">%1$s Apie šį skambutį bus pranešta kaip apie šlamštą.</string>

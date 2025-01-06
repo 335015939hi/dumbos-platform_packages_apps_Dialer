@@ -3,5 +3,4 @@
   <string name="incall_enable_wifi_calling_button">Yoqish</string>
   <string name="video_call_not_available_title">Video muloqot funksiyasidan hozirgi vaqtda foydalanib bo‘lmaydi.</string>
   <string name="video_call_not_available_message">Keyinroq qayta urinib ko‘ring yoki ovozli muloqot rejimida o‘ting.</string>
-  <string name="voice_call">Ovozli chaqiruv qilish</string>
 </resources>

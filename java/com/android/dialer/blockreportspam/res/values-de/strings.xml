@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">%1$s blockieren?</string>
-  <string name="block_number_confirmation_message_new_filtering">Du erhältst von dieser Nummer keine Anrufe oder Nachrichten mehr.</string>
-  <string name="block_number_ok">BLOCKIEREN</string>
-  <string name="unblock_number_ok">BLOCKIERUNG AUFHEBEN</string>
   <string name="block_report_number_alert_title">%1$s blockieren?</string>
   <string name="block_report_number_alert_details">Du erhältst von dieser Nummer keine Anrufe mehr.</string>
   <string name="block_number_alert_details">%1$s Dieser Anruf wird als Spam gemeldet.</string>

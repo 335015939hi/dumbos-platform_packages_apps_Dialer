@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">Të bllokohet %1$s?</string>
-  <string name="block_number_confirmation_message_new_filtering">Nuk do të marrësh më telefonata apo mesazhe me tekst nga ky numër.</string>
-  <string name="block_number_ok">BLLOKO</string>
-  <string name="unblock_number_ok">ZHBLLOKO</string>
   <string name="block_report_number_alert_title">Të bllokohet %1$s?</string>
   <string name="block_report_number_alert_details">Nuk do të marrësh më telefonata nga ky numër.</string>
   <string name="block_number_alert_details">%1$s Kjo telefonatë do të raportohet si e padëshiruar.</string>

@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">Заблакіраваць нумар %1$s?</string>
-  <string name="block_number_confirmation_message_new_filtering">Вы больш не будзеце атрымліваць выклікі або SMS з гэтага нумара.</string>
-  <string name="block_number_ok">БЛАКІРАВАЦЬ</string>
-  <string name="unblock_number_ok">РАЗБЛАКІРАВАЦЬ</string>
   <string name="block_report_number_alert_title">Заблакіраваць нумар %1$s?</string>
   <string name="block_report_number_alert_details">Вы больш не будзеце атрымліваць выклікі з гэтага нумара.</string>
   <string name="block_number_alert_details">%1$s Гэты выклік будзе заяўлены як спам.</string>

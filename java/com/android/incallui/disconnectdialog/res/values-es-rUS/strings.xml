@@ -3,5 +3,4 @@
   <string name="incall_enable_wifi_calling_button">Habilitar</string>
   <string name="video_call_not_available_title">La videollamada no está disponible en este momento</string>
   <string name="video_call_not_available_message">Prueba llamando de nuevo más tarde o continúa la llamada como una llamada de voz.</string>
-  <string name="voice_call">Llamada de voz</string>
 </resources>

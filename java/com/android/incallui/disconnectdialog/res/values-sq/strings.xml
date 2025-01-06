@@ -3,5 +3,4 @@
   <string name="incall_enable_wifi_calling_button">Aktivizo</string>
   <string name="video_call_not_available_title">Telefonatat me video nuk ofrohen aktualisht</string>
   <string name="video_call_not_available_message">Provo të telefonosh përsëri më vonë ose vazhdoje telefonatën si një telefonatë zanore.</string>
-  <string name="voice_call">Telefonatë zanore</string>
 </resources>

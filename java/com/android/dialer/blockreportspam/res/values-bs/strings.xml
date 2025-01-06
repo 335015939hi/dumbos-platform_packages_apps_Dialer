@@ -1,8 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="block_number_confirmation_title">Blokirati broj %1$s?</string>
-  <string name="block_number_confirmation_message_new_filtering">Više nećete primati pozive i SMS poruke s ovog broja.</string>
-  <string name="block_number_ok">BLOKIRAJ</string>
-  <string name="unblock_number_ok">DEBLOKIRAJ</string>
   <string name="block_report_number_alert_title">Blokirati broj %1$s?</string>
   <string name="block_report_number_alert_details">Više nećete primati pozive s ovog broja.</string>
   <string name="block_number_alert_details">%1$s Ovaj poziv će biti prijavljen kao neželjen.</string>

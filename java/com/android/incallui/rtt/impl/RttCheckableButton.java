@@ -61,12 +61,12 @@ public class RttCheckableButton extends Button implements Checkable {
   }
 
   private void init(Context context, AttributeSet attrs) {
-    TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.RttCheckableButton);
-    setChecked(typedArray.getBoolean(R.styleable.RttCheckableButton_android_checked, false));
+    TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CheckableButton);
+    setChecked(typedArray.getBoolean(R.styleable.CheckableButton_android_checked, false));
     contentDescriptionChecked =
-        typedArray.getText(R.styleable.RttCheckableButton_contentDescriptionChecked);
+        typedArray.getText(R.styleable.CheckableButton_contentDescriptionChecked);
     contentDescriptionUnchecked =
-        typedArray.getText(R.styleable.RttCheckableButton_contentDescriptionUnchecked);
+        typedArray.getText(R.styleable.CheckableButton_contentDescriptionUnchecked);
     typedArray.recycle();
 
     updateContentDescription();
