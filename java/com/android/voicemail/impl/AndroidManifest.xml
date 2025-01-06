@@ -113,7 +113,7 @@
     </service>
 
     <activity
-      android:name="com.android.voicemail.impl.settings.VoicemailChangePinActivity"
+      android:name="com.android.dialer.voicemail.settings.VoicemailChangePinActivity"
       android:exported="false"
       android:windowSoftInputMode="stateVisible|adjustResize">
     </activity>
