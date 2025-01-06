@@ -27,7 +27,7 @@
         android:clearTaskOnLaunch="true"
         android:directBootAware="true"
         android:exported="true"
-        android:label="@string/main_activity_label"
+        android:label="@string/applicationLabel"
         android:launchMode="singleTask"
         android:resizeableActivity="true"
         android:theme="@style/LaunchTheme"

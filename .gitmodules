@@ -1,0 +1,8 @@
+[submodule "lib/platform_frameworks_ex"]
+	path = lib/platform_frameworks_ex
+	url = https://github.com/GrapheneOS-Archive/platform_frameworks_ex.git
+	branch = main
+[submodule "libbackup/libbackup"]
+	path = libbackup/libbackup
+	url = https://android.googlesource.com/platform/external/libbackup
+	branch = main

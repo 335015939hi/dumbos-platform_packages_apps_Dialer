@@ -14,6 +14,7 @@
 -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
   coreApp="true"
   package="com.android.dialer"
   android:versionCode="2900000"
@@ -123,7 +124,8 @@
     android:appCategory="social"
     android:supportsRtl="true"
     android:usesCleartextTraffic="false"
-    android:extractNativeLibs="true">
+    android:extractNativeLibs="true"
+    tools:replace="android:name, android:icon">
   </application>
 
 </manifest>
