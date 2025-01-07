@@ -89,8 +89,7 @@ android {
     defaultConfig {
         applicationId = "com.android.dialer"
         minSdk = 35
-        //noinspection ExpiredTargetSdkVersion
-        targetSdk = 28
+        targetSdk = 35
         versionCode = 2900000 + 1
         versionName = "23.0.1"
     }
