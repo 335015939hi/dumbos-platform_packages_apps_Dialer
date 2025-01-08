@@ -7,10 +7,6 @@
   public <init>();
 }
 
--keep public class * extends android.support.v4.app.Fragment {
-  public <init>();
-}
-
 -dontwarn javax.naming.NamingEnumeration
 -dontwarn javax.naming.NamingException
 -dontwarn javax.naming.directory.Attribute

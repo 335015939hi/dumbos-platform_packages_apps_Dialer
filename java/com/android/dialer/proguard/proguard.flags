@@ -4,4 +4,3 @@
 -keepclassmembers class * {
     @com.android.dialer.proguard.UsedByReflection *;
 }
--keep class android.support.design.widget.FloatingActionButton$* { *; }
