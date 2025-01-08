@@ -53,7 +53,6 @@ import com.android.dialer.app.calllog.CallLogAdapter.MultiSelectRemoveView;
 import com.android.dialer.app.calllog.calllogcache.CallLogCache;
 import com.android.dialer.app.contactinfo.ContactInfoCache;
 import com.android.dialer.app.contactinfo.ContactInfoCache.OnContactInfoChangedListener;
-import com.android.dialer.app.contactinfo.ExpirableCacheHeadlessFragment;
 import com.android.dialer.app.voicemail.VoicemailPlaybackPresenter;
 import com.android.dialer.blocking.FilteredNumberAsyncQueryHandler;
 import com.android.dialer.common.Assert;
@@ -335,8 +334,7 @@ public class CallLogFragment extends Fragment
 
     contactInfoCache =
         new ContactInfoCache(
-            ExpirableCacheHeadlessFragment.attach((AppCompatActivity) getActivity())
-                .getRetainedCache(),
+            new ViewModelProvider(requireActivity()).get(CallLogViewModel.class).getCache(),
             new ContactInfoHelper(getActivity(), currentCountryIso),
             onContactInfoChangedListener);
     adapter =
