@@ -537,8 +537,9 @@ public class OldMainActivityPeer implements MainActivityPeer, FragmentUtilListen
      * paused, when the user returns we need to remove the NewCallLogFragment if the framework has
      * been disabled in the meantime.
      */
-    bottomNavTabListener.ensureCorrectCallLogShown();
-    bottomNavTabListener.ensureCorrectVoicemailShown();
+    // Disabled since this breaks the new androidx fragment show/hide behavior
+    // bottomNavTabListener.ensureCorrectCallLogShown();
+    // bottomNavTabListener.ensureCorrectVoicemailShown();
 
     // Config the badge of missed calls for the new call log.
     if (bottomNavTabListener.newCallLogFragmentActive()) {
