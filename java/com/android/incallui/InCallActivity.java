@@ -29,18 +29,12 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.GradientDrawable.Orientation;
 import android.os.Bundle;
 import android.os.Trace;
-import android.support.annotation.ColorInt;
-import android.support.annotation.FloatRange;
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.res.ResourcesCompat;
-import android.support.v4.graphics.ColorUtils;
+import androidx.annotation.ColorInt;
+import androidx.annotation.FloatRange;
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import android.telecom.Call;
 import android.telecom.CallAudioState;
 import android.telecom.PhoneAccountHandle;
@@ -54,6 +48,13 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.CheckBox;
 import android.widget.Toast;
+
+import androidx.core.content.res.ResourcesCompat;
+import androidx.core.graphics.ColorUtils;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.android.R;
 import com.android.contacts.common.widget.SelectPhoneAccountDialogFragment;
@@ -104,6 +105,7 @@ import com.android.incallui.video.protocol.VideoCallScreen;
 import com.android.incallui.video.protocol.VideoCallScreenDelegate;
 import com.android.incallui.video.protocol.VideoCallScreenDelegateFactory;
 import com.google.common.util.concurrent.ListenableFuture;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
@@ -191,7 +193,7 @@ public class InCallActivity extends TransactionSafeFragmentActivity
 
     preferredAccountWorkerResultListener =
         DialerExecutorComponent.get(this)
-            .createUiListener(getFragmentManager(), "preferredAccountWorkerResultListener");
+            .createUiListener(getSupportFragmentManager(), "preferredAccountWorkerResultListener");
 
     selectPhoneAccountListener = new SelectPhoneAccountListener(getApplicationContext());
 
@@ -244,7 +246,7 @@ public class InCallActivity extends TransactionSafeFragmentActivity
 
       SelectPhoneAccountDialogFragment selectPhoneAccountDialogFragment =
           (SelectPhoneAccountDialogFragment)
-              getFragmentManager().findFragmentByTag(Tags.SELECT_ACCOUNT_FRAGMENT);
+              getSupportFragmentManager().findFragmentByTag(Tags.SELECT_ACCOUNT_FRAGMENT);
       if (selectPhoneAccountDialogFragment != null) {
         selectPhoneAccountDialogFragment.setListener(selectPhoneAccountListener);
       }
@@ -405,7 +407,7 @@ public class InCallActivity extends TransactionSafeFragmentActivity
               SelectPhoneAccountDialogFragment.newInstance(
                   result.getDialogOptionsBuilder().get().setCallId(callId).build(),
                   selectPhoneAccountListener);
-          selectPhoneAccountDialogFragment.show(getFragmentManager(), Tags.SELECT_ACCOUNT_FRAGMENT);
+          selectPhoneAccountDialogFragment.show(getSupportFragmentManager(), Tags.SELECT_ACCOUNT_FRAGMENT);
         },
         throwable -> {
           throw new RuntimeException(throwable);

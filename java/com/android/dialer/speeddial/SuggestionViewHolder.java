@@ -17,11 +17,12 @@
 package com.android.dialer.speeddial;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.R;
 import com.android.dialer.common.Assert;

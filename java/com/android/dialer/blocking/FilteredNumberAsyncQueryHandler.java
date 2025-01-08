@@ -23,15 +23,18 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabaseCorruptException;
 import android.net.Uri;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.os.UserManagerCompat;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
+
+import androidx.core.os.UserManagerCompat;
+
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.database.FilteredNumberContract.FilteredNumberColumns;
 import com.android.dialer.database.FilteredNumberContract.FilteredNumberTypes;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 

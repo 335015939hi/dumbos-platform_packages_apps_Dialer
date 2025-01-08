@@ -18,14 +18,15 @@ package com.android.dialer.searchfragment.list;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.IntDef;
-import android.support.annotation.StringRes;
-import android.support.annotation.VisibleForTesting;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.IntDef;
+import androidx.annotation.StringRes;
+import androidx.annotation.VisibleForTesting;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.R;
 import com.android.dialer.common.Assert;
@@ -34,6 +35,7 @@ import com.android.dialer.logging.Logger;
 import com.android.dialer.searchfragment.common.RowClickListener;
 import com.android.dialer.util.DialerUtils;
 import com.android.dialer.util.IntentUtil;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 

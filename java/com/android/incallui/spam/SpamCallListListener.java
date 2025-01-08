@@ -26,12 +26,13 @@ import android.database.sqlite.SQLiteException;
 import android.graphics.drawable.Icon;
 import android.provider.CallLog;
 import android.provider.CallLog.Calls;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.os.BuildCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.telecom.DisconnectCause;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
+
+import androidx.core.os.BuildCompat;
 
 import com.android.R;
 import com.android.dialer.blocking.FilteredNumberCompat;
@@ -54,6 +55,7 @@ import com.android.dialer.util.PermissionsUtil;
 import com.android.incallui.call.CallList;
 import com.android.incallui.call.DialerCall;
 import com.android.incallui.call.DialerCall.CallHistoryStatus;
+
 import java.util.Random;
 
 /**

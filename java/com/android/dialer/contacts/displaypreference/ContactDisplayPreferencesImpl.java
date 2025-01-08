@@ -19,10 +19,12 @@ package com.android.dialer.contacts.displaypreference;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.UserManager;
-import android.preference.PreferenceManager;
+
+import androidx.preference.PreferenceManager;
 
 import com.android.R;
 import com.android.dialer.inject.ApplicationContext;
+
 import javax.inject.Inject;
 
 /**

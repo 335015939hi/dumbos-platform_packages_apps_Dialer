@@ -19,20 +19,20 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceClickListener;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
 import android.provider.Settings;
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
 import android.telephony.SubscriptionInfo;
 import android.telephony.TelephonyManager;
+
+import androidx.annotation.IntDef;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragment;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreference;
 
 import com.android.R;
 import com.android.dialer.common.Assert;
@@ -48,6 +48,7 @@ import com.android.voicemail.VoicemailClient;
 import com.android.voicemail.VoicemailClient.ActivationStateListener;
 import com.android.voicemail.VoicemailComponent;
 import com.google.common.base.Optional;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -85,8 +86,7 @@ public class VoicemailSettingsFragment extends PreferenceFragment
   private Preference voicemailChangePinPreference;
 
   @Override
-  public void onCreate(Bundle icicle) {
-    super.onCreate(icicle);
+  public void onCreatePreferences(@Nullable Bundle savedInstanceState, @Nullable String rootKey) {
     phoneAccountHandle =
         Assert.isNotNull(getArguments().getParcelable(VoicemailClient.PARAM_PHONE_ACCOUNT_HANDLE));
     voicemailClient = VoicemailComponent.get(getContext()).getVoicemailClient();
@@ -281,7 +281,7 @@ public class VoicemailSettingsFragment extends PreferenceFragment
 
     voicemailChangePinPreference.setIntent(changePinIntent);
     voicemailChangePinPreference.setOnPreferenceClickListener(
-        new OnPreferenceClickListener() {
+        new Preference.OnPreferenceClickListener() {
           @Override
           public boolean onPreferenceClick(Preference preference) {
             Logger.get(getContext()).logImpression(DialerImpression.Type.VVM_CHANGE_PIN_CLICKED);
@@ -301,7 +301,7 @@ public class VoicemailSettingsFragment extends PreferenceFragment
     voicemailNotificationPreference.setIntent(getNotificationSettingsIntent());
 
     voicemailNotificationPreference.setOnPreferenceClickListener(
-        new OnPreferenceClickListener() {
+        new Preference.OnPreferenceClickListener() {
           @Override
           public boolean onPreferenceClick(Preference preference) {
             Logger.get(getContext())
@@ -345,7 +345,7 @@ public class VoicemailSettingsFragment extends PreferenceFragment
     advancedSettingsPreference.setIntent(advancedSettingsIntent);
 
     advancedSettingsPreference.setOnPreferenceClickListener(
-        new OnPreferenceClickListener() {
+        new Preference.OnPreferenceClickListener() {
           @Override
           public boolean onPreferenceClick(Preference preference) {
             Logger.get(getContext())

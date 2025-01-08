@@ -20,13 +20,16 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.service.notification.StatusBarNotification;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.os.BuildCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Pair;
+
+import androidx.core.os.BuildCompat;
+
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
+
 import java.util.HashSet;
 import java.util.Set;
 

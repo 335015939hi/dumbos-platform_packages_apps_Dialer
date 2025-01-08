@@ -17,8 +17,11 @@
 package com.android.bubble;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
+
 import com.android.dialer.inject.HasRootComponent;
+
 import dagger.Subcomponent;
 
 @Subcomponent

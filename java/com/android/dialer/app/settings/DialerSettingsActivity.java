@@ -23,15 +23,16 @@ import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.os.UserManager;
-import android.preference.PreferenceManager;
 import android.provider.Settings;
-import android.support.annotation.Nullable;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
 import android.telephony.TelephonyManager;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.preference.PreferenceManager;
 
 import com.android.R;
 import com.android.dialer.about.AboutPhoneFragment;
@@ -44,6 +45,7 @@ import com.android.dialer.proguard.UsedByReflection;
 import com.android.dialer.util.PermissionsUtil;
 import com.android.dialer.voicemail.settings.VoicemailSettingsFragment;
 import com.android.voicemail.VoicemailClient;
+
 import java.util.List;
 
 /** Activity for dialer settings. */

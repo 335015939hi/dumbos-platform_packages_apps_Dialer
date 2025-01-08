@@ -15,10 +15,11 @@
  */
 package com.android.dialer.app.filterednumber;
 
-import android.app.FragmentManager;
 import android.content.Context;
 import android.database.Cursor;
 import android.view.View;
+
+import androidx.fragment.app.FragmentManager;
 
 import com.android.R;
 import com.android.dialer.blocking.BlockNumberDialogFragment;

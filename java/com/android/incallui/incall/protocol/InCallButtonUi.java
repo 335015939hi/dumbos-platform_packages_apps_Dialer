@@ -16,9 +16,10 @@
 
 package com.android.incallui.incall.protocol;
 
-import android.support.annotation.ColorInt;
-import android.support.v4.app.Fragment;
+import androidx.annotation.ColorInt;
 import android.telecom.CallAudioState;
+
+import androidx.fragment.app.Fragment;
 
 /** Interface for the call button UI. */
 public interface InCallButtonUi {

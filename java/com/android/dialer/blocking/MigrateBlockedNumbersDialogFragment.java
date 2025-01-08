@@ -18,14 +18,16 @@ package com.android.dialer.blocking;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnShowListener;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.fragment.app.DialogFragment;
+
 import com.android.R;
 import com.android.dialer.blocking.BlockedNumbersMigrator.Listener;
+
 import java.util.Objects;
 
 /**

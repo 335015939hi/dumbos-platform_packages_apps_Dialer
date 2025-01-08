@@ -26,14 +26,16 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build.VERSION_CODES;
 import android.provider.ContactsContract.Contacts;
-import android.support.annotation.NonNull;
-import android.support.annotation.WorkerThread;
-import android.support.v4.content.ContextCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
 import android.util.ArrayMap;
+
+import androidx.core.content.ContextCompat;
 
 import com.android.R;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;

@@ -33,18 +33,22 @@ import android.os.PowerManager;
 import android.provider.CallLog;
 import android.provider.VoicemailContract;
 import android.provider.VoicemailContract.Voicemails;
-import android.support.annotation.MainThread;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.content.FileProvider;
+import androidx.annotation.MainThread;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager.LayoutParams;
 import android.webkit.MimeTypeMap;
 
+import androidx.core.content.FileProvider;
+import androidx.fragment.app.FragmentActivity;
+
 import com.android.R;
 import com.android.common.io.MoreCloseables;
+import com.android.dialer.app.calllog.CallLogAdapter;
+import com.android.dialer.app.calllog.CallLogFragment;
 import com.android.dialer.app.calllog.CallLogListItemViewHolder;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
@@ -61,6 +65,7 @@ import com.android.dialer.strictmode.StrictModeUtils;
 import com.android.dialer.telecom.TelecomUtil;
 import com.android.dialer.util.PermissionsUtil;
 import com.google.common.io.ByteStreams;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -73,6 +78,7 @@ import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
+
 import javax.annotation.concurrent.NotThreadSafe;
 import javax.annotation.concurrent.ThreadSafe;
 
@@ -128,7 +134,7 @@ public class VoicemailPlaybackPresenter
   protected MediaPlayer mediaPlayer;
   // Used to run async tasks that need to interact with the UI.
   protected AsyncTaskExecutor asyncTaskExecutor;
-  private Activity activity;
+  private FragmentActivity activity;
   private PlaybackView view;
   private int position;
   private boolean isPlaying;
@@ -176,7 +182,7 @@ public class VoicemailPlaybackPresenter
    */
   @MainThread
   public static VoicemailPlaybackPresenter getInstance(
-      Activity activity, Bundle savedInstanceState) {
+      FragmentActivity activity, Bundle savedInstanceState) {
     if (instance == null) {
       instance = new VoicemailPlaybackPresenter(activity);
     }
@@ -194,7 +200,7 @@ public class VoicemailPlaybackPresenter
 
   /** Update variables which are activity-dependent or state-dependent. */
   @MainThread
-  protected void init(Activity activity, Bundle savedInstanceState) {
+  protected void init(FragmentActivity activity, Bundle savedInstanceState) {
     Assert.isMainThread();
     this.activity = activity;
     context = activity;
@@ -225,7 +231,7 @@ public class VoicemailPlaybackPresenter
           DialerExecutorComponent.get(context)
               .dialerExecutorFactory()
               .createUiTaskBuilder(
-                  this.activity.getFragmentManager(), "shareVoicemail", new ShareVoicemailWorker())
+                  this.activity.getSupportFragmentManager(), "shareVoicemail", new ShareVoicemailWorker())
               .onSuccess(
                   output -> {
                     if (output == null) {

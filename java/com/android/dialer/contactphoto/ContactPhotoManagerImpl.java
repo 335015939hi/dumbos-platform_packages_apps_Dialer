@@ -43,15 +43,16 @@ import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.Contacts.Photo;
 import android.provider.ContactsContract.Data;
 import android.provider.ContactsContract.Directory;
-import android.support.annotation.UiThread;
-import android.support.annotation.WorkerThread;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
+import androidx.annotation.UiThread;
+import androidx.annotation.WorkerThread;
 import android.text.TextUtils;
 import android.util.LruCache;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import androidx.core.graphics.drawable.RoundedBitmapDrawable;
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 
 import com.android.R;
 import com.android.dialer.common.LogUtil;
@@ -59,6 +60,7 @@ import com.android.dialer.constants.Constants;
 import com.android.dialer.constants.TrafficStatsTags;
 import com.android.dialer.util.PermissionsUtil;
 import com.android.dialer.util.UriUtils;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;

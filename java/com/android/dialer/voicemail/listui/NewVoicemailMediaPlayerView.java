@@ -16,7 +16,6 @@
 
 package com.android.dialer.voicemail.listui;
 
-import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -25,9 +24,8 @@ import android.media.AudioManager;
 import android.net.Uri;
 import android.provider.VoicemailContract;
 import android.provider.VoicemailContract.Voicemails;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -37,6 +35,9 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
+
+import androidx.core.util.Pair;
+import androidx.fragment.app.FragmentManager;
 
 import com.android.R;
 import com.android.dialer.callintent.CallInitiationType.Type;
@@ -51,6 +52,7 @@ import com.android.dialer.precall.PreCall;
 import com.android.dialer.telecom.TelecomUtil;
 import com.android.dialer.voicemail.listui.NewVoicemailViewHolder.NewVoicemailViewHolderListener;
 import com.android.dialer.voicemail.model.VoicemailEntry;
+
 import java.util.Locale;
 
 /**

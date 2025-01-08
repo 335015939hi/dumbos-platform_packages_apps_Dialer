@@ -20,8 +20,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.support.v4.app.FragmentManager;
 import android.widget.Toast;
+
+import androidx.fragment.app.FragmentManager;
 
 import com.android.R;
 import com.android.dialer.blocking.Blocking;
@@ -59,7 +60,7 @@ public final class ShowBlockReportSpamDialogReceiver extends BroadcastReceiver {
   static final String ACTION_SHOW_DIALOG_TO_UNBLOCK_NUMBER = "show_dialog_to_unblock_number";
   static final String EXTRA_DIALOG_INFO = "dialog_info";
 
-  /** {@link FragmentManager} needed to show a {@link android.app.DialogFragment}. */
+  /** {@link FragmentManager} needed to show a {@link androidx.fragment.app.DialogFragment}. */
   private final FragmentManager fragmentManager;
 
   /** Returns an {@link IntentFilter} containing all actions accepted by this broadcast receiver. */

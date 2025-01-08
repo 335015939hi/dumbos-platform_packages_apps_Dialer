@@ -18,10 +18,11 @@ package com.android.dialer.assisteddialing;
 
 import android.content.Context;
 import android.os.Build;
-import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.v4.os.UserManagerCompat;
 import android.telephony.TelephonyManager;
+
+import androidx.annotation.NonNull;
+import androidx.core.os.UserManagerCompat;
+import androidx.preference.PreferenceManager;
 
 import com.android.R;
 import com.android.dialer.common.LogUtil;

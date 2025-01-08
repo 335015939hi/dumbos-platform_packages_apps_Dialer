@@ -17,8 +17,9 @@
 package com.android.incallui.contactgrid;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
+
+import androidx.annotation.Nullable;
 
 import com.android.R;
 import com.android.incallui.call.state.DialerCallState;

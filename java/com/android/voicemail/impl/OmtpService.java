@@ -21,13 +21,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build.VERSION_CODES;
 import android.os.UserManager;
-import android.preference.PreferenceManager;
-import android.support.annotation.MainThread;
-import android.support.annotation.NonNull;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.TelephonyManager;
 import android.telephony.VisualVoicemailService;
 import android.telephony.VisualVoicemailSms;
+
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.preference.PreferenceManager;
+
 import com.android.dialer.logging.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.voicemail.VoicemailComponent;

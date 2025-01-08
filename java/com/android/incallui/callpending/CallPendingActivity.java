@@ -23,9 +23,10 @@ import android.content.IntentFilter;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.telecom.CallAudioState;
 import android.telecom.TelecomManager;
+
+import androidx.fragment.app.FragmentActivity;
 
 import com.android.R;
 import com.android.dialer.common.LogUtil;
@@ -45,6 +46,7 @@ import com.android.incallui.incall.protocol.InCallScreenDelegate;
 import com.android.incallui.incall.protocol.InCallScreenDelegateFactory;
 import com.android.incallui.incall.protocol.PrimaryCallState;
 import com.android.incallui.incall.protocol.PrimaryInfo;
+
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 

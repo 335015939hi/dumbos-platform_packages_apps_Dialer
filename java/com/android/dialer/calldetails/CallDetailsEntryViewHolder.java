@@ -19,15 +19,16 @@ package com.android.dialer.calldetails;
 import android.content.Context;
 import android.net.Uri;
 import android.provider.CallLog.Calls;
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.os.BuildCompat;
-import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.core.os.BuildCompat;
+import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
 import com.android.R;
 import com.android.dialer.calldetails.CallDetailsEntries.CallDetailsEntry;

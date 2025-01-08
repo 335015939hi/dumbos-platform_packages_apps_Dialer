@@ -198,13 +198,15 @@ protobuf {
 }
 
 dependencies {
-    implementation("com.android.support:support-core-ui:28.0.0")
-    implementation("com.android.support:design:28.0.0")
-    implementation("com.android.support:support-v13:28.0.0")
-    implementation("com.android.support:support-v4:28.0.0")
-    implementation("com.android.support:appcompat-v7:28.0.0")
-    implementation("com.android.support:cardview-v7:28.0.0")
-    implementation("com.android.support:recyclerview-v7:28.0.0")
+    implementation("androidx.core:core:1.15.0")
+    implementation("androidx.appcompat:appcompat:1.7.0")
+    implementation("androidx.fragment:fragment:1.8.5")
+    implementation("com.google.android.material:material:1.12.0")
+    implementation("androidx.collection:collection:1.4.5")
+    implementation("androidx.annotation:annotation:1.9.1")
+    implementation("androidx.preference:preference:1.2.1")
+    implementation("androidx.localbroadcastmanager:localbroadcastmanager:1.1.0")
+    implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
 
     implementation("com.googlecode.libphonenumber:geocoder:2.246")
 
@@ -228,10 +230,7 @@ dependencies {
     implementation("com.google.zxing:core:3.5.3")
     implementation("com.squareup:javapoet:1.13.0")
 
-    // Using an old version because they migrated to androidx in 4.10.0 which breaks building with
-    // the android support libraries
-    // TODO: Migrate to Androidx and update Glide
-    val glideVersion = "4.9.0"
+    val glideVersion = "4.16.0"
     implementation("com.github.bumptech.glide:glide:$glideVersion")
     annotationProcessor("com.github.bumptech.glide:compiler:$glideVersion")
 

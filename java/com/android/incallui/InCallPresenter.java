@@ -22,11 +22,10 @@ import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Trace;
-import android.support.annotation.MainThread;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.os.UserManagerCompat;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import android.telecom.Call.Details;
 import android.telecom.CallAudioState;
 import android.telecom.DisconnectCause;
@@ -40,6 +39,8 @@ import android.util.ArraySet;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
+
+import androidx.core.os.UserManagerCompat;
 
 import com.android.R;
 import com.android.contacts.common.compat.CallCompat;
@@ -81,6 +82,7 @@ import com.android.incallui.videosurface.bindings.VideoSurfaceBindings;
 import com.android.incallui.videosurface.protocol.VideoSurfaceTexture;
 import com.android.incallui.videotech.utils.VideoUtils;
 import com.google.protobuf.InvalidProtocolBufferException;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;

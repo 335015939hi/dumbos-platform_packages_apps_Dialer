@@ -17,11 +17,14 @@
 package com.android.dialer.performancereport;
 
 import android.os.SystemClock;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
 import android.widget.AbsListView;
+
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.logging.UiAction;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;

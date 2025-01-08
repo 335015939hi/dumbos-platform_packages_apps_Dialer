@@ -19,11 +19,8 @@ package com.android.dialer.speeddial;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.VisibleForTesting;
-import android.support.annotation.WorkerThread;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.VisibleForTesting;
+import androidx.annotation.WorkerThread;
 import android.text.TextUtils;
 import android.util.ArraySet;
 import android.view.LayoutInflater;
@@ -33,6 +30,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.android.R;
 import com.android.dialer.callintent.CallInitiationType;
@@ -51,6 +52,7 @@ import com.android.dialer.speeddial.loader.SpeedDialUiItem;
 import com.google.common.collect.ImmutableList;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
+
 import java.util.List;
 import java.util.Set;
 

@@ -15,19 +15,20 @@
  */
 package com.android.dialer.app.filterednumber;
 
-import android.app.ListFragment;
-import android.app.LoaderManager;
 import android.content.Context;
-import android.content.CursorLoader;
-import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.ListFragment;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.CursorLoader;
+import androidx.loader.content.Loader;
 
 import com.android.R;
 import com.android.dialer.blocking.FilteredNumbersUtil;
@@ -51,7 +52,7 @@ public class ViewNumbersToImportFragment extends ListFragment
     if (adapter == null) {
       adapter =
           ViewNumbersToImportAdapter.newViewNumbersToImportAdapter(
-              getContext(), getActivity().getFragmentManager());
+              getContext(), getActivity().getSupportFragmentManager());
     }
     setListAdapter(adapter);
   }

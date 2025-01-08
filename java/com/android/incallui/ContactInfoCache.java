@@ -27,18 +27,19 @@ import android.os.Trace;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.DisplayNameSources;
-import android.support.annotation.AnyThread;
-import android.support.annotation.MainThread;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.WorkerThread;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.os.UserManagerCompat;
+import androidx.annotation.AnyThread;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import android.telecom.TelecomManager;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.ArraySet;
+
+import androidx.core.content.ContextCompat;
+import androidx.core.os.UserManagerCompat;
 
 import com.android.R;
 import com.android.contacts.common.ContactsUtils;
@@ -61,12 +62,14 @@ import com.android.incallui.ContactsAsyncHelper.OnImageLoadCompleteListener;
 import com.android.incallui.bindings.PhoneNumberService;
 import com.android.incallui.call.DialerCall;
 import com.android.incallui.incall.protocol.ContactPhotoType;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 /**
  * Class responsible for querying Contact Information for DialerCall objects. Can perform

@@ -36,15 +36,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.content.LocalBroadcastManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import android.widget.Toast;
+
+import androidx.core.content.ContextCompat;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.android.R;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.storage.StorageComponent;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;

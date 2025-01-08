@@ -139,7 +139,7 @@
       android:authorities="${applicationId}.files"
       android:exported="false"
       android:grantUriPermissions="true"
-      android:name="android.support.v4.content.FileProvider">
+      android:name="androidx.core.content.FileProvider">
       <meta-data
         android:name="android.support.FILE_PROVIDER_PATHS"
         android:resource="@xml/file_paths"/>

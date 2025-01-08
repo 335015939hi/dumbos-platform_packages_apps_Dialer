@@ -24,7 +24,7 @@ import android.media.AudioManager;
 import android.os.Bundle;
 import android.provider.CallLog;
 import android.provider.VoicemailContract;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +44,7 @@ import com.android.dialer.voicemail.listui.error.VoicemailErrorMessageCreator;
 import com.android.dialer.voicemail.listui.error.VoicemailStatus;
 import com.android.dialer.voicemail.listui.error.VoicemailStatusWorker;
 import com.android.dialer.widget.EmptyContentView;
+
 import java.util.List;
 
 public class VisualVoicemailCallLogFragment extends CallLogFragment {
@@ -66,7 +67,7 @@ public class VisualVoicemailCallLogFragment extends CallLogFragment {
   @Override
   public void onActivityCreated(Bundle savedInstanceState) {
     voicemailPlaybackPresenter =
-        VoicemailPlaybackPresenter.getInstance(getActivity(), savedInstanceState);
+        VoicemailPlaybackPresenter.getInstance(requireActivity(), savedInstanceState);
     if (PermissionsUtil.hasReadVoicemailPermissions(getContext())
         && PermissionsUtil.hasAddVoicemailPermissions(getContext())) {
       getActivity()
@@ -84,7 +85,7 @@ public class VisualVoicemailCallLogFragment extends CallLogFragment {
         DialerExecutorComponent.get(getContext())
             .dialerExecutorFactory()
             .createUiTaskBuilder(
-                getActivity().getFragmentManager(),
+                requireActivity().getSupportFragmentManager(),
                 "fetchVoicemailStatus",
                 new VoicemailStatusWorker())
             .onSuccess(this::onPreSyncVoicemailStatusChecked)

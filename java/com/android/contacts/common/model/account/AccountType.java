@@ -24,14 +24,16 @@ import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.CommonDataKinds.StructuredPostal;
 import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.RawContacts;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.content.ContextCompat;
 import android.util.ArrayMap;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 
+import androidx.annotation.VisibleForTesting;
+import androidx.core.content.ContextCompat;
+
 import com.android.R;
 import com.android.contacts.common.model.dataitem.DataKind;
+
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;

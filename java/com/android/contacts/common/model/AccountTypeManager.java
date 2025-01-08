@@ -37,11 +37,13 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
 import android.provider.ContactsContract;
-import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.Log;
 import android.util.TimingLogger;
+
+import androidx.annotation.VisibleForTesting;
+
 import com.android.contacts.common.MoreContactUtils;
 import com.android.contacts.common.list.ContactListFilterController;
 import com.android.contacts.common.model.account.AccountType;
@@ -54,6 +56,7 @@ import com.android.contacts.common.model.account.GoogleAccountType;
 import com.android.contacts.common.model.account.SamsungAccountType;
 import com.android.contacts.common.model.dataitem.DataKind;
 import com.android.contacts.common.util.Constants;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;

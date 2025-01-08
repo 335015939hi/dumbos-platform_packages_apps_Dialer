@@ -15,10 +15,11 @@
  */
 package com.android.dialer.calllog.ui;
 
-import android.support.annotation.StringRes;
-import android.support.v7.widget.RecyclerView.ViewHolder;
+import androidx.annotation.StringRes;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
 import com.android.R;
 

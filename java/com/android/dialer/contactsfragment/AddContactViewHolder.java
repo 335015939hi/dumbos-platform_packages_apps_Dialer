@@ -17,9 +17,10 @@
 package com.android.dialer.contactsfragment;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.View;
 import android.view.View.OnClickListener;
+
+import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
 import com.android.R;
 import com.android.dialer.util.DialerUtils;

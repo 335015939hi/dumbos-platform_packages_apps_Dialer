@@ -16,18 +16,22 @@
 
 package com.android.dialer.app.settings;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.graphics.drawable.Icon;
 import android.os.Bundle;
-import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceScreen;
-import android.support.annotation.VisibleForTesting;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
+
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.fragment.app.Fragment;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragment;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceScreen;
+
 import java.util.List;
 
 /**
@@ -36,7 +40,7 @@ import java.util.List;
  */
 public class PhoneAccountSelectionFragment extends PreferenceFragment {
 
-  /** The {@link PreferenceFragment} to launch after the account is selected. */
+  /** The {@link PreferenceFragmentCompat} to launch after the account is selected. */
   public static final String PARAM_TARGET_FRAGMENT = "target_fragment";
 
   /**
@@ -63,8 +67,7 @@ public class PhoneAccountSelectionFragment extends PreferenceFragment {
   private int titleRes;
 
   @Override
-  public void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
+  public void onCreatePreferences(@Nullable Bundle savedInstanceState, @Nullable String rootKey) {
     targetFragment = getArguments().getString(PARAM_TARGET_FRAGMENT);
     arguments = new Bundle();
     arguments.putAll(getArguments().getBundle(PARAM_ARGUMENTS));

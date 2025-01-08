@@ -20,10 +20,12 @@ import android.content.Context;
 import android.net.Network;
 import android.net.Uri;
 import android.os.Build.VERSION_CODES;
-import android.support.v4.os.BuildCompat;
 import android.telecom.PhoneAccountHandle;
 import android.text.TextUtils;
 import android.util.ArrayMap;
+
+import androidx.core.os.BuildCompat;
+
 import com.android.dialer.logging.DialerImpression;
 import com.android.voicemail.VoicemailComponent;
 import com.android.voicemail.impl.ActivationTask;
@@ -43,6 +45,7 @@ import com.android.voicemail.impl.sync.VvmNetworkRequest.NetworkWrapper;
 import com.android.voicemail.impl.sync.VvmNetworkRequest.RequestFailedException;
 import com.android.voicemail.impl.utils.LoggerUtils;
 import com.android.voicemail.impl.utils.VoicemailDatabaseUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;

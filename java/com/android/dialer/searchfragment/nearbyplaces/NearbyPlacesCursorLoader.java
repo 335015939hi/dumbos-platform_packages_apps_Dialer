@@ -17,14 +17,17 @@
 package com.android.dialer.searchfragment.nearbyplaces;
 
 import android.content.Context;
-import android.content.CursorLoader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
+
+import androidx.loader.content.CursorLoader;
+
 import com.android.contacts.common.extensions.PhoneDirectoryExtenderAccessor;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.searchfragment.common.Projections;
+
 import java.util.List;
 
 /** Cursor loader for nearby places search results. */

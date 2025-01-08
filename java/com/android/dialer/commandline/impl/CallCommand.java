@@ -18,8 +18,10 @@ package com.android.dialer.commandline.impl;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.telecom.TelecomManager;
+
+import androidx.annotation.NonNull;
+
 import com.android.dialer.buildtype.BuildType;
 import com.android.dialer.buildtype.BuildType.Type;
 import com.android.dialer.callintent.CallInitiationType;
@@ -30,6 +32,7 @@ import com.android.dialer.inject.ApplicationContext;
 import com.android.dialer.precall.PreCall;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
+
 import javax.inject.Inject;
 
 /** Make calls. Requires bugfood build. */

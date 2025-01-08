@@ -20,18 +20,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceFragment;
 import android.text.TextUtils;
+
+import androidx.annotation.Nullable;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragment;
 
 import com.android.R;
 
 /** The fragment for information about the Phone App */
 public class AboutPhoneFragment extends PreferenceFragment {
-
   @Override
-  public void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
+  public void onCreatePreferences(@Nullable Bundle savedInstanceState, @Nullable String rootKey) {
     addPreferencesFromResource(R.xml.about_phone_fragment);
 
     // We set the intent here, instead of in XML, to avoid specifying a target package, which

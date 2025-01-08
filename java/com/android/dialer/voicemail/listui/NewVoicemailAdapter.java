@@ -15,7 +15,6 @@
  */
 package com.android.dialer.voicemail.listui;
 
-import android.app.FragmentManager;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -26,12 +25,9 @@ import android.media.MediaPlayer.OnErrorListener;
 import android.media.MediaPlayer.OnPreparedListener;
 import android.net.Uri;
 import android.provider.VoicemailContract.Voicemails;
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
-import android.support.annotation.WorkerThread;
-import android.support.design.widget.Snackbar;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.ViewHolder;
+import androidx.annotation.IntDef;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.util.Pair;
@@ -39,6 +35,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
 import com.android.R;
 import com.android.dialer.calllogutils.CallLogDates;
@@ -53,7 +53,9 @@ import com.android.dialer.voicemail.listui.error.VoicemailErrorMessageCreator;
 import com.android.dialer.voicemail.listui.error.VoicemailStatus;
 import com.android.dialer.voicemail.model.VoicemailEntry;
 import com.android.voicemail.VoicemailClient;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.common.collect.ImmutableList;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Locale;

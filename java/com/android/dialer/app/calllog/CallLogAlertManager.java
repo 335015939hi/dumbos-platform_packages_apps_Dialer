@@ -16,10 +16,11 @@
 
 package com.android.dialer.app.calllog;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.R;
 import com.android.dialer.app.alert.AlertManager;

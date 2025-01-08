@@ -25,7 +25,9 @@ import android.os.RemoteException;
 import android.provider.CallLog;
 import android.provider.CallLog.Calls;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
-import android.support.annotation.VisibleForTesting;
+
+import androidx.annotation.VisibleForTesting;
+
 import com.android.dialer.DialerPhoneNumber;
 import com.android.dialer.NumberAttributes;
 import com.android.dialer.calllog.database.contract.AnnotatedCallLogContract.AnnotatedCallLog;
@@ -37,9 +39,11 @@ import com.android.dialer.protos.ProtoParsers;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.ListeningExecutorService;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.Stream;
+
 import javax.inject.Inject;
 
 /**

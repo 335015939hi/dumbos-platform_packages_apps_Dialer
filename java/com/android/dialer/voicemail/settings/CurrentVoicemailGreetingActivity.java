@@ -22,16 +22,18 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
+import androidx.annotation.NonNull;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.core.app.ActivityCompat;
+
 import com.android.R;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.widget.DialerToolbar;
+
 import java.io.IOException;
 import java.util.Locale;
 

@@ -17,9 +17,11 @@
 package com.android.dialer.phonelookup.composite;
 
 import android.content.Context;
-import android.support.annotation.MainThread;
-import android.support.annotation.VisibleForTesting;
 import android.telecom.Call;
+
+import androidx.annotation.MainThread;
+import androidx.annotation.VisibleForTesting;
+
 import com.android.dialer.DialerPhoneNumber;
 import com.android.dialer.calllog.CallLogState;
 import com.android.dialer.common.LogUtil;
@@ -41,9 +43,11 @@ import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
 import javax.inject.Inject;
 
 /**

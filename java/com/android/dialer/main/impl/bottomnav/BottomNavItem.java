@@ -18,10 +18,6 @@ package com.android.dialer.main.impl.bottomnav;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.Nullable;
-import android.support.annotation.Px;
-import android.support.annotation.StringRes;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -29,10 +25,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.DrawableRes;
+import androidx.annotation.Nullable;
+import androidx.annotation.Px;
+import androidx.annotation.StringRes;
+
 import com.android.R;
 import com.android.dialer.common.Assert;
 import com.android.dialer.configprovider.ConfigProviderComponent;
-import com.android.dialer.theme.base.ThemeComponent;
 
 /** Navigation item in a bottom nav. */
 final class BottomNavItem extends LinearLayout {

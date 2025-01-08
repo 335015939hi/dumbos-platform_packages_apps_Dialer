@@ -21,12 +21,13 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.os.UserManagerCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import android.view.View;
 import android.widget.CheckBox;
+
+import androidx.core.os.UserManagerCompat;
+import androidx.fragment.app.DialogFragment;
 
 import com.android.R;
 import com.android.dialer.common.Assert;

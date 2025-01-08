@@ -24,8 +24,6 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.provider.CallLog.Calls;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.os.BuildCompat;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.PhoneNumberUtils;
@@ -40,6 +38,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.core.content.ContextCompat;
+import androidx.core.os.BuildCompat;
 
 import com.android.R;
 import com.android.dialer.app.calllog.calllogcache.CallLogCache;
@@ -60,6 +61,7 @@ import com.android.voicemail.VoicemailClient;
 import com.android.voicemail.VoicemailComponent;
 import com.android.voicemail.impl.transcribe.TranscriptionRatingHelper;
 import com.google.internal.communications.voicemailtranscription.v1.TranscriptionRatingValue;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;

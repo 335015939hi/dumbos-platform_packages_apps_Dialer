@@ -18,18 +18,20 @@ package com.android.dialer.simulator.impl;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v4.os.BuildCompat;
+import androidx.annotation.NonNull;
 import android.telecom.Connection;
-import android.telecom.Connection.RttTextStream;
 import android.telecom.ConnectionRequest;
 import android.telecom.VideoProfile;
+
+import androidx.core.os.BuildCompat;
+
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.simulator.Simulator;
 import com.android.dialer.simulator.Simulator.Event;
 import com.android.dialer.simulator.SimulatorComponent;
 import com.android.dialer.simulator.SimulatorConnectionsBank;
+
 import java.util.ArrayList;
 import java.util.List;
 

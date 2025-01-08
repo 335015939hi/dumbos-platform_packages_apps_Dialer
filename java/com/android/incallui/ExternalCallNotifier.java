@@ -26,9 +26,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build.VERSION_CODES;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.os.BuildCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.telecom.Call;
 import android.telecom.PhoneAccount;
 import android.telecom.VideoProfile;
@@ -36,6 +35,8 @@ import android.text.BidiFormatter;
 import android.text.TextDirectionHeuristics;
 import android.text.TextUtils;
 import android.util.ArrayMap;
+
+import androidx.core.os.BuildCompat;
 
 import com.android.R;
 import com.android.contacts.common.ContactsUtils;
@@ -47,10 +48,12 @@ import com.android.dialer.notification.DialerNotificationManager;
 import com.android.dialer.notification.NotificationChannelId;
 import com.android.dialer.telecom.TelecomCallUtil;
 import com.android.dialer.theme.base.ThemeComponent;
+import com.android.incallui.call.CallList;
 import com.android.incallui.call.DialerCall;
 import com.android.incallui.call.DialerCallDelegate;
 import com.android.incallui.call.ExternalCallList;
 import com.android.incallui.latencyreport.LatencyReport;
+
 import java.util.Map;
 
 /**

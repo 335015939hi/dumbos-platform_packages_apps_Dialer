@@ -17,18 +17,20 @@
 package com.android.incallui.incall.impl;
 
 import android.os.Bundle;
-import android.support.annotation.ColorInt;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import androidx.annotation.ColorInt;
+import androidx.annotation.Nullable;
 import android.util.ArraySet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.fragment.app.Fragment;
+
 import com.android.R;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.FragmentUtils;
 import com.android.incallui.incall.protocol.InCallButtonIds;
+
 import java.util.List;
 import java.util.Set;
 

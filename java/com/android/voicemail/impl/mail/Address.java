@@ -17,17 +17,21 @@ package com.android.voicemail.impl.mail;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.VisibleForTesting;
 import android.text.Html;
 import android.text.TextUtils;
 import android.text.util.Rfc822Token;
 import android.text.util.Rfc822Tokenizer;
+
+import androidx.annotation.VisibleForTesting;
+
 import com.android.voicemail.impl.mail.utils.LogUtils;
-import java.util.ArrayList;
-import java.util.regex.Pattern;
+
 import org.apache.james.mime4j.codec.DecodeMonitor;
 import org.apache.james.mime4j.codec.DecoderUtil;
 import org.apache.james.mime4j.codec.EncoderUtil;
+
+import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 /**
  * This class represent email address.

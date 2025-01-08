@@ -47,13 +47,12 @@ import android.net.Uri;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Trace;
-import android.support.annotation.ColorRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresPermission;
-import android.support.annotation.StringRes;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.os.BuildCompat;
+import androidx.annotation.ColorRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresPermission;
+import androidx.annotation.StringRes;
+import androidx.annotation.VisibleForTesting;
 import android.telecom.Call.Details;
 import android.telecom.CallAudioState;
 import android.telecom.PhoneAccount;
@@ -66,6 +65,8 @@ import android.text.Spanned;
 import android.text.TextDirectionHeuristics;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
+
+import androidx.core.os.BuildCompat;
 
 import com.android.R;
 import com.android.contacts.common.ContactsUtils;
@@ -100,6 +101,7 @@ import com.android.incallui.ringtone.ToneGeneratorFactory;
 import com.android.incallui.speakeasy.SpeakEasyComponent;
 import com.android.incallui.videotech.utils.SessionModificationState;
 import com.google.common.base.Optional;
+
 import java.util.Objects;
 
 /** This class adds Notifications to the status bar for the in-call experience. */

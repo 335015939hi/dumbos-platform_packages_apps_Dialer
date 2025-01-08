@@ -23,11 +23,11 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface.OnDismissListener;
 import android.graphics.drawable.Icon;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.os.BuildCompat;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.core.os.BuildCompat;
+import androidx.fragment.app.FragmentManager;
 
 import com.android.R;
 import com.android.dialer.configprovider.ConfigProviderComponent;
@@ -39,6 +39,7 @@ import com.android.dialer.spam.SpamSettings;
 import com.android.dialer.spam.promo.SpamBlockingPromoDialogFragment.OnEnableListener;
 import com.android.dialer.storage.StorageComponent;
 import com.android.dialer.theme.base.ThemeComponent;
+import com.google.android.material.snackbar.Snackbar;
 
 /** Helper class for showing spam blocking on-boarding promotions. */
 public class SpamBlockingPromoHelper {

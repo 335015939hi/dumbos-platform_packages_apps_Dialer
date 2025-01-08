@@ -16,10 +16,12 @@
 
 package com.android.dialer.spam;
 
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.CallLog.Calls;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
+import androidx.preference.Preference;
+import androidx.preference.Preference.OnPreferenceChangeListener;
+
 import com.android.dialer.DialerPhoneNumber;
 import com.android.dialer.logging.ContactLookupResult;
 import com.android.dialer.logging.ContactSource;

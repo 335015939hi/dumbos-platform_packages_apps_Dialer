@@ -23,10 +23,11 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.telephony.SmsManager;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.R;
 import com.android.dialer.common.Assert;

@@ -22,14 +22,15 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.os.Build.VERSION_CODES;
 import android.os.PersistableBundle;
-import android.support.annotation.NonNull;
-import android.support.v4.os.BuildCompat;
+import androidx.annotation.NonNull;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
 import android.telephony.CarrierConfigManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+
+import androidx.core.os.BuildCompat;
 
 import com.android.R;
 import com.android.dialer.common.Assert;

@@ -23,13 +23,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.WorkerThread;
-import android.support.v4.app.JobIntentService;
-import android.support.v4.os.BuildCompat;
+import androidx.annotation.WorkerThread;
 import android.telecom.PhoneAccountHandle;
+
+import androidx.core.app.JobIntentService;
+import androidx.core.os.BuildCompat;
+
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.common.concurrent.ThreadUtil;
 import com.android.dialer.constants.ScheduledJobIds;
+
 import java.util.List;
 
 /**

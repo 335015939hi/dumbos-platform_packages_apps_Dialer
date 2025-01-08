@@ -15,20 +15,21 @@
  */
 package com.android.dialer.app.filterednumber;
 
-import android.app.ListFragment;
-import android.app.LoaderManager;
 import android.content.Context;
-import android.content.CursorLoader;
-import android.content.Loader;
 import android.database.Cursor;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.ListFragment;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.CursorLoader;
+import androidx.loader.content.Loader;
 
 import com.android.R;
 import com.android.dialer.blocking.BlockedNumbersMigrator;
@@ -81,7 +82,7 @@ public class BlockedNumbersFragment extends ListFragment
     if (adapter == null) {
       adapter =
           BlockedNumbersAdapter.newBlockedNumbersAdapter(
-              getContext(), getActivity().getFragmentManager());
+              getContext(), getActivity().getSupportFragmentManager());
     }
     setListAdapter(adapter);
 

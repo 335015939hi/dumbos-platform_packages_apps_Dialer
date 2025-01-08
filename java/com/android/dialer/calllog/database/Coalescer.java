@@ -18,10 +18,12 @@ package com.android.dialer.calllog.database;
 import android.database.Cursor;
 import android.database.StaleDataException;
 import android.provider.CallLog.Calls;
-import android.support.annotation.NonNull;
-import android.support.annotation.WorkerThread;
 import android.telecom.PhoneAccountHandle;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
+
 import com.android.dialer.CoalescedIds;
 import com.android.dialer.DialerPhoneNumber;
 import com.android.dialer.NumberAttributes;
@@ -38,7 +40,9 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.protobuf.InvalidProtocolBufferException;
+
 import java.util.Objects;
+
 import javax.inject.Inject;
 
 /** Combines adjacent rows in {@link AnnotatedCallLog}. */

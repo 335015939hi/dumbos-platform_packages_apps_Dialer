@@ -24,7 +24,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
@@ -42,6 +41,8 @@ import android.widget.ListView;
 import android.widget.QuickContactBadge;
 import android.widget.TextView;
 
+import androidx.preference.PreferenceManager;
+
 import com.android.R;
 import com.android.dialer.animation.AnimUtils;
 import com.android.dialer.callintent.CallInitiationType;
@@ -51,6 +52,7 @@ import com.android.dialer.contactphoto.ContactPhotoManager;
 import com.android.dialer.lettertile.LetterTileDrawable;
 import com.android.dialer.precall.PreCall;
 import com.android.dialer.util.ViewUtil;
+
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;

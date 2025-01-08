@@ -18,10 +18,12 @@ package com.android.dialer.blocking;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.os.UserManagerCompat;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.os.UserManagerCompat;
+import androidx.preference.PreferenceManager;
+
 import com.android.dialer.blocking.FilteredNumberAsyncQueryHandler.OnHasBlockedNumbersListener;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;

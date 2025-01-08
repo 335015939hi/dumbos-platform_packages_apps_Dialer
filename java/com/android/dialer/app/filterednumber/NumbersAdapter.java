@@ -15,7 +15,6 @@
  */
 package com.android.dialer.app.filterednumber;
 
-import android.app.FragmentManager;
 import android.content.Context;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
@@ -26,6 +25,8 @@ import android.view.View;
 import android.widget.QuickContactBadge;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+
+import androidx.fragment.app.FragmentManager;
 
 import com.android.R;
 import com.android.dialer.contactphoto.ContactPhotoManager;

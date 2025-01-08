@@ -23,11 +23,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Build.VERSION_CODES;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.os.BuildCompat;
-import android.support.v4.os.UserManagerCompat;
+import androidx.annotation.VisibleForTesting;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.TelephonyManager;
+
+import androidx.core.os.BuildCompat;
+import androidx.core.os.UserManagerCompat;
+
 import com.android.dialer.app.calllog.LegacyVoicemailNotifier;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;

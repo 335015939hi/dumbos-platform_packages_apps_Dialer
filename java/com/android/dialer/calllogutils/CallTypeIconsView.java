@@ -24,13 +24,15 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.provider.CallLog.Calls;
-import android.support.annotation.VisibleForTesting;
 import android.util.AttributeSet;
 import android.view.View;
+
+import androidx.annotation.VisibleForTesting;
 
 import com.android.R;
 import com.android.dialer.theme.base.Theme;
 import com.android.dialer.theme.base.ThemeComponent;
+
 import java.util.ArrayList;
 import java.util.List;
 

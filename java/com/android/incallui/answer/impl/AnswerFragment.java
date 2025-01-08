@@ -35,13 +35,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Trace;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.FloatRange;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.transition.TransitionManager;
 import android.view.LayoutInflater;
@@ -55,6 +48,14 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import androidx.annotation.DrawableRes;
+import androidx.annotation.FloatRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.annotation.VisibleForTesting;
+import androidx.fragment.app.Fragment;
 
 import com.android.R;
 import com.android.dialer.common.Assert;
@@ -96,6 +97,7 @@ import com.android.incallui.util.AccessibilityUtil;
 import com.android.incallui.video.protocol.VideoCallScreen;
 import com.android.incallui.videotech.utils.VideoUtils;
 import com.google.common.base.Optional;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;

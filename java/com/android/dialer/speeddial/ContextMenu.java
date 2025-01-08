@@ -17,14 +17,14 @@
 package com.android.dialer.speeddial;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
-import android.support.v7.widget.PopupMenu;
-import android.support.v7.widget.PopupMenu.OnMenuItemClickListener;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+
+import androidx.appcompat.widget.PopupMenu;
 
 import com.android.R;
 import com.android.dialer.common.Assert;
@@ -32,7 +32,7 @@ import com.android.dialer.speeddial.database.SpeedDialEntry.Channel;
 import com.android.dialer.speeddial.loader.SpeedDialUiItem;
 
 /** {@link PopupMenu} which presents contact options for starred contacts. */
-public class ContextMenu extends PopupMenu implements OnMenuItemClickListener {
+public class ContextMenu extends PopupMenu implements PopupMenu.OnMenuItemClickListener {
 
   private final ContextMenuItemListener listener;
 

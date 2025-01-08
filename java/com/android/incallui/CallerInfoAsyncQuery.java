@@ -29,10 +29,11 @@ import android.os.Message;
 import android.os.Trace;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.Directory;
-import android.support.annotation.MainThread;
-import android.support.annotation.RequiresPermission;
-import android.support.annotation.WorkerThread;
 import android.text.TextUtils;
+
+import androidx.annotation.MainThread;
+import androidx.annotation.RequiresPermission;
+import androidx.annotation.WorkerThread;
 
 import com.android.R;
 import com.android.dialer.phonenumbercache.CachedNumberLookupService;
@@ -41,6 +42,7 @@ import com.android.dialer.phonenumbercache.ContactInfoHelper;
 import com.android.dialer.phonenumbercache.PhoneNumberCache;
 import com.android.dialer.phonenumberutil.PhoneNumberHelper;
 import com.android.dialer.strictmode.StrictModeUtils;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;

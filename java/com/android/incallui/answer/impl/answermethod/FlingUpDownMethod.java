@@ -29,17 +29,12 @@ import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Trace;
-import android.support.annotation.ColorInt;
-import android.support.annotation.FloatRange;
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.graphics.ColorUtils;
-import android.support.v4.view.animation.FastOutLinearInInterpolator;
-import android.support.v4.view.animation.FastOutSlowInInterpolator;
-import android.support.v4.view.animation.LinearOutSlowInInterpolator;
-import android.support.v4.view.animation.PathInterpolatorCompat;
+import androidx.annotation.ColorInt;
+import androidx.annotation.FloatRange;
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -53,6 +48,12 @@ import android.view.animation.Interpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.core.graphics.ColorUtils;
+import androidx.core.view.animation.PathInterpolatorCompat;
+import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
+import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
+
 import com.android.R;
 import com.android.dialer.common.DpUtil;
 import com.android.dialer.common.LogUtil;
@@ -64,6 +65,7 @@ import com.android.incallui.answer.impl.classifier.FalsingManager;
 import com.android.incallui.answer.impl.hint.AnswerHint;
 import com.android.incallui.answer.impl.hint.AnswerHintFactory;
 import com.android.incallui.answer.impl.hint.PawImageLoaderImpl;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 

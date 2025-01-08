@@ -18,18 +18,18 @@ package com.android.dialer.blocking;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.DialogFragment;
-import android.app.FragmentManager;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.android.R;
 import com.android.contacts.common.util.ContactDisplayUtils;
@@ -38,6 +38,7 @@ import com.android.dialer.blocking.FilteredNumberAsyncQueryHandler.OnUnblockNumb
 import com.android.dialer.logging.InteractionEvent;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.voicemailstatus.VisualVoicemailEnabledChecker;
+import com.google.android.material.snackbar.Snackbar;
 
 /**
  * Fragment for confirming and enacting blocking/unblocking a number. Also invokes snackbar

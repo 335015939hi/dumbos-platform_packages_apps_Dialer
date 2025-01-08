@@ -27,12 +27,6 @@ import android.os.AsyncTask;
 import android.provider.CallLog;
 import android.provider.CallLog.Calls;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresPermission;
-import android.support.annotation.VisibleForTesting;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
@@ -50,6 +44,14 @@ import android.view.ViewStub;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.IntDef;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresPermission;
+import androidx.annotation.VisibleForTesting;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.R;
 import com.android.contacts.common.dialog.CallSubjectDialog;
@@ -94,6 +96,7 @@ import com.android.dialer.telecom.TelecomUtil;
 import com.android.dialer.util.CallUtil;
 import com.android.dialer.util.DialerUtils;
 import com.android.dialer.util.UriUtils;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
@@ -1160,7 +1163,7 @@ public final class CallLogListItemViewHolder extends RecyclerView.ViewHolder
 
   private void maybeShowBlockNumberMigrationDialog(BlockedNumbersMigrator.Listener listener) {
     if (!FilteredNumberCompat.maybeShowBlockNumberMigrationDialog(
-        context, ((Activity) context).getFragmentManager(), listener)) {
+        context, ((FragmentActivity) context).getSupportFragmentManager(), listener)) {
       listener.onComplete();
     }
   }

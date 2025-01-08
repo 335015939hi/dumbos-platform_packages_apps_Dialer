@@ -20,17 +20,18 @@ import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.VoicemailContract.Status;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.LoaderManager.LoaderCallbacks;
-import android.support.v4.content.Loader;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+
+import androidx.fragment.app.Fragment;
+import androidx.loader.app.LoaderManager.LoaderCallbacks;
+import androidx.loader.content.Loader;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.R;
 import com.android.dialer.calllog.CallLogComponent;
@@ -44,6 +45,7 @@ import com.android.dialer.widget.EmptyContentView;
 import com.android.voicemail.VoicemailComponent;
 import com.google.common.collect.ImmutableList;
 import com.google.common.util.concurrent.ListenableFuture;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,7 +76,7 @@ public final class NewVoicemailFragment extends Fragment implements LoaderCallba
     queryVoicemailStatusTableListener =
         DialerExecutorComponent.get(getContext())
             .createUiListener(
-                getActivity().getFragmentManager(),
+                getActivity().getSupportFragmentManager(),
                 "NewVoicemailFragment.queryVoicemailStatusTable");
   }
 
@@ -143,7 +145,7 @@ public final class NewVoicemailFragment extends Fragment implements LoaderCallba
    *
    * <ul>
    *   <li>hide the fragment but keep the parent activity visible (e.g., calling {@link
-   *       android.support.v4.app.FragmentTransaction#hide(Fragment)} in an activity, or
+   *       androidx.fragment.app.FragmentTransaction#hide(Fragment)} in an activity, or
    *   <li>the parent activity is paused.
    * </ul>
    */
@@ -185,7 +187,7 @@ public final class NewVoicemailFragment extends Fragment implements LoaderCallba
       // TODO(uabdullah): Replace getActivity().getFragmentManager() with getChildFragment()
       recyclerView.setAdapter(
           new NewVoicemailAdapter(
-              data, System::currentTimeMillis, getActivity().getFragmentManager()));
+              data, System::currentTimeMillis, getActivity().getSupportFragmentManager()));
     } else {
       // This would only be called in cases such as when voicemail has been fetched from the server
       // or a changed occurred in the annotated table changed (e.g deletes). To check if the change

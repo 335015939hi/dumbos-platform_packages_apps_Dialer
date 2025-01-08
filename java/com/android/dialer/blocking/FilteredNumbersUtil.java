@@ -24,13 +24,14 @@ import android.os.AsyncTask;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.Contacts;
 import android.provider.Settings;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.os.BuildCompat;
-import android.support.v4.os.UserManagerCompat;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.widget.Toast;
+
+import androidx.core.os.BuildCompat;
+import androidx.core.os.UserManagerCompat;
 
 import com.android.R;
 import com.android.dialer.blocking.FilteredNumberAsyncQueryHandler.OnHasBlockedNumbersListener;
@@ -41,6 +42,7 @@ import com.android.dialer.notification.DialerNotificationManager;
 import com.android.dialer.notification.NotificationChannelId;
 import com.android.dialer.storage.StorageComponent;
 import com.android.dialer.util.PermissionsUtil;
+
 import java.util.concurrent.TimeUnit;
 
 /** Utility to help with tasks related to filtered numbers. */

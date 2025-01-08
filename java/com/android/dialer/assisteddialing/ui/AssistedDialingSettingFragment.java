@@ -18,11 +18,13 @@ package com.android.dialer.assisteddialing.ui;
 import android.icu.util.ULocale;
 import android.icu.util.ULocale.Builder;
 import android.os.Bundle;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.PreferenceFragment;
-import android.preference.SwitchPreference;
 import android.telephony.TelephonyManager;
+
+import androidx.annotation.Nullable;
+import androidx.preference.ListPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.SwitchPreference;
 
 import com.android.R;
 import com.android.dialer.assisteddialing.AssistedDialingMediator;
@@ -33,12 +35,13 @@ import com.android.dialer.configprovider.ConfigProviderComponent;
 import com.android.dialer.logging.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.google.auto.value.AutoValue;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 /** The setting for Assisted Dialing */
-public class AssistedDialingSettingFragment extends PreferenceFragment {
+public class AssistedDialingSettingFragment extends PreferenceFragmentCompat {
 
   private CountryCodeProvider countryCodeProvider;
   private AssistedDialingMediator assistedDialingMediator;
@@ -60,9 +63,7 @@ public class AssistedDialingSettingFragment extends PreferenceFragment {
   }
 
   @Override
-  public void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-
+  public void onCreatePreferences(@Nullable Bundle savedInstanceState, @Nullable String rootKey) {
     assistedDialingMediator =
         ConcreteCreator.createNewAssistedDialingMediator(
             getContext().getSystemService(TelephonyManager.class), getContext());

@@ -16,12 +16,15 @@
 
 package com.android.dialer.simulator.impl;
 
-import android.support.v7.app.AppCompatActivity;
 import android.view.ActionProvider;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.dialer.buildtype.BuildType;
 import com.android.dialer.buildtype.BuildType.Type;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.simulator.Simulator;
+
 import javax.inject.Inject;
 
 /** The entry point for the simulator feature. */

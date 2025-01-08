@@ -16,17 +16,19 @@
 
 package com.android.dialer.common.preference;
 
-import static android.support.v4.content.ContextCompat.startActivity;
+import static androidx.core.content.ContextCompat.startActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.net.Uri;
-import android.preference.SwitchPreference;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.preference.PreferenceViewHolder;
+import androidx.preference.SwitchPreference;
 
 import com.android.R;
 import com.android.dialer.common.Assert;
@@ -83,23 +85,18 @@ public class SwitchPreferenceWithClickableSummary extends SwitchPreference {
   }
 
   @Override
-  protected View onCreateView(ViewGroup parent) {
-    return super.onCreateView(parent);
-  }
-
-  @Override
-  protected void onBindView(View view) {
-    super.onBindView(view);
+  public void onBindViewHolder(@NonNull PreferenceViewHolder holder) {
+    super.onBindViewHolder(holder);
     Assert.checkArgument(
         urlToOpen != null,
         "must have a urlToOpen attribute when using SwitchPreferenceWithClickableSummary");
-    view.findViewById(android.R.id.summary)
+    holder.findViewById(android.R.id.summary)
         .setOnClickListener(
             new OnClickListener() {
               @Override
               public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlToOpen));
-                startActivity(view.getContext(), intent, null);
+                startActivity(getContext(), intent, null);
               }
             });
   }

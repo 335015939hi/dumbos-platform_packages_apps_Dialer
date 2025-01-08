@@ -17,11 +17,13 @@
 package com.android.dialer.widget;
 
 import android.content.Context;
-import android.preference.Preference;
 import android.text.method.LinkMovementMethod;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceViewHolder;
 
 import com.android.R;
 
@@ -100,18 +102,16 @@ public class TextViewPreference extends Preference {
   /**
    * Handles binding the preference.
    *
-   * @param view The view.
+   * @param holder The view holder.
    */
   @Override
-  protected void onBindView(View view) {
-    super.onBindView(view);
-    textView = (TextView) view.findViewById(R.id.text);
+  public void onBindViewHolder(@NonNull PreferenceViewHolder holder) {
+    super.onBindViewHolder(holder);
+    textView = (TextView) holder.findViewById(R.id.text);
     if (textResourceId != 0) {
       setTitle(textResourceId);
     } else if (text != null) {
       setTitle(text);
-    } else if (getTitleRes() != 0) {
-      setTitle(getTitleRes());
     }
   }
 

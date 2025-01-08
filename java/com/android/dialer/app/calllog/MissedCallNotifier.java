@@ -31,13 +31,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CallLog.Calls;
 import android.service.notification.StatusBarNotification;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.annotation.WorkerThread;
-import android.support.v4.os.BuildCompat;
-import android.support.v4.os.UserManagerCompat;
-import android.support.v4.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.annotation.WorkerThread;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
@@ -46,6 +43,10 @@ import android.text.BidiFormatter;
 import android.text.TextDirectionHeuristics;
 import android.text.TextUtils;
 import android.util.ArraySet;
+
+import androidx.core.os.BuildCompat;
+import androidx.core.os.UserManagerCompat;
+import androidx.core.util.Pair;
 
 import com.android.R;
 import com.android.contacts.common.ContactsUtils;

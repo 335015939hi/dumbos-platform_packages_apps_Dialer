@@ -26,12 +26,14 @@ import android.os.Build.VERSION_CODES;
 import android.provider.Settings;
 import android.provider.Settings.Global;
 import android.provider.VoicemailContract.Status;
-import android.support.annotation.Nullable;
-import android.support.v4.os.BuildCompat;
+import androidx.annotation.Nullable;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.ServiceState;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+
+import androidx.core.os.BuildCompat;
+
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.voicemailstatus.VoicemailStatusQuery;
 import com.android.voicemail.VoicemailClient;

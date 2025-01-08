@@ -17,9 +17,6 @@
 package com.android.dialer.main.impl;
 
 import android.annotation.SuppressLint;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.app.KeyguardManager;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
@@ -34,15 +31,7 @@ import android.os.Handler;
 import android.provider.CallLog.Calls;
 import android.provider.ContactsContract.QuickContact;
 import android.provider.VoicemailContract;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.BottomSheetBehavior;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.TelephonyManager;
@@ -54,6 +43,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.android.R;
 import com.android.contacts.common.list.OnPhoneNumberPickerActionListener;
@@ -130,9 +127,13 @@ import com.android.dialer.voicemail.listui.error.VoicemailStatusCorruptionHandle
 import com.android.dialer.voicemailstatus.VisualVoicemailEnabledChecker;
 import com.android.dialer.voicemailstatus.VoicemailStatusHelper;
 import com.android.voicemail.VoicemailComponent;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.MoreExecutors;
+
 import java.util.Locale;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
@@ -261,10 +262,10 @@ public class OldMainActivityPeer implements MainActivityPeer, FragmentUtilListen
   private void initUiListeners() {
     getLastOutgoingCallListener =
         DialerExecutorComponent.get(activity)
-            .createUiListener(activity.getFragmentManager(), "Query last phone number");
+            .createUiListener(activity.getSupportFragmentManager(), "Query last phone number");
     missedCallObserverUiListener =
         DialerExecutorComponent.get(activity)
-            .createUiListener(activity.getFragmentManager(), "Missed call observer");
+            .createUiListener(activity.getSupportFragmentManager(), "Missed call observer");
   }
 
   private void initLayout(Bundle savedInstanceState) {
@@ -295,7 +296,6 @@ public class OldMainActivityPeer implements MainActivityPeer, FragmentUtilListen
     bottomNavTabListener =
         new MainBottomNavBarBottomNavTabListener(
             activity,
-            activity.getFragmentManager(),
             activity.getSupportFragmentManager(),
             fab,
             bottomSheet);
@@ -1308,7 +1308,6 @@ public class OldMainActivityPeer implements MainActivityPeer, FragmentUtilListen
 
     private final TransactionSafeActivity activity;
     private final FragmentManager fragmentManager;
-    private final android.support.v4.app.FragmentManager supportFragmentManager;
     private final FloatingActionButton fab;
     private final View bottomSheet;
 
@@ -1317,12 +1316,10 @@ public class OldMainActivityPeer implements MainActivityPeer, FragmentUtilListen
     private MainBottomNavBarBottomNavTabListener(
         TransactionSafeActivity activity,
         FragmentManager fragmentManager,
-        android.support.v4.app.FragmentManager supportFragmentManager,
         FloatingActionButton fab,
         View bottomSheet) {
       this.activity = activity;
       this.fragmentManager = fragmentManager;
-      this.supportFragmentManager = supportFragmentManager;
       this.fab = fab;
       this.bottomSheet = bottomSheet;
     }
@@ -1339,9 +1336,9 @@ public class OldMainActivityPeer implements MainActivityPeer, FragmentUtilListen
       if (ConfigProviderComponent.get(activity)
           .getConfigProvider()
           .getBoolean("enable_new_favorites_tab", false)) {
-        android.support.v4.app.Fragment supportFragment =
-            supportFragmentManager.findFragmentByTag(SPEED_DIAL_TAG);
-        showSupportFragment(
+        androidx.fragment.app.Fragment supportFragment =
+            fragmentManager.findFragmentByTag(SPEED_DIAL_TAG);
+        showFragment(
             supportFragment == null ? SpeedDialFragment.newInstance() : supportFragment,
             SPEED_DIAL_TAG);
       } else {
@@ -1361,9 +1358,8 @@ public class OldMainActivityPeer implements MainActivityPeer, FragmentUtilListen
       selectedTab = TabIndex.CALL_LOG;
 
       if (CallLogConfigComponent.get(activity).callLogConfig().isNewCallLogFragmentEnabled()) {
-        android.support.v4.app.Fragment supportFragment =
-            supportFragmentManager.findFragmentByTag(CALL_LOG_TAG);
-        showSupportFragment(
+        Fragment supportFragment = fragmentManager.findFragmentByTag(CALL_LOG_TAG);
+        showFragment(
             supportFragment == null ? new NewCallLogFragment() : supportFragment, CALL_LOG_TAG);
       } else {
         Fragment fragment = fragmentManager.findFragmentByTag(CALL_LOG_TAG);
@@ -1405,10 +1401,10 @@ public class OldMainActivityPeer implements MainActivityPeer, FragmentUtilListen
 
     void disableNewCallLogFragment() {
       LogUtil.i("MainBottomNavBarBottomNavTabListener.disableNewCallLogFragment", "disabled");
-      android.support.v4.app.Fragment supportFragment =
-          supportFragmentManager.findFragmentByTag(CALL_LOG_TAG);
+      androidx.fragment.app.Fragment supportFragment =
+          fragmentManager.findFragmentByTag(CALL_LOG_TAG);
       if (supportFragment != null) {
-        supportFragmentManager.beginTransaction().remove(supportFragment).commitAllowingStateLoss();
+        fragmentManager.beginTransaction().remove(supportFragment).commitAllowingStateLoss();
         // If the NewCallLogFragment was showing, immediately show the old call log fragment
         // instead.
         if (selectedTab == TabIndex.CALL_LOG) {
@@ -1422,10 +1418,10 @@ public class OldMainActivityPeer implements MainActivityPeer, FragmentUtilListen
 
     void disableNewVoicemailFragment() {
       LogUtil.i("MainBottomNavBarBottomNavTabListener.disableNewVoicemailFragment", "disabled");
-      android.support.v4.app.Fragment supportFragment =
-          supportFragmentManager.findFragmentByTag(VOICEMAIL_TAG);
+      androidx.fragment.app.Fragment supportFragment =
+          fragmentManager.findFragmentByTag(VOICEMAIL_TAG);
       if (supportFragment != null) {
-        supportFragmentManager.beginTransaction().remove(supportFragment).commitAllowingStateLoss();
+        fragmentManager.beginTransaction().remove(supportFragment).commitAllowingStateLoss();
         // If the NewVoicemailFragment was showing, immediately show the old voicemail fragment
         // instead.
         if (selectedTab == TabIndex.VOICEMAIL) {
@@ -1439,8 +1435,8 @@ public class OldMainActivityPeer implements MainActivityPeer, FragmentUtilListen
     }
 
     void ensureCorrectCallLogShown() {
-      android.support.v4.app.Fragment supportFragment =
-          supportFragmentManager.findFragmentByTag(CALL_LOG_TAG);
+      androidx.fragment.app.Fragment supportFragment =
+          fragmentManager.findFragmentByTag(CALL_LOG_TAG);
       if (supportFragment != null
           && !CallLogConfigComponent.get(activity).callLogConfig().isNewCallLogFragmentEnabled()) {
         LogUtil.i("MainBottomNavBarBottomNavTabListener.ensureCorrectCallLogShown", "disabling");
@@ -1449,8 +1445,8 @@ public class OldMainActivityPeer implements MainActivityPeer, FragmentUtilListen
     }
 
     void ensureCorrectVoicemailShown() {
-      android.support.v4.app.Fragment supportFragment =
-          supportFragmentManager.findFragmentByTag(VOICEMAIL_TAG);
+      androidx.fragment.app.Fragment supportFragment =
+          fragmentManager.findFragmentByTag(VOICEMAIL_TAG);
       if (supportFragment != null
           && !CallLogConfigComponent.get(activity)
               .callLogConfig()
@@ -1461,17 +1457,15 @@ public class OldMainActivityPeer implements MainActivityPeer, FragmentUtilListen
     }
 
     boolean newCallLogFragmentActive() {
-      return supportFragmentManager.findFragmentByTag(CALL_LOG_TAG) != null
-          || (fragmentManager.findFragmentByTag(CALL_LOG_TAG) == null
-              && CallLogConfigComponent.get(activity)
+      return fragmentManager.findFragmentByTag(CALL_LOG_TAG) != null
+          || (CallLogConfigComponent.get(activity)
                   .callLogConfig()
                   .isNewCallLogFragmentEnabled());
     }
 
     boolean newVoicemailFragmentActive() {
-      return supportFragmentManager.findFragmentByTag(VOICEMAIL_TAG) != null
-          || (fragmentManager.findFragmentByTag(VOICEMAIL_TAG) == null
-              && CallLogConfigComponent.get(activity)
+      return fragmentManager.findFragmentByTag(VOICEMAIL_TAG) != null
+          || (CallLogConfigComponent.get(activity)
                   .callLogConfig()
                   .isNewVoicemailFragmentEnabled());
     }
@@ -1501,9 +1495,8 @@ public class OldMainActivityPeer implements MainActivityPeer, FragmentUtilListen
       selectedTab = TabIndex.VOICEMAIL;
 
       if (CallLogConfigComponent.get(activity).callLogConfig().isNewVoicemailFragmentEnabled()) {
-        android.support.v4.app.Fragment supportFragment =
-            supportFragmentManager.findFragmentByTag(VOICEMAIL_TAG);
-        showSupportFragment(
+        Fragment supportFragment = fragmentManager.findFragmentByTag(VOICEMAIL_TAG);
+        showFragment(
             supportFragment == null ? new NewVoicemailFragment() : supportFragment, VOICEMAIL_TAG);
       } else {
         VisualVoicemailCallLogFragment fragment =
@@ -1517,14 +1510,10 @@ public class OldMainActivityPeer implements MainActivityPeer, FragmentUtilListen
       }
     }
 
-    private void showFragment(@NonNull Fragment fragment, String tag) {
-      showFragment(fragment, null, tag);
-    }
-
     /**
      * Shows the passed in fragment and hides all of the others in one transaction.
      *
-     * <p>Exactly one of fragment or supportFragment should be provided.
+     * <p>Exactly one of fragment should be provided.
      *
      * <p>Executes all fragment shows/hides in one transaction with no conflicting transactions
      * (like showing and hiding the same fragment in the same transaction). See a bug.
@@ -1532,21 +1521,18 @@ public class OldMainActivityPeer implements MainActivityPeer, FragmentUtilListen
      * <p>Special care should be taken to avoid calling this method several times in a short window
      * as it can lead to fragments overlapping.
      */
-    private void showFragment(
-        @Nullable Fragment fragment,
-        @Nullable android.support.v4.app.Fragment supportFragment,
-        String tag) {
+    private void showFragment(@Nullable Fragment fragment, String tag) {
       LogUtil.enterBlock("MainBottomNavBarBottomNavTabListener.showFragment");
-      Fragment oldSpeedDial = fragmentManager.findFragmentByTag(SPEED_DIAL_TAG);
-      Fragment oldCallLog = fragmentManager.findFragmentByTag(CALL_LOG_TAG);
+      Fragment speedDial = fragmentManager.findFragmentByTag(SPEED_DIAL_TAG);
+      Fragment callLog = fragmentManager.findFragmentByTag(CALL_LOG_TAG);
       Fragment contacts = fragmentManager.findFragmentByTag(CONTACTS_TAG);
-      Fragment oldVoicemail = fragmentManager.findFragmentByTag(VOICEMAIL_TAG);
+      Fragment voicemail = fragmentManager.findFragmentByTag(VOICEMAIL_TAG);
 
       FragmentTransaction transaction = fragmentManager.beginTransaction();
-      boolean fragmentShown = showIfEqualElseHide(transaction, fragment, oldSpeedDial);
-      fragmentShown |= showIfEqualElseHide(transaction, fragment, oldCallLog);
+      boolean fragmentShown = showIfEqualElseHide(transaction, fragment, speedDial);
+      fragmentShown |= showIfEqualElseHide(transaction, fragment, callLog);
       fragmentShown |= showIfEqualElseHide(transaction, fragment, contacts);
-      fragmentShown |= showIfEqualElseHide(transaction, fragment, oldVoicemail);
+      fragmentShown |= showIfEqualElseHide(transaction, fragment, voicemail);
 
       if (!fragmentShown && fragment != null) {
         LogUtil.i(
@@ -1556,39 +1542,6 @@ public class OldMainActivityPeer implements MainActivityPeer, FragmentUtilListen
       if (activity.isSafeToCommitTransactions()) {
         transaction.commit();
       }
-
-      // Handle support fragments.
-      // TODO(calderwoodra): Handle other new fragments.
-      android.support.v4.app.Fragment speedDial =
-          supportFragmentManager.findFragmentByTag(SPEED_DIAL_TAG);
-      android.support.v4.app.Fragment newCallLog =
-          supportFragmentManager.findFragmentByTag(CALL_LOG_TAG);
-      android.support.v4.app.Fragment newVoicemail =
-          supportFragmentManager.findFragmentByTag(VOICEMAIL_TAG);
-
-      android.support.v4.app.FragmentTransaction supportTransaction =
-          supportFragmentManager.beginTransaction();
-      boolean supportFragmentShown =
-          showIfEqualElseHideSupport(supportTransaction, supportFragment, speedDial);
-      supportFragmentShown |=
-          showIfEqualElseHideSupport(supportTransaction, supportFragment, newCallLog);
-      supportFragmentShown |=
-          showIfEqualElseHideSupport(supportTransaction, supportFragment, newVoicemail);
-
-      if (!supportFragmentShown && supportFragment != null) {
-        LogUtil.i(
-            "MainBottomNavBarBottomNavTabListener.showFragment",
-            "Not added yet: " + supportFragment);
-        supportTransaction.add(R.id.fragment_container, supportFragment, tag);
-      }
-      if (activity.isSafeToCommitTransactions()) {
-        supportTransaction.commit();
-      }
-    }
-
-    private void showSupportFragment(
-        @NonNull android.support.v4.app.Fragment supportFragment, String tag) {
-      showFragment(null, supportFragment, tag);
     }
 
     /**
@@ -1597,36 +1550,15 @@ public class OldMainActivityPeer implements MainActivityPeer, FragmentUtilListen
      * @return {@code true} if {@code fragment1} was shown
      */
     private boolean showIfEqualElseHide(
-        FragmentTransaction transaction, Fragment fragment1, Fragment fragment2) {
+        FragmentTransaction transaction,
+        Fragment fragment1,
+        Fragment fragment2) {
       boolean shown = false;
       if (fragment1 != null && fragment1.equals(fragment2)) {
         transaction.show(fragment1);
         shown = true;
       } else if (fragment2 != null) {
-        if (fragment2 instanceof VisualVoicemailCallLogFragment) {
-          fragment2.setUserVisibleHint(false);
-          ((VisualVoicemailCallLogFragment) fragment2).onNotVisible();
-        }
         transaction.hide(fragment2);
-      }
-      return shown;
-    }
-
-    /**
-     * @param supportFragment1 will be shown if equal to {@code fragment2}
-     * @param supportFragment2 will be hidden if unequal to {@code fragment1}
-     * @return {@code true} if {@code fragment1} was shown
-     */
-    private boolean showIfEqualElseHideSupport(
-        android.support.v4.app.FragmentTransaction supportTransaction,
-        android.support.v4.app.Fragment supportFragment1,
-        android.support.v4.app.Fragment supportFragment2) {
-      boolean shown = false;
-      if (supportFragment1 != null && supportFragment1.equals(supportFragment2)) {
-        supportTransaction.show(supportFragment1);
-        shown = true;
-      } else if (supportFragment2 != null) {
-        supportTransaction.hide(supportFragment2);
       }
       return shown;
     }

@@ -20,12 +20,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract.Contacts;
-import android.support.annotation.IntDef;
-import android.support.v4.util.ArrayMap;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.IntDef;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.collection.ArrayMap;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.R;
 import com.android.dialer.common.Assert;
@@ -34,6 +35,7 @@ import com.android.dialer.contactphoto.ContactPhotoManager;
 import com.android.dialer.contactsfragment.ContactsFragment.Header;
 import com.android.dialer.contactsfragment.ContactsFragment.OnContactSelectedListener;
 import com.android.dialer.lettertile.LetterTileDrawable;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 

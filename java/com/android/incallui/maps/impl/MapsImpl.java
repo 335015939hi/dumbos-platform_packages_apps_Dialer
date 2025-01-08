@@ -17,9 +17,12 @@
 package com.android.incallui.maps.impl;
 
 import android.location.Location;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+
+import androidx.fragment.app.Fragment;
+
 import com.android.incallui.maps.Maps;
+
 import javax.inject.Inject;
 
 /** Uses Google Play Services APIs to create a static map fragment. */

@@ -27,13 +27,15 @@ import android.net.Uri;
 import android.os.Build.VERSION_CODES;
 import android.provider.VoicemailContract;
 import android.provider.VoicemailContract.Voicemails;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.os.BuildCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+
+import androidx.core.os.BuildCompat;
+
 import com.android.voicemail.VoicemailComponent;
 import com.android.voicemail.impl.VoicemailStatus;
 import com.android.voicemail.impl.VvmLog;
@@ -41,6 +43,7 @@ import com.android.voicemail.impl.imap.ImapHelper;
 import com.android.voicemail.impl.imap.ImapHelper.InitializingException;
 import com.android.voicemail.impl.sync.VvmAccountManager;
 import com.android.voicemail.impl.sync.VvmNetworkRequestCallback;
+
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 

@@ -29,10 +29,6 @@ import android.hardware.display.DisplayManager;
 import android.os.BatteryManager;
 import android.os.Handler;
 import android.os.Trace;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.telecom.Call.Details;
 import android.telecom.StatusHints;
 import android.telecom.TelecomManager;
@@ -43,6 +39,11 @@ import android.view.Display;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 import com.android.R;
 import com.android.contacts.common.ContactsUtils;
@@ -78,6 +79,7 @@ import com.android.incallui.incall.protocol.PrimaryCallState.ButtonState;
 import com.android.incallui.incall.protocol.PrimaryInfo;
 import com.android.incallui.incall.protocol.SecondaryInfo;
 import com.android.incallui.videotech.utils.SessionModificationState;
+
 import java.lang.ref.WeakReference;
 
 /**

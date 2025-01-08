@@ -25,13 +25,14 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.NotificationCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+
+import androidx.core.app.NotificationCompat;
 
 import com.android.R;
 import com.android.contacts.common.util.ContactDisplayUtils;
@@ -48,6 +49,7 @@ import com.android.dialer.notification.NotificationManagerUtils;
 import com.android.dialer.phonenumbercache.ContactInfo;
 import com.android.dialer.telecom.TelecomUtil;
 import com.android.dialer.theme.base.ThemeComponent;
+
 import java.util.List;
 import java.util.Map;
 

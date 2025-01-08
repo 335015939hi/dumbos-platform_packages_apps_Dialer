@@ -20,8 +20,10 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.v4.content.FileProvider;
+import androidx.annotation.NonNull;
+
+import androidx.core.content.FileProvider;
+
 import com.android.dialer.callcomposer.camera.ImagePersistWorker.Result;
 import com.android.dialer.callcomposer.camera.exif.ExifInterface;
 import com.android.dialer.callcomposer.util.BitmapResizer;
@@ -30,6 +32,7 @@ import com.android.dialer.common.concurrent.DialerExecutor.Worker;
 import com.android.dialer.constants.Constants;
 import com.android.dialer.util.DialerUtils;
 import com.google.auto.value.AutoValue;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;

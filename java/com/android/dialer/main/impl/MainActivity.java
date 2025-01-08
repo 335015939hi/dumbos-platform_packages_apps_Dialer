@@ -19,7 +19,7 @@ package com.android.dialer.main.impl;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.LocalBroadcastManager;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.android.R;
 import com.android.dialer.blockreportspam.ShowBlockReportSpamDialogReceiver;

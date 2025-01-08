@@ -26,13 +26,14 @@ import android.net.Uri;
 import android.os.Build;
 import android.provider.CallLog.Calls;
 import android.provider.VoicemailContract.Voicemails;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.annotation.WorkerThread;
-import android.support.v4.os.UserManagerCompat;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.annotation.WorkerThread;
+import androidx.core.os.UserManagerCompat;
 
 import com.android.R;
 import com.android.dialer.calllogutils.PhoneNumberDisplayUtil;
@@ -45,6 +46,7 @@ import com.android.dialer.phonenumbercache.ContactInfo;
 import com.android.dialer.phonenumbercache.ContactInfoHelper;
 import com.android.dialer.phonenumberutil.PhoneNumberHelper;
 import com.android.dialer.util.PermissionsUtil;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

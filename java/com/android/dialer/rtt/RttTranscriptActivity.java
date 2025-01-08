@@ -19,11 +19,12 @@ package com.android.dialer.rtt;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
 import android.view.MenuItem;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.R;
 import com.android.dialer.common.Assert;
@@ -70,7 +71,7 @@ public class RttTranscriptActivity extends AppCompatActivity {
 
     rttTranscriptUiListener =
         DialerExecutorComponent.get(this)
-            .createUiListener(getFragmentManager(), "Load RTT transcript");
+            .createUiListener(getSupportFragmentManager(), "Load RTT transcript");
     handleIntent(getIntent());
   }
 

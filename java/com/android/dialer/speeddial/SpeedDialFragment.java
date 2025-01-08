@@ -26,19 +26,20 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.Contacts;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.R;
 import com.android.dialer.callintent.CallInitiationType;
@@ -48,8 +49,8 @@ import com.android.dialer.common.FragmentUtils;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.common.concurrent.DefaultFutureCallback;
 import com.android.dialer.common.concurrent.DialerExecutorComponent;
-import com.android.dialer.common.concurrent.SupportUiListener;
 import com.android.dialer.common.concurrent.ThreadUtil;
+import com.android.dialer.common.concurrent.UiListener;
 import com.android.dialer.constants.ActivityRequestCodes;
 import com.android.dialer.historyitemactions.DividerModule;
 import com.android.dialer.historyitemactions.HistoryItemActionBottomSheet;
@@ -75,6 +76,7 @@ import com.android.dialer.widget.EmptyContentView;
 import com.android.dialer.widget.EmptyContentView.OnEmptyViewActionButtonClickedListener;
 import com.google.common.collect.ImmutableList;
 import com.google.common.util.concurrent.Futures;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -119,7 +121,7 @@ public class SpeedDialFragment extends Fragment {
   private final SpeedDialSuggestedListener suggestedListener = new SpeedDialSuggestedListener();
 
   private SpeedDialAdapter adapter;
-  private SupportUiListener<ImmutableList<SpeedDialUiItem>> speedDialLoaderListener;
+  private UiListener<ImmutableList<SpeedDialUiItem>> speedDialLoaderListener;
   private SpeedDialFavoritesListener favoritesListener;
 
   private EmptyContentView emptyContentView;
@@ -351,7 +353,7 @@ public class SpeedDialFragment extends Fragment {
     private final FragmentManager childFragmentManager;
     private final SpeedDialLayoutManager layoutManager;
     private final UpdateSpeedDialAdapterListener updateAdapterListener;
-    private final SupportUiListener<ImmutableList<SpeedDialUiItem>> speedDialLoaderListener;
+    private final UiListener<ImmutableList<SpeedDialUiItem>> speedDialLoaderListener;
 
     private final SpeedDialContextMenuItemListener speedDialContextMenuItemListener =
         new SpeedDialContextMenuItemListener();
@@ -363,7 +365,7 @@ public class SpeedDialFragment extends Fragment {
         FragmentManager childFragmentManager,
         SpeedDialLayoutManager layoutManager,
         UpdateSpeedDialAdapterListener updateAdapterListener,
-        SupportUiListener<ImmutableList<SpeedDialUiItem>> speedDialLoaderListener) {
+        UiListener<ImmutableList<SpeedDialUiItem>> speedDialLoaderListener) {
       this.activity = activity;
       this.childFragmentManager = childFragmentManager;
       this.layoutManager = layoutManager;

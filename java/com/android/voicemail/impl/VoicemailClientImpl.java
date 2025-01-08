@@ -19,15 +19,17 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build.VERSION_CODES;
 import android.os.PersistableBundle;
-import android.preference.PreferenceManager;
 import android.provider.VoicemailContract.Status;
 import android.provider.VoicemailContract.Voicemails;
-import android.support.annotation.MainThread;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.os.BuildCompat;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.TelephonyManager;
+
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.os.BuildCompat;
+import androidx.preference.PreferenceManager;
+
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.configprovider.ConfigProviderComponent;
@@ -40,7 +42,9 @@ import com.android.voicemail.impl.settings.VisualVoicemailSettingsUtil;
 import com.android.voicemail.impl.sync.VvmAccountManager;
 import com.android.voicemail.impl.transcribe.TranscriptionBackfillService;
 import com.android.voicemail.impl.transcribe.TranscriptionConfigProvider;
+
 import java.util.List;
+
 import javax.inject.Inject;
 
 /**

@@ -22,8 +22,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.TelephonyManager;
 import android.text.Layout;
@@ -36,6 +34,9 @@ import android.text.style.URLSpan;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import androidx.annotation.Nullable;
+import androidx.preference.PreferenceManager;
+
 import com.android.R;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.compat.telephony.TelephonyManagerCompat;
@@ -47,6 +48,7 @@ import com.android.voicemail.VisualVoicemailTypeExtensions;
 import com.android.voicemail.VoicemailClient;
 import com.android.voicemail.VoicemailComponent;
 import com.android.voicemail.VoicemailVersionConstants;
+
 import java.util.Locale;
 
 /**

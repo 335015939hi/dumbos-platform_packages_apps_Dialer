@@ -21,12 +21,15 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
-import android.support.annotation.Nullable;
-import android.support.v4.os.BuildCompat;
+import androidx.annotation.Nullable;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.TelephonyManager;
+
+import androidx.core.os.BuildCompat;
+
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.telecom.TelecomUtil;
+
 import java.lang.reflect.InvocationTargetException;
 
 /** Hidden APIs in {@link android.telephony.TelephonyManager}. */

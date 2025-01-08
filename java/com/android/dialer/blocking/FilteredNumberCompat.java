@@ -16,19 +16,21 @@
 
 package com.android.dialer.blocking;
 
-import android.app.FragmentManager;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.preference.PreferenceManager;
 import android.provider.BlockedNumberContract;
 import android.provider.BlockedNumberContract.BlockedNumbers;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
 import android.telecom.TelecomManager;
 import android.telephony.PhoneNumberUtils;
+
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.fragment.app.FragmentManager;
+import androidx.preference.PreferenceManager;
+
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.configprovider.ConfigProviderComponent;
 import com.android.dialer.database.FilteredNumberContract.FilteredNumber;
@@ -37,6 +39,7 @@ import com.android.dialer.database.FilteredNumberContract.FilteredNumberSources;
 import com.android.dialer.database.FilteredNumberContract.FilteredNumberTypes;
 import com.android.dialer.strictmode.StrictModeUtils;
 import com.android.dialer.telecom.TelecomUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;

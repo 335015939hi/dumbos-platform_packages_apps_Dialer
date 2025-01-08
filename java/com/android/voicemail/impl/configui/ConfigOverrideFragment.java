@@ -20,19 +20,19 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.PersistableBundle;
-import android.preference.EditTextPreference;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
-import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.preference.EditTextPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceManager;
+import androidx.preference.SwitchPreference;
 
 import com.android.R;
 import com.android.dialer.common.Assert;
@@ -44,8 +44,8 @@ import com.android.voicemail.VoicemailComponent;
  * Fragment to edit the override values for the {@link import
  * com.android.voicemail.impl.OmtpVvmCarrierConfigHelper}
  */
-public class ConfigOverrideFragment extends PreferenceFragment
-    implements OnPreferenceChangeListener {
+public class ConfigOverrideFragment extends PreferenceFragmentCompat
+    implements Preference.OnPreferenceChangeListener {
 
   /**
    * Any preference with key that starts with this prefix will be written to the dialer carrier
@@ -55,8 +55,7 @@ public class ConfigOverrideFragment extends PreferenceFragment
   public static final String CONFIG_OVERRIDE_KEY_PREFIX = "vvm_config_override_key_";
 
   @Override
-  public void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
+  public void onCreatePreferences(@Nullable Bundle savedInstanceState, @Nullable String rootKey) {
     PreferenceManager.setDefaultValues(getActivity(), R.xml.vvm_config_override, false);
     addPreferencesFromResource(R.xml.vvm_config_override);
 
@@ -83,12 +82,12 @@ public class ConfigOverrideFragment extends PreferenceFragment
   }
 
   @Override
-  public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+  public boolean onPreferenceTreeClick(@NonNull Preference preference) {
     if (TextUtils.equals(
-        preference.getKey(), getString(R.string.vvm_config_override_load_current_key))) {
+            preference.getKey(), getString(R.string.vvm_config_override_load_current_key))) {
       loadCurrentConfig();
     }
-    return super.onPreferenceTreeClick(preferenceScreen, preference);
+    return super.onPreferenceTreeClick(preference);
   }
 
   /**

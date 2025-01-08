@@ -18,7 +18,7 @@ package com.android.dialer.promotion.impl;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 
 import com.android.R;
 import com.android.dialer.configprovider.ConfigProvider;

@@ -17,11 +17,14 @@
 package com.android.dialer.searchfragment.common;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v4.util.SimpleArrayMap;
+import androidx.annotation.NonNull;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
+
+import androidx.collection.SimpleArrayMap;
+
 import com.android.dialer.dialpadview.DialpadCharMappings;
+
 import java.util.regex.Pattern;
 
 /** Utility class for filtering, comparing and handling strings and queries. */

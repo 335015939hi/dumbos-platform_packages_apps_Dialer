@@ -20,9 +20,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.annotation.Nullable;
-import android.support.design.widget.BaseTransientBottomBar.BaseCallback;
-import android.support.design.widget.Snackbar;
+import androidx.annotation.Nullable;
 import android.telephony.TelephonyManager;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -41,6 +39,8 @@ import com.android.dialer.performancereport.PerformanceReport;
 import com.android.dialer.storage.StorageComponent;
 import com.android.dialer.util.DialerUtils;
 import com.android.dialer.util.IntentUtil;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 
 /** Helper class to handle all post call actions. */
 public class PostCall {
@@ -138,7 +138,7 @@ public class PostCall {
             .setActionTextColor(
                 activity.getResources().getColor(R.color.dialer_snackbar_action_text_color))
             .addCallback(
-                new BaseCallback<Snackbar>() {
+                new BaseTransientBottomBar.BaseCallback<Snackbar>() {
                   @Override
                   public void onDismissed(Snackbar snackbar, int i) {
                     super.onDismissed(snackbar, i);

@@ -16,21 +16,22 @@
 
 package com.android.dialer.app.list;
 
-import static android.support.v4.view.ViewPager.SCROLL_STATE_SETTLING;
+import static androidx.viewpager.widget.ViewPager.SCROLL_STATE_SETTLING;
 
-import android.app.Fragment;
 import android.content.SharedPreferences;
 import android.database.ContentObserver;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Trace;
-import android.preference.PreferenceManager;
 import android.provider.VoicemailContract;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
+import androidx.preference.PreferenceManager;
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
 
 import com.android.R;
 import com.android.contacts.common.list.ViewPagerTabs;
@@ -51,6 +52,7 @@ import com.android.dialer.voicemail.listui.error.VoicemailStatusCorruptionHandle
 import com.android.dialer.voicemail.listui.error.VoicemailStatusCorruptionHandler.Source;
 import com.android.dialer.voicemailstatus.VisualVoicemailEnabledChecker;
 import com.android.dialer.voicemailstatus.VoicemailStatusHelper;
+
 import java.util.ArrayList;
 
 /**

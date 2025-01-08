@@ -21,9 +21,11 @@ import android.location.Location;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Handler;
-import android.support.annotation.IntDef;
-import android.support.annotation.MainThread;
-import android.support.v4.os.UserManagerCompat;
+import androidx.annotation.IntDef;
+import androidx.annotation.MainThread;
+
+import androidx.core.os.UserManagerCompat;
+
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.util.PermissionsUtil;
@@ -31,6 +33,7 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;

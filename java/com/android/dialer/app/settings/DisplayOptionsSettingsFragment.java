@@ -17,15 +17,16 @@
 package com.android.dialer.app.settings;
 
 import android.os.Bundle;
-import android.preference.PreferenceFragment;
+
+import androidx.annotation.Nullable;
+import androidx.preference.PreferenceFragment;
 
 import com.android.R;
 
 public class DisplayOptionsSettingsFragment extends PreferenceFragment {
 
   @Override
-  public void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
+  public void onCreatePreferences(@Nullable Bundle savedInstanceState, String rootKey) {
     addPreferencesFromResource(R.xml.display_options_settings);
   }
 }

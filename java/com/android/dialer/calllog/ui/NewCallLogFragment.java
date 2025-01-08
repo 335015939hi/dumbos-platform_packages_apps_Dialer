@@ -18,18 +18,19 @@ package com.android.dialer.calllog.ui;
 import android.app.Activity;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.app.LoaderManager.LoaderCallbacks;
-import android.support.v4.content.Loader;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.app.LoaderManager.LoaderCallbacks;
+import androidx.loader.content.Loader;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.R;
 import com.android.dialer.calllog.CallLogComponent;
@@ -41,8 +42,8 @@ import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.common.concurrent.DefaultFutureCallback;
 import com.android.dialer.common.concurrent.DialerExecutorComponent;
-import com.android.dialer.common.concurrent.SupportUiListener;
 import com.android.dialer.common.concurrent.ThreadUtil;
+import com.android.dialer.common.concurrent.UiListener;
 import com.android.dialer.metrics.Metrics;
 import com.android.dialer.metrics.MetricsComponent;
 import com.android.dialer.metrics.jank.RecyclerViewJankLogger;
@@ -55,6 +56,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.MoreExecutors;
+
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
@@ -70,7 +72,7 @@ public final class NewCallLogFragment extends Fragment implements LoaderCallback
   private RecyclerView recyclerView;
   private EmptyContentView emptyContentView;
   private RefreshAnnotatedCallLogReceiver refreshAnnotatedCallLogReceiver;
-  private SupportUiListener<ImmutableList<CoalescedRow>> coalesingAnnotatedCallLogListener;
+  private UiListener<ImmutableList<CoalescedRow>> coalesingAnnotatedCallLogListener;
 
   private boolean shouldMarkCallsRead = false;
   private final Runnable setShouldMarkCallsReadTrue = () -> shouldMarkCallsRead = true;
@@ -196,7 +198,7 @@ public final class NewCallLogFragment extends Fragment implements LoaderCallback
    *
    * <ul>
    *   <li>hide the fragment but keep the parent activity visible (e.g., calling {@link
-   *       android.support.v4.app.FragmentTransaction#hide(Fragment)} in an activity, or
+   *       androidx.fragment.app.FragmentTransaction#hide(Fragment)} in an activity, or
    *   <li>the parent activity is paused.
    * </ul>
    */

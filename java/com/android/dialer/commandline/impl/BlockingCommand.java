@@ -17,7 +17,9 @@
 package com.android.dialer.commandline.impl;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
+
 import com.android.dialer.DialerPhoneNumber;
 import com.android.dialer.blocking.Blocking;
 import com.android.dialer.commandline.Arguments;
@@ -33,6 +35,7 @@ import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
+
 import javax.inject.Inject;
 
 /** Block or unblock a number. */

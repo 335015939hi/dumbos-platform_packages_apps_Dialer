@@ -18,22 +18,23 @@ package com.android.dialer.calldetails;
 
 import android.Manifest.permission;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.CallLog;
 import android.provider.CallLog.Calls;
-import android.support.annotation.CallSuper;
-import android.support.annotation.MainThread;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresPermission;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
+
+import androidx.annotation.CallSuper;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresPermission;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.R;
 import com.android.dialer.assisteddialing.ui.AssistedDialingSettingActivity;
@@ -66,6 +67,7 @@ import com.google.common.collect.ImmutableSet;
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
+
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -130,7 +132,7 @@ abstract class CallDetailsActivityCommon extends AppCompatActivity {
         });
     checkRttTranscriptAvailabilityListener =
         DialerExecutorComponent.get(this)
-            .createUiListener(getFragmentManager(), "Query RTT transcript availability");
+            .createUiListener(getSupportFragmentManager(), "Query RTT transcript availability");
     handleIntent(getIntent());
     setupRecyclerViewForEntries();
   }
@@ -368,7 +370,7 @@ abstract class CallDetailsActivityCommon extends AppCompatActivity {
       DialerExecutorComponent.get(getActivity().getApplicationContext())
           .dialerExecutorFactory()
           .createUiTaskBuilder(
-              getActivity().getFragmentManager(),
+              getActivity().getSupportFragmentManager(),
               "CallDetailsActivityCommon.createAssistedDialerNumberParserTask",
               new AssistedDialingNumberParseWorker())
           .onSuccess(successListener)
@@ -437,16 +439,16 @@ abstract class CallDetailsActivityCommon extends AppCompatActivity {
 
   private static final class ReportCallIdListener
       implements CallDetailsFooterViewHolder.ReportCallIdListener {
-    private final WeakReference<Activity> activityWeakReference;
+    private final WeakReference<FragmentActivity> activityWeakReference;
 
-    ReportCallIdListener(Activity activity) {
+    ReportCallIdListener(FragmentActivity activity) {
       this.activityWeakReference = new WeakReference<>(activity);
     }
 
     @Override
     public void reportCallId(String number) {
       ReportDialogFragment.newInstance(number)
-          .show(getActivity().getFragmentManager(), null /* tag */);
+          .show(getActivity().getSupportFragmentManager(), null /* tag */);
     }
 
     @Override
@@ -454,7 +456,7 @@ abstract class CallDetailsActivityCommon extends AppCompatActivity {
       return getActivity().getIntent().getExtras().getBoolean(EXTRA_CAN_REPORT_CALLER_ID, false);
     }
 
-    private Activity getActivity() {
+    private FragmentActivity getActivity() {
       return Preconditions.checkNotNull(activityWeakReference.get());
     }
   }

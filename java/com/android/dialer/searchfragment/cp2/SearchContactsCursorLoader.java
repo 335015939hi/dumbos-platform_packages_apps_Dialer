@@ -17,16 +17,17 @@
 package com.android.dialer.searchfragment.cp2;
 
 import android.content.Context;
-import android.content.CursorLoader;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.database.MergeCursor;
 import android.net.Uri;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.Directory;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
+
+import androidx.loader.content.CursorLoader;
 
 import com.android.R;
 import com.android.dialer.common.LogUtil;
