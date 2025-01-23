@@ -25,6 +25,10 @@ include(":product")
 
 include(":incallui:resources")
 
+include(":contacts-common")
+
 include(":bubble")
 
 include(":voicemail")
+
+include(":lib:platform_frameworks_ex:common")

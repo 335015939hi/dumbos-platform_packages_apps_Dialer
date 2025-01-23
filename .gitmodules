@@ -1,0 +1,4 @@
+[submodule "lib/platform_frameworks_ex"]
+	path = lib/platform_frameworks_ex
+	url = https://github.com/GrapheneOS-Archive/platform_frameworks_ex.git
+	branch = main

@@ -15,7 +15,7 @@
 -->
 
 <!-- A layout representing key "1" in the dialpad -->
-<com.android.dialer.dialpadview.DialpadKeyButton
+<com.android.contacts.common.dialpadview.DialpadKeyButton
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/one"
     style="@style/DialpadKeyButtonStyle">
@@ -24,7 +24,7 @@
       android:id="@+id/dialpad_key_layout"
       style="@style/DialpadKeyInternalLayoutStyle">
 
-    <com.android.dialer.dialpadview.DialpadTextView
+    <com.android.contacts.common.dialpadview.DialpadTextView
         android:id="@+id/dialpad_key_number"
         style="@style/DialpadKeyNumberStyle"/>
 
@@ -49,4 +49,4 @@
           android:tint="?colorIcon"/>
     </LinearLayout>
   </LinearLayout>
-</com.android.dialer.dialpadview.DialpadKeyButton>
+</com.android.contacts.common.dialpadview.DialpadKeyButton>
