@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2012 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License
+  -->
+<resources>
+
+  <declare-styleable name="SearchEditTextLayout"/>
+
+  <attr format="reference" name="dialpad_style"/>
+  <attr format="dimension" name="dialpad_end_key_spacing"/>
+
+  <declare-styleable name="Dialpad">
+    <attr format="color" name="dialpad_key_button_touch_tint"/>
+    <attr format="dimension" name="dialpad_digits_adjustable_text_size"/>
+    <attr format="dimension" name="dialpad_digits_adjustable_height"/>
+    <attr format="dimension" name="dialpad_key_letters_size_for_dual_alphabets"/>
+    <attr format="dimension" name="dialpad_key_letters_size_for_single_alphabet"/>
+    <attr format="dimension" name="dialpad_key_numbers_size"/>
+    <attr format="dimension" name="dialpad_key_number_margin_bottom"/>
+  </declare-styleable>
+
+  <declare-styleable name="Theme.Dialpad">
+    <attr format="color" name="dialpad_text_color"/>
+    <attr format="color" name="dialpad_text_color_primary"/>
+    <attr format="color" name="dialpad_text_color_secondary"/>
+    <attr format="color" name="dialpad_background"/>
+    <attr format="dimension" name="dialpad_elevation"/>
+  </declare-styleable>
+
+  <declare-styleable name="CallTypeIconsView">
+    <!-- This attribute is used to let CallTypeIconsView know that we want to use large
+    icons (Call Details) instead of small icons (Call Log). Using large icons also limits
+    CallTypeIconsView to only use one icon at a time. -->
+    <attr name="useLargeIcons" format="boolean" />
+  </declare-styleable>
+
+  <declare-styleable name="SwitchPreferenceWithClickableSummary">
+    <attr name="urlToOpen" format="string"/>
+  </declare-styleable>
+
+  <declare-styleable name="Theme">
+    <attr name="android:textColorSecondary"/>
+  </declare-styleable>
+
+  <declare-styleable name="ContactsDataKind">
+    <!-- Mime-type handled by this mapping. -->
+    <attr name="android:mimeType"/>
+    <!-- Icon used to represent data of this kind. -->
+    <attr name="android:icon"/>
+    <!-- Column in data table that summarizes this data. -->
+    <attr name="android:summaryColumn"/>
+    <!-- Column in data table that contains details for this data. -->
+    <attr name="android:detailColumn"/>
+    <!-- Flag indicating that detail should be built from SocialProvider. -->
+    <attr name="android:detailSocialSummary"/>
+    <!-- Resource representing the term "All Contacts" (e.g. "All Friends" or
+    "All connections"). Optional (Default is "All Contacts"). -->
+    <attr name="android:allContactsName"/>
+  </declare-styleable>
+
+  <declare-styleable name="ContactListItemView">
+    <attr format="dimension" name="list_item_height"/>
+    <attr format="dimension" name="list_section_header_height"/>
+    <attr format="reference" name="activated_background"/>
+    <attr format="reference" name="section_header_background"/>
+    <attr format="dimension" name="list_item_padding_top"/>
+    <attr format="dimension" name="list_item_padding_right"/>
+    <attr format="dimension" name="list_item_padding_bottom"/>
+    <attr format="dimension" name="list_item_padding_left"/>
+    <attr format="dimension" name="list_item_gap_between_image_and_text"/>
+    <attr format="dimension" name="list_item_gap_between_label_and_data"/>
+    <attr format="dimension" name="list_item_presence_icon_margin"/>
+    <attr format="dimension" name="list_item_presence_icon_size"/>
+    <attr format="dimension" name="list_item_photo_size"/>
+    <attr format="dimension" name="list_item_profile_photo_size"/>
+    <attr format="color" name="list_item_prefix_highlight_color"/>
+    <attr format="color" name="list_item_background_color"/>
+    <attr format="dimension" name="list_item_header_text_indent"/>
+    <attr format="color" name="list_item_header_text_color"/>
+    <attr format="dimension" name="list_item_header_text_size"/>
+    <attr format="dimension" name="list_item_header_height"/>
+    <attr format="color" name="list_item_name_text_color"/>
+    <attr format="dimension" name="list_item_name_text_size"/>
+    <attr format="dimension" name="list_item_text_indent"/>
+    <attr format="dimension" name="list_item_text_offset_top"/>
+    <attr format="integer" name="list_item_data_width_weight"/>
+    <attr format="integer" name="list_item_label_width_weight"/>
+    <attr format="dimension" name="list_item_video_call_icon_size"/>
+    <attr format="dimension" name="list_item_video_call_icon_margin"/>
+  </declare-styleable>
+
+  <declare-styleable name="ContactBrowser">
+    <attr format="dimension" name="contact_browser_list_padding_left"/>
+    <attr format="dimension" name="contact_browser_list_padding_right"/>
+    <attr format="reference" name="contact_browser_background"/>
+  </declare-styleable>
+
+  <declare-styleable name="ProportionalLayout">
+    <attr format="string" name="direction"/>
+    <attr format="float" name="ratio"/>
+  </declare-styleable>
+
+  <declare-styleable name="Favorites">
+    <attr format="dimension" name="favorites_padding_bottom"/>
+  </declare-styleable>
+
+  <!-- Used to color the search bar background -->
+  <attr name="colorBackgroundSearchBar" format="color"/>
+  <!-- Used to style all icons in Dialer. -->
+  <attr name="colorIcon" format="color"/>
+  <!-- Used to style some icons a little lighter in Dialer. -->
+  <attr name="colorIconSecondary" format="color"/>
+  <!-- Used to color text on dark backgrounds. White in Light Theme. -->
+  <attr name="colorTextOnUnthemedDarkBackground" format="color"/>
+  <!-- Used to color icons on dark backgrounds. White in Light Theme. -->
+  <attr name="colorIconOnUnthemedDarkBackground" format="color"/>
+  <!-- Used to color the background of chat bubbles we send -->
+  <attr name="colorMobileOriginatingChatBackground" format="color"/>
+  <!-- Used to color the text in chat bubbles we send -->
+  <attr name="colorMobileOriginatingChatText" format="color"/>
+  <!-- Used to color the background of chat bubbles we receive -->
+  <attr name="colorMobileTerminatingChatBackground" format="color"/>
+  <!-- Used to color the text in chat bubbles we receive -->
+  <attr name="colorMobileTerminatingChatText" format="color"/>
+  <!-- Used to theme ripple effects with the app's primary color. -->
+  <attr name="colorPrimary20pct" format="color|reference"/>
+
+  <declare-styleable name="ResizingText">
+    <attr format="dimension" name="resizing_text_min_size"/>
+  </declare-styleable>
+
+  <declare-styleable name="MaxHeightScrollView">
+    <attr name="maxHeight" format="dimension"/>
+  </declare-styleable>
+
+</resources>
