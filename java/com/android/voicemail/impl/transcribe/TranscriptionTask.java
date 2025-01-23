@@ -25,15 +25,15 @@ import android.util.Pair;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.concurrent.ThreadUtil;
 import com.android.dialer.compat.android.provider.VoicemailCompat;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.voicemail.impl.VvmLog;
 import com.android.voicemail.impl.transcribe.TranscriptionService.JobCallback;
 import com.android.voicemail.impl.transcribe.grpc.TranscriptionClient;
 import com.android.voicemail.impl.transcribe.grpc.TranscriptionClientFactory;
 import com.android.voicemail.impl.transcribe.grpc.TranscriptionResponse;
-import com.google.internal.communications.voicemailtranscription.v1.AudioFormat;
-import com.google.internal.communications.voicemailtranscription.v1.TranscriptionStatus;
+import com.android.protos.AudioFormat;
+import com.android.protos.TranscriptionStatus;
 import com.google.protobuf.ByteString;
 
 /**

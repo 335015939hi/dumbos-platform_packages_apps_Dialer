@@ -21,12 +21,12 @@ import android.database.Cursor;
 import android.provider.CallLog.Calls;
 import android.support.v4.content.CursorLoader;
 import android.text.TextUtils;
-import com.android.dialer.DialerPhoneNumber;
-import com.android.dialer.NumberAttributes;
+import com.android.protos.DialerPhoneNumber;
+import com.android.protos.NumberAttributes;
 import com.android.dialer.calllog.database.contract.AnnotatedCallLogContract.AnnotatedCallLog;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
-import com.android.dialer.voicemail.model.VoicemailEntry;
+import com.android.protos.VoicemailEntry;
 import com.google.protobuf.InvalidProtocolBufferException;
 
 /** CursorLoader for the annotated call log (voicemails only). */

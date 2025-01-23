@@ -27,7 +27,7 @@ import android.support.v4.app.JobIntentService;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.constants.ScheduledJobIds;
 import com.android.voicemail.impl.transcribe.grpc.TranscriptionClientFactory;
-import com.google.internal.communications.voicemailtranscription.v1.SendTranscriptionFeedbackRequest;
+import com.android.protos.SendTranscriptionFeedbackRequest;
 import com.google.protobuf.InvalidProtocolBufferException;
 
 /**

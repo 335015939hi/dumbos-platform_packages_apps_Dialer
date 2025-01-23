@@ -37,7 +37,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.android.dialer.common.FragmentUtils;
 import com.android.dialer.common.LogUtil;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.theme.base.ThemeComponent;
 import com.android.incallui.call.CallList;

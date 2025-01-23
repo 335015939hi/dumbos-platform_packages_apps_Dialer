@@ -22,7 +22,7 @@ import android.support.annotation.NonNull;
 import android.telecom.TelecomManager;
 import com.android.dialer.buildtype.BuildType;
 import com.android.dialer.buildtype.BuildType.Type;
-import com.android.dialer.callintent.CallInitiationType;
+import com.android.protos.CallInitiationType;
 import com.android.dialer.callintent.CallIntentBuilder;
 import com.android.dialer.commandline.Arguments;
 import com.android.dialer.commandline.Command;

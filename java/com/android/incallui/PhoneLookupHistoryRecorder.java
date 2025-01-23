@@ -24,7 +24,7 @@ import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.common.concurrent.DialerExecutorComponent;
 import com.android.dialer.phonelookup.PhoneLookupComponent;
-import com.android.dialer.phonelookup.PhoneLookupInfo;
+import com.android.protos.PhoneLookupInfo;
 import com.android.dialer.phonelookup.database.contract.PhoneLookupHistoryContract.PhoneLookupHistory;
 import com.android.dialer.telecom.TelecomCallUtil;
 import com.google.common.base.Optional;

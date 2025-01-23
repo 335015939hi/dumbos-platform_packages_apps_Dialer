@@ -35,7 +35,7 @@ import com.android.dialer.common.LogUtil;
 import com.android.dialer.dialpadview.DialpadKeyButton;
 import com.android.dialer.dialpadview.DialpadKeyButton.OnPressedListener;
 import com.android.dialer.dialpadview.DialpadView;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.incallui.DialpadPresenter.DialpadUi;
 import com.android.incallui.baseui.BaseFragment;

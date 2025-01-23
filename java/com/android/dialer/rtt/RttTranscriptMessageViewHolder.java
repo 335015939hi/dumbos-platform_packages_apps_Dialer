@@ -27,7 +27,7 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 import com.android.dialer.glidephotomanager.GlidePhotoManagerComponent;
-import com.android.dialer.glidephotomanager.PhotoInfo;
+import com.android.protos.PhotoInfo;
 
 /** ViewHolder class for RTT chat message bubble. */
 public class RttTranscriptMessageViewHolder extends ViewHolder {

@@ -18,8 +18,8 @@ package com.android.dialer.voicemail.listui.menu;
 
 import android.text.TextUtils;
 import com.android.dialer.calllogutils.PhotoInfoBuilder;
-import com.android.dialer.historyitemactions.HistoryItemBottomSheetHeaderInfo;
-import com.android.dialer.voicemail.model.VoicemailEntry;
+import com.android.protos.HistoryItemBottomSheetHeaderInfo;
+import com.android.protos.VoicemailEntry;
 
 /** Configures the top row in the bottom sheet for the Voicemail Tab */
 final class BottomSheetHeader {

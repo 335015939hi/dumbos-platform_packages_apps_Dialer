@@ -18,7 +18,7 @@ package com.android.voicemail.impl.transcribe.grpc;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import com.android.dialer.common.Assert;
-import com.google.internal.communications.voicemailtranscription.v1.TranscribeVoicemailResponse;
+import com.android.protos.TranscribeVoicemailResponse;
 import io.grpc.Status;
 
 /** Container for response and status objects for a synchronous transcription request */

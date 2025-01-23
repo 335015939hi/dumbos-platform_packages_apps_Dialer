@@ -23,7 +23,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import com.android.dialer.calllog.model.CoalescedRow;
+import com.android.protos.CoalescedRow;
 import com.android.dialer.calllogutils.CallLogDates;
 import com.android.dialer.common.Assert;
 import com.android.dialer.logging.Logger;

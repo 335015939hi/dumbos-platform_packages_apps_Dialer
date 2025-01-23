@@ -22,7 +22,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.android.dialer.common.LogUtil;
-import com.android.dialer.glidephotomanager.PhotoInfo;
+import com.android.protos.PhotoInfo;
 
 /** Adapter class for holding RTT chat data. */
 public class RttTranscriptAdapter extends RecyclerView.Adapter<RttTranscriptMessageViewHolder> {

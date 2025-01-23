@@ -28,7 +28,7 @@ import com.android.dialer.common.concurrent.DialerExecutorComponent;
 import com.android.dialer.common.concurrent.UiListener;
 import com.android.dialer.duo.DuoComponent;
 import com.android.dialer.function.Consumer;
-import com.android.dialer.logging.DialerImpression.Type;
+import com.android.protos.DialerImpression.Type;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.precall.PreCallAction;
 import com.android.dialer.precall.PreCallComponent;

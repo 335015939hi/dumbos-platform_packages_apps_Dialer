@@ -19,15 +19,15 @@ import android.app.job.JobWorkItem;
 import android.content.Context;
 import android.support.annotation.VisibleForTesting;
 import android.util.Pair;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.voicemail.VoicemailComponent;
 import com.android.voicemail.impl.VvmLog;
 import com.android.voicemail.impl.transcribe.TranscriptionService.JobCallback;
 import com.android.voicemail.impl.transcribe.grpc.TranscriptionClientFactory;
 import com.android.voicemail.impl.transcribe.grpc.TranscriptionResponseAsync;
-import com.google.internal.communications.voicemailtranscription.v1.DonationPreference;
-import com.google.internal.communications.voicemailtranscription.v1.TranscribeVoicemailAsyncRequest;
-import com.google.internal.communications.voicemailtranscription.v1.TranscriptionStatus;
+import com.android.protos.DonationPreference;
+import com.android.protos.TranscribeVoicemailAsyncRequest;
+import com.android.protos.TranscriptionStatus;
 
 /**
  * Background task to get a voicemail transcription using the asynchronous API. The async API works

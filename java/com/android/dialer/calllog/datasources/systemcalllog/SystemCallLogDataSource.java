@@ -34,7 +34,7 @@ import android.support.annotation.WorkerThread;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.util.ArraySet;
-import com.android.dialer.DialerPhoneNumber;
+import com.android.protos.DialerPhoneNumber;
 import com.android.dialer.calllog.database.AnnotatedCallLogDatabaseHelper;
 import com.android.dialer.calllog.database.contract.AnnotatedCallLogContract.AnnotatedCallLog;
 import com.android.dialer.calllog.datasources.CallLogDataSource;

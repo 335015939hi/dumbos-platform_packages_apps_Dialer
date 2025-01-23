@@ -20,7 +20,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import com.android.dialer.app.R;
 import com.android.dialer.logging.Logger;
-import com.android.dialer.logging.ScreenEvent;
+import com.android.protos.ScreenEvent;
 
 /** TODO(calderwoodra): documentation */
 public class BlockedNumbersSettingsActivity extends AppCompatActivity {

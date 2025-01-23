@@ -26,7 +26,7 @@ import android.text.TextUtils;
 import android.widget.Toast;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.configprovider.ConfigProviderComponent;
-import com.android.dialer.logging.DialerImpression.Type;
+import com.android.protos.DialerImpression.Type;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.storage.StorageComponent;
 import java.util.Random;

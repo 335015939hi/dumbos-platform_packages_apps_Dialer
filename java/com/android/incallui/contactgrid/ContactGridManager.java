@@ -37,7 +37,7 @@ import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.configprovider.ConfigProviderComponent;
 import com.android.dialer.glidephotomanager.GlidePhotoManagerComponent;
-import com.android.dialer.glidephotomanager.PhotoInfo;
+import com.android.protos.PhotoInfo;
 import com.android.dialer.lettertile.LetterTileDrawable;
 import com.android.dialer.util.DrawableConverter;
 import com.android.dialer.widget.BidiTextView;

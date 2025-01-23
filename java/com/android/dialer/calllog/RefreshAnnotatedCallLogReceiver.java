@@ -25,7 +25,7 @@ import com.android.dialer.calllog.RefreshAnnotatedCallLogWorker.RefreshResult;
 import com.android.dialer.calllog.constants.IntentNames;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.common.concurrent.ThreadUtil;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.logging.LoggingBindings;
 import com.android.dialer.metrics.FutureTimer;

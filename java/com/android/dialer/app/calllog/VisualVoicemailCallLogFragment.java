@@ -36,7 +36,7 @@ import com.android.dialer.common.FragmentUtils;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.common.concurrent.DialerExecutor;
 import com.android.dialer.common.concurrent.DialerExecutorComponent;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.util.PermissionsUtil;
 import com.android.dialer.voicemail.listui.error.VoicemailErrorMessageCreator;

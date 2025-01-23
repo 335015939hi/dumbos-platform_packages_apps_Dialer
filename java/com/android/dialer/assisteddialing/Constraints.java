@@ -21,7 +21,7 @@ import android.support.annotation.NonNull;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import com.android.dialer.common.LogUtil;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.phonenumberutil.PhoneNumberHelper;
 import com.android.dialer.strictmode.StrictModeUtils;

@@ -27,7 +27,7 @@ import com.android.dialer.common.concurrent.DefaultFutureCallback;
 import com.android.dialer.configprovider.ConfigProviderComponent;
 import com.android.dialer.duo.Duo;
 import com.android.dialer.duo.DuoListener;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.incallui.video.protocol.VideoCallScreen;
 import com.android.incallui.video.protocol.VideoCallScreenDelegate;
 import com.android.incallui.videotech.VideoTech;
@@ -198,7 +198,7 @@ public class DuoVideoTech implements VideoTech, DuoListener {
   }
 
   @Override
-  public com.android.dialer.logging.VideoTech.Type getVideoTechType() {
-    return com.android.dialer.logging.VideoTech.Type.LIGHTBRINGER_VIDEO_TECH;
+  public com.android.protos.VideoTech.Type getVideoTechType() {
+    return com.android.protos.VideoTech.Type.LIGHTBRINGER_VIDEO_TECH;
   }
 }

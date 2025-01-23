@@ -17,11 +17,11 @@
 package com.android.dialer.spam.stub;
 
 import android.support.annotation.Nullable;
-import com.android.dialer.DialerPhoneNumber;
+import com.android.protos.DialerPhoneNumber;
 import com.android.dialer.common.concurrent.Annotations.BackgroundExecutor;
-import com.android.dialer.logging.ContactLookupResult;
-import com.android.dialer.logging.ContactSource;
-import com.android.dialer.logging.ReportingLocation;
+import com.android.protos.ContactLookupResult;
+import com.android.protos.ContactSource;
+import com.android.protos.ReportingLocation;
 import com.android.dialer.spam.Spam;
 import com.android.dialer.spam.status.SimpleSpamStatus;
 import com.android.dialer.spam.status.SpamStatus;

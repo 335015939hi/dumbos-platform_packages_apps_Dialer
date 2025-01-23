@@ -21,7 +21,7 @@ import android.os.Bundle;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.ServiceState;
 import android.telephony.TelephonyManager;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.proguard.UsedByReflection;
 import com.android.voicemail.impl.scheduling.BaseTask;
 import com.android.voicemail.impl.sms.StatusMessage;

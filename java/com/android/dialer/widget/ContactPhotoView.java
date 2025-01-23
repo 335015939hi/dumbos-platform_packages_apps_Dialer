@@ -28,7 +28,7 @@ import android.widget.QuickContactBadge;
 import com.android.dialer.common.Assert;
 import com.android.dialer.glidephotomanager.GlidePhotoManager;
 import com.android.dialer.glidephotomanager.GlidePhotoManagerComponent;
-import com.android.dialer.glidephotomanager.PhotoInfo;
+import com.android.protos.PhotoInfo;
 
 /**
  * A {@link FrameLayout} for displaying a contact photo and its optional badge (such as one for a

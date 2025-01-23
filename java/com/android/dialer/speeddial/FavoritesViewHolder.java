@@ -29,7 +29,7 @@ import android.widget.QuickContactBadge;
 import android.widget.TextView;
 import com.android.dialer.common.Assert;
 import com.android.dialer.glidephotomanager.GlidePhotoManagerComponent;
-import com.android.dialer.glidephotomanager.PhotoInfo;
+import com.android.protos.PhotoInfo;
 import com.android.dialer.speeddial.database.SpeedDialEntry.Channel;
 import com.android.dialer.speeddial.draghelper.SpeedDialFavoritesViewHolderOnTouchListener;
 import com.android.dialer.speeddial.draghelper.SpeedDialFavoritesViewHolderOnTouchListener.OnTouchFinishCallback;

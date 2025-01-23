@@ -17,9 +17,9 @@
 package com.android.dialer.historyitemactions;
 
 import android.content.Context;
-import com.android.dialer.blockreportspam.BlockReportSpamDialogInfo;
+import com.android.protos.BlockReportSpamDialogInfo;
 import com.android.dialer.blockreportspam.ShowBlockReportSpamDialogNotifier;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import java.util.Optional;
 

@@ -23,7 +23,7 @@ import android.view.View;
 import com.android.dialer.calldetails.CallDetailsEntryViewHolder.CallDetailsEntryListener;
 import com.android.dialer.calldetails.CallDetailsFooterViewHolder.DeleteCallDetailsListener;
 import com.android.dialer.calldetails.CallDetailsHeaderViewHolder.CallDetailsHeaderListener;
-import com.android.dialer.glidephotomanager.PhotoInfo;
+import com.android.protos.PhotoInfo;
 
 /**
  * A {@link RecyclerView.Adapter} for {@link CallDetailsActivity}.

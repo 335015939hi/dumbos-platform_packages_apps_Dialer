@@ -23,8 +23,8 @@ import android.view.View;
 import com.android.dialer.calldetails.CallDetailsEntryViewHolder.CallDetailsEntryListener;
 import com.android.dialer.calldetails.CallDetailsFooterViewHolder.DeleteCallDetailsListener;
 import com.android.dialer.calldetails.CallDetailsHeaderViewHolder.CallDetailsHeaderListener;
-import com.android.dialer.dialercontact.DialerContact;
-import com.android.dialer.glidephotomanager.PhotoInfo;
+import com.android.protos.DialerContact;
+import com.android.protos.PhotoInfo;
 import com.android.dialer.lettertile.LetterTileDrawable;
 
 /**

@@ -17,10 +17,10 @@
 package com.android.dialer.calllog.ui.menu;
 
 import android.content.Context;
-import com.android.dialer.calllog.model.CoalescedRow;
+import com.android.protos.CoalescedRow;
 import com.android.dialer.calllogutils.CallLogEntryText;
 import com.android.dialer.calllogutils.PhotoInfoBuilder;
-import com.android.dialer.historyitemactions.HistoryItemBottomSheetHeaderInfo;
+import com.android.protos.HistoryItemBottomSheetHeaderInfo;
 
 /** Configures the top row in the bottom sheet. */
 final class BottomSheetHeader {

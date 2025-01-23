@@ -38,7 +38,7 @@ import android.view.View.OnClickListener;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.compat.telephony.TelephonyManagerCompat;
 import com.android.dialer.configprovider.ConfigProviderComponent;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.voicemail.listui.error.VoicemailErrorMessage.Action;
 import com.android.voicemail.VisualVoicemailTypeExtensions;

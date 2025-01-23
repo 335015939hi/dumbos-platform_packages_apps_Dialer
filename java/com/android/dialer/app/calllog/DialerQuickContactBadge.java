@@ -21,7 +21,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.QuickContactBadge;
 import com.android.dialer.app.calllog.CallLogAdapter.OnActionModeStateChangedListener;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 
 /** Allows us to click the contact badge for non multi select mode. */

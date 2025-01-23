@@ -43,7 +43,7 @@ import com.android.dialer.contactphoto.ContactPhotoManager;
 import com.android.dialer.contacts.ContactsComponent;
 import com.android.dialer.duo.Duo;
 import com.android.dialer.duo.DuoComponent;
-import com.android.dialer.logging.InteractionEvent;
+import com.android.protos.InteractionEvent;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.shortcuts.ShortcutRefresher;
 import com.android.dialer.strictmode.StrictModeUtils;

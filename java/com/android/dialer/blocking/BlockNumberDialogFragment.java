@@ -33,7 +33,7 @@ import android.widget.Toast;
 import com.android.contacts.common.util.ContactDisplayUtils;
 import com.android.dialer.blocking.FilteredNumberAsyncQueryHandler.OnBlockNumberListener;
 import com.android.dialer.blocking.FilteredNumberAsyncQueryHandler.OnUnblockNumberListener;
-import com.android.dialer.logging.InteractionEvent;
+import com.android.protos.InteractionEvent;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.voicemailstatus.VisualVoicemailEnabledChecker;
 

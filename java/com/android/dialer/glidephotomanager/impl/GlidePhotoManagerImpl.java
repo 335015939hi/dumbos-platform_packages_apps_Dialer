@@ -33,7 +33,7 @@ import com.android.dialer.glide.GlideApp;
 import com.android.dialer.glide.GlideRequest;
 import com.android.dialer.glide.GlideRequests;
 import com.android.dialer.glidephotomanager.GlidePhotoManager;
-import com.android.dialer.glidephotomanager.PhotoInfo;
+import com.android.protos.PhotoInfo;
 import com.android.dialer.i18n.DialerBidiFormatter;
 import com.android.dialer.inject.ApplicationContext;
 import com.android.dialer.lettertile.LetterTileDrawable;

@@ -18,14 +18,14 @@ package com.android.dialer.phonelookup.cp2;
 
 import android.content.Context;
 import android.database.Cursor;
-import com.android.dialer.DialerPhoneNumber;
+import com.android.protos.DialerPhoneNumber;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.common.concurrent.Annotations.BackgroundExecutor;
 import com.android.dialer.common.concurrent.Annotations.LightweightExecutor;
 import com.android.dialer.common.database.Selection;
 import com.android.dialer.inject.ApplicationContext;
-import com.android.dialer.phonelookup.PhoneLookupInfo;
-import com.android.dialer.phonelookup.PhoneLookupInfo.Cp2Info;
+import com.android.protos.PhoneLookupInfo;
+import com.android.protos.PhoneLookupInfo.Cp2Info;
 import com.android.dialer.phonelookup.database.contract.PhoneLookupHistoryContract.PhoneLookupHistory;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;

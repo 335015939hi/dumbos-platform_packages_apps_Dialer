@@ -62,7 +62,7 @@ import com.android.dialer.configprovider.ConfigProviderComponent;
 import com.android.dialer.database.CallLogQueryHandler;
 import com.android.dialer.database.CallLogQueryHandler.Listener;
 import com.android.dialer.location.GeoUtil;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.metrics.Metrics;
 import com.android.dialer.metrics.MetricsComponent;

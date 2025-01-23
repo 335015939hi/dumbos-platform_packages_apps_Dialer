@@ -23,7 +23,7 @@ import android.support.annotation.Nullable;
 import android.telecom.PhoneAccountHandle;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.common.PerAccountSharedPreferences;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.voicemail.listui.error.VoicemailErrorMessage.Action;
 import com.android.voicemail.VoicemailClient;

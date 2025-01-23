@@ -45,7 +45,7 @@ import com.android.dialer.common.concurrent.DialerExecutorComponent;
 import com.android.dialer.compat.android.provider.VoicemailCompat;
 import com.android.dialer.time.Clock;
 import com.android.dialer.voicemail.listui.menu.NewVoicemailMenu;
-import com.android.dialer.voicemail.model.VoicemailEntry;
+import com.android.protos.VoicemailEntry;
 import com.android.dialer.widget.ContactPhotoView;
 import com.android.voicemail.VoicemailClient;
 

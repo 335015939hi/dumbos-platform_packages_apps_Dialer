@@ -21,7 +21,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.telecom.CallAudioState;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.incallui.audiomode.AudioModeProvider;
 import com.android.incallui.audioroute.AudioRouteSelectorDialogFragment;

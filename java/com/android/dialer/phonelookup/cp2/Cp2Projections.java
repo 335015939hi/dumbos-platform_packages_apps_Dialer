@@ -23,7 +23,7 @@ import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.PhoneLookup;
 import android.text.TextUtils;
-import com.android.dialer.phonelookup.PhoneLookupInfo.Cp2Info.Cp2ContactInfo;
+import com.android.protos.PhoneLookupInfo.Cp2Info.Cp2ContactInfo;
 
 /**
  * A class providing projection-related functionality for {@link

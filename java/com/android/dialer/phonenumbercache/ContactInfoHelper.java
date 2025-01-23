@@ -35,7 +35,7 @@ import com.android.contacts.common.ContactsUtils.UserType;
 import com.android.contacts.common.util.Constants;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
-import com.android.dialer.logging.ContactSource;
+import com.android.protos.ContactSource;
 import com.android.dialer.oem.CequintCallerIdManager;
 import com.android.dialer.oem.CequintCallerIdManager.CequintCallerIdContact;
 import com.android.dialer.phonenumbercache.CachedNumberLookupService.CachedContactInfo;

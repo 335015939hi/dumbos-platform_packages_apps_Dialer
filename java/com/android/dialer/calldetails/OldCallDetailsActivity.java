@@ -23,7 +23,7 @@ import com.android.dialer.calldetails.CallDetailsFooterViewHolder.DeleteCallDeta
 import com.android.dialer.calldetails.CallDetailsFooterViewHolder.ReportCallIdListener;
 import com.android.dialer.calldetails.CallDetailsHeaderViewHolder.CallDetailsHeaderListener;
 import com.android.dialer.common.Assert;
-import com.android.dialer.dialercontact.DialerContact;
+import com.android.protos.DialerContact;
 import com.android.dialer.protos.ProtoParsers;
 
 /**

@@ -26,7 +26,7 @@ import android.telecom.PhoneAccountHandle;
 import android.telecom.VideoProfile;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.LoggingBindings;
 import com.android.dialer.util.CallUtil;
 import com.android.incallui.video.protocol.VideoCallScreen;
@@ -334,8 +334,8 @@ public class ImsVideoTech implements VideoTech {
   }
 
   @Override
-  public com.android.dialer.logging.VideoTech.Type getVideoTechType() {
-    return com.android.dialer.logging.VideoTech.Type.IMS_VIDEO_TECH;
+  public com.android.protos.VideoTech.Type getVideoTechType() {
+    return com.android.protos.VideoTech.Type.IMS_VIDEO_TECH;
   }
 
   private boolean canPause() {

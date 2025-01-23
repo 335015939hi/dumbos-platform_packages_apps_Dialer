@@ -26,7 +26,7 @@ import android.support.annotation.Nullable;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.TelephonyManager;
 import android.telephony.VisualVoicemailSms;
-import com.android.dialer.callintent.CallInitiationType;
+import com.android.protos.CallInitiationType;
 import com.android.dialer.callintent.CallIntentBuilder;
 import com.android.dialer.precall.PreCall;
 import com.android.voicemail.VoicemailClient;

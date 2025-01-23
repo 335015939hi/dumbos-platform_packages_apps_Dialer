@@ -53,9 +53,9 @@ import com.android.contacts.common.compat.CallCompat;
 import com.android.dialer.assisteddialing.ConcreteCreator;
 import com.android.dialer.assisteddialing.TransformationInfo;
 import com.android.dialer.blocking.FilteredNumbersUtil;
-import com.android.dialer.callintent.CallInitiationType;
+import com.android.protos.CallInitiationType;
 import com.android.dialer.callintent.CallIntentParser;
-import com.android.dialer.callintent.CallSpecificAppData;
+import com.android.protos.CallSpecificAppData;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.common.concurrent.DefaultFutureCallback;
@@ -70,12 +70,12 @@ import com.android.dialer.enrichedcall.EnrichedCallManager.Filter;
 import com.android.dialer.enrichedcall.EnrichedCallManager.StateChangedListener;
 import com.android.dialer.enrichedcall.Session;
 import com.android.dialer.location.GeoUtil;
-import com.android.dialer.logging.ContactLookupResult;
-import com.android.dialer.logging.ContactLookupResult.Type;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.ContactLookupResult;
+import com.android.protos.ContactLookupResult.Type;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.preferredsim.PreferredAccountRecorder;
-import com.android.dialer.rtt.RttTranscript;
+import com.android.protos.RttTranscript;
 import com.android.dialer.rtt.RttTranscriptUtil;
 import com.android.dialer.spam.status.SpamStatus;
 import com.android.dialer.telecom.TelecomCallUtil;
@@ -190,8 +190,8 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
   private int secondCallWithoutAnswerAndReleasedButtonTimes = 0;
   private VideoTech videoTech;
 
-  private com.android.dialer.logging.VideoTech.Type selectedAvailableVideoTechType =
-      com.android.dialer.logging.VideoTech.Type.NONE;
+  private com.android.protos.VideoTech.Type selectedAvailableVideoTechType =
+      com.android.protos.VideoTech.Type.NONE;
   private boolean isVoicemailNumber;
   private List<PhoneAccountHandle> callCapableAccounts;
   private String countryIso;
@@ -1504,7 +1504,7 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
       videoTech = videoTechManager.getVideoTech(getAccountHandle());
 
       // Only store the first video tech type found to be available during the life of the call.
-      if (selectedAvailableVideoTechType == com.android.dialer.logging.VideoTech.Type.NONE) {
+      if (selectedAvailableVideoTechType == com.android.protos.VideoTech.Type.NONE) {
         // Update the video tech.
         selectedAvailableVideoTechType = videoTech.getVideoTechType();
       }
@@ -1694,7 +1694,7 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
     isCallRemoved = true;
   }
 
-  public com.android.dialer.logging.VideoTech.Type getSelectedAvailableVideoTechType() {
+  public com.android.protos.VideoTech.Type getSelectedAvailableVideoTechType() {
     return selectedAvailableVideoTechType;
   }
 

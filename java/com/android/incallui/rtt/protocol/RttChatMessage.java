@@ -18,8 +18,8 @@ package com.android.incallui.rtt.protocol;
 
 import android.support.annotation.NonNull;
 import com.android.dialer.common.Assert;
-import com.android.dialer.rtt.RttTranscript;
-import com.android.dialer.rtt.RttTranscriptMessage;
+import com.android.protos.RttTranscript;
+import com.android.protos.RttTranscriptMessage;
 import com.google.common.base.Splitter;
 import java.util.ArrayList;
 import java.util.Iterator;

@@ -20,7 +20,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import com.android.contacts.common.ContactsUtils.UserType;
-import com.android.dialer.logging.ContactSource;
+import com.android.protos.ContactSource;
 import com.android.dialer.util.UriUtils;
 
 /** Information for a contact as needed by the Call Log. */

@@ -27,7 +27,7 @@ import android.text.TextUtils;
 import com.android.contacts.common.ContactsUtils.UserType;
 import com.android.contacts.common.util.ContactDisplayUtils;
 import com.android.dialer.contacts.displaypreference.ContactDisplayPreferences.DisplayOrder;
-import com.android.dialer.logging.ContactSource;
+import com.android.protos.ContactSource;
 import com.android.dialer.phonenumbercache.ContactInfo;
 
 /** The details of a phone call to be shown in the UI. */

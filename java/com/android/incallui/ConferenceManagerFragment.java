@@ -23,7 +23,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import com.android.dialer.contactphoto.ContactPhotoManager;
 import com.android.dialer.logging.Logger;
-import com.android.dialer.logging.ScreenEvent;
+import com.android.protos.ScreenEvent;
 import com.android.incallui.ConferenceManagerPresenter.ConferenceManagerUi;
 import com.android.incallui.baseui.BaseFragment;
 import com.android.incallui.call.CallList;

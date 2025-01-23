@@ -23,7 +23,7 @@ import android.support.annotation.VisibleForTesting;
 import android.util.ArrayMap;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.google.android.libraries.backup.BackupKeyPredicate;
 import com.google.android.libraries.backup.BackupKeyPredicates;

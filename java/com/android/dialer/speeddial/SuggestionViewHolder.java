@@ -23,7 +23,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 import com.android.dialer.common.Assert;
-import com.android.dialer.historyitemactions.HistoryItemBottomSheetHeaderInfo;
+import com.android.protos.HistoryItemBottomSheetHeaderInfo;
 import com.android.dialer.location.GeoUtil;
 import com.android.dialer.phonenumberutil.PhoneNumberHelper;
 import com.android.dialer.speeddial.database.SpeedDialEntry.Channel;

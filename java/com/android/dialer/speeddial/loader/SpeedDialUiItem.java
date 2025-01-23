@@ -26,7 +26,7 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.ArraySet;
 import com.android.dialer.common.Assert;
-import com.android.dialer.glidephotomanager.PhotoInfo;
+import com.android.protos.PhotoInfo;
 import com.android.dialer.speeddial.database.SpeedDialEntry;
 import com.android.dialer.speeddial.database.SpeedDialEntry.Channel;
 import com.google.auto.value.AutoValue;

@@ -16,7 +16,7 @@
 
 package com.android.dialer.searchfragment.common;
 
-import com.android.dialer.dialercontact.DialerContact;
+import com.android.protos.DialerContact;
 
 /** Interface of possible actions that can be performed by search elements. */
 public interface RowClickListener {

@@ -32,7 +32,7 @@ import android.text.TextUtils;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.constants.ScheduledJobIds;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.voicemail.CarrierConfigKeys;
 import com.android.voicemail.VoicemailClient;

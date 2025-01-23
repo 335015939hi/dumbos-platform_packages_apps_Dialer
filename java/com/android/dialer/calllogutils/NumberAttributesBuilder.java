@@ -17,8 +17,8 @@
 package com.android.dialer.calllogutils;
 
 import android.text.TextUtils;
-import com.android.dialer.NumberAttributes;
-import com.android.dialer.phonelookup.PhoneLookupInfo;
+import com.android.protos.NumberAttributes;
+import com.android.protos.PhoneLookupInfo;
 import com.android.dialer.phonelookup.consolidator.PhoneLookupInfoConsolidator;
 
 /** Builds {@link NumberAttributes} from other data types. */

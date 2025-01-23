@@ -19,7 +19,7 @@ package com.android.dialer.voicemail.listui.menu;
 import android.content.Context;
 import android.view.View;
 import com.android.dialer.historyitemactions.HistoryItemActionBottomSheet;
-import com.android.dialer.voicemail.model.VoicemailEntry;
+import com.android.protos.VoicemailEntry;
 
 /** Handles configuration of the bottom sheet menus for voicemail entries. */
 public final class NewVoicemailMenu {

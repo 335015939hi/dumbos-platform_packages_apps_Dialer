@@ -32,7 +32,7 @@ import android.widget.ImageView;
 import android.widget.QuickContactBadge;
 import com.android.dialer.common.Assert;
 import com.android.dialer.contactphoto.ContactPhotoManager;
-import com.android.dialer.dialercontact.DialerContact;
+import com.android.protos.DialerContact;
 import com.android.dialer.duo.DuoComponent;
 import com.android.dialer.enrichedcall.EnrichedCallCapabilities;
 import com.android.dialer.enrichedcall.EnrichedCallComponent;

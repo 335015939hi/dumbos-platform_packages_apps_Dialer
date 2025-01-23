@@ -20,7 +20,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.telecom.PhoneAccountHandle;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.proguard.UsedByReflection;
 import com.android.voicemail.impl.Voicemail;
 import com.android.voicemail.impl.VoicemailStatus;

@@ -20,7 +20,7 @@ import android.content.Context;
 import android.provider.CallLog.Calls;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
-import com.android.dialer.calllog.model.CoalescedRow;
+import com.android.protos.CoalescedRow;
 import com.android.dialer.duo.DuoComponent;
 import com.android.dialer.spam.Spam;
 import com.android.dialer.time.Clock;

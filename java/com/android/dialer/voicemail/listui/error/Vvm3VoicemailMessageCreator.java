@@ -27,7 +27,7 @@ import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.view.View.OnClickListener;
 import com.android.contacts.common.util.ContactDisplayUtils;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.voicemail.listui.error.VoicemailErrorMessage.Action;
 

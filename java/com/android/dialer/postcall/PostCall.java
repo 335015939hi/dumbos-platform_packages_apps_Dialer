@@ -33,7 +33,7 @@ import com.android.dialer.configprovider.ConfigProviderComponent;
 import com.android.dialer.enrichedcall.EnrichedCallCapabilities;
 import com.android.dialer.enrichedcall.EnrichedCallComponent;
 import com.android.dialer.enrichedcall.EnrichedCallManager;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.performancereport.PerformanceReport;
 import com.android.dialer.storage.StorageComponent;

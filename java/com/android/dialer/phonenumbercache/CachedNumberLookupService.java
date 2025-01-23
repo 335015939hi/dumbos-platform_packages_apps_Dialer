@@ -21,7 +21,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.WorkerThread;
-import com.android.dialer.logging.ContactSource;
+import com.android.protos.ContactSource;
 import java.io.InputStream;
 
 public interface CachedNumberLookupService {

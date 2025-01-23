@@ -21,7 +21,7 @@ import android.content.Intent;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
 import com.android.dialer.callintent.CallIntentBuilder;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.precall.PreCall;
 import com.android.dialer.util.DialerUtils;

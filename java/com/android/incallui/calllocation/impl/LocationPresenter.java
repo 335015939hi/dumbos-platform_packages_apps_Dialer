@@ -20,7 +20,7 @@ import android.content.Context;
 import android.location.Location;
 import android.os.AsyncTask;
 import com.android.dialer.common.LogUtil;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.incallui.baseui.Presenter;
 import com.android.incallui.baseui.Ui;

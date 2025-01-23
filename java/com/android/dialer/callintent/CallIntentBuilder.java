@@ -31,7 +31,7 @@ import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
 import android.telecom.VideoProfile;
 import android.text.TextUtils;
-import com.android.dialer.callintent.CallInitiationType.Type;
+import com.android.protos.CallInitiationType.Type;
 import com.android.dialer.common.Assert;
 import com.android.dialer.performancereport.PerformanceReport;
 import com.android.dialer.util.CallUtil;

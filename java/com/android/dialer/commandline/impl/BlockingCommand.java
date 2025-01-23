@@ -18,14 +18,14 @@ package com.android.dialer.commandline.impl;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import com.android.dialer.DialerPhoneNumber;
+import com.android.protos.DialerPhoneNumber;
 import com.android.dialer.blocking.Blocking;
 import com.android.dialer.commandline.Arguments;
 import com.android.dialer.commandline.Command;
 import com.android.dialer.common.concurrent.Annotations.BackgroundExecutor;
 import com.android.dialer.inject.ApplicationContext;
 import com.android.dialer.phonelookup.PhoneLookupComponent;
-import com.android.dialer.phonelookup.PhoneLookupInfo;
+import com.android.protos.PhoneLookupInfo;
 import com.android.dialer.phonelookup.consolidator.PhoneLookupInfoConsolidator;
 import com.android.dialer.phonenumberproto.DialerPhoneNumberUtil;
 import com.google.common.collect.ImmutableList;

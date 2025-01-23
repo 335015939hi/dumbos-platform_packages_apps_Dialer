@@ -21,7 +21,7 @@ import android.text.TextUtils;
 import com.android.dialer.calllogutils.CallLogDates;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.time.Clock;
-import com.android.dialer.voicemail.model.VoicemailEntry;
+import com.android.protos.VoicemailEntry;
 import java.util.concurrent.TimeUnit;
 
 /**

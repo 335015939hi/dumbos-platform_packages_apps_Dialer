@@ -27,7 +27,7 @@ import android.view.MenuItem;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.concurrent.DialerExecutorComponent;
 import com.android.dialer.common.concurrent.UiListener;
-import com.android.dialer.glidephotomanager.PhotoInfo;
+import com.android.protos.PhotoInfo;
 import com.android.dialer.protos.ProtoParsers;
 import com.android.dialer.widget.DialerToolbar;
 

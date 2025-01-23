@@ -24,7 +24,7 @@ import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.android.dialer.calldetails.CallDetailsEntries.CallDetailsEntry;
+import com.android.protos.CallDetailsEntries.CallDetailsEntry;
 import com.android.dialer.calldetails.CallDetailsEntryViewHolder.CallDetailsEntryListener;
 import com.android.dialer.calldetails.CallDetailsFooterViewHolder.DeleteCallDetailsListener;
 import com.android.dialer.calldetails.CallDetailsFooterViewHolder.ReportCallIdListener;
@@ -34,7 +34,7 @@ import com.android.dialer.calllogutils.CallbackActionHelper;
 import com.android.dialer.calllogutils.CallbackActionHelper.CallbackAction;
 import com.android.dialer.common.Assert;
 import com.android.dialer.duo.DuoComponent;
-import com.android.dialer.glidephotomanager.PhotoInfo;
+import com.android.protos.PhotoInfo;
 
 /**
  * Contains common logic shared between {@link OldCallDetailsAdapter} and {@link

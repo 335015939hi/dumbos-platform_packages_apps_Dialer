@@ -22,7 +22,7 @@ import android.os.Build.VERSION_CODES;
 import android.support.annotation.Nullable;
 import android.util.Base64;
 import com.android.dialer.common.Assert;
-import com.google.internal.communications.voicemailtranscription.v1.AudioFormat;
+import com.android.protos.AudioFormat;
 import com.google.protobuf.ByteString;
 import java.io.IOException;
 import java.io.InputStream;

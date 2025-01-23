@@ -28,7 +28,7 @@ import android.telecom.PhoneAccountHandle;
 import android.telephony.TelephonyManager;
 import android.telephony.VisualVoicemailService;
 import android.telephony.VisualVoicemailSms;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.voicemail.VoicemailComponent;
 import com.android.voicemail.impl.settings.VisualVoicemailSettingsUtil;

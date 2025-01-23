@@ -25,7 +25,7 @@ import android.telecom.PhoneAccountHandle;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.concurrent.DialerExecutor.Worker;
 import com.android.dialer.common.concurrent.DialerExecutorComponent;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.preferredsim.PreferredSimFallbackContract.PreferredSim;
 import com.android.dialer.preferredsim.suggestion.SimSuggestionComponent;

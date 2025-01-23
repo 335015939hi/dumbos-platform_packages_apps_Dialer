@@ -48,7 +48,7 @@ import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.configprovider.ConfigProviderComponent;
 import com.android.dialer.contacts.ContactsComponent;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.multimedia.MultimediaData;
 import com.android.dialer.oem.MotorolaUtils;

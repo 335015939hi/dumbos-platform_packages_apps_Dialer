@@ -30,7 +30,7 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.android.dialer.calllog.model.CoalescedRow;
+import com.android.protos.CoalescedRow;
 import com.android.dialer.calllog.ui.NewCallLogAdapter.PopCounts;
 import com.android.dialer.calllog.ui.menu.NewCallLogMenu;
 import com.android.dialer.calllogutils.CallLogEntryDescriptions;

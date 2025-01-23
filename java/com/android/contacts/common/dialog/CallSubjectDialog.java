@@ -42,7 +42,7 @@ import android.widget.ListView;
 import android.widget.QuickContactBadge;
 import android.widget.TextView;
 import com.android.dialer.animation.AnimUtils;
-import com.android.dialer.callintent.CallInitiationType;
+import com.android.protos.CallInitiationType;
 import com.android.dialer.callintent.CallIntentBuilder;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.contactphoto.ContactPhotoManager;

@@ -53,7 +53,7 @@ import com.android.dialer.common.concurrent.DialerExecutor;
 import com.android.dialer.common.concurrent.DialerExecutorComponent;
 import com.android.dialer.configprovider.ConfigProviderComponent;
 import com.android.dialer.constants.Constants;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.phonenumbercache.CallLogQuery;
 import com.android.dialer.strictmode.StrictModeUtils;

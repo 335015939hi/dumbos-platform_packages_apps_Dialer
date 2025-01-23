@@ -37,7 +37,7 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
-import com.android.dialer.callintent.CallInitiationType.Type;
+import com.android.protos.CallInitiationType.Type;
 import com.android.dialer.callintent.CallIntentBuilder;
 import com.android.dialer.calllog.database.contract.AnnotatedCallLogContract.AnnotatedCallLog;
 import com.android.dialer.common.Assert;
@@ -48,7 +48,7 @@ import com.android.dialer.common.concurrent.DialerExecutorComponent;
 import com.android.dialer.precall.PreCall;
 import com.android.dialer.telecom.TelecomUtil;
 import com.android.dialer.voicemail.listui.NewVoicemailViewHolder.NewVoicemailViewHolderListener;
-import com.android.dialer.voicemail.model.VoicemailEntry;
+import com.android.protos.VoicemailEntry;
 import java.util.Locale;
 
 /**

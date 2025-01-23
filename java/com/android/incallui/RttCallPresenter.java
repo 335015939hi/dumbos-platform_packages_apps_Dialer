@@ -23,7 +23,7 @@ import android.os.Looper;
 import android.telecom.Call.RttCall;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.common.concurrent.ThreadUtil;
-import com.android.dialer.rtt.RttTranscript;
+import com.android.protos.RttTranscript;
 import com.android.incallui.InCallPresenter.InCallState;
 import com.android.incallui.InCallPresenter.InCallStateListener;
 import com.android.incallui.call.CallList;

@@ -49,7 +49,7 @@ import com.android.dialer.voicemail.listui.NewVoicemailViewHolder.NewVoicemailVi
 import com.android.dialer.voicemail.listui.error.VoicemailErrorMessage;
 import com.android.dialer.voicemail.listui.error.VoicemailErrorMessageCreator;
 import com.android.dialer.voicemail.listui.error.VoicemailStatus;
-import com.android.dialer.voicemail.model.VoicemailEntry;
+import com.android.protos.VoicemailEntry;
 import com.android.voicemail.VoicemailClient;
 import com.google.common.collect.ImmutableList;
 import java.lang.annotation.Retention;

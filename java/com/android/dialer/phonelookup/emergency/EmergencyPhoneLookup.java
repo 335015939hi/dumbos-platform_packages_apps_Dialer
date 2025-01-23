@@ -17,12 +17,12 @@
 package com.android.dialer.phonelookup.emergency;
 
 import android.content.Context;
-import com.android.dialer.DialerPhoneNumber;
+import com.android.protos.DialerPhoneNumber;
 import com.android.dialer.common.concurrent.Annotations.BackgroundExecutor;
 import com.android.dialer.inject.ApplicationContext;
 import com.android.dialer.phonelookup.PhoneLookup;
-import com.android.dialer.phonelookup.PhoneLookupInfo;
-import com.android.dialer.phonelookup.PhoneLookupInfo.EmergencyInfo;
+import com.android.protos.PhoneLookupInfo;
+import com.android.protos.PhoneLookupInfo.EmergencyInfo;
 import com.android.dialer.phonenumberutil.PhoneNumberHelper;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;

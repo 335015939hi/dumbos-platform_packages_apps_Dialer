@@ -30,14 +30,14 @@ import com.android.dialer.common.backoff.ExponentialBaseCalculator;
 import com.android.dialer.common.concurrent.DialerExecutor.Worker;
 import com.android.dialer.common.concurrent.DialerExecutorComponent;
 import com.android.dialer.common.concurrent.ThreadUtil;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.voicemail.impl.VvmLog;
 import com.android.voicemail.impl.transcribe.grpc.GetTranscriptResponseAsync;
 import com.android.voicemail.impl.transcribe.grpc.TranscriptionClient;
 import com.android.voicemail.impl.transcribe.grpc.TranscriptionClientFactory;
-import com.google.internal.communications.voicemailtranscription.v1.GetTranscriptRequest;
-import com.google.internal.communications.voicemailtranscription.v1.TranscriptionStatus;
+import com.android.protos.GetTranscriptRequest;
+import com.android.protos.TranscriptionStatus;
 import java.util.List;
 
 /**

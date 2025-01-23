@@ -20,7 +20,7 @@ import android.content.Context;
 import android.provider.CallLog.Calls;
 import android.view.View;
 import com.android.dialer.calllog.CallLogComponent;
-import com.android.dialer.calllog.model.CoalescedRow;
+import com.android.protos.CoalescedRow;
 import com.android.dialer.common.concurrent.DefaultFutureCallback;
 import com.android.dialer.historyitemactions.HistoryItemActionBottomSheet;
 import com.google.common.util.concurrent.Futures;

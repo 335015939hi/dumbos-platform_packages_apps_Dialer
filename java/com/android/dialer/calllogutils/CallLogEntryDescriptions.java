@@ -22,7 +22,7 @@ import android.support.annotation.PluralsRes;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
-import com.android.dialer.calllog.model.CoalescedRow;
+import com.android.protos.CoalescedRow;
 import com.android.dialer.telecom.TelecomUtil;
 import com.android.dialer.time.Clock;
 import com.google.common.collect.Collections2;

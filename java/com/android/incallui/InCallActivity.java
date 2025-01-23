@@ -64,7 +64,7 @@ import com.android.dialer.common.concurrent.ThreadUtil;
 import com.android.dialer.common.concurrent.UiListener;
 import com.android.dialer.configprovider.ConfigProviderComponent;
 import com.android.dialer.logging.Logger;
-import com.android.dialer.logging.ScreenEvent;
+import com.android.protos.ScreenEvent;
 import com.android.dialer.metrics.Metrics;
 import com.android.dialer.metrics.MetricsComponent;
 import com.android.dialer.preferredsim.PreferredAccountRecorder;

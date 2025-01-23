@@ -34,7 +34,7 @@ import com.android.dialer.calllog.CallLogComponent;
 import com.android.dialer.calllog.RefreshAnnotatedCallLogReceiver;
 import com.android.dialer.calllog.database.CallLogDatabaseComponent;
 import com.android.dialer.calllog.database.Coalescer;
-import com.android.dialer.calllog.model.CoalescedRow;
+import com.android.protos.CoalescedRow;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.common.concurrent.DefaultFutureCallback;

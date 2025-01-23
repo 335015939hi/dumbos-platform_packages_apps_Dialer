@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 
 include(":dialer:app")
+
+include(":protos")

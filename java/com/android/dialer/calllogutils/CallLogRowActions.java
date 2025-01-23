@@ -17,9 +17,9 @@ package com.android.dialer.calllogutils;
 
 import android.app.Activity;
 import android.provider.CallLog.Calls;
-import com.android.dialer.callintent.CallInitiationType;
+import com.android.protos.CallInitiationType;
 import com.android.dialer.callintent.CallIntentBuilder;
-import com.android.dialer.calllog.model.CoalescedRow;
+import com.android.protos.CoalescedRow;
 import com.android.dialer.duo.DuoComponent;
 import com.android.dialer.precall.PreCall;
 

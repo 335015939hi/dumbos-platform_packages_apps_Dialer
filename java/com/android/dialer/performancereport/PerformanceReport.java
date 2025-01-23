@@ -21,7 +21,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.widget.AbsListView;
 import com.android.dialer.common.LogUtil;
-import com.android.dialer.logging.UiAction;
+import com.android.protos.UiAction;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;

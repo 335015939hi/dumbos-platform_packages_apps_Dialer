@@ -21,7 +21,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.WorkerThread;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
-import com.android.dialer.DialerPhoneNumber;
+import com.android.protos.DialerPhoneNumber;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.google.i18n.phonenumbers.NumberParseException;

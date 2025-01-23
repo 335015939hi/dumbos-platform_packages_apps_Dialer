@@ -16,10 +16,10 @@
 package com.android.voicemail.impl.transcribe.grpc;
 
 import android.support.annotation.WorkerThread;
-import com.google.internal.communications.voicemailtranscription.v1.GetTranscriptRequest;
-import com.google.internal.communications.voicemailtranscription.v1.SendTranscriptionFeedbackRequest;
-import com.google.internal.communications.voicemailtranscription.v1.TranscribeVoicemailAsyncRequest;
-import com.google.internal.communications.voicemailtranscription.v1.TranscribeVoicemailRequest;
+import com.android.protos.GetTranscriptRequest;
+import com.android.protos.SendTranscriptionFeedbackRequest;
+import com.android.protos.TranscribeVoicemailAsyncRequest;
+import com.android.protos.TranscribeVoicemailRequest;
 import com.google.internal.communications.voicemailtranscription.v1.VoicemailTranscriptionServiceGrpc;
 import io.grpc.StatusRuntimeException;
 

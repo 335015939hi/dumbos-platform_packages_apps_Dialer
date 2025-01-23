@@ -24,7 +24,7 @@ import com.android.dialer.blocking.BlockNumberDialogFragment;
 import com.android.dialer.contactphoto.ContactPhotoManager;
 import com.android.dialer.database.FilteredNumberContract.FilteredNumberColumns;
 import com.android.dialer.location.GeoUtil;
-import com.android.dialer.logging.InteractionEvent;
+import com.android.protos.InteractionEvent;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.phonenumbercache.ContactInfoHelper;
 import com.android.dialer.phonenumberutil.PhoneNumberHelper;

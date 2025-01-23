@@ -27,7 +27,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.android.dialer.common.Assert;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.searchfragment.common.RowClickListener;
 import com.android.dialer.util.DialerUtils;

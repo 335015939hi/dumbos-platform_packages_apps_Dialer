@@ -19,11 +19,11 @@ package com.android.dialer.calllogutils;
 import android.content.Context;
 import android.provider.CallLog.Calls;
 import android.support.v4.os.BuildCompat;
-import com.android.dialer.NumberAttributes;
-import com.android.dialer.calllog.model.CoalescedRow;
-import com.android.dialer.glidephotomanager.PhotoInfo;
+import com.android.protos.NumberAttributes;
+import com.android.protos.CoalescedRow;
+import com.android.protos.PhotoInfo;
 import com.android.dialer.spam.Spam;
-import com.android.dialer.voicemail.model.VoicemailEntry;
+import com.android.protos.VoicemailEntry;
 
 /** Builds {@link PhotoInfo} from other data types. */
 public final class PhotoInfoBuilder {

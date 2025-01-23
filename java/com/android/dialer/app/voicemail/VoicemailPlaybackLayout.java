@@ -33,7 +33,7 @@ import android.widget.TextView;
 import com.android.dialer.app.R;
 import com.android.dialer.app.calllog.CallLogAsyncTaskUtil;
 import com.android.dialer.app.calllog.CallLogListItemViewHolder;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import java.util.Objects;
 import java.util.concurrent.ScheduledExecutorService;

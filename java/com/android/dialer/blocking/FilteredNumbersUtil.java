@@ -33,7 +33,7 @@ import android.text.TextUtils;
 import android.widget.Toast;
 import com.android.dialer.blocking.FilteredNumberAsyncQueryHandler.OnHasBlockedNumbersListener;
 import com.android.dialer.common.LogUtil;
-import com.android.dialer.logging.InteractionEvent;
+import com.android.protos.InteractionEvent;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.notification.DialerNotificationManager;
 import com.android.dialer.notification.NotificationChannelId;

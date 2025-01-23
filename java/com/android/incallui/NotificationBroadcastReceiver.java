@@ -29,7 +29,7 @@ import android.telecom.VideoProfile;
 
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.common.concurrent.DialerExecutorComponent;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.incallui.call.CallList;
 import com.android.incallui.call.DialerCall;

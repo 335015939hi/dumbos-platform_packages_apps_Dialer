@@ -18,13 +18,13 @@ package com.android.voicemail.impl.transcribe;
 import android.app.job.JobWorkItem;
 import android.content.Context;
 import android.util.Pair;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.DialerImpression;
 import com.android.voicemail.impl.VvmLog;
 import com.android.voicemail.impl.transcribe.TranscriptionService.JobCallback;
 import com.android.voicemail.impl.transcribe.grpc.TranscriptionClientFactory;
 import com.android.voicemail.impl.transcribe.grpc.TranscriptionResponseSync;
-import com.google.internal.communications.voicemailtranscription.v1.TranscribeVoicemailRequest;
-import com.google.internal.communications.voicemailtranscription.v1.TranscriptionStatus;
+import com.android.protos.TranscribeVoicemailRequest;
+import com.android.protos.TranscriptionStatus;
 
 /** Background task to get a voicemail transcription using the synchronous API */
 public class TranscriptionTaskSync extends TranscriptionTask {

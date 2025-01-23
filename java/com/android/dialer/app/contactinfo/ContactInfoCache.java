@@ -23,7 +23,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
 import com.android.dialer.common.LogUtil;
-import com.android.dialer.logging.ContactSource.Type;
+import com.android.protos.ContactSource.Type;
 import com.android.dialer.oem.CequintCallerIdManager;
 import com.android.dialer.phonenumbercache.ContactInfo;
 import com.android.dialer.phonenumbercache.ContactInfoHelper;

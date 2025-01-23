@@ -36,10 +36,10 @@ import com.android.dialer.blockreportspam.BlockReportSpamDialogs.DialogFragmentF
 import com.android.dialer.blockreportspam.BlockReportSpamDialogs.DialogFragmentForReportingNotSpam;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.location.GeoUtil;
-import com.android.dialer.logging.ContactLookupResult;
-import com.android.dialer.logging.DialerImpression;
+import com.android.protos.ContactLookupResult;
+import com.android.protos.DialerImpression;
 import com.android.dialer.logging.Logger;
-import com.android.dialer.logging.ReportingLocation;
+import com.android.protos.ReportingLocation;
 import com.android.dialer.notification.DialerNotificationManager;
 import com.android.dialer.phonenumberutil.PhoneNumberHelper;
 import com.android.dialer.spam.SpamComponent;
