@@ -18,3 +18,5 @@ include(":dialer:app")
 include(":protos")
 
 include(":quantum")
+
+include(":product")
