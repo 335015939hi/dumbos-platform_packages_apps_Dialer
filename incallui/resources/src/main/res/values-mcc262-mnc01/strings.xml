@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- "Brand name" for WiFi calls. Will be overridden for specific mcc-mnc combinations [CHAR LIMIT=40] -->
+  <string name="notification_call_wifi_brand">WLAN Call</string>
+  <!-- "Brand name" for WiFi work calls. Will be overridden for specific mcc-mnc combinations [CHAR LIMIT=40] -->
+  <string name="notification_call_wifi_work_brand">WLAN work call</string>
+</resources>

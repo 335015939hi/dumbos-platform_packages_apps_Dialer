@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2017 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License
+  -->
+<resources>
+  <dimen name="videocall_preview_width">72dp</dimen>
+  <dimen name="videocall_preview_height">72dp</dimen>
+  <dimen name="videocall_preview_long">96dp</dimen>
+  <dimen name="videocall_preview_margin_bottom">24dp</dimen>
+  <dimen name="videocall_preview_margin_start">24dp</dimen>
+  <dimen name="videocall_preview_margin_end">24dp</dimen>
+  <dimen name="videocall_button_spacing">8dp</dimen>
+  <dimen name="videocall_button_size">60dp</dimen>
+  <dimen name="videocall_button_padding">12dp</dimen>
+
+  <dimen name="answer_min_swipe_amount">110dp</dimen>
+  <dimen name="answer_affordance_min_background_radius">30dp</dimen>
+  <dimen name="answer_affordance_touch_target_size">120dp</dimen>
+  <dimen name="hint_grow_amount_sideways">60dp</dimen>
+
+  <dimen name="answer_contact_puck_size_photo">88dp</dimen>
+  <dimen name="answer_contact_puck_size_no_photo">72dp</dimen>
+  <dimen name="two_button_button_size">48dp</dimen>
+  <dimen name="two_button_label_size">12sp</dimen>
+  <dimen name="two_button_label_padding">8dp</dimen>
+  <dimen name="two_button_bottom_padding">24dp</dimen>
+  <dimen name="answer_swipe_dead_zone_sides">50dp</dimen>
+  <dimen name="answer_swipe_dead_zone_top">150dp</dimen>
+
+  <dimen name="hint_text_size">18sp</dimen>
+  <dimen name="hint_initial_offset">-100dp</dimen>
+  <dimen name="hint_offset">300dp</dimen>
+  <dimen name="hint_small_begin_size">50dp</dimen>
+  <dimen name="hint_small_end_size">42dp</dimen>
+  <dimen name="hint_mid_begin_size">56dp</dimen>
+  <dimen name="hint_mid_end_size">64dp</dimen>
+  <dimen name="hint_large_begin_size">64dp</dimen>
+  <dimen name="hint_large_end_size">160dp</dimen>
+
+  <dimen name="answer_contact_name_text_size">24sp</dimen>
+  <dimen name="answer_contact_name_min_size">24sp</dimen>
+  <dimen name="answer_avatar_size">0dp</dimen>
+  <dimen name="answer_importance_margin_bottom">0dp</dimen>
+  <bool name="answer_important_call_allowed">false</bool>
+  <bool name="scale_width">true</bool>
+  <bool name="scale_height">false</bool>
+  <integer name="answer_animate_entry_millis">1000</integer>
+
+  <dimen name="location_map_width">92dp</dimen>
+  <dimen name="location_map_height">92dp</dimen>
+
+  <dimen name="incall_end_call_button_size">48dp</dimen>
+  <dimen name="incall_call_button_elevation">8dp</dimen>
+  <drawable name="incall_end_call_icon">@drawable/quantum_ic_call_end_white_24</drawable>
+
+  <!-- Dimensions for connection icons -->
+  <dimen name="contactgrid_connection_icon_margin_end">10dp</dimen>
+
+  <dimen name="incall_button_label_margin">8dp</dimen>
+  <dimen name="incall_button_elevation">0dp</dimen>
+  <dimen name="incall_button_padding">4dp</dimen>
+  <dimen name="incall_button_vertical_padding">8dp</dimen>
+  <dimen name="incall_avatar_size">0dp</dimen>
+  <dimen name="incall_labeled_button_size">48dp</dimen>
+  <dimen name="incall_labeled_button_icon_size">36dp</dimen>
+  <dimen name="tools_button_height">76dp</dimen>
+  <dimen name="incall_window_margin_horizontal">24dp</dimen>
+  <dimen name="incall_button_grid_scroll_view_max_height">0dp</dimen>
+
+  <bool name="incall_dialpad_allowed">false</bool>
+  <integer name="incall_num_rows">0</integer>
+
+  <dimen name="paginator_dot_radius">5dp</dimen>
+  <dimen name="paginator_dots_separation">8dp</dimen>
+  <dimen name="paginator_height">38dp</dimen>
+  <dimen name="paginator_width">72dp</dimen>
+
+  <dimen name="rtt_message_margin_top">16dp</dimen>
+  <dimen name="rtt_same_group_message_margin_top">2dp</dimen>
+  <dimen name="rtt_overflow_menu_width">180dp</dimen>
+  <dimen name="rtt_overflow_menu_elevation">8dp</dimen>
+  <dimen name="rtt_avatar_size">40dp</dimen>
+  <dimen name="rtt_banner_height">56dp</dimen>
+  <!-- This is used to control image size inside the button. -->
+  <dimen name="rtt_banner_button_padding">12dp</dimen>
+
+  <dimen name="answer_message_avatar_size">56dp</dimen>
+  <dimen name="answer_message_contents_margin_top">28dp</dimen>
+  <dimen name="answer_message_margin_start_end">32dp</dimen>
+  <dimen name="answer_data_elevation">2dp</dimen>
+  <dimen name="answer_avatar_elevation">4dp</dimen>
+
+  <!-- The InCallUI dialpad will sometimes want digits sizes that are different
+       from dialer. Note, these are the default sizes for small devices. Larger
+       screen sizes apply the values in values-sw360dp/dimens.xml. -->
+  <dimen name="incall_dialpad_key_number_margin_bottom">1dp</dimen>
+  <dimen name="incall_dialpad_digits_adjustable_text_size">20sp</dimen>
+  <dimen name="incall_dialpad_digits_adjustable_height">50dp</dimen>
+  <dimen name="incall_dialpad_key_letters_size_for_dual_alphabets">9sp</dimen>
+  <dimen name="incall_dialpad_key_letters_size_for_single_alphabet">
+    @dimen/dialpad_key_letters_default_size_for_single_alphabet
+  </dimen>
+  <dimen name="incall_dialpad_key_numbers_size">36dp</dimen>
+  <dimen name="incall_end_call_spacing">116dp</dimen>
+
+  <!-- Dimension used to possibly down-scale high-res photo into what is suitable
+       for notification's large icon. -->
+  <dimen name="notification_icon_size">64dp</dimen>
+
+  <dimen name="conference_call_manager_button_dimension">48dp</dimen>
+
+  <dimen name="return_to_call_initial_offset_y">120dp</dimen>
+
+  <!-- Whether or not the landscape mode layout is currently being used -->
+  <bool name="is_layout_landscape">false</bool>
+
+  <dimen name="video_call_lte_to_wifi_failed_do_not_show_text_size">16sp</dimen>
+</resources>
