@@ -20,3 +20,5 @@ include(":protos")
 include(":quantum")
 
 include(":product")
+
+include(":incallui:resources")
