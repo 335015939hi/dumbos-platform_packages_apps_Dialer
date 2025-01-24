@@ -88,7 +88,7 @@ public class FilteredNumberAsyncQueryHandler extends AsyncQueryHandler {
     }
   }
 
-  void hasBlockedNumbers(final OnHasBlockedNumbersListener listener) {
+  public void hasBlockedNumbers(final OnHasBlockedNumbersListener listener) {
     if (!FilteredNumberCompat.canAttemptBlockOperations(context)) {
       listener.onHasBlockedNumbers(false);
       return;
@@ -416,7 +416,7 @@ public class FilteredNumberAsyncQueryHandler extends AsyncQueryHandler {
   }
 
   /** TODO(calderwoodra): documentation */
-  interface OnHasBlockedNumbersListener {
+  public interface OnHasBlockedNumbersListener {
 
     /**
      * @param hasBlockedNumbers {@code true} if any blocked numbers are stored. {@code false}
