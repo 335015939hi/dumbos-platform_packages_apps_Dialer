@@ -234,7 +234,6 @@
 
   <!-- contact browser list margins -->
   <dimen name="contact_browser_list_item_text_size">16sp</dimen>
-  <dimen name="contact_browser_list_item_photo_size">40dp</dimen>
   <dimen name="contact_browser_list_item_gap_between_image_and_text">15dp</dimen>
 
   <!-- Height of the floating action button -->
@@ -364,7 +363,6 @@
   <dimen name="speed_dial_context_menu_x_offset">-24dp</dimen>
   <dimen name="speed_dial_context_menu_corner_radius">16dp</dimen>
   <dimen name="disambig_dialog_width">280dp</dimen>
-  <dimen name="expanded_search_bar_height">64dp</dimen>
   <dimen name="expanded_search_bar_height_minus">-64dp</dimen>
 
   <dimen name="call_log_action_icon_margin_start">16dp</dimen>
@@ -435,17 +433,6 @@
   <dimen name="voicemail_media_player_height">56dp</dimen>
   <dimen name="voicemail_media_player_width">0dp</dimen>
 
-  <dimen name="voicemail_tos_image_size">280dp</dimen>
-
-  <!-- Dimensions for voicemail alert -->
-  <dimen name="alert_main_padding">24dp</dimen>
-  <dimen name="voicemail_promo_card_icon_size">24dp</dimen>
-  <dimen name="voicemail_promo_card_main_padding">24dp</dimen>
-  <dimen name="voicemail_promo_card_title_padding">12dp</dimen>
-  <dimen name="voicemail_promo_card_title_text_size">16sp</dimen>
-  <dimen name="voicemail_promo_card_line_spacing">4dp</dimen>
-  <dimen name="voicemail_promo_card_message_size">14sp</dimen>
-
   <!-- Message Fragment -->
   <dimen name="message_item_text_size">16sp</dimen>
   <dimen name="textview_item_padding">16dp</dimen>
@@ -460,8 +447,4 @@
 
   <!-- Empty List -->
   <dimen name="empty_list_message_text_size">16sp</dimen>
-
-  <!-- Floating Action Button -->
-  <dimen name="floating_action_button_margin_right">16dp</dimen>
-  <dimen name="floating_action_button_width">56dp</dimen>
 </resources>

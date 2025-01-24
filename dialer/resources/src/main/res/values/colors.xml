@@ -128,6 +128,4 @@
 
   <!-- Legacy -->
   <color name="blue_grey_100">#CFD8DC</color>
-
-  <color name="voicemail_icon_disabled_tint">#80000000</color>
 </resources>
