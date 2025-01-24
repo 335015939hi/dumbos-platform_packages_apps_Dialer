@@ -24,3 +24,5 @@ include(":quantum")
 include(":product")
 
 include(":incallui:resources")
+
+include(":bubble")
