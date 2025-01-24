@@ -27,7 +27,7 @@
       android:focusable="true"
       android:nextFocusRight="@+id/contact_tile_secondary_button">
 
-    <com.android.contacts.common.widget.LayoutSuppressingImageView
+    <com.android.dialer.common.widget.LayoutSuppressingImageView
         android:id="@+id/contact_tile_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -63,7 +63,7 @@
           android:layout_height="wrap_content"
           android:gravity="center_vertical"
           android:orientation="horizontal">
-        <com.android.dialer.widget.BidiTextView
+        <com.android.dialer.common.widget.BidiTextView
             android:id="@+id/contact_tile_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

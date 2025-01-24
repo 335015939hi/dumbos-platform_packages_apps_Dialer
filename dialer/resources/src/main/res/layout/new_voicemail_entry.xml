@@ -22,7 +22,7 @@
     android:layout_height="wrap_content"
     android:minHeight="72dp">
 
-  <com.android.dialer.widget.ContactPhotoView
+  <com.android.dialer.common.widget.ContactPhotoView
       android:id="@+id/contact_photo_view"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"

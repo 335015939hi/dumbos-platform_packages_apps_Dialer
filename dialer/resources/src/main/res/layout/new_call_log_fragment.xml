@@ -28,7 +28,7 @@
       android:background="?android:attr/colorBackground"
       android:clipToPadding="false"/>
 
-  <com.android.dialer.widget.EmptyContentView
+  <com.android.dialer.common.widget.EmptyContentView
       android:gravity="center_vertical"
       android:id="@+id/new_call_log_empty_content_view"
       android:background="?android:attr/colorBackground"

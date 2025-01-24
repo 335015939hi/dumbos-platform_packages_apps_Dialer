@@ -1,0 +1,86 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAPTURE_AUDIO_OUTPUT" />
+
+    <!-- This is used for querying Cequint caller id. -->
+    <uses-permission android:name="com.cequint.ecid.CALLER_ID_LOOKUP"/>
+
+    <!-- This is used by MotorolaInCallUiNotifier to send broadcasts. -->
+    <uses-permission android:name="com.motorola.incallui.permission.INCOMING_CALL_VISIBILITY_CHANGED"/>
+
+    <application>
+
+        <service android:name="com.android.dialer.common.callrecord.impl.CallRecorderService"
+            android:process="com.android.incallui" />
+
+        <service android:name=".configprovider.SharedPrefConfigProvider$Service"/>
+
+        <activity
+            android:label="@string/enriched_call_simulator_activity"
+            android:name="com.android.dialer.common.enrichedcall.simulator.EnrichedCallSimulatorActivity">
+        </activity>
+
+        <!-- Broadcast receiver that passively listens to location updates -->
+        <receiver android:name="com.android.dialer.common.location.CountryDetector$LocationChangedReceiver"/>
+
+        <provider
+            android:authorities="com.android.dialer.common.phonelookuphistory"
+            android:exported="false"
+            android:multiprocess="false"
+            android:name=".phonelookup.database.PhoneLookupHistoryContentProvider"/>
+
+        <activity
+            android:name="com.android.dialer.common.postcall.PostCallActivity"
+            android:exported="false"
+            android:theme="@style/Dialer.ThemeBase.NoActionBar"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <activity
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:name="com.android.dialer.common.precall.externalreceiver.LaunchPreCallActivity"
+            android:noHistory="true"
+            android:permission="android.permission.CALL_PHONE"
+            android:theme="@style/Theme.PreCall.DialogHolder">
+            <intent-filter>
+                <action android:name="com.android.dialer.common.LAUNCH_PRE_CALL"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="tel" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.dialer.common.LAUNCH_PRE_CALL"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="voicemail" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:exported="false"
+            android:name="com.android.dialer.common.precall.impl.PreCallActivity"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:theme="@style/Theme.PreCall.DialogHolder">
+        </activity>
+
+        <provider
+            android:authorities="com.android.dialer.common.preferredsimfallback"
+            android:exported="true"
+            android:multiprocess="false"
+            android:name=".preferredsim.impl.PreferredSimFallbackProvider"
+            android:readPermission="android.permission.READ_CONTACTS"
+            android:writePermission="android.permission.WRITE_CONTACTS"/>
+
+        <meta-data
+            android:name="com.android.dialer.common.SUPPORTS_PREFERRED_SIM"
+            android:value="true"/>
+        <meta-data
+            android:name="com.android.dialer.common.PREFERRED_SIM_FALLBACK_AUTHORITY"
+            android:value="com.android.dialer.common.preferredsimfallback"/>
+
+        <activity android:name=".rtt.RttTranscriptActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+
+    </application>
+
+</manifest>

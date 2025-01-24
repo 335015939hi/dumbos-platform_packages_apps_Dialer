@@ -21,7 +21,7 @@
   android:layout_height="match_parent"
   android:background="?android:attr/colorBackground">
 
-  <com.android.dialer.widget.DialerToolbar
+  <com.android.dialer.common.widget.DialerToolbar
       android:id="@+id/toolbar"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"/>

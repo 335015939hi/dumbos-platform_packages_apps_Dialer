@@ -111,4 +111,28 @@ public class MigrateBlockedNumbersDialogFragment extends DialogFragment {
     migrationListener = null;
     super.onPause();
   }
+
+  /**
+   * Shows block number migration dialog if necessary.
+   *
+   * @param fragmentManager The {@link FragmentManager} used to show fragments.
+   * @param listener The {@link BlockedNumbersMigrator.Listener} to call when migration is complete.
+   * @return boolean True if migration dialog is shown.
+   */
+  public static boolean maybeShowBlockNumberMigrationDialog(
+          Context context, FragmentManager fragmentManager, BlockedNumbersMigrator.Listener listener) {
+    if (shouldShowMigrationDialog(context)) {
+      LogUtil.i(
+              "FilteredNumberCompat.maybeShowBlockNumberMigrationDialog",
+              "maybeShowBlockNumberMigrationDialog - showing migration dialog");
+      MigrateBlockedNumbersDialogFragment.newInstance(new BlockedNumbersMigrator(context), listener)
+              .show(fragmentManager, "MigrateBlockedNumbers");
+      return true;
+    }
+    return false;
+  }
+
+  private static boolean shouldShowMigrationDialog(Context context) {
+    return canUseNewFiltering() && !hasMigratedToNewBlocking(context);
+  }
 }

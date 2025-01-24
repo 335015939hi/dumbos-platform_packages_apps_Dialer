@@ -62,7 +62,7 @@
   <!-- Anchored header view -->
   <include layout="@layout/header"/>
 
-  <com.android.dialer.widget.EmptyContentView
+  <com.android.dialer.common.widget.EmptyContentView
       android:id="@+id/empty_list_view"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"

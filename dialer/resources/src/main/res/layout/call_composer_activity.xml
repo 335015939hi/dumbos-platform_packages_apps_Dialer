@@ -57,7 +57,7 @@
           android:textColor="?android:attr/textColorPrimaryInverse"
           android:textSize="@dimen/call_composer_name_text_size"/>
 
-        <com.android.dialer.widget.BidiTextView
+        <com.android.dialer.common.widget.BidiTextView
           android:id="@+id/phone_number"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-      <com.android.dialer.widget.LockableViewPager
+      <com.android.dialer.common.widget.LockableViewPager
           android:id="@+id/call_composer_view_pager"
           android:layout_width="match_parent"
           android:layout_height="@dimen/call_composer_view_pager_height"/>
@@ -154,7 +154,7 @@
     </FrameLayout>
   </FrameLayout>
 
-  <com.android.dialer.widget.DialerToolbar
+  <com.android.dialer.common.widget.DialerToolbar
       android:id="@+id/toolbar"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"/>
