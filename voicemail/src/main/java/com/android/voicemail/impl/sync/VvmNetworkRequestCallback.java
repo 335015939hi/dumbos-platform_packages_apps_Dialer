@@ -36,6 +36,9 @@ import com.android.voicemail.impl.OmtpVvmCarrierConfigHelper;
 import com.android.voicemail.impl.VoicemailStatus;
 import com.android.voicemail.impl.VvmLog;
 
+import java.lang.reflect.Method;
+import java.net.InetAddress;
+
 /**
  * Base class for network request call backs for visual voicemail syncing with the Imap server. This
  * handles retries and network requests.
@@ -133,8 +136,16 @@ public abstract class VvmNetworkRequestCallback extends ConnectivityManager.Netw
   @Override
   @CallSuper
   public void onLinkPropertiesChanged(Network network, LinkProperties lp) {
-    boolean hasIPv4 = (lp != null) &&
-            (lp.isReachable(InetAddresses.parseNumericAddress("8.8.8.8")));
+    boolean reachable = false;
+    try {
+      final Class<?> linkProperties = Class.forName("android.net.LinkProperties");
+      final Method isReachable = linkProperties.getMethod("isReachable", InetAddress.class);
+      reachable = (boolean) isReachable.invoke(lp, InetAddresses.parseNumericAddress("8.8.8.8"));
+    } catch (Exception e) {
+      VvmLog.e(TAG, "Failed to access android.net.LinkProperties.isReachable");
+    }
+
+    boolean hasIPv4 = (lp != null) && reachable;
     if(hasIPv4) {
         mWaitV4Cv.open();
     }
