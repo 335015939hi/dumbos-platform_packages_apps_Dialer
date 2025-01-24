@@ -24,6 +24,7 @@ include(":quantum")
 include(":product")
 
 include(":incallui:resources")
+include(":incallui:incallui")
 
 include(":contacts-common")
 
