@@ -26,3 +26,5 @@ include(":product")
 include(":incallui:resources")
 
 include(":bubble")
+
+include(":voicemail")
