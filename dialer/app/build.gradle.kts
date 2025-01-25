@@ -25,6 +25,28 @@ android {
         versionName = "23.0.1"
     }
 
+    buildFeatures {
+        aidl = true
+        buildConfig = true
+    }
+
+    packaging {
+        resources.excludes.add("META-INF/DEPENDENCIES")
+
+        jniLibs {
+            useLegacyPackaging = true
+        }
+    }
+
+    sourceSets.getByName("main") {
+        aidl { srcDir("./src/main/java") }
+
+        java.exclude(
+            "**/rootcomponentgenerator/**",
+            "**/binary/google/**"
+        )
+    }
+
     val keystorePropertiesFile = rootProject.file("keystore.properties")
     val useKeystoreProperties = keystorePropertiesFile.canRead()
     val keystoreProperties = Properties()
@@ -42,6 +64,34 @@ android {
                 enableV4Signing = true
             }
         }
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = true
+            isShrinkResources = true
+
+            proguardFiles(
+                getDefaultProguardFile("proguard-android.txt"),
+                "proguard.flags"
+            )
+            signingConfig = if (useKeystoreProperties) {
+                signingConfigs.getByName("release")
+            } else {
+                signingConfigs.getByName("debug")
+            }
+            applicationIdSuffix = ".preview"
+            resValue("string", "applicationLabel", "Preview Phone")
+        }
+
+        debug {
+            applicationIdSuffix = ".debug"
+            resValue("string", "applicationLabel", "Phone d")
+        }
+    }
+
+    lint {
+        abortOnError = false
     }
 }
 
@@ -73,4 +123,17 @@ dependencies {
     annotationProcessor(libs.glide.compiler)
 
     implementation(libs.javapoet)
+
+    implementation(project(":lib:libbackup"))
+    implementation(project(":lib:platform_frameworks_ex:common"))
+
+    implementation(project(":dialer:common"))
+    implementation(project(":dialer:resources"))
+    implementation(project(":incallui:incallui"))
+    implementation(project(":quantum"))
+    implementation(project(":product"))
+    implementation(project(":protos"))
+    implementation(project(":voicemail"))
+    implementation(project(":contacts-common"))
+    implementation(project(":bubble"))
 }

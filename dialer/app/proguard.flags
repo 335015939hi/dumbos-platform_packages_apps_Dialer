@@ -1,0 +1,19 @@
+# These are referenced by com.google.common.util.concurrent and
+# com.google.errorprone.annotations but don't exist on Android.
+-dontwarn java.lang.ClassValue
+-dontwarn javax.lang.model.element.Modifier
+
+-keep public class * extends android.app.Fragment {
+  public <init>();
+}
+
+-keep public class * extends android.support.v4.app.Fragment {
+  public <init>();
+}
+
+# This is generated automatically by the Android Gradle plugin.
+-dontwarn javax.naming.NamingEnumeration
+-dontwarn javax.naming.NamingException
+-dontwarn javax.naming.directory.Attribute
+-dontwarn javax.naming.directory.Attributes
+-dontwarn javax.naming.directory.InitialDirContext
