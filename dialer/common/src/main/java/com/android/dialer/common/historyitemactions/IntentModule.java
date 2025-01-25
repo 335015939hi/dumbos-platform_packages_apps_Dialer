@@ -51,7 +51,7 @@ public class IntentModule implements HistoryItemActionModule {
     this(context, intent, text, image, /* impressions = */ ImmutableList.of());
   }
 
-  IntentModule(
+  public IntentModule(
       Context context,
       Intent intent,
       @StringRes int text,
@@ -88,7 +88,7 @@ public class IntentModule implements HistoryItemActionModule {
   }
 
   /** Creates a module for starting an outgoing call with a {@link CallIntentBuilder}. */
-  static IntentModule newCallModule(
+  public static IntentModule newCallModule(
       Context context,
       CallIntentBuilder callIntentBuilder,
       ImmutableList<DialerImpression.Type> impressions) {
@@ -117,7 +117,7 @@ public class IntentModule implements HistoryItemActionModule {
   }
 
   /** Creates a module for sending a text message to the given number. */
-  static IntentModule newModuleForSendingTextMessage(
+  public static IntentModule newModuleForSendingTextMessage(
       Context context, String number, ImmutableList<DialerImpression.Type> impressions) {
     return new IntentModule(
         context,
