@@ -68,9 +68,9 @@
   <uses-permission android:name="android.permission.STOP_APP_SWITCHES"/>
 
   <!-- Used for sending PendingIntents to dynamically registered receivers -->
-  <permission android:name="com.android.dialer.permission.DIALER_ORIGIN"
+  <permission android:name="${applicationId}.permission.DIALER_ORIGIN"
     android:protectionLevel="signature" />
-  <uses-permission android:name="com.android.dialer.permission.DIALER_ORIGIN"/>
+  <uses-permission android:name="${applicationId}.permission.DIALER_ORIGIN"/>
 
   <!-- Permissions needed for badger count showing on launch icon. -->
 
@@ -233,7 +233,7 @@
     </receiver>
 
     <provider
-        android:authorities="com.android.dialer.files"
+        android:authorities="${applicationId}.files"
         android:exported="false"
         android:grantUriPermissions="true"
         android:name="android.support.v4.content.FileProvider">
@@ -250,7 +250,7 @@
         android:value="AEdPqrEAAAAIn3-Y3JKit1mrzfvcdbVhUiJn2ICtKfhGYLy0Bg"/>
 
     <provider
-        android:authorities="com.android.dialer.blocking.filterednumberprovider"
+        android:authorities="${applicationId}.blocking.filterednumberprovider"
         android:exported="false"
         android:multiprocess="false"
         android:name="com.android.contacts.common.blocking.FilteredNumberProvider"/>
@@ -278,7 +278,7 @@
         android:permission="android.permission.BIND_JOB_SERVICE"/>
 
     <provider
-        android:authorities="com.android.dialer.annotatedcalllog"
+        android:authorities="${applicationId}.annotatedcalllog"
         android:exported="false"
         android:multiprocess="false"
         android:name=".calllog.database.AnnotatedCallLogContentProvider"/>

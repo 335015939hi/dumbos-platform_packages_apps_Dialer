@@ -18,40 +18,50 @@ package com.android.dialer.common.constants;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+
+import com.android.dialer.common.BuildConfig;
 import com.android.dialer.common.proguard.UsedByReflection;
 
 /** Provider config values for AOSP Dialer. */
 @UsedByReflection(value = "Constants.java")
 public class ConstantsImpl extends Constants {
 
+  private String getPackageName() {
+    if (BuildConfig.DEBUG) {
+      return "com.android.dialer.debug";
+    } else {
+      return "com.android.dialer";
+    }
+  }
+
   @Override
   @NonNull
   public String getFilteredNumberProviderAuthority() {
-    return "com.android.dialer.common.blocking.filterednumberprovider";
+    return getPackageName() + ".filterednumberprovider";
   }
 
   @Override
   @NonNull
   public String getFileProviderAuthority() {
-    return "com.android.dialer.common.files";
+    return getPackageName() + ".files";
   }
 
   @NonNull
   @Override
   public String getAnnotatedCallLogProviderAuthority() {
-    return "com.android.dialer.common.annotatedcalllog";
+    return getPackageName() + ".annotatedcalllog";
   }
 
   @NonNull
   @Override
   public String getPhoneLookupHistoryProviderAuthority() {
-    return "com.android.dialer.common.phonelookuphistory";
+    return getPackageName() + ".phonelookuphistory";
   }
 
   @NonNull
   @Override
   public String getPreferredSimFallbackProviderAuthority() {
-    return "com.android.dialer.common.preferredsimfallback";
+    return getPackageName() + ".preferredsimfallback";
   }
 
   @Override

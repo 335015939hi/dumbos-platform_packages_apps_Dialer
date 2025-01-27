@@ -25,7 +25,7 @@
         <receiver android:name="com.android.dialer.common.location.CountryDetector$LocationChangedReceiver"/>
 
         <provider
-            android:authorities="com.android.dialer.common.phonelookuphistory"
+            android:authorities="${applicationId}.phonelookuphistory"
             android:exported="false"
             android:multiprocess="false"
             android:name=".phonelookup.database.PhoneLookupHistoryContentProvider"/>
@@ -64,7 +64,7 @@
         </activity>
 
         <provider
-            android:authorities="com.android.dialer.common.preferredsimfallback"
+            android:authorities="${applicationId}.preferredsimfallback"
             android:exported="true"
             android:multiprocess="false"
             android:name=".preferredsim.impl.PreferredSimFallbackProvider"

@@ -19,6 +19,7 @@ android {
 
     buildFeatures {
         aidl = true
+        buildConfig = true
     }
 
     sourceSets.getByName("main") {
