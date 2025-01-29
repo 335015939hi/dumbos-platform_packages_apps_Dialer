@@ -25,6 +25,7 @@ protoc-artifact = "com.google.protobuf:protoc:4.29.2"
 appCompatVersion = "1.7.0"
 androidxCoreVersion = "1.15.0"
 materialVersion = "1.12.0"
+lifecycleViewmodelAndroid = "2.8.7"
 
 [libraries]
 apache-mime4j-core = { module = "org.apache.james:apache-mime4j-core", version.ref = "apacheMime4jCoreVersion" }
@@ -51,6 +52,7 @@ volley = { module = "com.android.volley:volley", version.ref = "volleyVersion" }
 androidx-core = { module = "androidx.core:core", version.ref = "androidxCoreVersion" }
 support-annotations = { module = "com.android.support:support-annotations", version.ref = "supportLibraryVersion" }
 material = { module = "com.google.android.material:material", version.ref = "materialVersion" }
+lifecycle = { module = "androidx.lifecycle:lifecycle-viewmodel-android", version.ref = "lifecycleViewmodelAndroid" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

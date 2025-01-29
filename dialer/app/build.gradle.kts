@@ -99,6 +99,7 @@ dependencies {
     implementation(libs.androidx.core)
     implementation(libs.appcompat)
     implementation(libs.material)
+    implementation(libs.lifecycle)
 
     implementation(libs.guava)
 
