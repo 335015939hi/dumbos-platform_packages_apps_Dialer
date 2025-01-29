@@ -79,7 +79,7 @@
             android:value="com.android.dialer.common.preferredsimfallback"/>
 
         <activity android:name=".rtt.RttTranscriptActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+            android:theme="@style/Dialer.ThemeBase.NoActionBar"/>
 
     </application>
 
