@@ -96,11 +96,9 @@ android {
 }
 
 dependencies {
-    implementation(libs.support.v4)
-    implementation(libs.appcompat.v7)
-    implementation(libs.recyclerview.v7)
-    implementation(libs.support.v13)
-    implementation(libs.design)
+    implementation(libs.androidx.core)
+    implementation(libs.appcompat)
+    implementation(libs.material)
 
     implementation(libs.guava)
 
@@ -116,9 +114,6 @@ dependencies {
     compileOnly(libs.auto.value.annotations)
     annotationProcessor(libs.auto.value)
 
-    // Using an old version because they migrated to androidx in 4.10.0 which breaks building with
-    // the android support libraries
-    // TODO: Migrate to Androidx and update Glide
     implementation(libs.glide)
     annotationProcessor(libs.glide.compiler)
 

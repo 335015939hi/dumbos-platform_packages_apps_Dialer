@@ -16,7 +16,7 @@
 
 package com.android.dialer.searchfragment.cp2;
 
-import android.support.v4.util.ArraySet;
+import androidx.collection.ArraySet;
 import android.text.TextUtils;
 import java.util.Set;
 

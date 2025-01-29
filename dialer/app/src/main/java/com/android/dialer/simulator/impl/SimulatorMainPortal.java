@@ -17,7 +17,7 @@
 package com.android.dialer.simulator.impl;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.telecom.TelecomManager;
 import android.telecom.VideoProfile;
 import android.view.ActionProvider;

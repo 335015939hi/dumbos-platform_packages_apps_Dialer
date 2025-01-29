@@ -15,17 +15,17 @@
  */
 package com.android.dialer.app.calllog;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
+import androidx.fragment.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.CallLog;
 import android.provider.CallLog.Calls;
-import android.support.annotation.VisibleForTesting;
-import android.support.design.widget.Snackbar;
-import android.support.v13.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
+import androidx.annotation.VisibleForTesting;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.ActionBar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -89,7 +89,7 @@ public class CallLogActivity extends TransactionSafeActivity
 
     viewPager = (ViewPager) findViewById(R.id.call_log_pager);
 
-    viewPagerAdapter = new ViewPagerAdapter(getFragmentManager());
+    viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
     viewPager.setAdapter(viewPagerAdapter);
     viewPager.setOffscreenPageLimit(1);
     viewPager.setOnPageChangeListener(this);
@@ -161,7 +161,7 @@ public class CallLogActivity extends TransactionSafeActivity
       startActivity(intent);
       return true;
     } else if (item.getItemId() == R.id.delete_all) {
-      ClearCallLogDialog.show(getFragmentManager());
+      ClearCallLogDialog.show(getSupportFragmentManager());
       return true;
     }
     return super.onOptionsItemSelected(item);

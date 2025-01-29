@@ -18,10 +18,10 @@ package com.android.dialer.searchfragment.list;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.IntDef;
-import android.support.annotation.StringRes;
-import android.support.annotation.VisibleForTesting;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.IntDef;
+import androidx.annotation.StringRes;
+import androidx.annotation.VisibleForTesting;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;

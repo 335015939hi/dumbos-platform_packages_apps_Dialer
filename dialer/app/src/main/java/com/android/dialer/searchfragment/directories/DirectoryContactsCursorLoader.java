@@ -17,14 +17,14 @@
 package com.android.dialer.searchfragment.directories;
 
 import android.content.Context;
-import android.content.CursorLoader;
+import androidx.loader.content.CursorLoader;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import com.android.dialer.common.cp2.DirectoryUtils;
 import com.android.dialer.searchfragment.common.Projections;
 import com.android.dialer.searchfragment.directories.DirectoriesCursorLoader.Directory;

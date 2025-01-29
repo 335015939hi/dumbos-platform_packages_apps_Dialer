@@ -16,7 +16,7 @@
 
 package com.android.dialer.voicemail.listui;
 
-import android.app.FragmentManager;
+import androidx.fragment.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -25,9 +25,9 @@ import android.media.AudioManager;
 import android.net.Uri;
 import android.provider.VoicemailContract;
 import android.provider.VoicemailContract.Voicemails;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.util.Pair;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;

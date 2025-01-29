@@ -23,9 +23,9 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface.OnDismissListener;
 import android.graphics.drawable.Icon;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.os.BuildCompat;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.fragment.app.FragmentManager;
+import androidx.core.os.BuildCompat;
 import android.view.View;
 import android.widget.Toast;
 

@@ -17,8 +17,8 @@ package com.android.dialer.common.notification.missedcalls;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.common.notification.DialerNotificationManager;
 import com.android.dialer.common.notification.NotificationManagerUtils;

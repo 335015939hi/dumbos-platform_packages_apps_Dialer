@@ -16,14 +16,15 @@
 
 package com.android.dialer.common.precall.impl;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.app.KeyguardManager;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
+
 import android.view.WindowManager.LayoutParams;
 
 /** A transparent activity to host dialogs for {@link PreCallCoordinatorImpl} */
-public class PreCallActivity extends Activity {
+public class PreCallActivity extends AppCompatActivity {
 
   private PreCallCoordinatorImpl preCallCoordinator;
 

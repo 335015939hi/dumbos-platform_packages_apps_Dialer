@@ -19,7 +19,7 @@ package com.android.dialer.common.spam;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.provider.CallLog.Calls;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import com.android.protos.DialerPhoneNumber;
 import com.android.protos.ContactLookupResult;
 import com.android.protos.ContactSource;

@@ -24,15 +24,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.CallLog;
 import android.provider.CallLog.Calls;
-import android.support.annotation.CallSuper;
-import android.support.annotation.MainThread;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresPermission;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.CallSuper;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresPermission;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 
 import com.android.dialer.R;
@@ -369,7 +369,7 @@ abstract class CallDetailsActivityCommon extends AppCompatActivity {
       DialerExecutorComponent.get(getActivity().getApplicationContext())
           .dialerExecutorFactory()
           .createUiTaskBuilder(
-              getActivity().getFragmentManager(),
+              getActivity().getSupportFragmentManager(),
               "CallDetailsActivityCommon.createAssistedDialerNumberParserTask",
               new AssistedDialingNumberParseWorker())
           .onSuccess(successListener)
@@ -438,16 +438,16 @@ abstract class CallDetailsActivityCommon extends AppCompatActivity {
 
   private static final class ReportCallIdListener
       implements CallDetailsFooterViewHolder.ReportCallIdListener {
-    private final WeakReference<Activity> activityWeakReference;
+    private final WeakReference<AppCompatActivity> activityWeakReference;
 
-    ReportCallIdListener(Activity activity) {
+    ReportCallIdListener(AppCompatActivity activity) {
       this.activityWeakReference = new WeakReference<>(activity);
     }
 
     @Override
     public void reportCallId(String number) {
       ReportDialogFragment.newInstance(number)
-          .show(getActivity().getFragmentManager(), null /* tag */);
+          .show(getActivity().getSupportFragmentManager(), null /* tag */);
     }
 
     @Override
@@ -455,7 +455,7 @@ abstract class CallDetailsActivityCommon extends AppCompatActivity {
       return getActivity().getIntent().getExtras().getBoolean(EXTRA_CAN_REPORT_CALLER_ID, false);
     }
 
-    private Activity getActivity() {
+    private AppCompatActivity getActivity() {
       return Preconditions.checkNotNull(activityWeakReference.get());
     }
   }

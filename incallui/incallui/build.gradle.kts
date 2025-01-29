@@ -30,9 +30,8 @@ android {
 }
 
 dependencies {
-    implementation(libs.design)
-    implementation(libs.support.v4)
-    implementation(libs.appcompat.v7)
+    implementation(libs.material)
+    implementation(libs.appcompat)
 
     implementation(libs.dagger)
     annotationProcessor(libs.dagger.compiler)

@@ -18,7 +18,7 @@ package com.android.dialer.common.storage;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 import com.android.dialer.common.inject.ApplicationContext;
 import com.android.dialer.common.inject.DialerVariant;
 import com.android.dialer.common.inject.InstallIn;

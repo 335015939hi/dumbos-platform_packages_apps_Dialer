@@ -19,7 +19,7 @@ android {
 }
 
 dependencies {
-    implementation(libs.support.annotations)
+    implementation(libs.androidx.core)
 
     compileOnly(libs.auto.value.annotations)
     annotationProcessor(libs.auto.value)

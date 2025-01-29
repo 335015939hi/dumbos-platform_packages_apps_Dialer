@@ -18,10 +18,10 @@ package com.android.dialer.common.precall.impl;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.MainThread;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
@@ -188,7 +188,7 @@ public class CallingAccountSelector implements PreCallAction {
                 pendingAction,
                 new PreferredAccountRecorder(number, suggestion, dataId)));
     selectPhoneAccountDialogFragment.show(
-        coordinator.getActivity().getFragmentManager(), TAG_CALLING_ACCOUNT_SELECTOR);
+        coordinator.getActivity().getSupportFragmentManager(), TAG_CALLING_ACCOUNT_SELECTOR);
   }
 
   @MainThread

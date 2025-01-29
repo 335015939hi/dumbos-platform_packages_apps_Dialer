@@ -4,7 +4,6 @@
 -keepclassmembers class * {
     @com.android.dialer.common.proguard.UsedByReflection *;
 }
--keep class android.support.design.widget.FloatingActionButton$* { *; }
 
 -assumenosideeffects class com.android.dialer.common.LogUtil {
     public static void v(...);

@@ -19,7 +19,7 @@ package com.android.dialer.common.constants;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.android.dialer.common.proguard.UsedByReflection;
 
 /** Provider config values for Google Dialer. */

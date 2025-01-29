@@ -29,7 +29,7 @@ android {
 }
 
 dependencies {
-    implementation(libs.support.v4)
+    implementation(libs.androidx.core)
 
     implementation(libs.apache.mime4j.core)
     implementation(libs.apache.mime4j.dom)

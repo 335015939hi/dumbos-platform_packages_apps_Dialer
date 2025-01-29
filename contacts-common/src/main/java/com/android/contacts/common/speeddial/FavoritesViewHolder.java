@@ -18,8 +18,8 @@ package com.android.contacts.common.speeddial;
 
 import android.content.Context;
 import android.provider.ContactsContract.Contacts;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;

@@ -25,9 +25,9 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.NotificationCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.TelephonyManager;
@@ -94,11 +94,11 @@ final class VisualVoicemailNotifier {
       if (shouldAlert) {
         groupSummary.setOnlyAlertOnce(false);
         // Group summary will alert when posted/updated
-        groupSummary.setGroupAlertBehavior(Notification.GROUP_ALERT_ALL);
+        groupSummary.setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_ALL);
       } else {
         // Only children will alert. but since all children are set to "only alert summary" it is
         // effectively silenced.
-        groupSummary.setGroupAlertBehavior(Notification.GROUP_ALERT_CHILDREN);
+        groupSummary.setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
       }
       PhoneAccountHandle handle = getAccountForCall(context, newCalls.get(0));
       groupSummary.setChannelId(NotificationChannelManager.getVoicemailChannelId(context, handle));
@@ -216,7 +216,7 @@ final class VisualVoicemailNotifier {
 
     if (VERSION.SDK_INT >= VERSION_CODES.O) {
       builder.setChannelId(NotificationChannelManager.getVoicemailChannelId(context, handle));
-      builder.setGroupAlertBehavior(Notification.GROUP_ALERT_SUMMARY);
+      builder.setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_SUMMARY);
     }
 
     ContactPhotoLoader loader = new ContactPhotoLoader(context, contactInfo);

@@ -24,7 +24,7 @@ import android.media.AudioManager;
 import android.os.Bundle;
 import android.provider.CallLog;
 import android.provider.VoicemailContract;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,7 +84,7 @@ public class VisualVoicemailCallLogFragment extends CallLogFragment {
         DialerExecutorComponent.get(getContext())
             .dialerExecutorFactory()
             .createUiTaskBuilder(
-                getActivity().getFragmentManager(),
+                getActivity().getSupportFragmentManager(),
                 "fetchVoicemailStatus",
                 new VoicemailStatusWorker())
             .onSuccess(this::onPreSyncVoicemailStatusChecked)

@@ -68,6 +68,3 @@
 # AOSP support library:  ICU references to gender and plurals messages.
 -dontnote libcore.icu.ICU
 -keep class libcore.icu.ICU { *** get(...);}
-
-# AOSP support library:  Handle classes that use reflection.
--dontnote android.support.v4.app.NotificationCompatJellybean

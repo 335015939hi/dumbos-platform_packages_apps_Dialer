@@ -4,7 +4,7 @@ autoValueVersion = "1.11.0"
 zxingVersion = "3.5.3"
 daggerVersion = "2.54"
 geocoder = "2.246"
-glideVersion = "4.9.0"
+glideVersion = "4.16.0"
 grpcVersion = "1.69.0"
 guava = "33.4.0-android"
 javapoetVersion = "1.13.0"
@@ -22,11 +22,14 @@ agp = "8.8.0"
 kotlin = "2.1.10"
 protobuf-plugin = "0.9.4"
 protoc-artifact = "com.google.protobuf:protoc:4.29.2"
+appCompatVersion = "1.7.0"
+androidxCoreVersion = "1.15.0"
+materialVersion = "1.12.0"
 
 [libraries]
 apache-mime4j-core = { module = "org.apache.james:apache-mime4j-core", version.ref = "apacheMime4jCoreVersion" }
 apache-mime4j-dom = { module = "org.apache.james:apache-mime4j-dom", version.ref = "apacheMime4jCoreVersion" }
-appcompat-v7 = { module = "com.android.support:appcompat-v7", version.ref = "supportLibraryVersion" }
+appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appCompatVersion" }
 auto-value = { module = "com.google.auto.value:auto-value", version.ref = "autoValueVersion" }
 auto-value-annotations = { module = "com.google.auto.value:auto-value-annotations", version.ref = "autoValueVersion" }
 glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glideVersion" }
@@ -34,7 +37,6 @@ jsr305 = { module = "com.google.code.findbugs:jsr305", version.ref = "jsr305" }
 zxing-core = { module = "com.google.zxing:core", version.ref = "zxingVersion" }
 dagger = { module = "com.google.dagger:dagger", version.ref = "daggerVersion" }
 dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "daggerVersion" }
-design = { module = "com.android.support:design", version.ref = "supportLibraryVersion" }
 geocoder = { module = "com.googlecode.libphonenumber:geocoder", version.ref = "geocoder" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glideVersion" }
 grpc-okhttp = { module = "io.grpc:grpc-okhttp", version.ref = "grpcVersion" }
@@ -44,12 +46,11 @@ guava = { module = "com.google.guava:guava", version.ref = "guava" }
 javapoet = { module = "com.squareup:javapoet", version.ref = "javapoetVersion" }
 javax-annotation-api = { module = "javax.annotation:javax.annotation-api", version.ref = "javaxAnnotationApiVersion" }
 protobuf-java = { module = "com.google.protobuf:protobuf-java", version.ref = "protobufJavaVersion" }
-recyclerview-v7 = { module = "com.android.support:recyclerview-v7", version.ref = "supportLibraryVersion" }
 shortcutbadger = { module = "me.leolin:ShortcutBadger", version.ref = "shortcutbadgerVersion" }
-support-annotations = { module = "com.android.support:support-annotations", version.ref = "supportLibraryVersion" }
-support-v13 = { module = "com.android.support:support-v13", version.ref = "supportLibraryVersion" }
-support-v4 = { module = "com.android.support:support-v4", version.ref = "supportLibraryVersion" }
 volley = { module = "com.android.volley:volley", version.ref = "volleyVersion" }
+androidx-core = { module = "androidx.core:core", version.ref = "androidxCoreVersion" }
+support-annotations = { module = "com.android.support:support-annotations", version.ref = "supportLibraryVersion" }
+material = { module = "com.google.android.material:material", version.ref = "materialVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

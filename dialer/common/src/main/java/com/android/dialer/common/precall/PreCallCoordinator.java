@@ -16,10 +16,10 @@
 
 package com.android.dialer.common.precall;
 
-import android.app.Activity;
-import android.support.annotation.MainThread;
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import com.android.dialer.common.callintent.CallIntentBuilder;
 import com.android.dialer.common.function.Consumer;
 import com.google.common.util.concurrent.ListenableFuture;
@@ -37,7 +37,7 @@ public interface PreCallCoordinator {
 
   /** @return the activity to attach the UI to. */
   @NonNull
-  Activity getActivity();
+  AppCompatActivity getActivity();
 
   /**
    * Called by a {@link PreCallAction} to abort the call. For example, the user has dismissed the

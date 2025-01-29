@@ -16,7 +16,7 @@
 
 package com.android.dialer.common.enrichedcall.videoshare;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.SurfaceView;
 
 /** Holds state information and data about video share sessions. */

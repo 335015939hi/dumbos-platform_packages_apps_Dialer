@@ -16,11 +16,12 @@
 
 package com.android.dialer.common.precall.impl;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.android.dialer.common.callintent.CallIntentBuilder;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
@@ -48,7 +49,7 @@ public class PreCallCoordinatorImpl implements PreCallCoordinator {
 
   private static final String SAVED_STATE_CURRENT_ACTION = "current_action";
 
-  @NonNull private final Activity activity;
+  @NonNull private final AppCompatActivity activity;
 
   private CallIntentBuilder builder;
   private ImmutableList<PreCallAction> actions;
@@ -59,7 +60,7 @@ public class PreCallCoordinatorImpl implements PreCallCoordinator {
 
   private UiListener<Object> uiListener;
 
-  PreCallCoordinatorImpl(@NonNull Activity activity) {
+  PreCallCoordinatorImpl(@NonNull AppCompatActivity activity) {
     this.activity = Assert.isNotNull(activity);
   }
 
@@ -142,7 +143,7 @@ public class PreCallCoordinatorImpl implements PreCallCoordinator {
 
   @NonNull
   @Override
-  public Activity getActivity() {
+  public AppCompatActivity getActivity() {
     return activity;
   }
 

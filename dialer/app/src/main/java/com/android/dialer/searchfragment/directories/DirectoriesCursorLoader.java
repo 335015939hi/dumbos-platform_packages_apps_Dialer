@@ -18,10 +18,10 @@
 package com.android.dialer.searchfragment.directories;
 
 import android.content.Context;
-import android.content.CursorLoader;
+import androidx.loader.content.CursorLoader;
 import android.database.Cursor;
 import android.provider.ContactsContract;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.common.util.PermissionsUtil;
 import com.google.auto.value.AutoValue;

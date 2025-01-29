@@ -16,7 +16,7 @@
 
 package com.android.dialer.common.enrichedcall.extensions;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.enrichedcall.Session;
 import com.android.dialer.common.enrichedcall.Session.State;

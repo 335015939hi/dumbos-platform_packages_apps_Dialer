@@ -16,7 +16,7 @@
 
 package com.android.dialer.common.filterednumbers;
 
-import android.app.FragmentManager;
+import androidx.fragment.app.FragmentManager;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
@@ -25,8 +25,8 @@ import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.provider.BlockedNumberContract;
 import android.provider.BlockedNumberContract.BlockedNumbers;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import android.telecom.TelecomManager;
 import android.telephony.PhoneNumberUtils;
 import com.android.dialer.common.LogUtil;

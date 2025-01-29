@@ -19,7 +19,8 @@ package com.android.dialer.app.calllog;
 import static android.Manifest.permission.READ_CALL_LOG;
 
 import android.app.Activity;
-import android.app.Fragment;
+
+import androidx.fragment.app.Fragment;
 import android.app.KeyguardManager;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -32,13 +33,13 @@ import android.os.Message;
 import android.provider.CallLog;
 import android.provider.CallLog.Calls;
 import android.provider.ContactsContract;
-import android.support.annotation.CallSuper;
-import android.support.annotation.Nullable;
-import android.support.v13.app.FragmentCompat;
-import android.support.v13.app.FragmentCompat.OnRequestPermissionsResultCallback;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.CallSuper;
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -585,7 +586,7 @@ public class CallLogFragment extends Fragment
       LogUtil.i(
           "CallLogFragment.onEmptyViewActionButtonClicked",
           "Requesting permissions: " + Arrays.toString(deniedPermissions));
-      FragmentCompat.requestPermissions(this, deniedPermissions, PHONE_PERMISSIONS_REQUEST_CODE);
+      ActivityCompat.requestPermissions(getActivity(), deniedPermissions, PHONE_PERMISSIONS_REQUEST_CODE);
     } else if (!isCallLogActivity) {
       LogUtil.i("CallLogFragment.onEmptyViewActionButtonClicked", "showing dialpad");
       // Show dialpad if we are not in the call log activity.

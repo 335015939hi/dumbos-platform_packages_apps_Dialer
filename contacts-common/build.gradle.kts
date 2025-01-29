@@ -23,10 +23,9 @@ android {
 }
 
 dependencies {
-    implementation(libs.support.v4)
-    implementation(libs.appcompat.v7)
-    implementation(libs.recyclerview.v7)
-    implementation(libs.design)
+    implementation(libs.appcompat)
+    implementation(libs.androidx.core)
+    implementation(libs.material)
 
     implementation(libs.protobuf.java)
 

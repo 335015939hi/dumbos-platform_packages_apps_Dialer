@@ -17,7 +17,7 @@
 package com.android.dialer.contactsfragment;
 
 import android.content.Context;
-import android.content.CursorLoader;
+import androidx.loader.content.CursorLoader;
 import android.net.Uri;
 import android.provider.ContactsContract.Contacts;
 import android.text.TextUtils;

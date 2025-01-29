@@ -7,10 +7,6 @@
   public <init>();
 }
 
--keep public class * extends android.support.v4.app.Fragment {
-  public <init>();
-}
-
 # This is generated automatically by the Android Gradle plugin.
 -dontwarn javax.naming.NamingEnumeration
 -dontwarn javax.naming.NamingException

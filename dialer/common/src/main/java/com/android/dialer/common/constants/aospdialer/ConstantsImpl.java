@@ -17,7 +17,7 @@
 package com.android.dialer.common.constants;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.android.dialer.common.BuildConfig;
 import com.android.dialer.common.proguard.UsedByReflection;

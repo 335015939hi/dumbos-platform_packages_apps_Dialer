@@ -17,16 +17,16 @@
 package com.android.incallui.spam;
 
 import android.app.Dialog;
-import android.app.DialogFragment;
+import androidx.fragment.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.CallLog;
 import android.provider.ContactsContract;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
+import androidx.appcompat.app.AlertDialog;
 import android.telephony.PhoneNumberUtils;
 
 import com.android.contacts.common.blocking.MigrateBlockedNumbersDialogFragment;
@@ -277,7 +277,7 @@ public class SpamNotificationActivity extends FragmentActivity {
   private void showNonSpamDialog() {
     logCallImpression(DialerImpression.Type.SPAM_AFTER_CALL_NOTIFICATION_SHOW_NON_SPAM_DIALOG);
     FirstTimeNonSpamCallDialogFragment.newInstance(getCallInfo())
-        .show(getFragmentManager(), FirstTimeNonSpamCallDialogFragment.TAG);
+        .show(getSupportFragmentManager(), FirstTimeNonSpamCallDialogFragment.TAG);
   }
 
   /**
@@ -286,13 +286,13 @@ public class SpamNotificationActivity extends FragmentActivity {
   private void showSpamFullDialog() {
     logCallImpression(DialerImpression.Type.SPAM_AFTER_CALL_NOTIFICATION_SHOW_SPAM_DIALOG);
     FirstTimeSpamCallDialogFragment.newInstance(getCallInfo())
-        .show(getFragmentManager(), FirstTimeSpamCallDialogFragment.TAG);
+        .show(getSupportFragmentManager(), FirstTimeSpamCallDialogFragment.TAG);
   }
 
   /** Checks if the user has migrated to the new blocking and display a dialog if necessary. */
   private void maybeShowBlockNumberMigrationDialog(BlockedNumbersMigrator.Listener listener) {
     if (!MigrateBlockedNumbersDialogFragment.maybeShowBlockNumberMigrationDialog(
-        this, getFragmentManager(), listener)) {
+        this, getSupportFragmentManager(), listener)) {
       listener.onComplete();
     }
   }

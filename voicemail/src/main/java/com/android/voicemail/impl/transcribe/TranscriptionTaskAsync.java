@@ -17,7 +17,7 @@ package com.android.voicemail.impl.transcribe;
 
 import android.app.job.JobWorkItem;
 import android.content.Context;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 import android.util.Pair;
 import com.android.protos.DialerImpression;
 import com.android.voicemail.VoicemailComponent;

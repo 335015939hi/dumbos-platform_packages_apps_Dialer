@@ -27,12 +27,13 @@ import android.os.AsyncTask;
 import android.provider.CallLog;
 import android.provider.CallLog.Calls;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresPermission;
-import android.support.annotation.VisibleForTesting;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.IntDef;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresPermission;
+import androidx.annotation.VisibleForTesting;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
@@ -1161,7 +1162,7 @@ public final class CallLogListItemViewHolder extends RecyclerView.ViewHolder
 
   private void maybeShowBlockNumberMigrationDialog(BlockedNumbersMigrator.Listener listener) {
     if (!MigrateBlockedNumbersDialogFragment.maybeShowBlockNumberMigrationDialog(
-        context, ((Activity) context).getFragmentManager(), listener)) {
+        context, ((AppCompatActivity) context).getSupportFragmentManager(), listener)) {
       listener.onComplete();
     }
   }

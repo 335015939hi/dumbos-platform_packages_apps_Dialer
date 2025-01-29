@@ -17,7 +17,7 @@
 package com.android.contacts.common.shortcuts;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.android.dialer.common.configprovider.ConfigProviderComponent;
 
 /** Checks if dynamic shortcuts should be enabled. */

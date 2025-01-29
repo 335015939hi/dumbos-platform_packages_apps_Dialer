@@ -16,8 +16,8 @@
 
 package com.android.dialer.app;
 
-import android.app.Fragment;
-import android.app.FragmentTransaction;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import android.app.KeyguardManager;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -33,15 +33,15 @@ import android.os.Trace;
 import android.provider.CallLog.Calls;
 import android.provider.ContactsContract.QuickContact;
 import android.speech.RecognizerIntent;
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.FloatingActionButton.OnVisibilityChangedListener;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton.OnVisibilityChangedListener;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.core.app.ActivityCompat;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.ActionBar;
 import android.telecom.PhoneAccount;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -417,7 +417,7 @@ public class DialtactsActivity extends TransactionSafeActivity
     // Add the favorites fragment but only if savedInstanceState is null. Otherwise the
     // fragment manager is responsible for recreating it.
     if (savedInstanceState == null) {
-      getFragmentManager()
+      getSupportFragmentManager()
           .beginTransaction()
           .add(R.id.dialtacts_frame, new ListsFragment(), TAG_FAVORITES_FRAGMENT)
           .commit();
@@ -514,7 +514,7 @@ public class DialtactsActivity extends TransactionSafeActivity
     if (!isDialpadShown && dialpadFragment != null && !dialpadFragment.isHidden()) {
       LogUtil.i(
           "DialtactsActivity.onResume", "mDialpadFragment attached but not hidden, forcing hide");
-      getFragmentManager().beginTransaction().hide(dialpadFragment).commit();
+      getSupportFragmentManager().beginTransaction().hide(dialpadFragment).commit();
     }
 
     // If there was a voice query result returned in the {@link #onActivityResult} callback, it
@@ -721,7 +721,7 @@ public class DialtactsActivity extends TransactionSafeActivity
       final Intent intent = new Intent(this, CallLogActivity.class);
       startActivity(intent);
     } else if (resId == R.id.menu_clear_frequents) {
-      ClearFrequentsDialog.show(getFragmentManager());
+      ClearFrequentsDialog.show(getSupportFragmentManager());
       Logger.get(this).logScreenView(ScreenEvent.Type.CLEAR_FREQUENTS, this);
       return true;
     } else if (resId == R.id.menu_call_settings) {
@@ -811,7 +811,7 @@ public class DialtactsActivity extends TransactionSafeActivity
 
     listsFragment.setUserVisibleHint(false);
 
-    final FragmentTransaction ft = getFragmentManager().beginTransaction();
+    final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
     if (dialpadFragment == null) {
       dialpadFragment = new DialpadFragment();
       ft.add(R.id.dialtacts_container, dialpadFragment, TAG_DIALPAD_FRAGMENT);
@@ -843,7 +843,7 @@ public class DialtactsActivity extends TransactionSafeActivity
     DialerExecutorComponent.get(this)
         .dialerExecutorFactory()
         .createUiTaskBuilder(
-            getFragmentManager(), "Query last phone number", Calls::getLastOutgoingCall)
+            getSupportFragmentManager(), "Query last phone number", Calls::getLastOutgoingCall)
         .onSuccess(output -> callback.lastOutgoingCall(output))
         .build()
         .executeParallel(this);
@@ -921,7 +921,7 @@ public class DialtactsActivity extends TransactionSafeActivity
   /** Finishes hiding the dialpad fragment after any animations are completed. */
   private void commitDialpadFragmentHide() {
     if (!stateSaved && dialpadFragment != null && !dialpadFragment.isHidden() && !isDestroyed()) {
-      final FragmentTransaction ft = getFragmentManager().beginTransaction();
+      final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
       ft.hide(dialpadFragment);
       ft.commit();
     }
@@ -1119,7 +1119,7 @@ public class DialtactsActivity extends TransactionSafeActivity
       return;
     }
 
-    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
     String tag = TAG_NEW_SEARCH_FRAGMENT;
     inNewSearch = true;
 
@@ -1131,7 +1131,7 @@ public class DialtactsActivity extends TransactionSafeActivity
       transaction.setTransition(FragmentTransaction.TRANSIT_NONE);
     }
 
-    NewSearchFragment fragment = (NewSearchFragment) getFragmentManager().findFragmentByTag(tag);
+    NewSearchFragment fragment = (NewSearchFragment) getSupportFragmentManager().findFragmentByTag(tag);
     if (fragment == null) {
       fragment = NewSearchFragment.newInstance();
       transaction.add(R.id.dialtacts_frame, fragment, tag);
@@ -1190,7 +1190,7 @@ public class DialtactsActivity extends TransactionSafeActivity
           .postDelayed(() -> floatingActionButtonController.scaleIn(), FAB_SCALE_IN_DELAY_MS);
     }
 
-    final FragmentTransaction transaction = getFragmentManager().beginTransaction();
+    final FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
     if (newSearchFragment != null) {
       transaction.remove(newSearchFragment);
     }

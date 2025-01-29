@@ -16,7 +16,7 @@
 
 package com.android.dialer.common.i18n;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.telephony.PhoneNumberUtils;
 import android.text.SpannableStringBuilder;
 import android.text.SpannedString;

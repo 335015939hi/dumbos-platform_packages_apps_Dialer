@@ -16,7 +16,7 @@
 
 package com.android.dialer.simulator.impl;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.ActionProvider;
 import com.android.dialer.common.buildtype.BuildType;
 import com.android.dialer.common.buildtype.BuildType.Type;

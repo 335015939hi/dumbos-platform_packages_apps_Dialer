@@ -18,8 +18,8 @@ package com.android.dialer.binary.common;
 
 import android.app.Application;
 import android.os.Trace;
-import android.support.annotation.NonNull;
-import android.support.v4.os.BuildCompat;
+import androidx.annotation.NonNull;
+import androidx.core.os.BuildCompat;
 import com.android.contacts.common.blocking.BlockedNumbersAutoMigrator;
 import com.android.dialer.common.filterednumbers.FilteredNumberAsyncQueryHandler;
 import com.android.dialer.calllog.CallLogComponent;

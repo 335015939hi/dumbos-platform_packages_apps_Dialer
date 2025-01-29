@@ -47,8 +47,8 @@ android {
 }
 
 dependencies {
-    implementation(libs.support.v4)
-    implementation(libs.design)
+    implementation(libs.androidx.core)
+    implementation(libs.material)
 
     implementation(libs.guava)
 
@@ -64,9 +64,6 @@ dependencies {
 
     implementation(libs.geocoder)
 
-    // Using an old version because they migrated to androidx in 4.10.0 which breaks building with
-    // the android support libraries
-    // TODO: Migrate to Androidx and update Glide
     implementation(libs.glide)
     annotationProcessor(libs.glide.compiler)
 

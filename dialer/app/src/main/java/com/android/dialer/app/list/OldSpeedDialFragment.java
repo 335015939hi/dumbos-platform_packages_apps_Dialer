@@ -20,18 +20,18 @@ import static android.Manifest.permission.READ_CONTACTS;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.app.Fragment;
-import android.app.LoaderManager;
-import android.content.CursorLoader;
-import android.content.Loader;
+import androidx.fragment.app.Fragment;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.CursorLoader;
+import androidx.loader.content.Loader;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Trace;
-import android.support.v13.app.FragmentCompat;
-import android.support.v4.util.LongSparseArray;
+import androidx.core.app.ActivityCompat;
+import androidx.collection.LongSparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,7 +63,7 @@ public class OldSpeedDialFragment extends Fragment
     implements OnItemClickListener,
         PhoneFavoritesTileAdapter.OnDataSetChangedForAnimationListener,
         EmptyContentView.OnEmptyViewActionButtonClickedListener,
-        FragmentCompat.OnRequestPermissionsResultCallback {
+        ActivityCompat.OnRequestPermissionsResultCallback {
 
   private static final int READ_CONTACTS_PERMISSION_REQUEST_CODE = 1;
 
@@ -353,8 +353,8 @@ public class OldSpeedDialFragment extends Fragment
       LogUtil.i(
           "OldSpeedDialFragment.onEmptyViewActionButtonClicked",
           "Requesting permissions: " + Arrays.toString(deniedPermissions));
-      FragmentCompat.requestPermissions(
-          this, deniedPermissions, READ_CONTACTS_PERMISSION_REQUEST_CODE);
+      ActivityCompat.requestPermissions(
+          getActivity(), deniedPermissions, READ_CONTACTS_PERMISSION_REQUEST_CODE);
     } else {
       // Switch tabs
       FragmentUtils.getParentUnsafe(this, HostInterface.class).showAllContactsTab();

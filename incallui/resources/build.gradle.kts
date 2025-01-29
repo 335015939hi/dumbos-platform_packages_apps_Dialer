@@ -21,5 +21,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.appcompat)
+
     implementation(project(":quantum"))
 }

@@ -17,7 +17,7 @@
 package com.android.voicemail.impl.utils;
 
 import android.content.Context;
-import android.support.annotation.AnyThread;
+import androidx.annotation.AnyThread;
 import com.android.dialer.common.concurrent.ThreadUtil;
 import com.android.protos.DialerImpression;
 import com.android.dialer.common.logging.Logger;

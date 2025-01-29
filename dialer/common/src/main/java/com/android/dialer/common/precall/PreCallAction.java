@@ -17,7 +17,7 @@
 package com.android.dialer.common.precall;
 
 import android.content.Context;
-import android.support.annotation.MainThread;
+import androidx.annotation.MainThread;
 import com.android.dialer.common.callintent.CallIntentBuilder;
 
 /**

@@ -16,7 +16,7 @@
 
 package com.android.dialer.common.glidephotomanager;
 
-import android.support.annotation.MainThread;
+import androidx.annotation.MainThread;
 import android.widget.ImageView;
 import android.widget.QuickContactBadge;
 

@@ -18,8 +18,8 @@ package com.android.dialer.common.videotech.utils;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import com.android.dialer.common.util.PermissionsUtil;
 
 public class VideoUtils {

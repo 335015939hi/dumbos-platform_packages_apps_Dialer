@@ -17,7 +17,7 @@
 package com.android.dialer.common.inject;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import dagger.Module;
 import dagger.Provides;
 

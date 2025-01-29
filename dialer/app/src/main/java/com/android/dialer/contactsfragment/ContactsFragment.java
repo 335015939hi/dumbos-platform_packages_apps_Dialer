@@ -18,23 +18,23 @@ package com.android.dialer.contactsfragment;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
-import android.app.Fragment;
-import android.app.LoaderManager.LoaderCallbacks;
+import androidx.fragment.app.Fragment;
+import androidx.loader.app.LoaderManager.LoaderCallbacks;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.Loader;
+import androidx.loader.content.Loader;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
-import android.support.v13.app.FragmentCompat;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.Recycler;
-import android.support.v7.widget.RecyclerView.State;
+import androidx.annotation.IntDef;
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.Recycler;
+import androidx.recyclerview.widget.RecyclerView.State;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnScrollChangeListener;
@@ -330,8 +330,8 @@ public class ContactsFragment extends Fragment
         LogUtil.i(
             "ContactsFragment.onEmptyViewActionButtonClicked",
             "Requesting permissions: " + Arrays.toString(deniedPermissions));
-        FragmentCompat.requestPermissions(
-            this, deniedPermissions, READ_CONTACTS_PERMISSION_REQUEST_CODE);
+        ActivityCompat.requestPermissions(
+            getActivity(), deniedPermissions, READ_CONTACTS_PERMISSION_REQUEST_CODE);
       }
 
     } else if (emptyContentView.getActionLabel()

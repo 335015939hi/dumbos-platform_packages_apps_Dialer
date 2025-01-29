@@ -16,7 +16,7 @@
 
 package com.android.dialer.common.activecalls.impl;
 
-import android.support.annotation.MainThread;
+import androidx.annotation.MainThread;
 import com.android.dialer.common.activecalls.ActiveCallInfo;
 import com.android.dialer.common.activecalls.ActiveCalls;
 import com.android.dialer.common.Assert;

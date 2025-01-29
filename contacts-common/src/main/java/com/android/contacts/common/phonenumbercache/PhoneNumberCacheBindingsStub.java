@@ -16,7 +16,7 @@
 
 package com.android.contacts.common.phonenumbercache;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 /** Default implementation of PhoneNumberCacheBindings. */
 public class PhoneNumberCacheBindingsStub implements PhoneNumberCacheBindings {

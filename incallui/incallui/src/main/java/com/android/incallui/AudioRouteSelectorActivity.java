@@ -17,9 +17,9 @@
 package com.android.incallui;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
 import android.telecom.CallAudioState;
 import com.android.protos.DialerImpression;
 import com.android.dialer.common.logging.Logger;

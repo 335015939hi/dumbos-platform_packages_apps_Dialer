@@ -17,8 +17,8 @@
 package com.android.dialer.common.phonelookup.spam;
 
 import android.content.SharedPreferences;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import com.android.protos.DialerPhoneNumber;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.concurrent.Annotations.BackgroundExecutor;

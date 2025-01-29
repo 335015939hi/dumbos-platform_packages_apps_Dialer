@@ -17,7 +17,7 @@
 package com.android.dialer.common.widget;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.android.dialer.common.i18n.DialerBidiFormatter;

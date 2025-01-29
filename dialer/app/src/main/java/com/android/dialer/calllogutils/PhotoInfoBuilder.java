@@ -18,7 +18,7 @@ package com.android.dialer.calllogutils;
 
 import android.content.Context;
 import android.provider.CallLog.Calls;
-import android.support.v4.os.BuildCompat;
+import androidx.core.os.BuildCompat;
 import com.android.protos.NumberAttributes;
 import com.android.protos.CoalescedRow;
 import com.android.protos.PhotoInfo;

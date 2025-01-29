@@ -18,7 +18,7 @@ package com.android.dialer.calllogutils;
 
 import android.content.Context;
 import android.provider.CallLog.Calls;
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 import android.text.TextUtils;
 import com.android.dialer.common.duo.DuoComponent;
 import java.lang.annotation.Retention;

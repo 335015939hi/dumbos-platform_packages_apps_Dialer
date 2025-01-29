@@ -19,7 +19,7 @@ android {
 }
 
 dependencies {
-    implementation(libs.design)
+    implementation(libs.material)
 
     implementation(project(":quantum"))
     implementation(project(":product"))

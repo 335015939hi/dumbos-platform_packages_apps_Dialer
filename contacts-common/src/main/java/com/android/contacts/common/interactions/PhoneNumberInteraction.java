@@ -20,8 +20,10 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.DialogFragment;
-import android.app.FragmentManager;
+import androidx.fragment.app.DialogFragment;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import android.content.Context;
 import android.content.CursorLoader;
 import android.content.DialogInterface;
@@ -38,9 +40,9 @@ import android.provider.ContactsContract.CommonDataKinds.SipAddress;
 import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.Data;
 import android.provider.ContactsContract.RawContacts;
-import android.support.annotation.IntDef;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.app.ActivityCompat;
+import androidx.annotation.IntDef;
+import androidx.annotation.VisibleForTesting;
+import androidx.core.app.ActivityCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -358,7 +360,7 @@ public class PhoneNumberInteraction implements OnLoadCompleteListener<Cursor> {
 
   private void showDisambiguationDialog(ArrayList<PhoneItem> phoneList) {
     // TODO(a bug): don't leak the activity
-    final Activity activity = (Activity) context;
+    final AppCompatActivity activity = (AppCompatActivity) context;
     if (activity.isFinishing()) {
       LogUtil.i("PhoneNumberInteraction.showDisambiguationDialog", "activity finishing");
       return;
@@ -372,7 +374,7 @@ public class PhoneNumberInteraction implements OnLoadCompleteListener<Cursor> {
 
     try {
       PhoneDisambiguationDialogFragment.show(
-          activity.getFragmentManager(),
+          activity.getSupportFragmentManager(),
           phoneList,
           interactionType,
           isVideoCall,

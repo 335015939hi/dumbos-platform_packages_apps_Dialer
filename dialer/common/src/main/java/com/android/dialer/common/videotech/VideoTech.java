@@ -17,8 +17,8 @@
 package com.android.dialer.common.videotech;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.telecom.PhoneAccountHandle;
 import com.android.protos.DialerImpression;
 import com.android.dialer.common.video.protocol.VideoCallScreen;
