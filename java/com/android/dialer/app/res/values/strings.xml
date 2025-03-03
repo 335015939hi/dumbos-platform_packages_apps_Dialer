@@ -718,4 +718,13 @@
   <!-- If a user deletes a call that has attachments (photo, message, ect) bundled with it, they need
         to be told that they need to go to the SMS app to delete the attachments. [CHAR LIMIT=NONE] -->
   <string name="multiple_ec_data_deleted">Calls deleted. View and delete attachments shared during calls in Messages.</string>
+
+  <!-- Call recording settings -->
+  <string name="auto_call_recording_title">Auto call recording</string>
+  <string name="auto_call_recording_summary">Automatically record all calls</string>
+  <string name="auto_recording_category">Auto recording options</string>
+  <string name="record_unknown_calls_title">Record unknown numbers</string>
+  <string name="record_unknown_calls_summary">Automatically record calls from numbers not in your contacts</string>
+  <string name="record_all_calls_title">Record all calls</string>
+  <string name="record_all_calls_summary">Automatically record calls from all numbers</string>
 </resources>

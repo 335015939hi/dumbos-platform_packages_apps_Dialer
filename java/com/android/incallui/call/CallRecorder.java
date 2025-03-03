@@ -20,12 +20,15 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.XmlResourceParser;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.RemoteException;
 import android.os.SystemProperties;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
@@ -81,6 +84,8 @@ public class CallRecorder implements CallList.Listener {
       CallRecorder.this.service = null;
     }
   };
+
+  private static final String KEY_AUTO_CALL_RECORDING = "auto_call_recording";
 
   public static CallRecorder getInstance() {
     if (instance == null) {
@@ -193,6 +198,12 @@ public class CallRecorder implements CallList.Listener {
     if (!initialized && callList.getActiveCall() != null) {
       // we'll come here if this is the first active call
       initialize();
+
+      // Check if we should auto-record this call
+      DialerCall activeCall = callList.getActiveCall();
+      if (activeCall != null && shouldAutoRecordCall(activeCall)) {
+        startRecording(activeCall.getNumber(), activeCall.getCreationTimeMillis());
+      }
     } else {
       // we can come down this branch to resume a call that was on hold
       CallRecording active = getActiveRecording();
@@ -204,8 +215,59 @@ public class CallRecorder implements CallList.Listener {
           // on hold, so stop the recording.
           finishRecording();
         }
+      } else {
+        // Check if we have a call that's active but not being recorded yet
+        // This can happen if a call is taken off hold or if auto-record is enabled
+        DialerCall activeCall = callList.getActiveCall();
+        if (activeCall != null &&
+            activeCall.getState() == DialerCallState.ACTIVE &&
+            shouldAutoRecordCall(activeCall) &&
+            !isRecording()) {
+          startRecording(activeCall.getNumber(), activeCall.getCreationTimeMillis());
+        }
       }
     }
+  }
+
+  /**
+   * Determines if a call should be automatically recorded based on settings
+   */
+  private boolean shouldAutoRecordCall(DialerCall call) {
+    if (call == null || context == null) {
+      return false;
+    }
+
+    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+    boolean autoRecordEnabled = prefs.getBoolean(KEY_AUTO_CALL_RECORDING, false);
+
+    // Only auto-record if the setting is enabled and we have permission
+    if (autoRecordEnabled) {
+      for (String permission : REQUIRED_PERMISSIONS) {
+        if (context.checkSelfPermission(permission) != PackageManager.PERMISSION_GRANTED) {
+          return false;
+        }
+      }
+
+      // Check more specific recording preferences
+      boolean recordAllCalls = prefs.getBoolean("record_all_calls", false);
+      boolean recordUnknownCalls = prefs.getBoolean("record_unknown_calls", true);
+
+      if (recordAllCalls) {
+        return true;
+      }
+
+      if (recordUnknownCalls) {
+        // Check if this number is in contacts
+        if (call.getContactLookupResult() == null ||
+            call.getContactLookupResult().getContactInfo() == null ||
+            call.getContactLookupResult().getContactInfo().lookupKey == null) {
+          // This appears to be an unknown number
+          return true;
+        }
+      }
+    }
+
+    return false;
   }
 
   @Override

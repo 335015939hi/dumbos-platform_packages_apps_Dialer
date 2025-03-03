@@ -2,6 +2,31 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+  <SwitchPreference
+    android:key="auto_call_recording"
+    android:title="@string/auto_call_recording_title"
+    android:summary="@string/auto_call_recording_summary"
+    android:defaultValue="false" />
+
+  <PreferenceCategory
+    android:key="auto_recording_options"
+    android:title="@string/auto_recording_category"
+    android:dependency="auto_call_recording">
+
+    <SwitchPreference
+      android:key="record_unknown_calls"
+      android:title="@string/record_unknown_calls_title"
+      android:summary="@string/record_unknown_calls_summary"
+      android:defaultValue="true" />
+
+    <SwitchPreference
+      android:key="record_all_calls"
+      android:title="@string/record_all_calls_title"
+      android:summary="@string/record_all_calls_summary"
+      android:defaultValue="false" />
+
+  </PreferenceCategory>
+
   <ListPreference
     android:key="call_recording_output_format"
     android:title="@string/call_recording_output_format_title"
