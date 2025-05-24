@@ -34,6 +34,8 @@
 
     <string name="call_recording_audio_source_title">Audio source</string>
 
+    <string name="call_recording_auto_title">Automatic recording</string>
+
     <string-array name="call_recording_audio_source_entries" translatable="false">
         <item>MIC (1)</item>
         <item>VOICE_CALL (4)</item>

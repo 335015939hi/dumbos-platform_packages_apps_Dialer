@@ -142,6 +142,14 @@ public class CallButtonPresenter
     }
   }
 
+  private boolean IsAutoRecordingEnabled()
+  {
+    String prefName = context.getPackageName() + "_preferences";
+    SharedPreferences prefs = context.getSharedPreferences(prefName, Context.MODE_MULTI_PROCESS);
+    return prefs.getBoolean("call_recording_auto", false);
+  }
+
+
   @Override
   public void onStateChange(InCallState oldState, InCallState newState, CallList callList) {
     Trace.beginSection("CallButtonPresenter.onStateChange");
@@ -174,6 +182,19 @@ public class CallButtonPresenter
     if (call != null) {
       call.addListener(this);
     }
+
+    //Start automatic recording by simulating pressing button
+    if ((call != null) && IsAutoRecordingEnabled() && (newState == InCallState.INCALL || newState == InCallState.OUTGOING)) 
+    {            
+        callRecordClicked(true);
+    }
+
+    //Stop automatic recording by simulating pressing button
+    if (newState == InCallState.NO_CALLS) {
+        
+        callRecordClicked(false);
+    }
+
     updateUi(newState, call);
     Trace.endSection();
   }

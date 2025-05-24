@@ -18,6 +18,12 @@
     android:entryValues="@array/call_recording_audio_source_values"
     android:defaultValue="@string/call_recording_audio_source_default" />
 
+  <SwitchPreference
+    android:key="call_recording_auto"
+    android:title="@string/call_recording_auto_title"
+    android:persistent="true"        
+    android:defaultValue="false" />
+
   <Preference
     android:key="call_recording_warning"
     android:persistent="false"
