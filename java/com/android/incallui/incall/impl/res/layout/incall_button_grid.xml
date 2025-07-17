@@ -11,6 +11,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
+    android:fadeScrollbars="false"
+    android:scrollbars="vertical"
+    android:scrollbarSize="8dp"
     app:maxHeight="@dimen/incall_button_grid_scroll_view_max_height">
     <GridLayout
       android:layout_width="match_parent"
