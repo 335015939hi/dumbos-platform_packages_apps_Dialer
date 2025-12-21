@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
   <string name="applicationLabel">Телефон</string>
   <string name="launcherDialpadActivityLabel">Телефонна клавиатура</string>
   <string name="callHistoryIconLabel">История на обажданията</string>
@@ -76,10 +76,6 @@
   <string name="tab_all_contacts">Контакти</string>
   <string name="tab_voicemail">Гласова поща</string>
   <string name="search_shortcut_call_number">Обаждане на %s</string>
-  <string name="search_shortcut_create_new_contact">Създаване на нов контакт</string>
-  <string name="search_shortcut_add_to_contact">Добавяне към контакт</string>
-  <string name="search_shortcut_send_sms_message">Изпращане на SMS</string>
-  <string name="search_shortcut_make_video_call">Провеждане на видеообаждане</string>
   <string name="search_shortcut_block_number">Блокиране на номера</string>
   <string name="speed_dial_empty">Още нямате контакти за бързо набиране</string>
   <string name="speed_dial_empty_add_favorite_action">Добавяне на любим контакт</string>

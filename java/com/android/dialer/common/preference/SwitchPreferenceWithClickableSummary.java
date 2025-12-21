@@ -16,7 +16,7 @@
 
 package com.android.dialer.common.preference;
 
-import static android.support.v4.content.ContextCompat.startActivity;
+import static androidx.core.content.ContextCompat.startActivity;
 
 import android.content.Context;
 import android.content.Intent;

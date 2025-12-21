@@ -16,8 +16,8 @@
 
 package com.android.dialer.metrics.jank;
 
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.OnScrollListener;
+import androidx.appcompat.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.OnScrollListener;
 import com.android.dialer.metrics.Metrics;
 
 /** Logs jank for {@link RecyclerView} scrolling events. */
@@ -35,10 +35,10 @@ public final class RecyclerViewJankLogger extends OnScrollListener {
 
   @Override
   public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-    if (!isScrolling && newState == RecyclerView.SCROLL_STATE_DRAGGING) {
+    if (!isScrolling && newState == androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_DRAGGING) {
       isScrolling = true;
       metrics.startJankRecorder(eventName);
-    } else if (isScrolling && newState == RecyclerView.SCROLL_STATE_IDLE) {
+    } else if (isScrolling && newState == androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE) {
       isScrolling = false;
       metrics.stopJankRecorder(eventName);
     }

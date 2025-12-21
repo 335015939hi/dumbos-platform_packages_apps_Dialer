@@ -18,7 +18,7 @@ package com.android.incallui;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.v4.util.ArrayMap;
+import androidx.core.util.ArrayMap;
 import android.telephony.PhoneNumberUtils;
 import android.text.BidiFormatter;
 import android.text.TextDirectionHeuristics;

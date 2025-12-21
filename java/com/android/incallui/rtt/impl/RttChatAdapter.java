@@ -18,10 +18,10 @@ package com.android.incallui.rtt.impl;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.ViewHolder;
+import androidx.annotation.IntDef;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,7 +36,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** Adapter class for holding RTT chat data. */
-public class RttChatAdapter extends RecyclerView.Adapter<ViewHolder> {
+public class RttChatAdapter extends androidx.recyclerview.widget.RecyclerView.Adapter<ViewHolder> {
 
   /** IntDef for the different types of rows that can be shown in the call log. */
   @Retention(RetentionPolicy.SOURCE)

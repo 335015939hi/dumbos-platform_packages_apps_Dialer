@@ -18,7 +18,7 @@ package com.android.dialer.calldetails;
 
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.widget.RecyclerView;
 import android.view.View;
 import com.android.dialer.calldetails.CallDetailsEntryViewHolder.CallDetailsEntryListener;
 import com.android.dialer.calldetails.CallDetailsFooterViewHolder.DeleteCallDetailsListener;
@@ -26,7 +26,7 @@ import com.android.dialer.calldetails.CallDetailsHeaderViewHolder.CallDetailsHea
 import com.android.dialer.glidephotomanager.PhotoInfo;
 
 /**
- * A {@link RecyclerView.Adapter} for {@link CallDetailsActivity}.
+ * A {@link androidx.recyclerview.widget.RecyclerView.Adapter} for {@link CallDetailsActivity}.
  *
  * <p>See {@link CallDetailsAdapterCommon} for logic shared between this adapter and {@link
  * OldCallDetailsAdapter}.

@@ -18,7 +18,7 @@ package com.android.dialer.calldetails;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.widget.RecyclerView;
 import android.telecom.PhoneAccount;
 import android.text.TextUtils;
 import android.view.View;
@@ -48,7 +48,7 @@ import com.android.dialer.widget.BidiTextView;
  *
  * <p>The header contains contact info and the primary callback button.
  */
-public class CallDetailsHeaderViewHolder extends RecyclerView.ViewHolder
+public class CallDetailsHeaderViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder
     implements OnClickListener, FailureListener {
 
   private final CallDetailsHeaderListener callDetailsHeaderListener;

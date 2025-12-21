@@ -16,7 +16,7 @@
 
 package com.android.dialer.smartdial.map;
 
-import android.support.v4.util.SimpleArrayMap;
+import androidx.core.util.SimpleArrayMap;
 import com.android.dialer.dialpadview.DialpadCharMappings;
 import com.google.common.base.Optional;
 

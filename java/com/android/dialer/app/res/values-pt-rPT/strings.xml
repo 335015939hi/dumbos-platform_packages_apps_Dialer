@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
   <string name="applicationLabel">Telemóvel</string>
   <string name="launcherDialpadActivityLabel">Teclado do telemóvel</string>
   <string name="callHistoryIconLabel">Histórico de chamadas</string>
@@ -76,10 +76,6 @@
   <string name="tab_all_contacts">Contactos</string>
   <string name="tab_voicemail">Correio de voz</string>
   <string name="search_shortcut_call_number">Telefonar para %s</string>
-  <string name="search_shortcut_create_new_contact">Criar novo contacto</string>
-  <string name="search_shortcut_add_to_contact">Adicionar a um contacto</string>
-  <string name="search_shortcut_send_sms_message">Enviar SMS</string>
-  <string name="search_shortcut_make_video_call">Fazer videochamada</string>
   <string name="search_shortcut_block_number">Bloquear número</string>
   <string name="speed_dial_empty">Ainda não tem ninguém na marcação rápida</string>
   <string name="speed_dial_empty_add_favorite_action">Adicionar um favorito</string>

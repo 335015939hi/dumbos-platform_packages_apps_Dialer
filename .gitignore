@@ -1,0 +1,11 @@
+# Gradle
+.gradle/
+build/
+local.properties
+
+# IDE
+.idea/
+
+# Temporary scripts
+fix_duplicates.py
+remove_duplicates.sh

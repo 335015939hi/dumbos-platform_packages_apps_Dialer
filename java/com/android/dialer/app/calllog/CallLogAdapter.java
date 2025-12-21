@@ -30,15 +30,15 @@ import android.os.Bundle;
 import android.os.Trace;
 import android.provider.CallLog;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
-import android.support.annotation.MainThread;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.annotation.WorkerThread;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.ViewHolder;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.annotation.WorkerThread;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
@@ -145,7 +145,7 @@ public class CallLogAdapter extends GroupingListAdapter
   private final AsyncTaskExecutor asyncTaskExecutor = AsyncTaskExecutors.createAsyncTaskExecutor();
   private ContactInfoCache contactInfoCache;
   // Tracks the position of the currently expanded list item.
-  private int currentlyExpandedPosition = RecyclerView.NO_POSITION;
+  private int currentlyExpandedPosition = androidx.recyclerview.widget.RecyclerView.NO_POSITION;
   // Tracks the rowId of the currently expanded list item, so the position can be updated if there
   // are any changes to the call log entries, such as additions or removals.
   private long currentlyExpandedRowId = NO_EXPANDED_LIST_ITEM;
@@ -393,7 +393,7 @@ public class CallLogAdapter extends GroupingListAdapter
             // Hide actions, if the clicked item is the expanded item.
             viewHolder.showActions(false);
 
-            currentlyExpandedPosition = RecyclerView.NO_POSITION;
+            currentlyExpandedPosition = androidx.recyclerview.widget.RecyclerView.NO_POSITION;
             currentlyExpandedRowId = NO_EXPANDED_LIST_ITEM;
           } else {
             if (viewHolder.callType == CallLog.Calls.MISSED_TYPE) {
@@ -416,7 +416,7 @@ public class CallLogAdapter extends GroupingListAdapter
       };
 
   @Nullable
-  public RecyclerView.OnScrollListener getOnScrollListener() {
+  public androidx.recyclerview.widget.RecyclerView.OnScrollListener getOnScrollListener() {
     return null;
   }
 
@@ -581,7 +581,7 @@ public class CallLogAdapter extends GroupingListAdapter
 
     // If another item is expanded, notify it that it has changed. Its actions will be
     // hidden when it is re-binded because we change mCurrentlyExpandedRowId above.
-    if (lastExpandedPosition != RecyclerView.NO_POSITION) {
+    if (lastExpandedPosition != androidx.recyclerview.widget.RecyclerView.NO_POSITION) {
       notifyItemChanged(lastExpandedPosition);
     }
   }
@@ -613,7 +613,7 @@ public class CallLogAdapter extends GroupingListAdapter
   public void onRestoreInstanceState(Bundle savedInstanceState) {
     if (savedInstanceState != null) {
       currentlyExpandedPosition =
-          savedInstanceState.getInt(KEY_EXPANDED_POSITION, RecyclerView.NO_POSITION);
+          savedInstanceState.getInt(KEY_EXPANDED_POSITION, androidx.recyclerview.widget.RecyclerView.NO_POSITION);
       currentlyExpandedRowId =
           savedInstanceState.getLong(KEY_EXPANDED_ROW_ID, NO_EXPANDED_LIST_ITEM);
       // Restoring multi selected entries
@@ -1229,12 +1229,12 @@ public class CallLogAdapter extends GroupingListAdapter
 
   private void collapseExpandedCard() {
     currentlyExpandedRowId = NO_EXPANDED_LIST_ITEM;
-    currentlyExpandedPosition = RecyclerView.NO_POSITION;
+    currentlyExpandedPosition = androidx.recyclerview.widget.RecyclerView.NO_POSITION;
   }
 
   /** When the list is changing all stored position is no longer valid. */
   public void invalidatePositions() {
-    currentlyExpandedPosition = RecyclerView.NO_POSITION;
+    currentlyExpandedPosition = androidx.recyclerview.widget.RecyclerView.NO_POSITION;
   }
 
   /** When the user clicks "undo", the hidden item is unhidden. */

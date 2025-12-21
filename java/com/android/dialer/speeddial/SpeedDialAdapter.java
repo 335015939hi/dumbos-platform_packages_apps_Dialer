@@ -17,13 +17,13 @@
 package com.android.dialer.speeddial;
 
 import android.content.Context;
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.GridLayoutManager.SpanSizeLookup;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.ViewHolder;
-import android.support.v7.widget.helper.ItemTouchHelper;
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.GridLayoutManager.SpanSizeLookup;
+import androidx.appcompat.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.ViewHolder;
+import androidx.appcompat.widget.helper.ItemTouchHelper;
 import android.util.ArrayMap;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -55,7 +55,7 @@ import java.util.Map;
  *   <li>Suggested contacts
  * </ol>
  */
-public final class SpeedDialAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
+public final class SpeedDialAdapter extends androidx.recyclerview.widget.RecyclerView.Adapter<androidx.recyclerview.widget.RecyclerView.ViewHolder>
     implements ItemTouchHelperAdapter {
 
   private static final int NON_CONTACT_ITEM_NUMBER_BEFORE_FAVORITES = 2;

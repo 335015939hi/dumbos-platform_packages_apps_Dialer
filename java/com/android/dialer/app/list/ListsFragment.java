@@ -16,7 +16,7 @@
 
 package com.android.dialer.app.list;
 
-import static android.support.v4.view.ViewPager.SCROLL_STATE_SETTLING;
+import static androidx.core.view.ViewPager.SCROLL_STATE_SETTLING;
 
 import android.app.Fragment;
 import android.content.SharedPreferences;
@@ -27,7 +27,7 @@ import android.os.Handler;
 import android.os.Trace;
 import android.preference.PreferenceManager;
 import android.provider.VoicemailContract;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
+import androidx.core.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

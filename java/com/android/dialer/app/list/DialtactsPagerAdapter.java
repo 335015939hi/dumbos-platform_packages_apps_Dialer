@@ -18,8 +18,8 @@ package com.android.dialer.app.list;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.support.annotation.IntDef;
-import android.support.v13.app.FragmentPagerAdapter;
+import androidx.annotation.IntDef;
+import androidx.legacy.v13.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
 import com.android.dialer.app.calllog.CallLogFragment;
 import com.android.dialer.app.calllog.VisualVoicemailCallLogFragment;
@@ -127,7 +127,7 @@ public class DialtactsPagerAdapter extends FragmentPagerAdapter {
   }
 
   /**
-   * When {@link android.support.v4.view.PagerAdapter#notifyDataSetChanged} is called, this method
+   * When {@link androidx.core.view.PagerAdapter#notifyDataSetChanged} is called, this method
    * is called on all pages to determine whether they need to be recreated. When the voicemail tab
    * is removed, the view needs to be recreated by returning POSITION_NONE. If notifyDataSetChanged
    * is called for some other reason, the voicemail tab is recreated only if it is active. All other

@@ -20,13 +20,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.OnScrollListener;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.widget.LinearLayoutManager;
+import androidx.appcompat.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.OnScrollListener;
 import android.telecom.CallAudioState;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -205,9 +205,9 @@ public class RttChatFragment extends Fragment
         new OnScrollListener() {
           @Override
           public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-            if (i == RecyclerView.SCROLL_STATE_DRAGGING) {
+            if (i == androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_DRAGGING) {
               isUserScrolling = true;
-            } else if (i == RecyclerView.SCROLL_STATE_IDLE) {
+            } else if (i == androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE) {
               isUserScrolling = false;
               // Auto scrolling for new messages should be resumed if it's scrolled to bottom.
               shouldAutoScrolling = !recyclerView.canScrollVertically(1);

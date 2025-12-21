@@ -17,10 +17,10 @@ package com.android.dialer.calllog.ui;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.ViewHolder;
+import androidx.annotation.IntDef;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.android.dialer.calllog.model.CoalescedRow;
@@ -33,8 +33,8 @@ import com.google.common.collect.ImmutableList;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-/** {@link RecyclerView.Adapter} for the new call log fragment. */
-final class NewCallLogAdapter extends RecyclerView.Adapter<ViewHolder> {
+/** {@link androidx.recyclerview.widget.RecyclerView.Adapter} for the new call log fragment. */
+final class NewCallLogAdapter extends androidx.recyclerview.widget.RecyclerView.Adapter<ViewHolder> {
 
   /** IntDef for the different types of rows that can be shown in the call log. */
   @Retention(RetentionPolicy.SOURCE)
@@ -289,14 +289,14 @@ final class NewCallLogAdapter extends RecyclerView.Adapter<ViewHolder> {
   }
 
   /**
-   * A {@link RecyclerView.OnScrollListener} that records the timestamp at which the promotion card
+   * A {@link androidx.recyclerview.widget.RecyclerView.OnScrollListener} that records the timestamp at which the promotion card
    * is first viewed.
    *
    * <p>We consider the card as viewed if the user scrolls the containing RecyclerView since such
    * action is a strong proof.
    */
   private static final class OnScrollListenerForRecordingPromotionCardFirstViewTime
-      extends RecyclerView.OnScrollListener {
+      extends androidx.recyclerview.widget.RecyclerView.OnScrollListener {
 
     private final Promotion promotion;
 
@@ -306,7 +306,7 @@ final class NewCallLogAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     @Override
     public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-      if (newState == RecyclerView.SCROLL_STATE_SETTLING) {
+      if (newState == androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_SETTLING) {
         promotion.onViewed();
 
         // Recording promotion is viewed is this listener's sole responsibility.

@@ -18,10 +18,10 @@ package com.android.dialer.searchfragment.list;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.IntDef;
-import android.support.annotation.StringRes;
-import android.support.annotation.VisibleForTesting;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.IntDef;
+import androidx.annotation.StringRes;
+import androidx.annotation.VisibleForTesting;
+import androidx.appcompat.widget.RecyclerView;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -36,9 +36,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * {@link RecyclerView.ViewHolder} for showing an {@link SearchActionViewHolder.Action} in a list.
+ * {@link androidx.recyclerview.widget.RecyclerView.ViewHolder} for showing an {@link SearchActionViewHolder.Action} in a list.
  */
-final class SearchActionViewHolder extends RecyclerView.ViewHolder implements OnClickListener {
+final class SearchActionViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder implements OnClickListener {
 
   /** IntDef for the different types of actions that can be used. */
   @Retention(RetentionPolicy.SOURCE)

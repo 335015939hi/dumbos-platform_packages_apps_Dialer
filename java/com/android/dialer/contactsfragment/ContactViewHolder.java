@@ -18,7 +18,7 @@ package com.android.dialer.contactsfragment;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -31,7 +31,7 @@ import com.android.dialer.logging.Logger;
 import com.android.dialer.widget.BidiTextView;
 
 /** View holder for a contact. */
-final class ContactViewHolder extends RecyclerView.ViewHolder implements OnClickListener {
+final class ContactViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder implements OnClickListener {
 
   private final TextView header;
   private final BidiTextView name;

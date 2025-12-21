@@ -17,10 +17,10 @@
 package com.android.dialer.calldetails;
 
 import android.content.Context;
-import android.support.annotation.CallSuper;
-import android.support.annotation.MainThread;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.ViewHolder;
+import androidx.annotation.CallSuper;
+import androidx.annotation.MainThread;
+import androidx.appcompat.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +40,7 @@ import com.android.dialer.glidephotomanager.PhotoInfo;
  * Contains common logic shared between {@link OldCallDetailsAdapter} and {@link
  * CallDetailsAdapter}.
  */
-abstract class CallDetailsAdapterCommon extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+abstract class CallDetailsAdapterCommon extends androidx.recyclerview.widget.RecyclerView.Adapter<androidx.recyclerview.widget.RecyclerView.ViewHolder> {
 
   private static final int HEADER_VIEW_TYPE = 1;
   private static final int CALL_ENTRY_VIEW_TYPE = 2;

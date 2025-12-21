@@ -18,7 +18,7 @@ package com.android.dialer.calldetails;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -32,7 +32,7 @@ import com.android.dialer.util.CallUtil;
 import com.android.dialer.util.DialerUtils;
 
 /** ViewHolder for the footer in {@link OldCallDetailsActivity} or {@link CallDetailsActivity}. */
-final class CallDetailsFooterViewHolder extends RecyclerView.ViewHolder implements OnClickListener {
+final class CallDetailsFooterViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder implements OnClickListener {
 
   private final ReportCallIdListener reportCallIdListener;
   private final DeleteCallDetailsListener deleteCallDetailsListener;

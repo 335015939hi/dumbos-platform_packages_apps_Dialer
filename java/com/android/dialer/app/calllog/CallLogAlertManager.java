@@ -16,7 +16,7 @@
 
 package com.android.dialer.app.calllog;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,7 +46,7 @@ public class CallLogAlertManager implements AlertManager {
     return inflater.inflate(layoutId, container, false);
   }
 
-  public RecyclerView.ViewHolder createViewHolder(ViewGroup parent) {
+  public androidx.recyclerview.widget.RecyclerView.ViewHolder createViewHolder(ViewGroup parent) {
     Assert.checkArgument(
         parent == this.parent,
         "createViewHolder should be called with the same parent in constructor");
@@ -82,7 +82,7 @@ public class CallLogAlertManager implements AlertManager {
   /**
    * Does nothing. The view this ViewHolder show is directly managed by {@link CallLogAlertManager}
    */
-  private static class AlertViewHolder extends RecyclerView.ViewHolder {
+  private static class AlertViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder {
     private AlertViewHolder(View view) {
       super(view);
     }

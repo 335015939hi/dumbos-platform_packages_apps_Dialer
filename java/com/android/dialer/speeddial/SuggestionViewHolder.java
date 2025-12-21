@@ -17,7 +17,7 @@
 package com.android.dialer.speeddial;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -31,7 +31,7 @@ import com.android.dialer.speeddial.loader.SpeedDialUiItem;
 import com.android.dialer.widget.ContactPhotoView;
 
 /** ViewHolder for displaying suggested contacts in {@link SpeedDialFragment}. */
-public class SuggestionViewHolder extends RecyclerView.ViewHolder implements OnClickListener {
+public class SuggestionViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder implements OnClickListener {
 
   private final SuggestedContactsListener listener;
 

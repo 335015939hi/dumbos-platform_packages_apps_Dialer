@@ -16,7 +16,7 @@
 
 package com.android.dialer.callcomposer.camera.exif;
 
-import android.support.v4.util.ArrayMap;
+import androidx.core.util.ArrayMap;
 import java.util.Map;
 import java.util.Objects;
 

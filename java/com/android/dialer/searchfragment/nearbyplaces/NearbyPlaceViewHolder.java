@@ -20,7 +20,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.Contacts;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.widget.RecyclerView;
 import android.view.View;
 import android.widget.QuickContactBadge;
 import android.widget.TextView;
@@ -34,7 +34,7 @@ import com.android.dialer.searchfragment.common.RowClickListener;
 import com.android.dialer.searchfragment.common.SearchCursor;
 
 /** ViewHolder for a nearby place row. */
-public final class NearbyPlaceViewHolder extends RecyclerView.ViewHolder
+public final class NearbyPlaceViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder
     implements View.OnClickListener {
 
   private final Context context;

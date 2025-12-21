@@ -17,7 +17,7 @@
 package com.android.dialer.rtt;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +25,7 @@ import com.android.dialer.common.LogUtil;
 import com.android.dialer.glidephotomanager.PhotoInfo;
 
 /** Adapter class for holding RTT chat data. */
-public class RttTranscriptAdapter extends RecyclerView.Adapter<RttTranscriptMessageViewHolder> {
+public class RttTranscriptAdapter extends androidx.recyclerview.widget.RecyclerView.Adapter<RttTranscriptMessageViewHolder> {
 
   private PhotoInfo photoInfo;
 

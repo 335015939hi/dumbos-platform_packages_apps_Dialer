@@ -26,12 +26,12 @@ import android.media.MediaPlayer.OnErrorListener;
 import android.media.MediaPlayer.OnPreparedListener;
 import android.net.Uri;
 import android.provider.VoicemailContract.Voicemails;
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
-import android.support.annotation.WorkerThread;
-import android.support.design.widget.Snackbar;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.ViewHolder;
+import androidx.annotation.IntDef;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
+import com.google.android.material.widget.Snackbar;
+import androidx.appcompat.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.util.Pair;
@@ -58,8 +58,8 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
 
-/** {@link RecyclerView.Adapter} for the new voicemail call log fragment. */
-final class NewVoicemailAdapter extends RecyclerView.Adapter<ViewHolder>
+/** {@link androidx.recyclerview.widget.RecyclerView.Adapter} for the new voicemail call log fragment. */
+final class NewVoicemailAdapter extends androidx.recyclerview.widget.RecyclerView.Adapter<ViewHolder>
     implements NewVoicemailViewHolderListener {
 
   private static final int VOICEMAIL_DELETE_DELAY_MS = 3000;

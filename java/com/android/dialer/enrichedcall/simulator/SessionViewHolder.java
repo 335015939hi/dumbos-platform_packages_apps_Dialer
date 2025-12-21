@@ -16,13 +16,13 @@
 
 package com.android.dialer.enrichedcall.simulator;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
 /** ViewHolder for an Enriched call session. */
-class SessionViewHolder extends RecyclerView.ViewHolder {
+class SessionViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder {
 
   private final TextView sessionStringView;
 

@@ -18,9 +18,9 @@ package com.android.dialer.calllog.ui;
 import android.app.Activity;
 import android.content.res.ColorStateList;
 import android.provider.CallLog.Calls;
-import android.support.annotation.ColorInt;
-import android.support.annotation.DrawableRes;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
+import androidx.appcompat.widget.RecyclerView;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.text.TextUtils;
@@ -50,8 +50,8 @@ import com.google.common.util.concurrent.Futures;
 import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 
-/** {@link RecyclerView.ViewHolder} for the new call log. */
-final class NewCallLogViewHolder extends RecyclerView.ViewHolder {
+/** {@link androidx.recyclerview.widget.RecyclerView.ViewHolder} for the new call log. */
+final class NewCallLogViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder {
 
   private final Activity activity;
   private final ContactPhotoView contactPhotoView;

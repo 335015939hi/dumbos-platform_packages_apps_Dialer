@@ -17,7 +17,7 @@
 package com.android.voicemail.impl;
 
 import android.content.Context;
-import android.support.v4.os.BuildCompat;
+import androidx.core.os.BuildCompat;
 import com.android.dialer.inject.ApplicationContext;
 import com.android.dialer.inject.DialerVariant;
 import com.android.dialer.inject.InstallIn;

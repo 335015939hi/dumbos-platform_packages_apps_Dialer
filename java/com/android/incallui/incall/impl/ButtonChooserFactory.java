@@ -16,7 +16,7 @@
 
 package com.android.incallui.incall.impl;
 
-import android.support.v4.util.ArrayMap;
+import androidx.core.util.ArrayMap;
 import android.telephony.TelephonyManager;
 import com.android.incallui.incall.impl.MappedButtonConfig.MappingInfo;
 import com.android.incallui.incall.protocol.InCallButtonIds;
