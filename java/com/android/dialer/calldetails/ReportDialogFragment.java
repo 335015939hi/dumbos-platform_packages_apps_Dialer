@@ -38,6 +38,7 @@ import com.android.dialer.phonenumbercache.CachedNumberLookupService;
 import com.android.dialer.phonenumbercache.CachedNumberLookupService.CachedContactInfo;
 import com.android.dialer.phonenumbercache.PhoneNumberCache;
 import com.android.dialer.theme.base.ThemeComponent;
+import com.android.dialer.R;
 
 /** Dialog for reporting an inaccurate caller id information. */
 public class ReportDialogFragment extends DialogFragment {

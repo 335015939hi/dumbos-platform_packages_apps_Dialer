@@ -22,6 +22,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import androidx.fragment.app.DialogFragment;
 import com.android.incallui.call.TelecomAdapter;
+import com.android.dialer.R;
 
 /**
  * Pop up an alert dialog with OK and Cancel buttons to allow user to Accept or Reject the WAIT

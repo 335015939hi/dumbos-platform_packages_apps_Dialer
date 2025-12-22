@@ -23,6 +23,7 @@ import android.text.format.DateUtils;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
+import com.android.dialer.R;
 
 /** Static methods for formatting dates in the call log. */
 public final class CallLogDates {

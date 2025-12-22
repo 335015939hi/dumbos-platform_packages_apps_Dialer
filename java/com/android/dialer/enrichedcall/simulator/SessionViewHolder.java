@@ -17,9 +17,10 @@
 package com.android.dialer.enrichedcall.simulator;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
+import com.android.dialer.R;
 
 /** ViewHolder for an Enriched call session. */
 class SessionViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder {

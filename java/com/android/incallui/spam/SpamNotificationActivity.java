@@ -46,6 +46,7 @@ import com.android.dialer.spam.SpamComponent;
 import com.android.dialer.spam.SpamSettings;
 import com.android.dialer.spam.promo.SpamBlockingPromoHelper;
 import com.android.incallui.call.DialerCall;
+import com.android.dialer.R;
 
 /** Creates the after call notification dialogs. */
 public class SpamNotificationActivity extends FragmentActivity {

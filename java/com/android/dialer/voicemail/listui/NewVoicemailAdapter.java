@@ -29,8 +29,8 @@ import android.provider.VoicemailContract.Voicemails;
 import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
-import com.google.android.material.widget.Snackbar;
-import androidx.appcompat.widget.RecyclerView;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import android.util.ArrayMap;
 import android.util.ArraySet;
@@ -57,6 +57,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
+import com.android.dialer.R;
 
 /** {@link androidx.recyclerview.widget.RecyclerView.Adapter} for the new voicemail call log fragment. */
 final class NewVoicemailAdapter extends androidx.recyclerview.widget.RecyclerView.Adapter<ViewHolder>

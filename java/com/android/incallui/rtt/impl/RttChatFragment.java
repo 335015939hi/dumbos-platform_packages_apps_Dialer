@@ -24,8 +24,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.appcompat.widget.LinearLayoutManager;
-import androidx.appcompat.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.OnScrollListener;
 import android.telecom.CallAudioState;
 import android.text.Editable;
@@ -74,6 +74,7 @@ import com.android.incallui.rtt.protocol.RttCallScreen;
 import com.android.incallui.rtt.protocol.RttCallScreenDelegate;
 import com.android.incallui.rtt.protocol.RttCallScreenDelegateFactory;
 import java.util.List;
+import com.android.dialer.R;
 
 /** RTT chat fragment to show chat bubbles. */
 public class RttChatFragment extends Fragment
@@ -447,7 +448,7 @@ public class RttChatFragment extends Fragment
         transaction.remove(oldBanner);
       }
     }
-    transaction.setCustomAnimations(R.anim.abc_slide_in_top, R.anim.abc_slide_out_top);
+    transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
     transaction.commitNowAllowingStateLoss();
     overflowMenu.enableSwitchToSecondaryButton(secondaryInfo.shouldShow());
   }

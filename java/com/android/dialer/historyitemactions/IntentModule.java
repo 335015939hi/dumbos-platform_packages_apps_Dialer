@@ -27,6 +27,7 @@ import com.android.dialer.precall.PreCall;
 import com.android.dialer.util.DialerUtils;
 import com.android.dialer.util.IntentUtil;
 import com.google.common.collect.ImmutableList;
+import com.android.dialer.R;
 
 /**
  * {@link HistoryItemActionModule} useful for making easy to build modules based on starting an

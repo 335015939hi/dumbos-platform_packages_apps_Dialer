@@ -18,7 +18,7 @@ package com.android.dialer.searchfragment.common;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
-import androidx.core.util.SimpleArrayMap;
+import androidx.collection.SimpleArrayMap;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import com.android.dialer.dialpadview.DialpadCharMappings;

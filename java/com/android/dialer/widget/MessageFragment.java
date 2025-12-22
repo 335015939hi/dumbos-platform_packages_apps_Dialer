@@ -35,6 +35,7 @@ import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.FragmentUtils;
+import com.android.dialer.R;
 
 /** Fragment used to compose call with message fragment. */
 public class MessageFragment extends Fragment

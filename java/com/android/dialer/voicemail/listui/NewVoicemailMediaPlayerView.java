@@ -50,6 +50,7 @@ import com.android.dialer.telecom.TelecomUtil;
 import com.android.dialer.voicemail.listui.NewVoicemailViewHolder.NewVoicemailViewHolderListener;
 import com.android.dialer.voicemail.model.VoicemailEntry;
 import java.util.Locale;
+import com.android.dialer.R;
 
 /**
  * The view of the media player that is visible when a {@link NewVoicemailViewHolder} is expanded.

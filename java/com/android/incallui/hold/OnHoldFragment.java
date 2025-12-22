@@ -32,6 +32,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.android.dialer.common.Assert;
 import com.android.incallui.incall.protocol.SecondaryInfo;
+import com.android.dialer.R;
 
 /** Shows banner UI for background call */
 public class OnHoldFragment extends Fragment {

@@ -34,6 +34,7 @@ import com.android.incallui.incall.protocol.PrimaryCallState;
 import com.android.incallui.incall.protocol.PrimaryInfo;
 import com.android.incallui.videotech.utils.SessionModificationState;
 import com.android.incallui.videotech.utils.VideoUtils;
+import com.android.dialer.R;
 
 /**
  * Gets the content of the top row. For example:

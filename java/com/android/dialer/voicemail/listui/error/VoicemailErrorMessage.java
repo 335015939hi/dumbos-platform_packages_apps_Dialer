@@ -37,6 +37,7 @@ import com.android.voicemail.VoicemailClient;
 import com.android.voicemail.VoicemailComponent;
 import java.util.Arrays;
 import java.util.List;
+import com.android.dialer.R;
 
 /**
  * Represents an error determined from the current {@link

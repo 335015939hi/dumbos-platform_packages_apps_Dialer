@@ -20,7 +20,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -34,6 +34,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
+import com.android.dialer.R;
 
 /** Adapter class for holding RTT chat data. */
 public class RttChatAdapter extends androidx.recyclerview.widget.RecyclerView.Adapter<ViewHolder> {

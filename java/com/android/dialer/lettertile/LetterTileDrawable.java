@@ -36,6 +36,7 @@ import android.text.TextUtils;
 import com.android.dialer.common.Assert;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import com.android.dialer.R;
 
 /**
  * A drawable that encapsulates all the functionality needed to display a letter tile to represent a

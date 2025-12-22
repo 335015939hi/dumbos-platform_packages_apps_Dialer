@@ -37,6 +37,7 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.Transformation;
 import java.util.ArrayList;
 import java.util.List;
+import com.android.dialer.R;
 
 /** Used to draw and render the pie item focus indicator. */
 public class PieRenderer extends OverlayRenderer implements FocusIndicator {

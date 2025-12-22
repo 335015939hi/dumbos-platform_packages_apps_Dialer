@@ -35,11 +35,11 @@ import android.provider.ContactsContract.QuickContact;
 import android.speech.RecognizerIntent;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
-import com.google.android.material.widget.CoordinatorLayout;
-import com.google.android.material.widget.FloatingActionButton;
-import com.google.android.material.widget.FloatingActionButton.OnVisibilityChangedListener;
-import com.google.android.material.widget.Snackbar;
-import androidx.fragment.app.ActivityCompat;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton.OnVisibilityChangedListener;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.core.app.ActivityCompat;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.ActionBar;
 import android.telecom.PhoneAccount;
@@ -137,6 +137,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
+import com.android.dialer.R;
 
 /** The dialer tab's title is 'phone', a more common name (see strings.xml). */
 @UsedByReflection(value = "AndroidManifest-app.xml")

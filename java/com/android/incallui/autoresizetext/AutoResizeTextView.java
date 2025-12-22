@@ -28,6 +28,7 @@ import android.util.DisplayMetrics;
 import android.util.SparseIntArray;
 import android.util.TypedValue;
 import android.widget.TextView;
+import com.android.dialer.R;
 
 /**
  * A TextView that automatically scales its text to completely fill its allotted width.

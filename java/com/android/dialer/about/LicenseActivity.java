@@ -21,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import com.android.dialer.R;
 
 /** Simple Activity that renders locally stored open source legal info in a text view. */
 public final class LicenseActivity extends AppCompatActivity {

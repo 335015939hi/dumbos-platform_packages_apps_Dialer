@@ -28,6 +28,7 @@ import androidx.core.content.ContextCompat;
 import android.util.AttributeSet;
 import android.widget.Button;
 import com.android.dialer.voicemail.settings.RecordVoicemailGreetingActivity.ButtonState;
+import com.android.dialer.R;
 
 /** Custom Button View for Dialer voicemail greeting recording */
 public class RecordButton extends Button {

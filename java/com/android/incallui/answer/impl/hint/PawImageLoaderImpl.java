@@ -25,6 +25,7 @@ import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.storage.StorageComponent;
 import com.android.incallui.answer.impl.hint.PawSecretCodeListener.PawType;
+import com.android.dialer.R;
 
 /** Decrypt the event payload to be shown if in a specific time range and the key is received. */
 public final class PawImageLoaderImpl implements PawImageLoader {

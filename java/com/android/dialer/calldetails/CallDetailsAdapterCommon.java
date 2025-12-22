@@ -19,7 +19,7 @@ package com.android.dialer.calldetails;
 import android.content.Context;
 import androidx.annotation.CallSuper;
 import androidx.annotation.MainThread;
-import androidx.appcompat.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +35,7 @@ import com.android.dialer.calllogutils.CallbackActionHelper.CallbackAction;
 import com.android.dialer.common.Assert;
 import com.android.dialer.duo.DuoComponent;
 import com.android.dialer.glidephotomanager.PhotoInfo;
+import com.android.dialer.R;
 
 /**
  * Contains common logic shared between {@link OldCallDetailsAdapter} and {@link

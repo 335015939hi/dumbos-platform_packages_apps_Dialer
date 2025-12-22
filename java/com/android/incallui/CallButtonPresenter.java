@@ -56,6 +56,7 @@ import com.android.incallui.incall.protocol.InCallButtonUi;
 import com.android.incallui.incall.protocol.InCallButtonUiDelegate;
 import com.android.incallui.multisim.SwapSimWorker;
 import com.android.incallui.videotech.utils.VideoUtils;
+import com.android.dialer.R;
 
 /** Logic for call buttons. */
 public class CallButtonPresenter

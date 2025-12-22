@@ -38,6 +38,7 @@ import com.android.incallui.answer.impl.classifier.FalsingManager;
 import com.android.incallui.answer.impl.utils.FlingAnimationUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import com.android.dialer.R;
 
 /** Touch handler that keeps track of flings for {@link FlingUpDownMethod}. */
 @SuppressLint("ClickableViewAccessibility")

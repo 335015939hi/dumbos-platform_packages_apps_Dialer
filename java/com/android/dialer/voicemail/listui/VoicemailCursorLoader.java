@@ -19,7 +19,7 @@ package com.android.dialer.voicemail.listui;
 import android.content.Context;
 import android.database.Cursor;
 import android.provider.CallLog.Calls;
-import androidx.core.content.CursorLoader;
+import androidx.loader.content.CursorLoader;
 import android.text.TextUtils;
 import com.android.dialer.DialerPhoneNumber;
 import com.android.dialer.NumberAttributes;

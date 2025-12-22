@@ -24,6 +24,7 @@ import android.telecom.PhoneAccountHandle;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.google.common.base.Optional;
+import com.android.dialer.R;
 
 /** Provides hints to the user when selecting a SIM to make a call. */
 @SuppressWarnings("Guava")

@@ -32,6 +32,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import com.android.dialer.common.FragmentUtils;
 import com.android.incallui.incalluilock.InCallUiLock;
+import com.android.dialer.R;
 
 /**
  * Shows the dialog for users to enter a custom message when rejecting a call with an SMS message.

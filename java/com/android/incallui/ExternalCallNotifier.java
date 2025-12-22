@@ -50,6 +50,7 @@ import com.android.incallui.call.DialerCallDelegate;
 import com.android.incallui.call.ExternalCallList;
 import com.android.incallui.latencyreport.LatencyReport;
 import java.util.Map;
+import com.android.dialer.R;
 
 /**
  * Handles the display of notifications for "external calls".

@@ -27,6 +27,7 @@ import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.voicemail.listui.error.VoicemailErrorMessage.Action;
 import java.util.List;
+import com.android.dialer.R;
 
 /**
  * UI for the voicemail error message, which will be inserted to the top of the voicemail tab if any

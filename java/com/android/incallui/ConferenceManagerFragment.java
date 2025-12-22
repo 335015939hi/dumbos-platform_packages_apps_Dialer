@@ -29,6 +29,7 @@ import com.android.incallui.baseui.BaseFragment;
 import com.android.incallui.call.CallList;
 import com.android.incallui.call.DialerCall;
 import java.util.List;
+import com.android.dialer.R;
 
 /** Fragment that allows the user to manage a conference call. */
 public class ConferenceManagerFragment

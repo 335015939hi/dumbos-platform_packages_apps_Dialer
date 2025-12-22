@@ -18,7 +18,7 @@ package com.android.dialer.calldetails;
 
 import android.content.Context;
 import android.net.Uri;
-import androidx.appcompat.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.telecom.PhoneAccount;
 import android.text.TextUtils;
 import android.view.View;
@@ -42,6 +42,7 @@ import com.android.dialer.logging.InteractionEvent;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.phonenumberutil.PhoneNumberHelper;
 import com.android.dialer.widget.BidiTextView;
+import com.android.dialer.R;
 
 /**
  * ViewHolder for the header in {@link OldCallDetailsActivity} or {@link CallDetailsActivity}.
@@ -173,7 +174,7 @@ public class CallDetailsHeaderViewHolder extends androidx.recyclerview.widget.Re
             TextUtils.isEmpty(contact.getNumberLabel())
                 ? contact.getDisplayNumber()
                 : context.getString(
-                    com.android.dialer.contacts.resources.R.string.call_subject_type_and_number,
+                    R.string.call_subject_type_and_number,
                     contact.getNumberLabel(),
                     contact.getDisplayNumber());
         numberView.setText(secondaryInfo);

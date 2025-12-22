@@ -21,6 +21,7 @@ import android.content.res.TypedArray;
 import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.ScrollView;
+import com.android.dialer.R;
 
 /** {@link ScrollView} with a max height attribute. */
 public class MaxHeightScrollView extends ScrollView {

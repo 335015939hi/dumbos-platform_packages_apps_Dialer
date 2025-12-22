@@ -133,8 +133,8 @@ public abstract class VvmNetworkRequestCallback extends ConnectivityManager.Netw
   @Override
   @CallSuper
   public void onLinkPropertiesChanged(Network network, LinkProperties lp) {
-    boolean hasIPv4 = (lp != null) &&
-            (lp.isReachable(InetAddresses.parseNumericAddress("8.8.8.8")));
+    // Check if LinkProperties has any IPv4 addresses
+    boolean hasIPv4 = (lp != null) && !lp.getLinkAddresses().isEmpty();
     if(hasIPv4) {
         mWaitV4Cv.open();
     }

@@ -24,12 +24,13 @@ import android.view.View;
 import android.widget.PopupMenu;
 import com.android.dialer.simulator.Simulator;
 import com.android.dialer.simulator.SimulatorComponent;
+import com.android.dialer.R;
 
 /** Popup menu accessible from the search bar */
 public final class MainToolbarMenu extends PopupMenu {
 
   public MainToolbarMenu(Context context, View anchor) {
-    super(context, anchor, Gravity.NO_GRAVITY, R.attr.actionOverflowMenuStyle, 0);
+    super(context, anchor, Gravity.NO_GRAVITY, 0, 0);
   }
 
   public void showClearFrequents(boolean show) {

@@ -22,6 +22,7 @@ import androidx.annotation.StringRes;
 import android.telecom.CallAudioState;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import com.android.dialer.R;
 
 /** Info about how a "Speaker" button should be displayed */
 public class SpeakerButtonInfo {

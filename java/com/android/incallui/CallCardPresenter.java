@@ -77,6 +77,7 @@ import com.android.incallui.incall.protocol.PrimaryInfo;
 import com.android.incallui.incall.protocol.SecondaryInfo;
 import com.android.incallui.videotech.utils.SessionModificationState;
 import java.lang.ref.WeakReference;
+import com.android.dialer.R;
 
 /**
  * Controller for the Call Card Fragment. This class listens for changes to InCallState and passes

@@ -22,6 +22,7 @@ import android.os.Bundle;
 import androidx.fragment.app.DialogFragment;
 import android.telecom.TelecomManager;
 import android.widget.EditText;
+import com.android.dialer.R;
 
 /** Holds dialog logic for creating different types of voice calls. */
 public final class SimulatorDialogFragment extends DialogFragment {

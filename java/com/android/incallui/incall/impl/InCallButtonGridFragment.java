@@ -29,6 +29,7 @@ import com.android.dialer.common.FragmentUtils;
 import com.android.incallui.incall.protocol.InCallButtonIds;
 import java.util.List;
 import java.util.Set;
+import com.android.dialer.R;
 
 /** Fragment for the in call buttons (mute, speaker, ect.). */
 public class InCallButtonGridFragment extends Fragment {

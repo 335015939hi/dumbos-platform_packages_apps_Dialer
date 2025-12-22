@@ -18,7 +18,7 @@ package com.android.dialer.calldetails;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.appcompat.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -30,6 +30,7 @@ import com.android.dialer.logging.UiAction;
 import com.android.dialer.performancereport.PerformanceReport;
 import com.android.dialer.util.CallUtil;
 import com.android.dialer.util.DialerUtils;
+import com.android.dialer.R;
 
 /** ViewHolder for the footer in {@link OldCallDetailsActivity} or {@link CallDetailsActivity}. */
 final class CallDetailsFooterViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder implements OnClickListener {

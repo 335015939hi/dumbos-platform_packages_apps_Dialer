@@ -21,8 +21,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import androidx.annotation.Nullable;
-import com.google.android.material.widget.BaseTransientBottomBar.BaseCallback;
-import com.google.android.material.widget.Snackbar;
+import com.google.android.material.snackbar.BaseTransientBottomBar.BaseCallback;
+import com.google.android.material.snackbar.Snackbar;
 import android.telephony.TelephonyManager;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -39,6 +39,7 @@ import com.android.dialer.performancereport.PerformanceReport;
 import com.android.dialer.storage.StorageComponent;
 import com.android.dialer.util.DialerUtils;
 import com.android.dialer.util.IntentUtil;
+import com.android.dialer.R;
 
 /** Helper class to handle all post call actions. */
 public class PostCall {

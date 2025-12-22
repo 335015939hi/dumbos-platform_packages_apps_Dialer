@@ -28,6 +28,7 @@ import android.view.View;
 import com.android.dialer.common.Assert;
 import com.android.dialer.speeddial.database.SpeedDialEntry.Channel;
 import com.android.dialer.speeddial.loader.SpeedDialUiItem;
+import com.android.dialer.R;
 
 /** {@link PopupMenu} which presents contact options for starred contacts. */
 public class ContextMenu extends PopupMenu implements OnMenuItemClickListener {

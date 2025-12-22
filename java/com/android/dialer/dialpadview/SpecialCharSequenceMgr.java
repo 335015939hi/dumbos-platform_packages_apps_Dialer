@@ -71,6 +71,7 @@ import com.google.zxing.common.BitMatrix;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import com.android.dialer.R;
 
 /**
  * Helper class to listen for some magic character sequences that are handled specially by Dialer.

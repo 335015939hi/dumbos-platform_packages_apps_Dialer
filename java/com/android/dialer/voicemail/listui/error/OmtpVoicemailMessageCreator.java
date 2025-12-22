@@ -30,6 +30,7 @@ import com.android.voicemail.VoicemailClient;
 import com.android.voicemail.VoicemailComponent;
 import java.util.ArrayList;
 import java.util.List;
+import com.android.dialer.R;
 
 /**
  * Create error message from {@link VoicemailStatus} for OMTP visual voicemail. This is also the

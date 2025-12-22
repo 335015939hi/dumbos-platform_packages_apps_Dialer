@@ -27,6 +27,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import com.android.incallui.answer.impl.utils.FlingAnimationUtils;
 import com.android.incallui.answer.impl.utils.Interpolators;
+import com.android.dialer.R;
 
 /** A touch handler of the swipe buttons */
 public class SwipeButtonHelper {

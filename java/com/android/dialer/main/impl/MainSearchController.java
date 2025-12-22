@@ -24,7 +24,7 @@ import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
-import com.google.android.material.widget.FloatingActionButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.appcompat.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.MenuItem;
@@ -54,6 +54,7 @@ import com.android.dialer.util.TransactionSafeActivity;
 import com.google.common.base.Optional;
 import java.util.ArrayList;
 import java.util.List;
+import com.android.dialer.R;
 
 /**
  * Search controller for handling all the logic related to entering and exiting the search UI.

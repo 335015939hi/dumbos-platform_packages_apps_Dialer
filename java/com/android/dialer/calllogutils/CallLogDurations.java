@@ -23,6 +23,7 @@ import com.android.dialer.util.DialerUtils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import com.android.dialer.R;
 
 /** Utility class for formatting duration and data usage in call log entries. */
 public class CallLogDurations {

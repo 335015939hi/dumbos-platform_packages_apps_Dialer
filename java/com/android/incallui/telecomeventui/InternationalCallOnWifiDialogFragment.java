@@ -33,6 +33,7 @@ import com.android.dialer.common.LogUtil;
 import com.android.dialer.storage.StorageComponent;
 import com.android.incallui.call.CallList;
 import com.android.incallui.call.DialerCall;
+import com.android.dialer.R;
 
 /**
  * Dialog that may be shown when users place an outgoing call to an international number while on

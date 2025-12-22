@@ -19,7 +19,7 @@ package com.android.dialer.searchfragment.list;
 import android.content.Context;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
-import androidx.appcompat.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -34,6 +34,7 @@ import com.android.dialer.searchfragment.directories.DirectoryContactViewHolder;
 import com.android.dialer.searchfragment.list.SearchCursorManager.RowType;
 import com.android.dialer.searchfragment.nearbyplaces.NearbyPlaceViewHolder;
 import java.util.List;
+import com.android.dialer.R;
 
 /** RecyclerView adapter for {@link NewSearchFragment}. */
 @VisibleForTesting(otherwise = VisibleForTesting.PACKAGE_PRIVATE)
@@ -202,11 +203,11 @@ public final class SearchAdapter extends androidx.recyclerview.widget.RecyclerVi
       Assert.isNotNull(dismissClickListener);
       itemView
           .findViewById(
-              com.android.dialer.searchfragment.nearbyplaces.R.id.location_permission_allow)
+              R.id.location_permission_allow)
           .setOnClickListener(allowClickListener);
       itemView
           .findViewById(
-              com.android.dialer.searchfragment.nearbyplaces.R.id.location_permission_dismiss)
+              R.id.location_permission_dismiss)
           .setOnClickListener(dismissClickListener);
     }
   }

@@ -37,6 +37,7 @@ import com.android.dialer.common.Assert;
 import com.android.dialer.common.concurrent.ThreadUtil;
 import com.android.dialer.strictmode.StrictModeUtils;
 import com.android.voicemail.VoicemailComponent;
+import com.android.dialer.R;
 
 /**
  * Fragment to edit the override values for the {@link import

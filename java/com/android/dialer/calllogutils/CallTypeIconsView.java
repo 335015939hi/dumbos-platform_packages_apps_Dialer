@@ -31,6 +31,7 @@ import com.android.dialer.theme.base.Theme;
 import com.android.dialer.theme.base.ThemeComponent;
 import java.util.ArrayList;
 import java.util.List;
+import com.android.dialer.R;
 
 /**
  * View that draws one or more symbols for different types of calls (missed calls, outgoing etc).

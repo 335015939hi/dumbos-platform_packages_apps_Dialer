@@ -22,11 +22,11 @@ import android.os.Bundle;
 import android.provider.VoicemailContract.Status;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.LoaderManager.LoaderCallbacks;
-import androidx.core.content.Loader;
-import androidx.core.content.LocalBroadcastManager;
-import androidx.appcompat.widget.LinearLayoutManager;
-import androidx.appcompat.widget.RecyclerView;
+import androidx.loader.app.LoaderManager.LoaderCallbacks;
+import androidx.loader.content.Loader;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +44,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.util.concurrent.ListenableFuture;
 import java.util.ArrayList;
 import java.util.List;
+import com.android.dialer.R;
 
 // TODO(uabdullah): Register content observer for VoicemailContract.Status.CONTENT_URI in onStart
 /** Fragment for Dialer Voicemail Tab. */

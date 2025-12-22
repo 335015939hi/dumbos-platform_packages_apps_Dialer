@@ -18,8 +18,8 @@ package com.android.dialer.speeddial;
 
 import android.content.Context;
 import android.provider.ContactsContract.Contacts;
-import androidx.appcompat.widget.RecyclerView;
-import androidx.appcompat.widget.helper.ItemTouchHelper;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
@@ -34,6 +34,7 @@ import com.android.dialer.speeddial.database.SpeedDialEntry.Channel;
 import com.android.dialer.speeddial.draghelper.SpeedDialFavoritesViewHolderOnTouchListener;
 import com.android.dialer.speeddial.draghelper.SpeedDialFavoritesViewHolderOnTouchListener.OnTouchFinishCallback;
 import com.android.dialer.speeddial.loader.SpeedDialUiItem;
+import com.android.dialer.R;
 
 /** ViewHolder for starred/favorite contacts in {@link SpeedDialFragment}. */
 public class FavoritesViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder

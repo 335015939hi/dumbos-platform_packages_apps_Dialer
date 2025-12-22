@@ -97,6 +97,7 @@ import com.google.common.base.Optional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import com.android.dialer.R;
 
 /** The new version of the incoming call screen. */
 @SuppressLint("ClickableViewAccessibility")

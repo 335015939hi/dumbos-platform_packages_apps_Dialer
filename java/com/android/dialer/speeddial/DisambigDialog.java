@@ -51,6 +51,7 @@ import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 import java.util.List;
 import java.util.Set;
+import com.android.dialer.R;
 
 /** Disambiguation dialog for favorite contacts in {@link SpeedDialFragment}. */
 public class DisambigDialog extends DialogFragment {

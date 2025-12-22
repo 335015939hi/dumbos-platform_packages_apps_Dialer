@@ -22,6 +22,7 @@ import android.os.UserManager;
 import android.preference.PreferenceManager;
 import com.android.dialer.inject.ApplicationContext;
 import javax.inject.Inject;
+import com.android.dialer.R;
 
 /**
  * Implementation of {@link ContactDisplayPreferences} backed by a {@link SharedPreferences}. Can

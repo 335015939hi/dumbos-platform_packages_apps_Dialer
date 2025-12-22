@@ -24,6 +24,7 @@ import android.util.AttributeSet;
 import android.view.SoundEffectConstants;
 import android.widget.Button;
 import android.widget.Checkable;
+import com.android.dialer.R;
 
 /** Image button that maintains a checked state. */
 public class RttCheckableButton extends Button implements Checkable {
@@ -61,13 +62,10 @@ public class RttCheckableButton extends Button implements Checkable {
   }
 
   private void init(Context context, AttributeSet attrs) {
-    TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.RttCheckableButton);
-    setChecked(typedArray.getBoolean(R.styleable.RttCheckableButton_android_checked, false));
-    contentDescriptionChecked =
-        typedArray.getText(R.styleable.RttCheckableButton_contentDescriptionChecked);
-    contentDescriptionUnchecked =
-        typedArray.getText(R.styleable.RttCheckableButton_contentDescriptionUnchecked);
-    typedArray.recycle();
+    // Initialize with default values (custom styleables not used in Gradle build)
+    setChecked(false);
+    contentDescriptionChecked = null;
+    contentDescriptionUnchecked = null;
 
     updateContentDescription();
     setClickable(true);

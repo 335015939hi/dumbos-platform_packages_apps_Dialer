@@ -20,9 +20,9 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
-import com.google.android.material.widget.BottomSheetBehavior;
-import com.google.android.material.widget.BottomSheetBehavior.BottomSheetCallback;
-import com.google.android.material.widget.BottomSheetDialog;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,6 +40,7 @@ import com.android.dialer.theme.base.ThemeComponent;
 import com.android.dialer.widget.ContactPhotoView;
 import com.google.common.collect.ImmutableSet;
 import java.util.List;
+import com.android.dialer.R;
 
 /**
  * {@link BottomSheetDialog} used to show a list of actions in a bottom sheet menu.

@@ -27,6 +27,7 @@ import android.util.Pair;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.incallui.call.DialerCall;
+import com.android.dialer.R;
 
 /** Prompts the user to enable Wi-Fi calling. */
 public class EnableWifiCallingPrompt implements DisconnectDialog {

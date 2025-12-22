@@ -31,8 +31,8 @@ import android.os.Bundle;
 import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
 import androidx.legacy.v13.app.FragmentCompat;
-import androidx.appcompat.widget.LinearLayoutManager;
-import androidx.appcompat.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.Recycler;
 import androidx.recyclerview.widget.RecyclerView.State;
 import android.view.LayoutInflater;
@@ -53,6 +53,7 @@ import com.android.dialer.widget.EmptyContentView.OnEmptyViewActionButtonClicked
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Arrays;
+import com.android.dialer.R;
 
 /** Fragment containing a list of all contacts. */
 public class ContactsFragment extends Fragment

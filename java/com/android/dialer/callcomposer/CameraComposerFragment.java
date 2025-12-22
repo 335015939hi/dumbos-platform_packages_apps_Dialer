@@ -50,6 +50,7 @@ import com.android.dialer.logging.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.theme.base.ThemeComponent;
 import com.android.dialer.util.PermissionsUtil;
+import com.android.dialer.R;
 
 /** Fragment used to compose call with image from the user's camera. */
 public class CameraComposerFragment extends CallComposerFragment

@@ -32,6 +32,7 @@ import com.android.dialer.main.impl.bottomnav.BottomNavBar.TabIndex;
 import com.android.dialer.voicemail.listui.NewVoicemailFragment;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.MoreExecutors;
+import com.android.dialer.R;
 
 /** MainActivityPeer that implements the new fragments. */
 public class NewMainActivityPeer implements MainActivityPeer {

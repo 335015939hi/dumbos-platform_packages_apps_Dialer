@@ -40,6 +40,7 @@ import com.android.dialer.glidephotomanager.PhotoInfo;
 import com.android.dialer.oem.MotorolaUtils;
 import com.android.dialer.util.DialerUtils;
 import com.android.dialer.util.IntentUtil;
+import com.android.dialer.R;
 
 /** ViewHolder for call entries in {@link OldCallDetailsActivity} or {@link CallDetailsActivity}. */
 public class CallDetailsEntryViewHolder extends ViewHolder {

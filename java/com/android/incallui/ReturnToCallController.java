@@ -49,6 +49,7 @@ import com.android.incallui.speakerbuttonlogic.SpeakerButtonInfo;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
+import com.android.dialer.R;
 
 /**
  * Listens for events relevant to the return-to-call bubble and updates the bubble's state as

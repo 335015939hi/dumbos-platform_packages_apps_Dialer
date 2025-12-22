@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
+import com.android.dialer.R;
 
 /**
  * Util class to handle special char sequence and launch corresponding intent based the sequence.

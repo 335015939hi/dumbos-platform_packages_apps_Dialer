@@ -18,7 +18,7 @@ package com.android.incallui;
 
 import android.content.Context;
 import android.net.Uri;
-import androidx.core.util.ArrayMap;
+import androidx.collection.ArrayMap;
 import android.telephony.PhoneNumberUtils;
 import android.text.BidiFormatter;
 import android.text.TextDirectionHeuristics;
@@ -49,6 +49,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import com.android.dialer.R;
 
 /** Adapter for a ListView containing conference call participant information. */
 public class ConferenceParticipantListAdapter extends BaseAdapter {

@@ -26,6 +26,7 @@ import com.android.dialer.common.LogUtil;
 import com.android.dialer.configprovider.ConfigProvider;
 import com.android.dialer.configprovider.ConfigProviderComponent;
 import com.android.dialer.strictmode.StrictModeUtils;
+import com.android.dialer.R;
 
 /**
  * A Creator for AssistedDialingMediators.

@@ -24,6 +24,7 @@ import com.android.incallui.incall.protocol.InCallButtonUiDelegate;
 import com.android.incallui.incall.protocol.InCallScreenDelegate;
 import com.android.incallui.rtt.impl.RttCheckableButton.OnCheckedChangeListener;
 import com.android.incallui.speakerbuttonlogic.SpeakerButtonInfo;
+import com.android.dialer.R;
 
 /** Overflow menu for RTT call. */
 public class RttOverflowMenu extends PopupWindow implements OnCheckedChangeListener {

@@ -65,6 +65,7 @@ import com.google.common.util.concurrent.ListeningExecutorService;
 import java.util.List;
 import java.util.Objects;
 import javax.inject.Inject;
+import com.android.dialer.R;
 
 /** Implements {@link PreferredAccountWorker}. */
 @SuppressWarnings({"missingPermission", "Guava"})

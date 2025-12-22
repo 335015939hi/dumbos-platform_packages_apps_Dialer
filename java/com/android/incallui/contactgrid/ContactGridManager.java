@@ -45,6 +45,7 @@ import com.android.incallui.incall.protocol.ContactPhotoType;
 import com.android.incallui.incall.protocol.PrimaryCallState;
 import com.android.incallui.incall.protocol.PrimaryInfo;
 import java.util.List;
+import com.android.dialer.R;
 
 /** Utility to manage the Contact grid */
 public class ContactGridManager {

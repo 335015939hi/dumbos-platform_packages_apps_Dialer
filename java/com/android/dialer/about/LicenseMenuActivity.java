@@ -18,8 +18,8 @@ package com.android.dialer.about;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.fragment.app.LoaderManager.LoaderCallbacks;
-import androidx.core.content.Loader;
+import androidx.loader.app.LoaderManager.LoaderCallbacks;
+import androidx.loader.content.Loader;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,6 +29,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
+import com.android.dialer.R;
 
 /** An Activity listing third party libraries with notice licenses. */
 public final class LicenseMenuActivity extends AppCompatActivity

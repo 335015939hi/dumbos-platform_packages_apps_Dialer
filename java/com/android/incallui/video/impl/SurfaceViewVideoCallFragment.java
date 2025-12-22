@@ -28,8 +28,8 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.core.view.animation.FastOutLinearInInterpolator;
-import androidx.core.view.animation.LinearOutSlowInInterpolator;
+import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
+import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
 import android.telecom.CallAudioState;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -71,6 +71,7 @@ import com.android.incallui.video.protocol.VideoCallScreen;
 import com.android.incallui.video.protocol.VideoCallScreenDelegate;
 import com.android.incallui.video.protocol.VideoCallScreenDelegateFactory;
 import com.android.incallui.videotech.utils.VideoUtils;
+import com.android.dialer.R;
 
 /**
  * Contains UI elements for a video call.
@@ -854,7 +855,7 @@ public class SurfaceViewVideoCallFragment extends Fragment
         transaction.remove(oldBanner);
       }
     }
-    transaction.setCustomAnimations(R.anim.abc_slide_in_top, R.anim.abc_slide_out_top);
+    transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
     transaction.commitAllowingStateLoss();
   }
 

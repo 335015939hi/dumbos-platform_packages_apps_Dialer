@@ -43,6 +43,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import com.android.dialer.R;
 
 /**
  * Helper class to make it easier to run asynchronous caller-id lookup queries.

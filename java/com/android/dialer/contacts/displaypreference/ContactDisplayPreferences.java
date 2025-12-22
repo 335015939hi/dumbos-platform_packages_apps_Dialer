@@ -21,6 +21,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import android.text.TextUtils;
 import java.util.Arrays;
+import com.android.dialer.R;
 
 /** Handles name ordering of a contact (Given name first or family name first.) */
 public interface ContactDisplayPreferences {

@@ -37,6 +37,7 @@ import com.android.dialer.common.Assert;
 import com.android.dialer.lettertile.LetterTileDrawable;
 import com.android.dialer.util.DrawableConverter;
 import java.io.InputStream;
+import com.android.dialer.R;
 
 /** Constructs the icons for dialer shortcuts. */
 class IconFactory {

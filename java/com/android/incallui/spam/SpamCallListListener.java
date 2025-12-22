@@ -53,6 +53,7 @@ import com.android.incallui.call.CallList;
 import com.android.incallui.call.DialerCall;
 import com.android.incallui.call.DialerCall.CallHistoryStatus;
 import java.util.Random;
+import com.android.dialer.R;
 
 /**
  * Creates notifications after a call ends if the call matched the criteria (incoming, accepted,

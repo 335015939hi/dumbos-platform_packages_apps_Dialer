@@ -19,7 +19,7 @@ package com.android.dialer.shortcuts;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.fragment.app.ActivityCompat;
+import androidx.core.app.ActivityCompat;
 import android.widget.Toast;
 import com.android.dialer.callintent.CallInitiationType;
 import com.android.dialer.callintent.CallSpecificAppData;
@@ -27,6 +27,7 @@ import com.android.dialer.common.LogUtil;
 import com.android.dialer.interactions.PhoneNumberInteraction;
 import com.android.dialer.interactions.PhoneNumberInteraction.InteractionErrorCode;
 import com.android.dialer.util.TransactionSafeActivity;
+import com.android.dialer.R;
 
 /**
  * Invisible activity launched when a shortcut is selected by user. Calls a contact based on URI.

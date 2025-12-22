@@ -30,6 +30,7 @@ import com.android.dialer.logging.DialerImpression.Type;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.storage.StorageComponent;
 import java.util.Random;
+import com.android.dialer.R;
 
 /**
  * Listen to the broadcast when the user dials "*#*#[number]#*#*" to toggle the event answer hint.

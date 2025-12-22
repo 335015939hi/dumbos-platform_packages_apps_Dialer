@@ -28,9 +28,9 @@ import android.os.Parcelable;
 import android.provider.Settings;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.LoaderManager.LoaderCallbacks;
-import androidx.core.content.CursorLoader;
-import androidx.core.content.Loader;
+import androidx.loader.app.LoaderManager.LoaderCallbacks;
+import androidx.loader.content.CursorLoader;
+import androidx.loader.content.Loader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -47,6 +47,7 @@ import com.android.dialer.theme.base.ThemeComponent;
 import com.android.dialer.util.PermissionsUtil;
 import java.util.ArrayList;
 import java.util.List;
+import com.android.dialer.R;
 
 /** Fragment used to compose call with image from the user's gallery. */
 public class GalleryComposerFragment extends CallComposerFragment

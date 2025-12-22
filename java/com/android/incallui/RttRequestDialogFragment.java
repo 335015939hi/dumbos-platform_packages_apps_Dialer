@@ -36,6 +36,7 @@ import com.android.incallui.ContactInfoCache.ContactInfoCacheCallback;
 import com.android.incallui.call.CallList;
 import com.android.incallui.call.DialerCall;
 import java.lang.ref.WeakReference;
+import com.android.dialer.R;
 
 /** Dialog that shown to user when receiving RTT request mid call. */
 public class RttRequestDialogFragment extends DialogFragment {

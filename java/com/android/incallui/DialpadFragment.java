@@ -40,6 +40,7 @@ import com.android.dialer.logging.Logger;
 import com.android.incallui.DialpadPresenter.DialpadUi;
 import com.android.incallui.baseui.BaseFragment;
 import java.util.Map;
+import com.android.dialer.R;
 
 /** Fragment for call control buttons */
 public class DialpadFragment extends BaseFragment<DialpadPresenter, DialpadUi>

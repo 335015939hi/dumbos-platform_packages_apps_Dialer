@@ -30,7 +30,7 @@ import android.provider.ContactsContract.CommonDataKinds.Organization;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
-import androidx.core.util.ArraySet;
+import androidx.collection.ArraySet;
 import android.text.TextUtils;
 import android.util.ArrayMap;
 import com.android.dialer.searchfragment.common.Projections;

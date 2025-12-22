@@ -29,6 +29,7 @@ import com.android.dialer.callintent.CallIntentBuilder;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.precall.PreCall;
 import com.android.incallui.call.DialerCall;
+import com.android.dialer.R;
 
 /** Prompt user to make voice call if video call is not currently available. */
 public class VideoCallNotAvailablePrompt implements DisconnectDialog {

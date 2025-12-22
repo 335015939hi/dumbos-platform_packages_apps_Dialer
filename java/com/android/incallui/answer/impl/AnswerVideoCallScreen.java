@@ -29,6 +29,7 @@ import com.android.incallui.video.protocol.VideoCallScreen;
 import com.android.incallui.video.protocol.VideoCallScreenDelegate;
 import com.android.incallui.video.protocol.VideoCallScreenDelegateFactory;
 import com.android.incallui.videosurface.bindings.VideoSurfaceBindings;
+import com.android.dialer.R;
 
 /** Shows a video preview for an incoming call. */
 public class AnswerVideoCallScreen implements VideoCallScreen {

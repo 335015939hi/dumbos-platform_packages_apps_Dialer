@@ -56,6 +56,7 @@ import com.android.voicemail.PinChanger.PinSpecification;
 import com.android.voicemail.VoicemailClient;
 import com.android.voicemail.VoicemailComponent;
 import java.lang.ref.WeakReference;
+import com.android.dialer.R;
 
 /**
  * Dialog to change the voicemail PIN. The TUI (Telephony User Interface) PIN is used when accessing

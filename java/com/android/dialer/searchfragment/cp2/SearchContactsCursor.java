@@ -23,6 +23,7 @@ import android.database.MergeCursor;
 import android.provider.ContactsContract.Directory;
 import androidx.annotation.Nullable;
 import com.android.dialer.searchfragment.common.SearchCursor;
+import com.android.dialer.R;
 
 /**
  * {@link SearchCursor} implementation for displaying on device contacts.

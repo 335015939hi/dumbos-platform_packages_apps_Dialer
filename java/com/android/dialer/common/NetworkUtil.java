@@ -30,6 +30,7 @@ import android.text.TextUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Objects;
+import com.android.dialer.R;
 
 /** Utility class for dealing with network */
 public class NetworkUtil {

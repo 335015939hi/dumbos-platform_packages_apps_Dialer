@@ -17,7 +17,7 @@
 package com.android.dialer.speeddial.draghelper;
 
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
-import androidx.appcompat.widget.helper.ItemTouchHelper;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import android.view.HapticFeedbackConstants;
 import android.view.MotionEvent;
 import android.view.View;

@@ -43,6 +43,7 @@ import com.android.dialer.spam.SpamSettings;
 import com.google.common.collect.ImmutableList;
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
+import com.android.dialer.R;
 
 /**
  * A {@link BroadcastReceiver} that shows an appropriate dialog upon receiving notifications from

@@ -36,11 +36,11 @@ import android.provider.ContactsContract.QuickContact;
 import android.provider.VoicemailContract;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.google.android.material.widget.BottomSheetBehavior;
-import com.google.android.material.widget.FloatingActionButton;
-import com.google.android.material.widget.Snackbar;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import androidx.core.content.ContextCompat;
-import androidx.core.content.LocalBroadcastManager;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.telecom.PhoneAccount;
@@ -134,6 +134,7 @@ import com.google.common.util.concurrent.MoreExecutors;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
+import com.android.dialer.R;
 
 /**
  * OldMainActivityPeer which implements all of the old fragments we know and love <3

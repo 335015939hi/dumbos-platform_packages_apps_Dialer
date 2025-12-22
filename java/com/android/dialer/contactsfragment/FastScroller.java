@@ -18,13 +18,14 @@ package com.android.dialer.contactsfragment;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.LinearLayoutManager;
-import androidx.appcompat.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.android.dialer.R;
 
 /** Widget to add fast scrolling to {@link ContactsFragment}. */
 public class FastScroller extends RelativeLayout {

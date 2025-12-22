@@ -21,6 +21,7 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.TypefaceSpan;
 import com.android.dialer.common.Assert;
+import com.android.dialer.R;
 
 /**
  * Creates {@link SpannableString SpannableStrings} which are styled appropriately for Dialer

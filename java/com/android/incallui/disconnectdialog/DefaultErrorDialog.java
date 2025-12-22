@@ -24,6 +24,7 @@ import android.telecom.DisconnectCause;
 import android.text.TextUtils;
 import android.util.Pair;
 import com.android.incallui.call.DialerCall;
+import com.android.dialer.R;
 
 /** Default error dialog shown to user after disconnect. */
 public class DefaultErrorDialog implements DisconnectDialog {

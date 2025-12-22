@@ -20,6 +20,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
+import com.android.dialer.R;
 
 /** Shows the {@link ConferenceManagerFragment} */
 public class ManageConferenceActivity extends AppCompatActivity {

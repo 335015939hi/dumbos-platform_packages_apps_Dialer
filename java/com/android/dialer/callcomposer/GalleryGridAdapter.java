@@ -30,6 +30,7 @@ import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import java.util.ArrayList;
 import java.util.List;
+import com.android.dialer.R;
 
 /** Bridges between the image cursor loaded by GalleryBoundCursorLoader and the GalleryGridView. */
 public class GalleryGridAdapter extends CursorAdapter {

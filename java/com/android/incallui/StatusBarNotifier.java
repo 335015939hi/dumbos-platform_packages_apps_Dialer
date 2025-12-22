@@ -99,6 +99,7 @@ import com.android.incallui.speakeasy.SpeakEasyComponent;
 import com.android.incallui.videotech.utils.SessionModificationState;
 import com.google.common.base.Optional;
 import java.util.Objects;
+import com.android.dialer.R;
 
 /** This class adds Notifications to the status bar for the in-call experience. */
 public class StatusBarNotifier

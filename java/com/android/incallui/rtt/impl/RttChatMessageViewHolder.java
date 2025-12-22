@@ -26,6 +26,7 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 import com.android.incallui.rtt.protocol.RttChatMessage;
+import com.android.dialer.R;
 
 /** ViewHolder class for RTT chat message bubble. */
 public class RttChatMessageViewHolder extends ViewHolder {

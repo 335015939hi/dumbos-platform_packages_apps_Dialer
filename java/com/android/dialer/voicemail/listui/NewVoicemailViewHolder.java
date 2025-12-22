@@ -28,7 +28,7 @@ import android.net.Uri;
 import android.provider.VoicemailContract.Voicemails;
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
-import androidx.appcompat.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.view.View;
@@ -48,6 +48,7 @@ import com.android.dialer.voicemail.listui.menu.NewVoicemailMenu;
 import com.android.dialer.voicemail.model.VoicemailEntry;
 import com.android.dialer.widget.ContactPhotoView;
 import com.android.voicemail.VoicemailClient;
+import com.android.dialer.R;
 
 /** {@link androidx.recyclerview.widget.RecyclerView.ViewHolder} for the new voicemail tab. */
 final class NewVoicemailViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder implements OnClickListener {

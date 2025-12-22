@@ -18,7 +18,7 @@ package com.android.dialer.blockreportspam;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.core.content.LocalBroadcastManager;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.protos.ProtoParsers;
 

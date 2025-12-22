@@ -28,6 +28,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import com.android.dialer.common.Assert;
+import com.android.dialer.R;
 
 /**
  * Utility to allow the summary of a {@link SwitchPreference} to be clicked and opened via a browser

@@ -48,6 +48,7 @@ import com.android.voicemail.VoicemailComponent;
 import com.google.common.base.Optional;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import com.android.dialer.R;
 
 /**
  * Fragment for voicemail settings. Requires {@link VoicemailClient#PARAM_PHONE_ACCOUNT_HANDLE} set

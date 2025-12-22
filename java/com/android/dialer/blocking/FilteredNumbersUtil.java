@@ -40,6 +40,7 @@ import com.android.dialer.notification.NotificationChannelId;
 import com.android.dialer.storage.StorageComponent;
 import com.android.dialer.util.PermissionsUtil;
 import java.util.concurrent.TimeUnit;
+import com.android.dialer.R;
 
 /** Utility to help with tasks related to filtered numbers. */
 @Deprecated

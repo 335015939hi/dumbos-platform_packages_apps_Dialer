@@ -23,7 +23,7 @@ import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
-import androidx.fragment.app.ActivityCompat;
+import androidx.core.app.ActivityCompat;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -32,6 +32,7 @@ import com.android.dialer.common.LogUtil;
 import com.android.dialer.widget.DialerToolbar;
 import java.io.IOException;
 import java.util.Locale;
+import com.android.dialer.R;
 
 /** Activity to display current voicemail greeting and allow user to navigate to record a new one */
 public class CurrentVoicemailGreetingActivity extends Activity {

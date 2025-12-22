@@ -28,6 +28,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 import com.android.dialer.blocking.FilteredNumberCompat;
+import com.android.dialer.R;
 
 /** Creates dialog fragments to block a number and/or report it as spam/not spam. */
 public final class BlockReportSpamDialogs {

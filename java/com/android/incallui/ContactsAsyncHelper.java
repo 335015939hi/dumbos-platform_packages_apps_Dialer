@@ -30,6 +30,7 @@ import com.android.dialer.common.concurrent.DialerExecutor;
 import com.android.dialer.common.concurrent.DialerExecutorComponent;
 import java.io.IOException;
 import java.io.InputStream;
+import com.android.dialer.R;
 
 /** Helper class for loading contacts photo asynchronously. */
 public class ContactsAsyncHelper {

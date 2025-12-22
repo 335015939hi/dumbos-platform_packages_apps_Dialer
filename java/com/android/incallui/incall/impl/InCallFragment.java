@@ -72,6 +72,7 @@ import com.android.incallui.incall.protocol.PrimaryInfo;
 import com.android.incallui.incall.protocol.SecondaryInfo;
 import java.util.ArrayList;
 import java.util.List;
+import com.android.dialer.R;
 
 /** Fragment that shows UI for an ongoing voice call. */
 public class InCallFragment extends Fragment
@@ -335,7 +336,7 @@ public class InCallFragment extends Fragment
         transaction.remove(oldBanner);
       }
     }
-    transaction.setCustomAnimations(R.anim.abc_slide_in_top, R.anim.abc_slide_out_top);
+    transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
     transaction.commitNowAllowingStateLoss();
   }
 

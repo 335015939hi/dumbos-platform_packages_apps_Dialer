@@ -25,6 +25,7 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
+import com.android.dialer.R;
 
 /** A helper for extracting licenses. */
 public final class Licenses {

@@ -24,7 +24,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.DimenRes;
 import androidx.annotation.NonNull;
-import androidx.core.view.animation.FastOutSlowInInterpolator;
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +34,7 @@ import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.android.dialer.common.Assert;
+import com.android.dialer.R;
 
 /**
  * An Answer hint that animates a {@link Drawable} payload with animation similar to {@link

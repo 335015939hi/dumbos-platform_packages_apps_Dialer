@@ -27,6 +27,7 @@ import com.android.dialer.common.LogUtil;
 import com.android.incallui.incall.protocol.InCallButtonUiDelegate;
 import com.android.incallui.video.impl.CheckableImageButton.OnCheckedChangeListener;
 import com.android.incallui.video.protocol.VideoCallScreenDelegate;
+import com.android.dialer.R;
 
 /** Manages a single button. */
 public class SpeakerButtonController implements OnCheckedChangeListener, OnClickListener {

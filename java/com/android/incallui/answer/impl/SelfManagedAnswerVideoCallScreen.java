@@ -38,6 +38,7 @@ import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.incallui.video.protocol.VideoCallScreen;
 import java.util.Arrays;
+import com.android.dialer.R;
 
 /**
  * Shows the local preview for the incoming video call or video upgrade request. This class is used

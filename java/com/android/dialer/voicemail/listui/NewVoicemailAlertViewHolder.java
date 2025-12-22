@@ -21,6 +21,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import com.android.dialer.voicemail.listui.error.VoicemailErrorMessage.Action;
+import com.android.dialer.R;
 
 /** ViewHolder for {@link NewVoicemailAdapter} to display voicemail error states. */
 final class NewVoicemailAlertViewHolder extends ViewHolder {

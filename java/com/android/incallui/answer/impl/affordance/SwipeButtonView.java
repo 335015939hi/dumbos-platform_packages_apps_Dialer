@@ -35,6 +35,7 @@ import android.view.animation.Interpolator;
 import android.widget.ImageView;
 import com.android.incallui.answer.impl.utils.FlingAnimationUtils;
 import com.android.incallui.answer.impl.utils.Interpolators;
+import com.android.dialer.R;
 
 /** Button that allows swiping to trigger */
 public class SwipeButtonView extends ImageView {

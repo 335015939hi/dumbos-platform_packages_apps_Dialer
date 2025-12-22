@@ -16,7 +16,7 @@
 
 package com.android.dialer.metrics.jank;
 
-import androidx.appcompat.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.OnScrollListener;
 import com.android.dialer.metrics.Metrics;
 

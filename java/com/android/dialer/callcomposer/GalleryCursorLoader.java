@@ -21,7 +21,7 @@ import android.net.Uri;
 import android.provider.MediaStore.Files;
 import android.provider.MediaStore.Files.FileColumns;
 import android.provider.MediaStore.Images.Media;
-import androidx.core.content.CursorLoader;
+import androidx.loader.content.CursorLoader;
 
 /** A BoundCursorLoader that reads local media on the device. */
 public class GalleryCursorLoader extends CursorLoader {

@@ -33,6 +33,7 @@ import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.incallui.call.CallList;
 import com.android.incallui.call.DialerCall;
+import com.android.dialer.R;
 
 /** Alert dialog for video charges. */
 public class VideoChargesAlertDialogFragment extends DialogFragment {

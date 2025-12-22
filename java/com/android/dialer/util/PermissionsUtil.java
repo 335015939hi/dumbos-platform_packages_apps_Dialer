@@ -39,7 +39,7 @@ import android.content.pm.PackageManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.content.ContextCompat;
-import androidx.core.content.LocalBroadcastManager;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.widget.Toast;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.storage.StorageComponent;
@@ -47,6 +47,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import com.android.dialer.R;
 
 /** Utility class to help with runtime permissions. */
 public class PermissionsUtil {

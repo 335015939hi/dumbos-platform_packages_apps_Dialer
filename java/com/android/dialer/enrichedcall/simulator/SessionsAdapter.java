@@ -17,9 +17,10 @@
 package com.android.dialer.enrichedcall.simulator;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import com.android.dialer.R;
 import com.android.dialer.common.Assert;
 import java.util.List;
 

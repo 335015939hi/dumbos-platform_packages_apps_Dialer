@@ -58,14 +58,19 @@ android {
     sourceSets {
         getByName("main") {
             manifest.srcFile("AndroidManifest.xml")
-            java.srcDirs(
+            java.setSrcDirs(listOf(
+                "java/android",
+                "java/androidx",
                 "java/com/android/bubble",
+                "java/com/android/common",
                 "java/com/android/contacts",
                 "java/com/android/dialer",
                 "java/com/android/incallui",
                 "java/com/android/phoneapphelper",
                 "java/com/android/voicemail"
-            )
+            ))
+            // TODO: Exclude annotation processor source files
+            // java.filter.exclude("com/android/dialer/rootcomponentgenerator/**")
             res.srcDirs(
                 "assets/product/res",
                 "assets/quantum/res",
@@ -187,6 +192,11 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "META-INF/DEPENDENCIES"
+            excludes += "META-INF/LICENSE"
+            excludes += "META-INF/LICENSE.txt"
+            excludes += "META-INF/NOTICE"
+            excludes += "META-INF/NOTICE.txt"
         }
     }
 }
@@ -199,10 +209,15 @@ dependencies {
     implementation("androidx.viewpager:viewpager:1.0.0")
     implementation("androidx.fragment:fragment:1.8.5")
     implementation("androidx.core:core:1.15.0")
+    implementation("androidx.localbroadcastmanager:localbroadcastmanager:1.1.0")
+    implementation("androidx.loader:loader:1.1.0")
+    implementation("androidx.collection:collection:1.4.0")
+    implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
     implementation("androidx.legacy:legacy-support-v13:1.0.0")
     implementation("androidx.dynamicanimation:dynamicanimation:1.0.0")
+    implementation("androidx.interpolator:interpolator:1.0.0")
     implementation("com.googlecode.libphonenumber:libphonenumber:8.13.50")
     implementation("com.googlecode.libphonenumber:geocoder:2.234")
     implementation("me.leolin:ShortcutBadger:1.1.22")
@@ -214,10 +229,23 @@ dependencies {
     annotationProcessor("com.google.dagger:dagger-compiler:2.52")
     implementation("com.google.auto.value:auto-value-annotations:1.11.0")
     annotationProcessor("com.google.auto.value:auto-value:1.11.0")
+    implementation("com.squareup:javapoet:1.13.0")
+    implementation("com.google.auto:auto-common:1.2.2")
+    implementation("com.google.auto.service:auto-service-annotations:1.1.1")
+    annotationProcessor("com.google.auto.service:auto-service:1.1.1")
     implementation("com.google.protobuf:protobuf-javalite:3.25.5")
     implementation("com.google.guava:guava:33.3.1-android")
+    implementation("io.grpc:grpc-stub:1.62.2")
+    implementation("io.grpc:grpc-protobuf-lite:1.62.2")
+    implementation("io.grpc:grpc-okhttp:1.62.2")
+    implementation("org.apache.james:apache-mime4j-core:0.8.11")
+    implementation("org.apache.james:apache-mime4j-dom:0.8.11")
+    implementation("commons-io:commons-io:2.15.1")
+    // OpenStreetMap (osmdroid) - open source alternative to Google Maps
+    implementation("org.osmdroid:osmdroid-android:6.1.18")
     compileOnly("com.google.code.findbugs:jsr305:3.0.2")
     compileOnly("com.google.errorprone:error_prone_annotations:2.15.0")
+    compileOnly("javax.annotation:javax.annotation-api:1.3.2")
 }
 
 protobuf {
@@ -237,6 +265,6 @@ protobuf {
 
 afterEvaluate {
     android.sourceSets.named("main").configure {
-        java.srcDir("$buildDir/generated/source/proto/aospDebug/java")
+        java.srcDir("${layout.buildDirectory.get().asFile}/generated/source/proto/aospDebug/java")
     }
 }

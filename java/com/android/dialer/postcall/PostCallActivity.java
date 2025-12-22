@@ -34,6 +34,7 @@ import com.android.dialer.enrichedcall.EnrichedCallManager;
 import com.android.dialer.util.PermissionsUtil;
 import com.android.dialer.widget.DialerToolbar;
 import com.android.dialer.widget.MessageFragment;
+import com.android.dialer.R;
 
 /** Activity used to send post call messages after a phone call. */
 public class PostCallActivity extends AppCompatActivity implements MessageFragment.Listener {

@@ -27,6 +27,7 @@ import android.telecom.TelecomManager;
 import com.android.contacts.common.util.MaterialColorMapUtils;
 import com.android.contacts.common.util.MaterialColorMapUtils.MaterialPalette;
 import com.android.incallui.call.DialerCall;
+import com.android.dialer.R;
 
 /**
  * Calculates the background color for the in call window. The background color is based on the SIM

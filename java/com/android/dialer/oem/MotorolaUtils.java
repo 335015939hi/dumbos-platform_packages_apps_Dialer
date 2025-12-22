@@ -25,6 +25,7 @@ import com.android.dialer.common.PackageUtils;
 import com.android.dialer.configprovider.ConfigProviderComponent;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import com.android.dialer.R;
 
 /** Util class for Motorola OEM devices. */
 public class MotorolaUtils {

@@ -36,9 +36,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.graphics.ColorUtils;
-import androidx.core.view.animation.FastOutLinearInInterpolator;
-import androidx.core.view.animation.FastOutSlowInInterpolator;
-import androidx.core.view.animation.LinearOutSlowInInterpolator;
+import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
+import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -64,6 +64,7 @@ import com.android.incallui.answer.impl.hint.AnswerHintFactory;
 import com.android.incallui.answer.impl.hint.PawImageLoaderImpl;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import com.android.dialer.R;
 
 /** Answer method that swipes up to answer or down to reject. */
 @SuppressLint("ClickableViewAccessibility")

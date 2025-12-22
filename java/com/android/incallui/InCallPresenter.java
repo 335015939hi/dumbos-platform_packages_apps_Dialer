@@ -86,6 +86,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
+import com.android.dialer.R;
 
 /**
  * Takes updates from the CallList and notifies the InCallActivity (UI) of the changes. Responsible

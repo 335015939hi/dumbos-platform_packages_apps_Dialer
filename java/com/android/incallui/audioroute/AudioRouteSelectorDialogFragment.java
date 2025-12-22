@@ -26,7 +26,7 @@ import android.graphics.PorterDuff.Mode;
 import android.os.Bundle;
 import android.provider.Settings;
 import androidx.annotation.Nullable;
-import com.google.android.material.widget.BottomSheetDialogFragment;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import androidx.core.os.BuildCompat;
 import android.telecom.CallAudioState;
 import android.view.LayoutInflater;
@@ -46,6 +46,7 @@ import com.android.incallui.call.TelecomAdapter;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Collection;
+import com.android.dialer.R;
 
 /** Shows picker for audio routes */
 public class AudioRouteSelectorDialogFragment extends BottomSheetDialogFragment {

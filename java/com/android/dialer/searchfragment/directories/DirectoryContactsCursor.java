@@ -29,6 +29,7 @@ import com.android.dialer.searchfragment.directories.DirectoriesCursorLoader.Dir
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.android.dialer.R;
 
 /**
  * {@link MergeCursor} used for combining directory cursors into one cursor.

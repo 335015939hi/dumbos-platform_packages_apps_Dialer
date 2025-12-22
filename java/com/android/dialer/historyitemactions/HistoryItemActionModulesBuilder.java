@@ -43,6 +43,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import com.android.dialer.R;
 
 /**
  * Builds a list of {@link HistoryItemActionModule HistoryItemActionModules}.

@@ -24,6 +24,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.android.dialer.theme.base.ThemeComponent;
+import com.android.dialer.R;
 
 /** Toolbar widget for Dialer. */
 public class DialerToolbar extends Toolbar {

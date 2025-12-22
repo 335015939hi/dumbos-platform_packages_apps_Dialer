@@ -18,8 +18,8 @@ package com.android.dialer.phonenumberproto;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
-import androidx.core.util.ArrayMap;
-import androidx.core.util.ArraySet;
+import androidx.collection.ArrayMap;
+import androidx.collection.ArraySet;
 import com.android.dialer.DialerPhoneNumber;
 import com.android.dialer.common.Assert;
 import com.google.common.collect.ImmutableMap;

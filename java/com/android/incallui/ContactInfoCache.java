@@ -65,6 +65,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
+import com.android.dialer.R;
 
 /**
  * Class responsible for querying Contact Information for DialerCall objects. Can perform

@@ -18,7 +18,7 @@ package com.android.dialer.calllog;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.core.content.LocalBroadcastManager;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.android.dialer.calllog.datasources.CallLogDataSource;
 import com.android.dialer.calllog.datasources.DataSources;
 import com.android.dialer.common.LogUtil;

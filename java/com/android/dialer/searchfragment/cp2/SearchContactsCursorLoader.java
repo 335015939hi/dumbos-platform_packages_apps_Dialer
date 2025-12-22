@@ -35,6 +35,7 @@ import com.android.dialer.searchfragment.common.Projections;
 import com.android.dialer.searchfragment.common.SearchCursor;
 import com.android.dialer.smartdial.SmartDialCursorLoader;
 import com.android.dialer.util.PermissionsUtil;
+import com.android.dialer.R;
 
 /** Cursor Loader for CP2 contacts. */
 public final class SearchContactsCursorLoader extends CursorLoader {

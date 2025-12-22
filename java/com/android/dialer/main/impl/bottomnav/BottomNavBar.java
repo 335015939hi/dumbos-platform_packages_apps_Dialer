@@ -30,6 +30,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
+import com.android.dialer.R;
 
 /** Dialer Bottom Nav Bar for {@link MainActivity}. */
 public final class BottomNavBar extends LinearLayout {

@@ -17,7 +17,7 @@
 package com.android.incallui.incall.impl;
 
 import androidx.annotation.NonNull;
-import androidx.core.util.ArrayMap;
+import androidx.collection.ArrayMap;
 import android.util.ArraySet;
 import com.android.dialer.common.Assert;
 import com.android.incallui.incall.protocol.InCallButtonIds;

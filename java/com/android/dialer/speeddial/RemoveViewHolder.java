@@ -16,7 +16,7 @@
 
 package com.android.dialer.speeddial;
 
-import androidx.appcompat.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.View.OnClickListener;
 

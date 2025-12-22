@@ -33,6 +33,7 @@ import com.android.incallui.incall.protocol.InCallButtonIds;
 import com.android.incallui.incall.protocol.InCallButtonUiDelegate;
 import com.android.incallui.incall.protocol.InCallScreenDelegate;
 import com.android.incallui.speakerbuttonlogic.SpeakerButtonInfo;
+import com.android.dialer.R;
 
 /** Manages a single button. */
 interface ButtonController {

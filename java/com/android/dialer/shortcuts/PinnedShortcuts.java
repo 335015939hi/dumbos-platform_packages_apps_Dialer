@@ -35,6 +35,7 @@ import com.android.dialer.common.LogUtil;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import com.android.dialer.R;
 
 /**
  * Handles refreshing of dialer pinned shortcuts.

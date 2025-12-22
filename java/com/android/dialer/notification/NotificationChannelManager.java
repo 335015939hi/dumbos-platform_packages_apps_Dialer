@@ -30,6 +30,7 @@ import android.util.ArraySet;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import java.util.Set;
+import com.android.dialer.R;
 
 /** Creates all notification channels for Dialer. */
 @TargetApi(VERSION_CODES.O)

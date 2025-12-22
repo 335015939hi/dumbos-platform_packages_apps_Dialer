@@ -36,6 +36,7 @@ import com.android.dialer.common.Assert;
 import com.android.dialer.common.UiUtil;
 import com.android.dialer.util.DialerUtils;
 import com.google.common.base.Optional;
+import com.android.dialer.R;
 
 /** Search bar for {@link MainToolbar}. Mostly used to handle expand and collapse animation. */
 final class SearchBarView extends FrameLayout {

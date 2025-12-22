@@ -19,6 +19,7 @@ import androidx.annotation.StringRes;
 import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import android.view.View;
 import android.widget.TextView;
+import com.android.dialer.R;
 
 /** ViewHolder for {@link NewCallLogAdapter} to display "Today" or "Older" divider row. */
 final class HeaderViewHolder extends ViewHolder {

@@ -39,6 +39,7 @@ import com.android.dialer.inject.ApplicationContext;
 import com.android.dialer.lettertile.LetterTileDrawable;
 import java.util.List;
 import javax.inject.Inject;
+import com.android.dialer.R;
 
 /** Implementation of {@link GlidePhotoManager} */
 public class GlidePhotoManagerImpl implements GlidePhotoManager {

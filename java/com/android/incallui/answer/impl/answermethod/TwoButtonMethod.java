@@ -38,6 +38,7 @@ import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.incallui.answer.impl.answermethod.FlingUpDownTouchHandler.OnProgressChangedListener;
 import com.android.incallui.util.AccessibilityUtil;
+import com.android.dialer.R;
 
 /** Answer method that shows two buttons for answer/reject. */
 public class TwoButtonMethod extends AnswerMethod

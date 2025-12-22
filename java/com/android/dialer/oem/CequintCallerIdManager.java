@@ -31,6 +31,7 @@ import com.android.dialer.common.LogUtil;
 import com.android.dialer.configprovider.ConfigProviderComponent;
 import com.google.auto.value.AutoValue;
 import java.util.concurrent.ConcurrentHashMap;
+import com.android.dialer.R;
 
 /**
  * Cequint Caller ID manager to provide caller information.

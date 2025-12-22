@@ -23,7 +23,7 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
-import com.google.android.material.widget.BottomSheetDialogFragment;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +39,7 @@ import com.android.dialer.common.LogUtil;
 import com.android.incallui.incalluilock.InCallUiLock;
 import java.util.ArrayList;
 import java.util.List;
+import com.android.dialer.R;
 
 /** Shows options for rejecting call with SMS */
 public class SmsBottomSheetFragment extends BottomSheetDialogFragment {
@@ -104,7 +105,7 @@ public class SmsBottomSheetFragment extends BottomSheetDialogFragment {
     textView.setPadding(padding, padding, padding, padding);
     textView.setBackground(background);
     textView.setTextColor(context.getColor(R.color.blue_grey_100));
-    textView.setTextAppearance(R.style.TextAppearance_AppCompat_Widget_PopupMenu_Large);
+    textView.setTextAppearance(android.R.style.TextAppearance_Large);
 
     LayoutParams params =
         new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
@@ -124,7 +125,7 @@ public class SmsBottomSheetFragment extends BottomSheetDialogFragment {
 
   @Override
   public int getTheme() {
-    return R.style.Theme_Design_Light_BottomSheetDialog;
+    return com.google.android.material.R.style.Theme_MaterialComponents_Light_BottomSheetDialog;
   }
 
   @Override

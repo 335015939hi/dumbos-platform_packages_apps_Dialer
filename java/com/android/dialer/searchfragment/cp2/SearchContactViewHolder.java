@@ -40,7 +40,7 @@ import com.android.dialer.enrichedcall.EnrichedCallManager;
 import com.android.dialer.lettertile.LetterTileDrawable;
 import com.android.dialer.searchfragment.common.Projections;
 import com.android.dialer.searchfragment.common.QueryBoldingUtil;
-import com.android.dialer.searchfragment.common.R;
+import com.android.dialer.R;
 import com.android.dialer.searchfragment.common.RowClickListener;
 import com.android.dialer.searchfragment.common.SearchCursor;
 import com.android.dialer.widget.BidiTextView;
@@ -102,7 +102,7 @@ public final class SearchContactViewHolder extends ViewHolder implements OnClick
         TextUtils.isEmpty(label)
             ? number
             : context.getString(
-                com.android.dialer.contacts.resources.R.string.call_subject_type_and_number,
+                R.string.call_subject_type_and_number,
                 label,
                 number);
 
@@ -172,7 +172,7 @@ public final class SearchContactViewHolder extends ViewHolder implements OnClick
       case CallToAction.SHARE_AND_CALL:
         callToActionView.setVisibility(View.VISIBLE);
         callToActionView.setImageDrawable(
-            context.getDrawable(com.android.dialer.contacts.resources.R.drawable.ic_phone_attach));
+            context.getDrawable(R.drawable.ic_phone_attach));
         callToActionView.setContentDescription(
             context.getString(R.string.description_search_call_and_share));
         callToActionView.setOnClickListener(this);

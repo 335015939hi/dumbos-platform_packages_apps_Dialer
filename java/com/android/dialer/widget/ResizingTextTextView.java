@@ -21,6 +21,7 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.android.dialer.util.ViewUtil;
+import com.android.dialer.R;
 
 /** TextView which resizes dynamically with respect to text length. */
 public class ResizingTextTextView extends TextView {

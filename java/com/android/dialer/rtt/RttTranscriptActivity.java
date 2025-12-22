@@ -21,8 +21,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.LinearLayoutManager;
-import androidx.appcompat.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.MenuItem;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.concurrent.DialerExecutorComponent;
@@ -30,6 +30,7 @@ import com.android.dialer.common.concurrent.UiListener;
 import com.android.dialer.glidephotomanager.PhotoInfo;
 import com.android.dialer.protos.ProtoParsers;
 import com.android.dialer.widget.DialerToolbar;
+import com.android.dialer.R;
 
 /** Activity holds RTT transcript. */
 public class RttTranscriptActivity extends AppCompatActivity {
