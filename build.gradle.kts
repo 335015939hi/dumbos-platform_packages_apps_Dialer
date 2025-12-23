@@ -67,19 +67,7 @@ android {
     sourceSets {
         getByName("main") {
             manifest.srcFile("AndroidManifest.xml")
-            java.setSrcDirs(listOf(
-                "java/android",
-                "java/androidx",
-                "java/com/android/bubble",
-                "java/com/android/common",
-                "java/com/android/contacts",
-                "java/com/android/dialer",
-                "java/com/android/incallui",
-                "java/com/android/phoneapphelper",
-                "java/com/android/voicemail"
-            ))
-            // TODO: Exclude annotation processor source files
-            // java.filter.exclude("com/android/dialer/rootcomponentgenerator/**")
+            java.setSrcDirs(listOf("java"))
             res.srcDirs(
                 "assets/product/res",
                 "assets/quantum/res",
