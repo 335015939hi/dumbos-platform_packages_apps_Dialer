@@ -31,12 +31,21 @@ android {
         versionName = "23.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        manifestPlaceholders["appPackageName"] = applicationId ?: "com.android.dialer"
     }
 
     flavorDimensions += "variant"
     productFlavors {
         create("aosp") {
             dimension = "variant"
+        }
+        create("dev") {
+            dimension = "variant"
+            applicationIdSuffix = ".dev"
+            versionNameSuffix = "-dev"
+            resValue("string", "app_name", "Dialer Dev")
+            manifestPlaceholders["appPackageName"] = "com.android.dialer.dev"
         }
     }
 
@@ -165,6 +174,9 @@ android {
         getByName("aosp") {
             java.srcDirs("java/com/android/dialer/constants/aospdialer")
         }
+        getByName("dev") {
+            java.srcDirs("java/com/android/dialer/constants/aospdialer")
+        }
     }
 
     buildFeatures {
@@ -263,8 +275,4 @@ protobuf {
     }
 }
 
-afterEvaluate {
-    android.sourceSets.named("main").configure {
-        java.srcDir("${layout.buildDirectory.get().asFile}/generated/source/proto/aospDebug/java")
-    }
-}
+// Protobuf sources are automatically added by the protobuf plugin

@@ -18,7 +18,7 @@ package com.android.contacts.common.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.ImageView;
+import androidx.appcompat.widget.AppCompatImageView;
 
 /**
  * Custom {@link ImageView} that improves layouting performance.
@@ -26,7 +26,7 @@ import android.widget.ImageView;
  * <p>This improves the performance by not passing requestLayout() to its parent, taking advantage
  * of knowing that image size won't change once set.
  */
-public class LayoutSuppressingImageView extends ImageView {
+public class LayoutSuppressingImageView extends AppCompatImageView {
 
   public LayoutSuppressingImageView(Context context, AttributeSet attrs) {
     super(context, attrs);

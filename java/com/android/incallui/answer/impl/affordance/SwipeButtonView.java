@@ -32,13 +32,13 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.animation.Interpolator;
-import android.widget.ImageView;
+import androidx.appcompat.widget.AppCompatImageView;
 import com.android.incallui.answer.impl.utils.FlingAnimationUtils;
 import com.android.incallui.answer.impl.utils.Interpolators;
 import com.android.dialer.R;
 
 /** Button that allows swiping to trigger */
-public class SwipeButtonView extends ImageView {
+public class SwipeButtonView extends AppCompatImageView {
 
   private static final long CIRCLE_APPEAR_DURATION = 80;
   private static final long CIRCLE_DISAPPEAR_MAX_DURATION = 200;
@@ -109,11 +109,25 @@ public class SwipeButtonView extends ImageView {
   }
 
   public SwipeButtonView(Context context, AttributeSet attrs, int defStyleAttr) {
-    this(context, attrs, defStyleAttr, 0);
+    super(context, attrs, defStyleAttr);
+    circlePaint = new Paint();
+    circlePaint.setAntiAlias(true);
+    circleColor = 0xffffffff;
+    circlePaint.setColor(circleColor);
+
+    normalColor = 0xffffffff;
+    inverseColor = 0xff000000;
+    minBackgroundRadius =
+        context
+            .getResources()
+            .getDimensionPixelSize(R.dimen.answer_affordance_min_background_radius);
+    colorInterpolator = new ArgbEvaluator();
+    flingAnimationUtils = new FlingAnimationUtils(context, 0.3f);
   }
 
   public SwipeButtonView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-    super(context, attrs, defStyleAttr, defStyleRes);
+    // AppCompatImageView doesn't support 4-parameter constructor, use 3-parameter instead
+    super(context, attrs, defStyleAttr);
     circlePaint = new Paint();
     circlePaint.setAntiAlias(true);
     circleColor = 0xffffffff;

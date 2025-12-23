@@ -26,12 +26,12 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import androidx.core.content.ContextCompat;
 import android.util.AttributeSet;
-import android.widget.Button;
+import androidx.appcompat.widget.AppCompatButton;
 import com.android.dialer.voicemail.settings.RecordVoicemailGreetingActivity.ButtonState;
 import com.android.dialer.R;
 
 /** Custom Button View for Dialer voicemail greeting recording */
-public class RecordButton extends Button {
+public class RecordButton extends AppCompatButton {
 
   private final float trackWidth = getResources().getDimensionPixelSize(R.dimen.track_width);
   private final int centerIconRadius =

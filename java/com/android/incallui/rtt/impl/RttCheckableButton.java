@@ -22,12 +22,12 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.SoundEffectConstants;
-import android.widget.Button;
 import android.widget.Checkable;
+import androidx.appcompat.widget.AppCompatButton;
 import com.android.dialer.R;
 
 /** Image button that maintains a checked state. */
-public class RttCheckableButton extends Button implements Checkable {
+public class RttCheckableButton extends AppCompatButton implements Checkable {
 
   private static final int[] CHECKED_STATE_SET = {android.R.attr.state_checked};
 
@@ -52,12 +52,14 @@ public class RttCheckableButton extends Button implements Checkable {
   }
 
   public RttCheckableButton(Context context, AttributeSet attrs, int defStyleAttr) {
-    this(context, attrs, defStyleAttr, 0);
+    super(context, attrs, defStyleAttr);
+    init(context, attrs);
   }
 
   public RttCheckableButton(
       Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-    super(context, attrs, defStyleAttr, defStyleRes);
+    // AppCompatButton doesn't support 4-parameter constructor, use 3-parameter instead
+    super(context, attrs, defStyleAttr);
     init(context, attrs);
   }
 

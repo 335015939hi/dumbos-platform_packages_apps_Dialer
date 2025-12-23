@@ -23,11 +23,11 @@ import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.SoundEffectConstants;
 import android.widget.Checkable;
-import android.widget.ImageButton;
+import androidx.appcompat.widget.AppCompatImageButton;
 import com.android.dialer.R;
 
 /** Image button that maintains a checked state. */
-public class CheckableImageButton extends ImageButton implements Checkable {
+public class CheckableImageButton extends AppCompatImageButton implements Checkable {
 
   private static final int[] CHECKED_STATE_SET = {android.R.attr.state_checked};
 
