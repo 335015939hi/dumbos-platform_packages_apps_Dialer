@@ -112,7 +112,7 @@ public class CountryDetector {
 
     final Intent activeIntent = new Intent(context, LocationChangedReceiver.class);
     final PendingIntent pendingIntent =
-        PendingIntent.getBroadcast(context, 0, activeIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent.getBroadcast(context, 0, activeIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
     locationManager.requestLocationUpdates(
         LocationManager.PASSIVE_PROVIDER,

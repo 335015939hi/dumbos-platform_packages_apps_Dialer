@@ -145,7 +145,7 @@
       android:grantUriPermissions="true"
       android:name="androidx.core.content.FileProvider">
       <meta-data
-        android:name="android.support.FILE_PROVIDER_PATHS"
+        android:name="androidx.core.content.FILE_PROVIDER_PATHS"
         android:resource="@xml/file_paths"/>
     </provider>
     <meta-data android:name="supports_per_number_preferred_account" android:value="true" />

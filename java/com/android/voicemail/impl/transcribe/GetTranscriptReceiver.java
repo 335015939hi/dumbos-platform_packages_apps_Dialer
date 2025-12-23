@@ -168,7 +168,7 @@ public class GetTranscriptReceiver extends BroadcastReceiver {
   }
 
   private static PendingIntent getPendingIntent(Context context, Intent intent, int flags) {
-    return PendingIntent.getBroadcast(context.getApplicationContext(), 0, intent, flags);
+    return PendingIntent.getBroadcast(context.getApplicationContext(), 0, intent, flags | PendingIntent.FLAG_IMMUTABLE);
   }
 
   private static class PollWorker implements Worker<Intent, Void> {
