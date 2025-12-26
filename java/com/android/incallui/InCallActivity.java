@@ -165,7 +165,12 @@ public class InCallActivity extends TransactionSafeFragmentActivity
   public static Intent getIntent(
       Context context, boolean showDialpad, boolean newOutgoingCall, boolean isForFullScreen) {
     Intent intent = new Intent(Intent.ACTION_MAIN, null);
-    intent.setFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION | Intent.FLAG_ACTIVITY_NEW_TASK);
+    intent.setFlags(
+        Intent.FLAG_ACTIVITY_NO_USER_ACTION
+            | Intent.FLAG_ACTIVITY_NEW_TASK
+            | Intent.FLAG_ACTIVITY_CLEAR_TOP
+            | Intent.FLAG_ACTIVITY_SINGLE_TOP
+            | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
     intent.setClass(context, InCallActivity.class);
     if (showDialpad) {
       intent.putExtra(IntentExtraNames.SHOW_DIALPAD, true);

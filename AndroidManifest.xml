@@ -25,6 +25,8 @@
 
 
   <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE_PHONE_CALL"/>
   <uses-permission android:name="android.permission.CALL_PHONE"/>
   <uses-permission android:name="android.permission.READ_CONTACTS"/>
   <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
@@ -164,10 +166,39 @@
       </intent-filter>
     </activity>
 
+    <!-- PreCallActivity - transparent activity for pre-call actions -->
+    <activity
+      android:name="com.android.dialer.precall.impl.PreCallActivity"
+      android:exported="false"
+      android:excludeFromRecents="true"
+      android:noHistory="true"
+      android:theme="@style/Theme.PreCall.DialogHolder">
+    </activity>
+
+    <!-- InCallActivity - the UI shown during active calls -->
+    <activity
+      android:name="com.android.incallui.InCallActivity"
+      android:directBootAware="true"
+      android:excludeFromRecents="true"
+      android:exported="false"
+      android:hardwareAccelerated="true"
+      android:label="@string/phoneAppLabel"
+      android:launchMode="singleInstance"
+      android:resizeableActivity="true"
+      android:screenOrientation="nosensor"
+      android:showWhenLocked="true"
+      android:turnScreenOn="true"
+      android:taskAffinity="com.android.incallui"
+      android:theme="@style/Theme.InCallScreen"
+      android:windowSoftInputMode="adjustResize">
+    </activity>
+
     <!-- InCallService is required for default dialer functionality -->
     <service
       android:name="com.android.incallui.InCallServiceImpl"
+      android:directBootAware="true"
       android:exported="true"
+      android:foregroundServiceType="phoneCall"
       android:permission="android.permission.BIND_INCALL_SERVICE">
       <meta-data
         android:name="android.telecom.IN_CALL_SERVICE_UI"
@@ -175,6 +206,9 @@
       <meta-data
         android:name="android.telecom.IN_CALL_SERVICE_RINGING"
         android:value="false"/>
+      <meta-data
+        android:name="android.telecom.INCLUDE_EXTERNAL_CALLS"
+        android:value="true"/>
       <intent-filter>
         <action android:name="android.telecom.InCallService"/>
       </intent-filter>

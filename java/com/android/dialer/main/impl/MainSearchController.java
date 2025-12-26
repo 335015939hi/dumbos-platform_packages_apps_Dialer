@@ -514,6 +514,8 @@ public class MainSearchController implements SearchBarListener {
   public void onCallPlacedFromSearch() {
     closeSearchOnPause = true;
     callPlacedFromSearch = true;
+    // Move activity to background to prevent flash during transition to InCallActivity
+    activity.moveTaskToBack(true);
   }
 
   @Override

@@ -1552,6 +1552,8 @@ public class DialtactsActivity extends TransactionSafeActivity
   public void onCallPlacedFromSearch() {
     DialerUtils.hideInputMethod(parentLayout);
     clearSearchOnPause = true;
+    // Move activity to background to prevent flash during transition to InCallActivity
+    moveTaskToBack(true);
   }
 
   @Override
