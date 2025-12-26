@@ -22,8 +22,8 @@ import com.android.dialer.common.Assert;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
+// import java.io.UnsupportedEncodingException;
+// import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import com.android.dialer.R;
@@ -99,6 +99,11 @@ public final class Licenses {
     } catch (IOException e) {
       throw new RuntimeException("Failed to read license or metadata text.", e);
     }
-      return textArray.toString(StandardCharsets.UTF_8);
+    try {
+      return textArray.toString("UTF-8");
+    } catch (java.io.UnsupportedEncodingException e) {
+      // UTF-8 is always supported, this should never happen
+      return textArray.toString();
+    }
   }
 }
