@@ -16,7 +16,7 @@
 
 package com.android.dialer.dialpadview;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -488,7 +488,7 @@ public class DialpadFragment extends Fragment
    * cannot be inflated in robolectric.
    */
   @SuppressWarnings("missingPermission")
-  @TargetApi(VERSION_CODES.O)
+  @RequiresApi(VERSION_CODES.O)
   @VisibleForTesting
   static boolean shouldShowEmergencyCallWarning(Context context) {
     if (showEmergencyCallWarningForTest != null) {

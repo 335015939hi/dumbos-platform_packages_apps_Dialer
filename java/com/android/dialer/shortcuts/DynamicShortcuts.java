@@ -17,7 +17,7 @@
 package com.android.dialer.shortcuts;
 
 import android.Manifest;
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.ShortcutInfo;
@@ -60,7 +60,7 @@ import java.util.Map.Entry;
  * updated periodically (about once a day).
  *
  */
-@TargetApi(VERSION_CODES.N_MR1) // Shortcuts introduced in N MR1
+@RequiresApi(VERSION_CODES.N_MR1) // Shortcuts introduced in N MR1
 final class DynamicShortcuts {
 
   private static final int MAX_DYNAMIC_SHORTCUTS = 3;

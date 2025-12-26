@@ -16,7 +16,7 @@
 
 package com.android.voicemail.impl;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build.VERSION_CODES;
@@ -36,7 +36,7 @@ import com.android.voicemail.impl.sms.LegacyModeSmsHandler;
 import com.android.voicemail.impl.sync.VvmAccountManager;
 
 /** Implements {@link VisualVoicemailService} to receive visual voicemail events */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public class OmtpService extends VisualVoicemailService {
 
   private static final String TAG = "VvmOmtpService";

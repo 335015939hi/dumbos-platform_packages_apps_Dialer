@@ -16,6 +16,7 @@
 
 package com.android.dialer.dialpadview;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -41,6 +42,7 @@ public class DialpadTextView extends AppCompatTextView {
   }
 
   /** Draw the text to fit within the height/width which have been specified during measurement. */
+  @SuppressLint("MissingSuperCall") // Intentionally not calling super - custom text rendering
   @Override
   public void draw(Canvas canvas) {
     Paint paint = getPaint();

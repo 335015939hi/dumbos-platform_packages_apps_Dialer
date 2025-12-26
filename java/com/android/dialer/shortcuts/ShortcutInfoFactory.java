@@ -16,7 +16,7 @@
 
 package com.android.dialer.shortcuts;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ShortcutInfo;
@@ -35,7 +35,7 @@ import java.util.Map;
  * <p>The main work this factory does is create shortcut intents. It also delegates to the {@link
  * IconFactory} to create icons.
  */
-@TargetApi(VERSION_CODES.N_MR1) // Shortcuts introduced in N MR1
+@RequiresApi(VERSION_CODES.N_MR1) // Shortcuts introduced in N MR1
 final class ShortcutInfoFactory {
 
   /** Key for the contact ID extra (a long) stored as part of the shortcut intent. */

@@ -50,12 +50,13 @@ public class RemoveView extends FrameLayout {
 
   @Override
   protected void onFinishInflate() {
+    super.onFinishInflate();
     removeText = findViewById(R.id.remove_view_text);
     removeIcon = findViewById(R.id.remove_view_icon);
     final Resources r = getResources();
-    unhighlightedColor = r.getColor(android.R.color.white);
-    highlightedColor = r.getColor(R.color.remove_highlighted_text_color);
-    removeDrawable = r.getDrawable(R.drawable.ic_remove);
+    unhighlightedColor = androidx.core.content.ContextCompat.getColor(getContext(), android.R.color.white);
+    highlightedColor = androidx.core.content.ContextCompat.getColor(getContext(), R.color.remove_highlighted_text_color);
+    removeDrawable = androidx.core.content.ContextCompat.getDrawable(getContext(), R.drawable.ic_remove);
   }
 
   public void setDragDropController(DragDropController controller) {

@@ -16,7 +16,7 @@
 
 package com.android.voicemail.impl.mail.store.imap;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.os.Build.VERSION_CODES;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
@@ -33,7 +33,7 @@ import java.security.SecureRandom;
 import java.util.Map;
 
 /** Utilities for DIGEST-MD5. */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public class DigestMd5Utils {
 
   private static final String TAG = "DigestMd5Utils";

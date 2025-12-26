@@ -13,7 +13,7 @@
  */
 package com.android.voicemail.impl;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.app.job.JobInfo;
 import android.app.job.JobParameters;
 import android.app.job.JobScheduler;
@@ -33,7 +33,7 @@ import java.util.concurrent.TimeUnit;
  * scheduled for each active voicemail account. The status is expected to be always in sync, the
  * check is a failsafe to mimic the previous status check on signal return behavior.
  */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public class StatusCheckJobService extends JobService {
 
   public static void schedule(Context context) {

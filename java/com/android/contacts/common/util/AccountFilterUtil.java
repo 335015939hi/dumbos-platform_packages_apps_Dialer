@@ -26,8 +26,7 @@ import com.android.dialer.R;
 public class AccountFilterUtil {
 
   /**
-   * Similar to {@link #updateAccountFilterTitleForPeople(View, ContactListFilter, boolean,
-   * boolean)}, but for Phone UI.
+   * Updates the account filter title for the Phone UI.
    */
   public static boolean updateAccountFilterTitleForPhone(
       View filterContainer, ContactListFilter filter, boolean showTitleForAllAccounts) {

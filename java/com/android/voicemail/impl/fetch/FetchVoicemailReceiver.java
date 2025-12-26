@@ -15,7 +15,7 @@
  */
 package com.android.voicemail.impl.fetch;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.ContentResolver;
@@ -45,7 +45,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 /** handles {@link VoicemailContract#ACTION_FETCH_VOICEMAIL} */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public class FetchVoicemailReceiver extends BroadcastReceiver {
 
   private static final String TAG = "FetchVoicemailReceiver";

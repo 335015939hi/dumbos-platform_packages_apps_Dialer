@@ -16,7 +16,7 @@
 
 package com.android.voicemail.impl.protocol;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.Context;
 import android.net.Network;
 import android.os.Build;
@@ -81,7 +81,7 @@ import org.json.JSONException;
  * <p>After the process is completed, the carrier should send us another STATUS SMS with a new or
  * ready user.
  */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public class Vvm3Subscriber {
 
   private static final String TAG = "Vvm3Subscriber";

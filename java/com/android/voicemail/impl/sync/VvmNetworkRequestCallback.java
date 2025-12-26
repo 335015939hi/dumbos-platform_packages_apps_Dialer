@@ -15,7 +15,7 @@
  */
 package com.android.voicemail.impl.sync;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.InetAddresses;
@@ -40,7 +40,7 @@ import com.android.voicemail.impl.VvmLog;
  * Base class for network request call backs for visual voicemail syncing with the Imap server. This
  * handles retries and network requests.
  */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public abstract class VvmNetworkRequestCallback extends ConnectivityManager.NetworkCallback {
 
   private static final String TAG = "VvmNetworkRequest";

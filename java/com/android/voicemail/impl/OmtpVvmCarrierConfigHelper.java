@@ -15,7 +15,7 @@
  */
 package com.android.voicemail.impl;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -55,7 +55,7 @@ import java.util.Set;
  *
  * <p>TODO(twyen): refactor this to an interface.
  */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 @SuppressWarnings({"missingpermission"})
 public class OmtpVvmCarrierConfigHelper {
 

@@ -15,7 +15,7 @@
  */
 package com.android.voicemail.impl.sync;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.Context;
 import android.net.Network;
 import android.net.Uri;
@@ -48,7 +48,7 @@ import java.util.List;
 import java.util.Map;
 
 /** Sync OMTP visual voicemail. */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public class OmtpVvmSyncService {
 
   private static final String TAG = "OmtpVvmSyncService";

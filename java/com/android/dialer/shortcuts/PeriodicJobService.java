@@ -16,7 +16,7 @@
 
 package com.android.dialer.shortcuts;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.app.job.JobInfo;
 import android.app.job.JobParameters;
 import android.app.job.JobScheduler;
@@ -38,7 +38,7 @@ import java.util.concurrent.TimeUnit;
  *
  * <p>Only {@link #schedulePeriodicJob(Context)} should be used by callers.
  */
-@TargetApi(VERSION_CODES.N_MR1) // Shortcuts introduced in N MR1
+@RequiresApi(VERSION_CODES.N_MR1) // Shortcuts introduced in N MR1
 public final class PeriodicJobService extends JobService {
 
   private static final long REFRESH_PERIOD_MILLIS = TimeUnit.HOURS.toMillis(24);

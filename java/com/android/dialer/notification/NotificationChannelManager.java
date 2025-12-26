@@ -16,7 +16,7 @@
 
 package com.android.dialer.notification;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -33,7 +33,7 @@ import java.util.Set;
 import com.android.dialer.R;
 
 /** Creates all notification channels for Dialer. */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public final class NotificationChannelManager {
 
   /**

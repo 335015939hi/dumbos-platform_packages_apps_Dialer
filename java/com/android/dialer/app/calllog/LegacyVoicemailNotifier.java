@@ -16,7 +16,7 @@
 
 package com.android.dialer.app.calllog;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -41,7 +41,7 @@ import com.android.dialer.telecom.TelecomUtil;
 import com.android.dialer.theme.base.ThemeComponent;
 
 /** Shows a notification in the status bar for legacy vociemail. */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public final class LegacyVoicemailNotifier {
   private static final String NOTIFICATION_TAG_PREFIX = "LegacyVoicemail_";
   private static final String NOTIFICATION_TAG = "LegacyVoicemail";

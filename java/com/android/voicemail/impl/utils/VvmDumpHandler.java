@@ -26,6 +26,7 @@ import java.io.PrintWriter;
 
 public class VvmDumpHandler {
 
+  @SuppressWarnings("MissingPermission") // Called from system dump, permission granted
   public static void dump(Context context, FileDescriptor fd, PrintWriter writer, String[] args) {
     IndentingPrintWriter indentedWriter = new IndentingPrintWriter(writer, "  ");
     indentedWriter.println("******* OmtpVvm *******");

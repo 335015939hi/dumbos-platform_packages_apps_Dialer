@@ -207,7 +207,7 @@ public class ExpirableCache<K, V> {
   /**
    * Creates a new {@link CachedValue} instance to be stored in this cache.
    *
-   * <p>Implementation of {@link LruCache#create(K)} can use this method to create a new entry.
+   * <p>Implementation of {@code LruCache.create(K)} can use this method to create a new entry.
    */
   public CachedValue<V> newCachedValue(V value) {
     return new GenerationalCachedValue<V>(value, generation);

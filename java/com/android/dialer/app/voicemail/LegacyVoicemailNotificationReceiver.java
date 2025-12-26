@@ -16,7 +16,7 @@
 
 package com.android.dialer.app.voicemail;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -42,7 +42,7 @@ import com.android.voicemail.VoicemailComponent;
  * LegacyVoicemailNotifier}. Will ignore the notification if the account has visual voicemail.
  * Legacy voicemail is the traditional, non-visual, dial-in voicemail.
  */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public class LegacyVoicemailNotificationReceiver extends BroadcastReceiver {
 
   @VisibleForTesting static final String LEGACY_VOICEMAIL_DISMISSED = "legacy_voicemail_dismissed";

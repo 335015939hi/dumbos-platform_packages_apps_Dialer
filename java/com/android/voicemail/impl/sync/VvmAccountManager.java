@@ -15,7 +15,7 @@
  */
 package com.android.voicemail.impl.sync;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.Context;
 import android.os.Build.VERSION_CODES;
 import android.os.UserManager;
@@ -47,7 +47,7 @@ import java.util.Set;
  * #removeAccount(Context, PhoneAccountHandle)} should be called to clear the connection information
  * and allow reactivation.
  */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public class VvmAccountManager {
   public static final String TAG = "VvmAccountManager";
 

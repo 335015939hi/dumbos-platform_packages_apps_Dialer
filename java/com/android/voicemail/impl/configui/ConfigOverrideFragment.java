@@ -94,6 +94,7 @@ public class ConfigOverrideFragment extends PreferenceFragment
    * Loads the config for the currently carrier into the override values, from the dialer or the
    * carrier config app. This is a "reset" button to load the defaults.
    */
+  @SuppressWarnings("MissingPermission") // Called from settings, phone permission already granted
   private void loadCurrentConfig() {
     Context context = getActivity();
     PhoneAccountHandle phoneAccountHandle =

@@ -18,7 +18,7 @@ package com.android.incallui.call;
 
 import android.Manifest.permission;
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.Context;
 import android.hardware.camera2.CameraCharacteristics;
 import android.net.Uri;
@@ -980,7 +980,7 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
   }
 
   /** Checks if the call supports the given set of capabilities supplied as a bit mask. */
-  @TargetApi(28)
+  @RequiresApi(28)
   public boolean can(int capabilities) {
     int supportedCapabilities = telecomCall.getDetails().getCallCapabilities();
 
@@ -1025,7 +1025,7 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
    * the same time that is logged as the start time in the Call Log (see {@link
    * android.provider.CallLog.Calls#DATE}).
    */
-  @TargetApi(VERSION_CODES.O)
+  @RequiresApi(VERSION_CODES.O)
   public long getCreationTimeMillis() {
     return telecomCall.getDetails().getCreationTimeMillis();
   }
@@ -1069,7 +1069,7 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
     return getVideoTech().isTransmittingOrReceiving() || VideoProfile.isVideo(getVideoState());
   }
 
-  @TargetApi(28)
+  @RequiresApi(28)
   public boolean isActiveRttCall() {
     if (BuildCompat.isAtLeastP()) {
       return getTelecomCall().isRttActive();
@@ -1078,7 +1078,7 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
     }
   }
 
-  @TargetApi(28)
+  @RequiresApi(28)
   @Nullable
   public RttCall getRttCall() {
     if (!isActiveRttCall()) {
@@ -1087,7 +1087,7 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
     return getTelecomCall().getRttCall();
   }
 
-  @TargetApi(28)
+  @RequiresApi(28)
   public boolean isPhoneAccountRttCapable() {
     PhoneAccount phoneAccount = getPhoneAccount();
     if (phoneAccount == null) {
@@ -1096,7 +1096,7 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
       return phoneAccount.hasCapabilities(PhoneAccount.CAPABILITY_RTT);
   }
 
-  @TargetApi(28)
+  @RequiresApi(28)
   public boolean canUpgradeToRttCall() {
     if (!isPhoneAccountRttCapable()) {
       return false;
@@ -1113,12 +1113,12 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
       return !CallList.getInstance().hasActiveRttCall();
   }
 
-  @TargetApi(28)
+  @RequiresApi(28)
   public void sendRttUpgradeRequest() {
     getTelecomCall().sendRttRequest();
   }
 
-  @TargetApi(28)
+  @RequiresApi(28)
   public void respondToRttRequest(boolean accept, int rttRequestId) {
     Logger.get(context)
         .logCallImpression(
@@ -1130,7 +1130,7 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
     getTelecomCall().respondToRttRequest(rttRequestId, accept);
   }
 
-  @TargetApi(28)
+  @RequiresApi(28)
   private void saveRttTranscript() {
     if (!BuildCompat.isAtLeastP()) {
       return;

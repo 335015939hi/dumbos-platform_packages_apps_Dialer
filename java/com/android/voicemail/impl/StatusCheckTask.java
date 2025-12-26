@@ -13,7 +13,7 @@
  */
 package com.android.voicemail.impl;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build.VERSION_CODES;
@@ -41,7 +41,7 @@ import java.util.concurrent.TimeoutException;
  * com.android.voicemail.impl.sms.OmtpMessageReceiver}). If the provisioning status is not ready an
  * {@link ActivationTask} will be launched to attempt to correct it.
  */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 @UsedByReflection(value = "Tasks.java")
 public class StatusCheckTask extends BaseTask {
 

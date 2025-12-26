@@ -45,13 +45,13 @@ public class CvvmProtocol extends VisualVoicemailProtocol {
 
   @Override
   public String getCommand(String command) {
-    if (command == OmtpConstants.IMAP_CHANGE_TUI_PWD_FORMAT) {
+    if (OmtpConstants.IMAP_CHANGE_TUI_PWD_FORMAT.equals(command)) {
       return IMAP_CHANGE_TUI_PWD_FORMAT;
     }
-    if (command == OmtpConstants.IMAP_CLOSE_NUT) {
+    if (OmtpConstants.IMAP_CLOSE_NUT.equals(command)) {
       return IMAP_CLOSE_NUT;
     }
-    if (command == OmtpConstants.IMAP_CHANGE_VM_LANG_FORMAT) {
+    if (OmtpConstants.IMAP_CHANGE_VM_LANG_FORMAT.equals(command)) {
       return IMAP_CHANGE_VM_LANG_FORMAT;
     }
     return super.getCommand(command);

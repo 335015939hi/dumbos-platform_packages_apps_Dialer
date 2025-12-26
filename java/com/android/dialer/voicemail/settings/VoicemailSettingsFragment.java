@@ -13,7 +13,7 @@
  */
 package com.android.dialer.voicemail.settings;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -54,7 +54,7 @@ import com.android.dialer.R;
  * Fragment for voicemail settings. Requires {@link VoicemailClient#PARAM_PHONE_ACCOUNT_HANDLE} set
  * in arguments.
  */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public class VoicemailSettingsFragment extends PreferenceFragment
     implements Preference.OnPreferenceChangeListener, ActivationStateListener {
 

@@ -17,7 +17,7 @@
 package com.android.dialer.notification;
 
 import android.Manifest.permission;
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -44,7 +44,7 @@ import java.util.Set;
 import com.android.dialer.R;
 
 /** Utilities for working with voicemail channels. */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 /* package */ final class VoicemailChannelUtils {
   @VisibleForTesting static final String GLOBAL_VOICEMAIL_CHANNEL_ID = "phone_voicemail";
   private static final String PER_ACCOUNT_VOICEMAIL_CHANNEL_ID_PREFIX = "phone_voicemail_account_";

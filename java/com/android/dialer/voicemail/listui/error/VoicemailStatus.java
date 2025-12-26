@@ -16,7 +16,7 @@
 
 package com.android.dialer.voicemail.listui.error;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.ComponentName;
 import android.content.Context;
 import android.database.Cursor;
@@ -130,7 +130,7 @@ public class VoicemailStatus {
     isAirplaneMode = builder.isAirplaneMode;
   }
 
-  @TargetApi(VERSION_CODES.O)
+  @RequiresApi(VERSION_CODES.O)
   private static int getNotificationChannelStateFormTelephony(
       Context context, PhoneAccountHandle phoneAccountHandle) {
     TelephonyManager telephonyManager =

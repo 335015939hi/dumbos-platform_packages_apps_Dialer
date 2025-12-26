@@ -16,7 +16,7 @@
 
 package com.android.incallui.call;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.app.Notification;
 import android.bluetooth.BluetoothDevice;
 import android.content.ActivityNotFoundException;
@@ -196,7 +196,7 @@ public class TelecomAdapter implements InCallServiceListener {
     }
   }
 
-  @TargetApi(28)
+  @RequiresApi(28)
   public void requestBluetoothAudio(BluetoothDevice bluetoothDevice) {
     if (inCallService != null) {
       inCallService.requestBluetoothAudio(bluetoothDevice);

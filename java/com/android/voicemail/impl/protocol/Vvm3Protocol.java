@@ -16,7 +16,7 @@
 
 package com.android.voicemail.impl.protocol;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.net.Network;
@@ -55,7 +55,7 @@ import java.util.Locale;
  *
  * <p>Used by carriers such as Verizon Wireless
  */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public class Vvm3Protocol extends VisualVoicemailProtocol {
 
   private static final String TAG = "Vvm3Protocol";

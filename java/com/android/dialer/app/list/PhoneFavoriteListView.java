@@ -43,7 +43,7 @@ public class PhoneFavoriteListView extends GridView
   private static final int DRAG_SCROLL_PX_UNIT = 25;
   private static final float DRAG_SHADOW_ALPHA = 0.7f;
   /**
-   * {@link #topScrollBound} and {@link bottomScrollBound} will be offseted to the top / bottom by
+   * {@link #topScrollBound} and {@link #bottomScrollBound} will be offset to the top / bottom by
    * {@link #getHeight} * {@link #BOUND_GAP_RATIO} pixels.
    */
   private static final float BOUND_GAP_RATIO = 0.2f;

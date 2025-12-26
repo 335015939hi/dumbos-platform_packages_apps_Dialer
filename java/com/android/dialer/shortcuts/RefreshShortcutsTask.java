@@ -16,7 +16,7 @@
 
 package com.android.dialer.shortcuts;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.app.job.JobParameters;
 import android.app.job.JobService;
 import android.os.AsyncTask;
@@ -28,7 +28,7 @@ import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 
 /** {@link AsyncTask} used by the periodic job service to refresh dynamic and pinned shortcuts. */
-@TargetApi(VERSION_CODES.N_MR1) // Shortcuts introduced in N MR1
+@RequiresApi(VERSION_CODES.N_MR1) // Shortcuts introduced in N MR1
 final class RefreshShortcutsTask extends AsyncTask<JobParameters, Void, JobParameters> {
 
   private final JobService jobService;

@@ -16,7 +16,7 @@
 
 package com.android.voicemail.impl.sms;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -46,7 +46,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 /** Intercepts a incoming STATUS SMS with a blocking call. */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public class StatusSmsFetcher extends BroadcastReceiver implements Closeable {
 
   private static final String TAG = "VvmStatusSmsFetcher";

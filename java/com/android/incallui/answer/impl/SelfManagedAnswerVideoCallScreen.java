@@ -120,6 +120,7 @@ public class SelfManagedAnswerVideoCallScreen extends StateCallback implements V
    * Opens the first front facing camera on the device into a {@link SurfaceView} while preserving
    * aspect ratio.
    */
+  @SuppressWarnings("MissingPermission") // Called only when camera permission is granted
   private void openCamera() {
     CameraManager manager = context.getSystemService(CameraManager.class);
 
