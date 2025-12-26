@@ -126,7 +126,7 @@
     android:enableOnBackInvokedCallback="false"
     android:extractNativeLibs="true">
 
-    <!-- Main launcher activity -->
+    <!-- Main launcher activity - must handle DIAL intent for default dialer eligibility -->
     <activity
       android:name="com.android.dialer.main.impl.MainActivity"
       android:exported="true"
@@ -138,9 +138,17 @@
         <category android:name="android.intent.category.LAUNCHER"/>
         <category android:name="android.intent.category.DEFAULT"/>
       </intent-filter>
+      <!-- Required for default dialer: handle DIAL without data -->
       <intent-filter>
         <action android:name="android.intent.action.DIAL"/>
         <category android:name="android.intent.category.DEFAULT"/>
+      </intent-filter>
+      <!-- Required for default dialer: handle DIAL with tel: scheme -->
+      <intent-filter>
+        <action android:name="android.intent.action.DIAL"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <category android:name="android.intent.category.BROWSABLE"/>
+        <data android:scheme="tel"/>
       </intent-filter>
       <intent-filter>
         <action android:name="android.intent.action.VIEW"/>
@@ -149,7 +157,28 @@
         <category android:name="android.intent.category.BROWSABLE"/>
         <data android:scheme="tel"/>
       </intent-filter>
+      <!-- Handle call button press -->
+      <intent-filter>
+        <action android:name="android.intent.action.CALL_BUTTON"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+      </intent-filter>
     </activity>
+
+    <!-- InCallService is required for default dialer functionality -->
+    <service
+      android:name="com.android.incallui.InCallServiceImpl"
+      android:exported="true"
+      android:permission="android.permission.BIND_INCALL_SERVICE">
+      <meta-data
+        android:name="android.telecom.IN_CALL_SERVICE_UI"
+        android:value="true"/>
+      <meta-data
+        android:name="android.telecom.IN_CALL_SERVICE_RINGING"
+        android:value="false"/>
+      <intent-filter>
+        <action android:name="android.telecom.InCallService"/>
+      </intent-filter>
+    </service>
 
     <!-- JobService for call log polling -->
     <service

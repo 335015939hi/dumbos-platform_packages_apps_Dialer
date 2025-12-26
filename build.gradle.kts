@@ -44,7 +44,7 @@ android {
             dimension = "variant"
             applicationIdSuffix = ".dev"
             versionNameSuffix = "-dev"
-            resValue("string", "app_name", "Dialer Dev")
+            resValue("string", "applicationLabel", "DEV Phone")
             manifestPlaceholders["appPackageName"] = "com.android.dialer.dev"
         }
     }
