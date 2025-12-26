@@ -873,11 +873,11 @@ final class NewVoicemailAdapter extends androidx.recyclerview.widget.RecyclerVie
             expandedViewHolderPossiblyPlaying.getViewHolderId(),
             expandedViewHolderPossiblyPlaying.isViewHolderExpanded(),
             currentlyExpandedViewHolderId,
-            String.valueOf(expandedViewHolderPossiblyPlaying.getViewHolderVoicemailUri()),
+                expandedViewHolderPossiblyPlaying.getViewHolderVoicemailUri(),
             mediaPlayer.isPlaying(),
             mediaPlayer.isPaused(),
-            String.valueOf(mediaPlayer.getLastPreparedOrPreparingToPlayVoicemailUri()),
-            String.valueOf(mediaPlayer.getLastPreparedOrPreparingToPlayVoicemailUri()));
+                mediaPlayer.getLastPreparedOrPreparingToPlayVoicemailUri(),
+                mediaPlayer.getLastPreparedOrPreparingToPlayVoicemailUri());
 
     throw Assert.createAssertionFailException(
         "All cases should have been handled before. Error " + error);

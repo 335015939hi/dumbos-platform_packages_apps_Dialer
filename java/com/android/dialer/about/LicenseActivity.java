@@ -41,7 +41,7 @@ public final class LicenseActivity extends AppCompatActivity {
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     getSupportActionBar().setLogo(null);
 
-    TextView textView = (TextView) findViewById(R.id.license_activity_textview);
+    TextView textView = findViewById(R.id.license_activity_textview);
     String licenseText = Licenses.getLicenseText(this, license);
     if (licenseText == null) {
       finish();
@@ -53,8 +53,8 @@ public final class LicenseActivity extends AppCompatActivity {
   @Override
   public void onSaveInstanceState(Bundle outState) {
     super.onSaveInstanceState(outState);
-    ScrollView scrollView = (ScrollView) findViewById(R.id.license_activity_scrollview);
-    TextView textView = (TextView) findViewById(R.id.license_activity_textview);
+    ScrollView scrollView = findViewById(R.id.license_activity_scrollview);
+    TextView textView = findViewById(R.id.license_activity_textview);
     int firstVisibleLine = textView.getLayout().getLineForVertical(scrollView.getScrollY());
     int firstVisibleChar = textView.getLayout().getLineStart(firstVisibleLine);
     outState.putInt(STATE_SCROLL_POS, firstVisibleChar);
@@ -63,13 +63,13 @@ public final class LicenseActivity extends AppCompatActivity {
   @Override
   public void onRestoreInstanceState(Bundle savedInstanceState) {
     super.onRestoreInstanceState(savedInstanceState);
-    final ScrollView scrollView = (ScrollView) findViewById(R.id.license_activity_scrollview);
+    final ScrollView scrollView = findViewById(R.id.license_activity_scrollview);
     final int firstVisibleChar = savedInstanceState.getInt(STATE_SCROLL_POS);
     scrollView.post(
         new Runnable() {
           @Override
           public void run() {
-            TextView textView = (TextView) findViewById(R.id.license_activity_textview);
+            TextView textView = findViewById(R.id.license_activity_textview);
             int firstVisibleLine = textView.getLayout().getLineForOffset(firstVisibleChar);
             int offset = textView.getLayout().getLineTop(firstVisibleLine);
             scrollView.scrollTo(0, offset);

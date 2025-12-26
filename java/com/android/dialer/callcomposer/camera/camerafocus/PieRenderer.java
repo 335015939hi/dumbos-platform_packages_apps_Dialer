@@ -45,14 +45,14 @@ public class PieRenderer extends OverlayRenderer implements FocusIndicator {
   // These states are used to make sure the animation is run for at least some
   // time.
   private volatile int state;
-  private ScaleAnimation animation = new ScaleAnimation();
+  private final ScaleAnimation animation = new ScaleAnimation();
   private static final int STATE_IDLE = 0;
   private static final int STATE_FOCUSING = 1;
   private static final int STATE_FINISHING = 2;
   private static final int STATE_PIE = 8;
 
-  private Runnable disappear = new Disappear();
-  private Animation.AnimationListener endAction = new EndAction();
+  private final Runnable disappear = new Disappear();
+  private final Animation.AnimationListener endAction = new EndAction();
   private static final int SCALING_UP_TIME = 600;
   private static final int SCALING_DOWN_TIME = 100;
   private static final int DISAPPEAR_TIMEOUT = 200;
@@ -113,7 +113,7 @@ public class PieRenderer extends OverlayRenderer implements FocusIndicator {
   private LinearAnimation fadeIn;
   private volatile boolean focusCancelled;
 
-  private Handler handler =
+  private final Handler handler =
       new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -793,8 +793,8 @@ public class PieRenderer extends OverlayRenderer implements FocusIndicator {
   }
 
   private static class LinearAnimation extends Animation {
-    private float from;
-    private float to;
+    private final float from;
+    private final float to;
     private float value;
 
     public LinearAnimation(float from, float to) {

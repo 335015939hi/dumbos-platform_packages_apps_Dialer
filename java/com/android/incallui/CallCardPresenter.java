@@ -750,10 +750,7 @@ public class CallCardPresenter
     if (nameIsNumber) {
       return true;
     }
-    if (shouldShowLocation) {
-      return true;
-    }
-    return false;
+      return shouldShowLocation;
   }
 
   private Fragment getLocationFragment() {
@@ -957,9 +954,7 @@ public class CallCardPresenter
     StatusHints statusHints = primary.getStatusHints();
     if (statusHints != null && statusHints.getIcon() != null) {
       Drawable icon = statusHints.getIcon().loadDrawable(context);
-      if (icon != null) {
         return icon;
-      }
     }
 
     return null;
@@ -1050,11 +1045,7 @@ public class CallCardPresenter
         || callState == DialerCallState.INCOMING) {
       return false;
     }
-    if (this.primary.getVideoTech().getSessionModificationState()
-        == SessionModificationState.RECEIVED_UPGRADE_TO_VIDEO_REQUEST) {
-      return false;
-    }
-    return true;
+      return this.primary.getVideoTech().getSessionModificationState() != SessionModificationState.RECEIVED_UPGRADE_TO_VIDEO_REQUEST;
   }
 
   @Override

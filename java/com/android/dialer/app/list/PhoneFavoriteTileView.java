@@ -105,7 +105,7 @@ public abstract class PhoneFavoriteTileView extends ContactTileView {
       if (entry == ContactEntry.BLANK_ENTRY) {
         setVisibility(View.INVISIBLE);
       } else {
-        final ImageView starIcon = (ImageView) findViewById(R.id.contact_star_icon);
+        final ImageView starIcon = findViewById(R.id.contact_star_icon);
         starIcon.setVisibility(entry.isFavorite ? View.VISIBLE : View.GONE);
         setVisibility(View.VISIBLE);
       }

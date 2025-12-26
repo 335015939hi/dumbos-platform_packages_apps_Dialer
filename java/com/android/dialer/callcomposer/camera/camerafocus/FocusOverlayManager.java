@@ -67,7 +67,7 @@ public class FocusOverlayManager {
   private boolean meteringAreaSupported;
   private boolean lockAeAwbNeeded;
   private boolean aeAwbLock;
-  private Matrix matrix;
+  private final Matrix matrix;
 
   private PieRenderer pieRenderer;
 
@@ -78,8 +78,8 @@ public class FocusOverlayManager {
   private List<Area> meteringArea; // metering area in driver format
   private String focusMode;
   private Parameters parameters;
-  private Handler handler;
-  private Listener listener;
+  private final Handler handler;
+  private final Listener listener;
 
   /** Listener used for the focus indicator to communicate back to the camera. */
   public interface Listener {
@@ -446,7 +446,7 @@ public class FocusOverlayManager {
   }
 
   private boolean isSupported(String value, List<String> supported) {
-    return supported != null && supported.indexOf(value) >= 0;
+    return supported != null && supported.contains(value);
   }
 
   private boolean isMeteringAreaSupported(Parameters params) {

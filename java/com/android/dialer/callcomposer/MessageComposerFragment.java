@@ -62,14 +62,14 @@ public class MessageComposerFragment extends CallComposerFragment
     charLimit = getArguments().getInt(CHAR_LIMIT_KEY, NO_CHAR_LIMIT);
 
     View view = inflater.inflate(R.layout.fragment_message_composer, container, false);
-    TextView urgent = (TextView) view.findViewById(R.id.message_urgent);
-    customMessage = (EditText) view.findViewById(R.id.custom_message);
+    TextView urgent = view.findViewById(R.id.message_urgent);
+    customMessage = view.findViewById(R.id.custom_message);
 
     urgent.setOnClickListener(this);
     customMessage.addTextChangedListener(this);
     customMessage.setOnEditorActionListener(this);
     if (charLimit != NO_CHAR_LIMIT) {
-      TextView remainingChar = (TextView) view.findViewById(R.id.remaining_characters);
+      TextView remainingChar = view.findViewById(R.id.remaining_characters);
       remainingChar.setText("" + charLimit);
       customMessage.setFilters(new InputFilter[] {new InputFilter.LengthFilter(charLimit)});
       customMessage.addTextChangedListener(

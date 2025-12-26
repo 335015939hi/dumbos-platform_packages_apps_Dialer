@@ -28,12 +28,12 @@ import com.android.incallui.video.protocol.VideoCallScreenDelegate;
 /** Manages the swap button and on hold banner. */
 public class SwitchOnHoldCallController implements OnClickListener {
 
-  @NonNull private InCallScreenDelegate inCallScreenDelegate;
-  @NonNull private VideoCallScreenDelegate videoCallScreenDelegate;
+  @NonNull private final InCallScreenDelegate inCallScreenDelegate;
+  @NonNull private final VideoCallScreenDelegate videoCallScreenDelegate;
 
-  @NonNull private View switchOnHoldButton;
+  @NonNull private final View switchOnHoldButton;
 
-  @NonNull private View onHoldBanner;
+  @NonNull private final View onHoldBanner;
 
   private boolean isVisible;
 

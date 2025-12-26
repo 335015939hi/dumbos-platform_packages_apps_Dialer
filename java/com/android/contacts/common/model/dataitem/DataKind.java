@@ -107,26 +107,25 @@ public final class DataKind {
 
   @Override
   public String toString() {
-    final StringBuilder sb = new StringBuilder();
-    sb.append("DataKind:");
-    sb.append(" resPackageName=").append(resourcePackageName);
-    sb.append(" mimeType=").append(mimeType);
-    sb.append(" titleRes=").append(titleRes);
-    sb.append(" iconAltRes=").append(iconAltRes);
-    sb.append(" iconAltDescriptionRes=").append(iconAltDescriptionRes);
-    sb.append(" weight=").append(weight);
-    sb.append(" editable=").append(editable);
-    sb.append(" actionHeader=").append(actionHeader);
-    sb.append(" actionAltHeader=").append(actionAltHeader);
-    sb.append(" actionBody=").append(actionBody);
-    sb.append(" typeColumn=").append(typeColumn);
-    sb.append(" typeOverallMax=").append(typeOverallMax);
-    sb.append(" typeList=").append(toString(typeList));
-    sb.append(" fieldList=").append(toString(fieldList));
-    sb.append(" defaultValues=").append(defaultValues);
-    sb.append(" dateFormatWithoutYear=").append(toString(dateFormatWithoutYear));
-    sb.append(" dateFormatWithYear=").append(toString(dateFormatWithYear));
+      String sb = "DataKind:" +
+              " resPackageName=" + resourcePackageName +
+              " mimeType=" + mimeType +
+              " titleRes=" + titleRes +
+              " iconAltRes=" + iconAltRes +
+              " iconAltDescriptionRes=" + iconAltDescriptionRes +
+              " weight=" + weight +
+              " editable=" + editable +
+              " actionHeader=" + actionHeader +
+              " actionAltHeader=" + actionAltHeader +
+              " actionBody=" + actionBody +
+              " typeColumn=" + typeColumn +
+              " typeOverallMax=" + typeOverallMax +
+              " typeList=" + toString(typeList) +
+              " fieldList=" + toString(fieldList) +
+              " defaultValues=" + defaultValues +
+              " dateFormatWithoutYear=" + toString(dateFormatWithoutYear) +
+              " dateFormatWithYear=" + toString(dateFormatWithYear);
 
-    return sb.toString();
+    return sb;
   }
 }

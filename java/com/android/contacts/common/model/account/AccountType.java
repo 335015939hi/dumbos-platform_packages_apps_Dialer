@@ -49,7 +49,7 @@ public abstract class AccountType {
 
   private static final String TAG = "AccountType";
   /** {@link Comparator} to sort by {@link DataKind#weight}. */
-  private static Comparator<DataKind> sWeightComparator =
+  private static final Comparator<DataKind> sWeightComparator =
       new Comparator<DataKind>() {
         @Override
         public int compare(DataKind object1, DataKind object2) {
@@ -84,9 +84,9 @@ public abstract class AccountType {
   public int iconRes;
   protected boolean mIsInitialized;
   /** Set of {@link DataKind} supported by this source. */
-  private ArrayList<DataKind> mKinds = new ArrayList<>();
+  private final ArrayList<DataKind> mKinds = new ArrayList<>();
   /** Lookup map of {@link #mKinds} on {@link DataKind#mimeType}. */
-  private Map<String, DataKind> mMimeKinds = new ArrayMap<>();
+  private final Map<String, DataKind> mMimeKinds = new ArrayMap<>();
 
   /**
    * Return a string resource loaded from the given package (or the current package if {@code

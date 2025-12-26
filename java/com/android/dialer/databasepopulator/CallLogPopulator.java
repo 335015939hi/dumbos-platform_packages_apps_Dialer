@@ -132,7 +132,7 @@ public final class CallLogPopulator {
           .applyBatch(
               CallLog.AUTHORITY,
               new ArrayList<>(
-                  Arrays.asList(ContentProviderOperation.newDelete(Calls.CONTENT_URI).build())));
+                      List.of(ContentProviderOperation.newDelete(Calls.CONTENT_URI).build())));
     } catch (RemoteException | OperationApplicationException e) {
       Assert.fail("failed to delete call log: " + e);
     }

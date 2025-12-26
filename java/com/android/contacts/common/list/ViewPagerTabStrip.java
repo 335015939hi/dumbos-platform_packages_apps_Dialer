@@ -29,7 +29,7 @@ import com.android.dialer.theme.base.ThemeComponent;
 public class ViewPagerTabStrip extends LinearLayout {
 
   private final Paint mSelectedUnderlinePaint;
-  private int mSelectedUnderlineThickness;
+  private final int mSelectedUnderlineThickness;
   private int mIndexForSelection;
   private float mSelectionOffset;
 

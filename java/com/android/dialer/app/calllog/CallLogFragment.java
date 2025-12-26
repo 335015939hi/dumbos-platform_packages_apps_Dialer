@@ -296,7 +296,7 @@ public class CallLogFragment extends Fragment
   }
 
   protected void setupView(View view) {
-    recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+    recyclerView = view.findViewById(R.id.recycler_view);
     if (ConfigProviderComponent.get(getContext())
         .getConfigProvider()
         .getBoolean("is_call_log_item_anim_null", false)) {
@@ -309,16 +309,16 @@ public class CallLogFragment extends Fragment
     layoutManager = new LinearLayoutManager(getActivity());
     recyclerView.setLayoutManager(layoutManager);
     PerformanceReport.logOnScrollStateChange(recyclerView);
-    emptyListView = (EmptyContentView) view.findViewById(R.id.empty_list_view);
+    emptyListView = view.findViewById(R.id.empty_list_view);
     emptyListView.setImage(R.drawable.empty_call_log);
     emptyListView.setActionClickedListener(this);
-    modalAlertView = (ViewGroup) view.findViewById(R.id.modal_message_container);
+    modalAlertView = view.findViewById(R.id.modal_message_container);
     modalAlertManager =
         new CallLogModalAlertManager(LayoutInflater.from(getContext()), modalAlertView, this);
     multiSelectUnSelectAllViewContent =
         view.findViewById(R.id.multi_select_select_all_view_content);
-    selectUnselectAllViewText = (TextView) view.findViewById(R.id.select_all_view_text);
-    selectUnselectAllIcon = (ImageView) view.findViewById(R.id.select_all_view_icon);
+    selectUnselectAllViewText = view.findViewById(R.id.select_all_view_text);
+    selectUnselectAllIcon = view.findViewById(R.id.select_all_view_icon);
     multiSelectUnSelectAllViewContent.setOnClickListener(null);
     selectUnselectAllIcon.setOnClickListener(this);
     selectUnselectAllViewText.setOnClickListener(this);

@@ -41,7 +41,7 @@ public class CallLogModalAlertManager implements AlertManager {
     this.inflater = inflater;
     this.parent = parent;
     this.listener = listener;
-    container = (ViewGroup) parent.findViewById(R.id.modal_message_container);
+    container = parent.findViewById(R.id.modal_message_container);
   }
 
   @Override

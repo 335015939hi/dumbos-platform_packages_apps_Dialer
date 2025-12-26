@@ -61,7 +61,7 @@ public class StatusSmsFetcher extends BroadcastReceiver implements Closeable {
 
   private static final int ACTION_REQUEST_SENT_REQUEST_CODE = 0;
 
-  private CompletableFuture<Bundle> future = new CompletableFuture<>();
+  private final CompletableFuture<Bundle> future = new CompletableFuture<>();
 
   private final Context context;
   private final PhoneAccountHandle phoneAccountHandle;

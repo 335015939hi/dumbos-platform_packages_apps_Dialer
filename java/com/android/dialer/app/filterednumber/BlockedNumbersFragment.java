@@ -84,7 +84,7 @@ public class BlockedNumbersFragment extends ListFragment
     }
     setListAdapter(adapter);
 
-    blockedNumbersText = (TextView) getListView().findViewById(R.id.blocked_number_text_view);
+    blockedNumbersText = getListView().findViewById(R.id.blocked_number_text_view);
     migratePromoView = getListView().findViewById(R.id.migrate_promo);
     getListView().findViewById(R.id.migrate_promo_allow_button).setOnClickListener(this);
     importSettings = getListView().findViewById(R.id.import_settings);
@@ -94,7 +94,7 @@ public class BlockedNumbersFragment extends ListFragment
     getListView().findViewById(R.id.import_button).setOnClickListener(this);
     getListView().findViewById(R.id.view_numbers_button).setOnClickListener(this);
 
-    footerText = (TextView) getActivity().findViewById(R.id.blocked_number_footer_textview);
+    footerText = getActivity().findViewById(R.id.blocked_number_footer_textview);
     voicemailEnabledChecker = new VisualVoicemailEnabledChecker(getContext(), this);
     voicemailEnabledChecker.asyncUpdate();
     updateActiveVoicemailProvider();

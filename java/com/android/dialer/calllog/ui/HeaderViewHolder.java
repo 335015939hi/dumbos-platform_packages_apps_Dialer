@@ -24,7 +24,7 @@ import com.android.dialer.R;
 /** ViewHolder for {@link NewCallLogAdapter} to display "Today" or "Older" divider row. */
 final class HeaderViewHolder extends ViewHolder {
 
-  private TextView headerTextView;
+  private final TextView headerTextView;
 
   HeaderViewHolder(View view) {
     super(view);

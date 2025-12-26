@@ -42,12 +42,12 @@ public class RenderOverlay extends FrameLayout {
     void draw(Canvas canvas);
   }
 
-  private RenderView renderView;
-  private List<Renderer> clients;
+  private final RenderView renderView;
+  private final List<Renderer> clients;
 
   // reverse list of touch clients
-  private List<Renderer> touchClients;
-  private int[] position = new int[2];
+  private final List<Renderer> touchClients;
+  private final int[] position = new int[2];
 
   public RenderOverlay(Context context, AttributeSet attrs) {
     super(context, attrs);

@@ -60,7 +60,7 @@ public class SwipeButtonHelper {
   private int touchTargetSize;
   private View targetedView;
   private boolean touchSlopExeeded;
-  private AnimatorListenerAdapter flingEndListener =
+  private final AnimatorListenerAdapter flingEndListener =
       new AnimatorListenerAdapter() {
         @Override
         public void onAnimationEnd(Animator animation) {
@@ -81,9 +81,9 @@ public class SwipeButtonHelper {
     public void run() {
       callback.onAnimationToSideEnded(rightPage);
     }
-  };
+  }
 
-  public SwipeButtonHelper(Callback callback, Context context) {
+    public SwipeButtonHelper(Callback callback, Context context) {
     this.context = context;
     this.callback = callback;
     init();
@@ -602,7 +602,7 @@ public class SwipeButtonHelper {
     } else {
       callback.onAnimationToSideStarted(!left, translation, 0);
       translation =
-          left ? callback.getMaxTranslationDistance() : callback.getMaxTranslationDistance();
+              callback.getMaxTranslationDistance();
       updateIcon(otherView, 0.0f, 0.0f, false, false, true, false);
       targetView.instantFinishAnimation();
       flingEndListener.onAnimationEnd(null);

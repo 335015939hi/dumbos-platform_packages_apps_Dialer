@@ -210,7 +210,7 @@ public class InCallPresenter implements CallList.Listener, AudioModeProvider.Aud
 
   private boolean screenTimeoutEnabled = true;
 
-  private PhoneStateListener phoneStateListener =
+  private final PhoneStateListener phoneStateListener =
       new PhoneStateListener() {
         @Override
         public void onCallStateChanged(int state, String incomingNumber) {
@@ -239,7 +239,7 @@ public class InCallPresenter implements CallList.Listener, AudioModeProvider.Aud
 
   private boolean awaitingCallListUpdate = false;
 
-  private ExternalCallList.ExternalCallListener externalCallListener =
+  private final ExternalCallList.ExternalCallListener externalCallListener =
       new ExternalCallList.ExternalCallListener() {
 
         @Override

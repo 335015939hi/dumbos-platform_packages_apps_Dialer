@@ -454,7 +454,7 @@ public class DialtactsActivity extends TransactionSafeActivity
     slideIn.setAnimationListener(slideInListener);
     slideOut.setAnimationListener(slideOutListener);
 
-    parentLayout = (CoordinatorLayout) findViewById(R.id.dialtacts_mainlayout);
+    parentLayout = findViewById(R.id.dialtacts_mainlayout);
     parentLayout.setOnDragListener(new LayoutOnDragListener());
     ViewUtil.doOnGlobalLayout(
         floatingActionButton,
@@ -1097,9 +1097,7 @@ public class DialtactsActivity extends TransactionSafeActivity
     }
     if (Intent.ACTION_VIEW.equals(action)) {
       final Uri data = intent.getData();
-      if (data != null && PhoneAccount.SCHEME_TEL.equals(data.getScheme())) {
-        return true;
-      }
+        return data != null && PhoneAccount.SCHEME_TEL.equals(data.getScheme());
     }
     return false;
   }

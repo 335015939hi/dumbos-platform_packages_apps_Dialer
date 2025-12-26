@@ -175,8 +175,8 @@ public final class ContactsPopulator {
           .applyBatch(
               ContactsContract.AUTHORITY,
               new ArrayList<>(
-                  Arrays.asList(
-                      ContentProviderOperation.newDelete(RawContacts.CONTENT_URI).build())));
+                      List.of(
+                              ContentProviderOperation.newDelete(RawContacts.CONTENT_URI).build())));
     } catch (RemoteException | OperationApplicationException e) {
       Assert.fail("failed to delete contacts: " + e);
     }

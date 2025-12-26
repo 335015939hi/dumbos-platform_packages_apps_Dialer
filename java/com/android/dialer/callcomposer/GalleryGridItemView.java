@@ -48,7 +48,7 @@ public class GalleryGridItemView extends FrameLayout {
   @Override
   protected void onFinishInflate() {
     super.onFinishInflate();
-    image = (ImageView) findViewById(R.id.image);
+    image = findViewById(R.id.image);
     checkbox = findViewById(R.id.checkbox);
     gallery = findViewById(R.id.gallery);
 

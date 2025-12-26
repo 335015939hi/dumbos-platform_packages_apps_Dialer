@@ -38,6 +38,8 @@ import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.incallui.video.protocol.VideoCallScreen;
 import java.util.Arrays;
+import java.util.List;
+
 import com.android.dialer.R;
 
 /**
@@ -68,7 +70,7 @@ public class SelfManagedAnswerVideoCallScreen extends StateCallback implements V
 
     surfaceView =
         Assert.isNotNull(
-            (FixedAspectSurfaceView) view.findViewById(R.id.incoming_preview_surface_view));
+                view.findViewById(R.id.incoming_preview_surface_view));
     surfaceView.setVisibility(View.VISIBLE);
     view.findViewById(R.id.incoming_preview_texture_view_overlay).setVisibility(View.VISIBLE);
     view.setBackgroundColor(0xff000000);
@@ -220,7 +222,7 @@ public class SelfManagedAnswerVideoCallScreen extends StateCallback implements V
     try {
       captureRequestBuilder = camera.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
       captureRequestBuilder.addTarget(surface);
-      camera.createCaptureSession(Arrays.asList(surface), new CaptureSessionCallback(), null);
+      camera.createCaptureSession(List.of(surface), new CaptureSessionCallback(), null);
     } catch (CameraAccessException e) {
       LogUtil.e(
           "SelfManagedAnswerVideoCallScreen.createCameraPreview", "failed to create preview", e);

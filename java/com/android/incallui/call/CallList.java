@@ -712,9 +712,7 @@ public class CallList implements DialerCallDelegate {
 
   /** Sets up a call for deletion and notifies listeners of change. */
   private void finishDisconnectedCall(DialerCall call) {
-    if (pendingDisconnectCalls.contains(call)) {
       pendingDisconnectCalls.remove(call);
-    }
     call.setState(DialerCallState.IDLE);
     updateCallInMap(call);
     notifyGenericListeners();

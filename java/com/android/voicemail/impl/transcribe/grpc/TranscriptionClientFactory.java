@@ -16,37 +16,64 @@
 package com.android.voicemail.impl.transcribe.grpc;
 
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.text.TextUtils;
-import com.android.dialer.common.Assert;
+// import android.content.pm.PackageInfo;
+// import android.content.pm.PackageManager;
+// import android.text.TextUtils;
+// import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.voicemail.impl.transcribe.TranscriptionConfigProvider;
-import com.google.internal.communications.voicemailtranscription.v1.VoicemailTranscriptionServiceGrpc;
-import io.grpc.CallOptions;
-import io.grpc.Channel;
-import io.grpc.ClientCall;
-import io.grpc.ClientInterceptor;
-import io.grpc.ClientInterceptors;
-import io.grpc.ForwardingClientCall;
-import io.grpc.ManagedChannel;
-import io.grpc.ManagedChannelBuilder;
-import io.grpc.Metadata;
-import io.grpc.MethodDescriptor;
-import io.grpc.okhttp.OkHttpChannelBuilder;
-import java.security.MessageDigest;
+// import com.google.internal.communications.voicemailtranscription.v1.VoicemailTranscriptionServiceGrpc;
+// import io.grpc.CallOptions;
+// import io.grpc.Channel;
+// import io.grpc.ClientCall;
+// import io.grpc.ClientInterceptor;
+// import io.grpc.ClientInterceptors;
+// import io.grpc.ForwardingClientCall;
+// import io.grpc.ManagedChannel;
+// import io.grpc.ManagedChannelBuilder;
+// import io.grpc.Metadata;
+// import io.grpc.MethodDescriptor;
+// import io.grpc.okhttp.OkHttpChannelBuilder;
+// import java.security.MessageDigest;
 
 /**
- * Factory for creating grpc clients that talk to the transcription server. This allows all clients
- * to share the same channel, which is relatively expensive to create.
+ * Factory for creating grpc clients that talk to the transcription server.
+ *
+ * <p>DISABLED: Google's voicemail transcription service has been removed to eliminate
+ * Google Play Services dependency. This class is now a stub.
+ *
+ * <p>To re-enable transcription with an open-source backend:
+ * 1. Implement a speech-to-text service (Whisper, Vosk, etc.)
+ * 2. Uncomment and update the gRPC client code
+ * 3. Re-enable in TranscriptionConfigProvider
  */
+@SuppressWarnings("unused")
 public class TranscriptionClientFactory {
+
+  private final TranscriptionConfigProvider configProvider;
+
+  public TranscriptionClientFactory(Context context, TranscriptionConfigProvider configProvider) {
+    this.configProvider = configProvider;
+    LogUtil.i("TranscriptionClientFactory", "Transcription is disabled - using stub factory");
+  }
+
+  public TranscriptionClient getClient() {
+    LogUtil.i("TranscriptionClientFactory.getClient", "Transcription is disabled - returning stub client");
+    return new TranscriptionClient();
+  }
+
+  public void shutdown() {
+    LogUtil.i("TranscriptionClientFactory.shutdown", "Transcription is disabled - nothing to shutdown");
+  }
+
+  /*
+   * Original implementation commented out - requires Google's transcription service
+   *
   private static final String DIGEST_ALGORITHM_SHA1 = "SHA1";
   private static final char[] HEX_UPPERCASE = {
     '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'
   };
 
-  private final TranscriptionConfigProvider configProvider;
   private final ManagedChannel originalChannel;
   private final String packageName;
   private final String cert;
@@ -84,9 +111,7 @@ public class TranscriptionClientFactory {
   private static ManagedChannel getManagedChannel(TranscriptionConfigProvider configProvider) {
     ManagedChannelBuilder<OkHttpChannelBuilder> builder =
         OkHttpChannelBuilder.forTarget(configProvider.getServerAddress());
-    // Only use plaintext for debugging
     if (configProvider.shouldUsePlaintext()) {
-      // gRPC 1.60+ uses usePlaintext() with no parameter
       builder.usePlaintext();
     }
     return builder.build();
@@ -193,4 +218,5 @@ public class TranscriptionClientFactory {
       return call;
     }
   }
+  */
 }

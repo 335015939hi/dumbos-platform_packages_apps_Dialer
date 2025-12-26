@@ -236,28 +236,28 @@ public class VideoCallFragment extends Fragment
     controls = view.findViewById(R.id.videocall_video_controls);
     controls.setVisibility(getActivity().isInMultiWindowMode() ? View.GONE : View.VISIBLE);
     controlsContainer = view.findViewById(R.id.videocall_video_controls_container);
-    speakerButton = (CheckableImageButton) view.findViewById(R.id.videocall_speaker_button);
-    muteButton = (CheckableImageButton) view.findViewById(R.id.videocall_mute_button);
+    speakerButton = view.findViewById(R.id.videocall_speaker_button);
+    muteButton = view.findViewById(R.id.videocall_mute_button);
     muteButton.setOnCheckedChangeListener(this);
     mutePreviewOverlay = view.findViewById(R.id.videocall_video_preview_mute_overlay);
-    cameraOffButton = (CheckableImageButton) view.findViewById(R.id.videocall_mute_video);
+    cameraOffButton = view.findViewById(R.id.videocall_mute_video);
     cameraOffButton.setOnCheckedChangeListener(this);
     previewOffOverlay = view.findViewById(R.id.videocall_video_preview_off_overlay);
     previewOffBlurredImageView =
-        (ImageView) view.findViewById(R.id.videocall_preview_off_blurred_image_view);
-    swapCameraButton = (ImageButton) view.findViewById(R.id.videocall_switch_video);
+            view.findViewById(R.id.videocall_preview_off_blurred_image_view);
+    swapCameraButton = view.findViewById(R.id.videocall_switch_video);
     swapCameraButton.setOnClickListener(this);
     view.findViewById(R.id.videocall_switch_controls)
         .setVisibility(getActivity().isInMultiWindowMode() ? View.GONE : View.VISIBLE);
     switchOnHoldButton = view.findViewById(R.id.videocall_switch_on_hold);
     onHoldContainer = view.findViewById(R.id.videocall_on_hold_banner);
-    remoteVideoOff = (TextView) view.findViewById(R.id.videocall_remote_video_off);
+    remoteVideoOff = view.findViewById(R.id.videocall_remote_video_off);
     remoteVideoOff.setAccessibilityLiveRegion(View.ACCESSIBILITY_LIVE_REGION_POLITE);
     remoteOffBlurredImageView =
-        (ImageView) view.findViewById(R.id.videocall_remote_off_blurred_image_view);
+            view.findViewById(R.id.videocall_remote_off_blurred_image_view);
     endCallButton = view.findViewById(R.id.videocall_end_call);
     endCallButton.setOnClickListener(this);
-    previewTextureView = (TextureView) view.findViewById(R.id.videocall_video_preview);
+    previewTextureView = view.findViewById(R.id.videocall_video_preview);
     previewTextureView.setClipToOutline(true);
     previewOffOverlay.setOnClickListener(
         new OnClickListener() {
@@ -266,7 +266,7 @@ public class VideoCallFragment extends Fragment
             checkCameraPermission();
           }
         });
-    remoteTextureView = (TextureView) view.findViewById(R.id.videocall_video_remote);
+    remoteTextureView = view.findViewById(R.id.videocall_video_remote);
     greenScreenBackgroundView = view.findViewById(R.id.videocall_green_screen_background);
     fullscreenBackgroundView = view.findViewById(R.id.videocall_fullscreen_background);
 

@@ -30,7 +30,8 @@ import com.google.common.util.concurrent.ListenableFuture;
  */
 public interface PreCallCoordinator {
 
-  @VisibleForTesting public String EXTRA_CALL_INTENT_BUILDER = "extra_call_intent_builder";
+  @VisibleForTesting
+  String EXTRA_CALL_INTENT_BUILDER = "extra_call_intent_builder";
 
   @NonNull
   CallIntentBuilder getBuilder();

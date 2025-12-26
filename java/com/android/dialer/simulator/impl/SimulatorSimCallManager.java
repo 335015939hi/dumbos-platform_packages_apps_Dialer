@@ -167,7 +167,7 @@ public class SimulatorSimCallManager {
     return new PhoneAccount.Builder(getSimCallManagerHandle(context), "Simulator SIM call manager")
         .setCapabilities(PhoneAccount.CAPABILITY_CONNECTION_MANAGER | PhoneAccount.CAPABILITY_RTT)
         .setShortDescription("Simulator SIM call manager")
-        .setSupportedUriSchemes(Arrays.asList(PhoneAccount.SCHEME_TEL))
+        .setSupportedUriSchemes(List.of(PhoneAccount.SCHEME_TEL))
         .build();
   }
 
@@ -179,7 +179,7 @@ public class SimulatorSimCallManager {
                 | PhoneAccount.CAPABILITY_SUPPORTS_VIDEO_CALLING
                 | PhoneAccount.CAPABILITY_VIDEO_CALLING)
         .setShortDescription("Simulator video provider")
-        .setSupportedUriSchemes(Arrays.asList(PhoneAccount.SCHEME_TEL))
+        .setSupportedUriSchemes(List.of(PhoneAccount.SCHEME_TEL))
         .build();
   }
 

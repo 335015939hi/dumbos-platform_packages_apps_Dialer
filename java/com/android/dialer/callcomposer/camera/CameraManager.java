@@ -114,7 +114,7 @@ public class CameraManager implements FocusOverlayManager.Listener {
   private OrientationHandler orientationHandler;
 
   /** Tracks whether the preview has hardware acceleration */
-  private boolean isHardwareAccelerationSupported;
+  private final boolean isHardwareAccelerationSupported;
 
   /**
    * The task for opening the camera, so it doesn't block the UI thread Using AsyncTask rather than

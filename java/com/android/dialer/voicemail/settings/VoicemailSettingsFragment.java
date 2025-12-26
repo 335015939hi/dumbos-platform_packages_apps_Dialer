@@ -141,7 +141,6 @@ public class VoicemailSettingsFragment extends PreferenceFragment
         .getVoicemailClient()
         .isVoicemailTranscriptionAvailable(getContext(), phoneAccountHandle)) {
       removeAllTranscriptionPreferences();
-      return;
     } else {
       showTranscriptionEnabledPreference();
       updateTranscriptionDonationPreference();

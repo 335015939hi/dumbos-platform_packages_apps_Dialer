@@ -105,7 +105,7 @@ public class MimeMessage extends Message {
       sb.append(c);
     }
     sb.append(".");
-    sb.append(Long.toString(System.currentTimeMillis()));
+    sb.append(System.currentTimeMillis());
     sb.append("@email.android.com>");
     return sb.toString();
   }

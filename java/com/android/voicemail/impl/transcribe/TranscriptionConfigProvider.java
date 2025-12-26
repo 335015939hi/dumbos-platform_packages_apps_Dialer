@@ -16,8 +16,9 @@
 package com.android.voicemail.impl.transcribe;
 
 import android.content.Context;
-import android.os.Build;
+// import android.os.Build;
 import com.android.dialer.configprovider.ConfigProviderComponent;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -127,6 +128,7 @@ public class TranscriptionConfigProvider {
   @Override
   public String toString() {
     return String.format(
+        Locale.US,
         "{ address: %s, api key: %s, auth token: %s, plaintext: %b, sync: %b, retries: %d, polls:"
             + " %d, poll ms: %d }",
         getServerAddress(),

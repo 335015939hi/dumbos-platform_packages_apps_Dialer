@@ -52,7 +52,7 @@ public class VideoSurfaceTextureImpl implements VideoSurfaceTexture {
 
   @Override
   public void setDelegate(VideoSurfaceDelegate delegate) {
-    LogUtil.i("VideoSurfaceTextureImpl.setDelegate", "delegate: " + delegate + " " + toString());
+    LogUtil.i("VideoSurfaceTextureImpl.setDelegate", "delegate: " + delegate + " " + this);
     this.delegate = delegate;
   }
 
@@ -70,7 +70,7 @@ public class VideoSurfaceTextureImpl implements VideoSurfaceTexture {
   public void setSurfaceDimensions(Point surfaceDimensions) {
     LogUtil.i(
         "VideoSurfaceTextureImpl.setSurfaceDimensions",
-        "surfaceDimensions: " + surfaceDimensions + " " + toString());
+        "surfaceDimensions: " + surfaceDimensions + " " + this);
     this.surfaceDimensions = surfaceDimensions;
     if (surfaceDimensions != null && savedSurfaceTexture != null) {
       // Only do this on O (not at least O) because we expect this issue to be fixed in OMR1
@@ -147,7 +147,7 @@ public class VideoSurfaceTextureImpl implements VideoSurfaceTexture {
   private boolean createSurface(int width, int height) {
     LogUtil.i(
         "VideoSurfaceTextureImpl.createSurface",
-        "width: " + width + ", height: " + height + " " + toString());
+        "width: " + width + ", height: " + height + " " + this);
     savedSurfaceTexture.setDefaultBufferSize(width, height);
     if (savedSurface != null) {
       savedSurface.release();
@@ -160,7 +160,7 @@ public class VideoSurfaceTextureImpl implements VideoSurfaceTexture {
     if (delegate != null) {
       delegate.onSurfaceCreated(this);
     } else {
-      LogUtil.e("VideoSurfaceTextureImpl.onSurfaceCreated", "delegate is null. " + toString());
+      LogUtil.e("VideoSurfaceTextureImpl.onSurfaceCreated", "delegate is null. " + this);
     }
   }
 
@@ -168,7 +168,7 @@ public class VideoSurfaceTextureImpl implements VideoSurfaceTexture {
     if (delegate != null) {
       delegate.onSurfaceReleased(this);
     } else {
-      LogUtil.e("VideoSurfaceTextureImpl.onSurfaceReleased", "delegate is null. " + toString());
+      LogUtil.e("VideoSurfaceTextureImpl.onSurfaceReleased", "delegate is null. " + this);
     }
   }
 
@@ -193,7 +193,7 @@ public class VideoSurfaceTextureImpl implements VideoSurfaceTexture {
           "newSurfaceTexture: "
               + newSurfaceTexture
               + " "
-              + VideoSurfaceTextureImpl.this.toString());
+              + VideoSurfaceTextureImpl.this);
 
       // Where there is no saved {@link SurfaceTexture} available, use the newly created one.
       // If a saved {@link SurfaceTexture} is available, we are re-creating after an

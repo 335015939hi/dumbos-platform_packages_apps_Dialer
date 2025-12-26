@@ -323,7 +323,7 @@ public final class NewVoicemailMediaPlayerView extends LinearLayout {
    * from the server. However once we have the voicemail downloaded, we want to start playing, so as
    * to make it seem like that this is a continuation of the users initial play button click.
    */
-  public final void clickPlayButton() {
+  public void clickPlayButton() {
     playButtonListener.onClick(null);
   }
 
@@ -503,7 +503,7 @@ public final class NewVoicemailMediaPlayerView extends LinearLayout {
               "speaker request for voicemailUri: %s",
               voicemailUri.toString());
           AudioManager audioManager =
-              (AudioManager) getContext().getSystemService(AudioManager.class);
+                  getContext().getSystemService(AudioManager.class);
           audioManager.setMode(AudioManager.STREAM_MUSIC);
           if (audioManager.isSpeakerphoneOn()) {
             LogUtil.i(

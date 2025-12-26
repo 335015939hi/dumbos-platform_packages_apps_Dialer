@@ -227,7 +227,7 @@ public final class CallLogListItemViewHolder extends androidx.recyclerview.widge
 
   public boolean isCallComposerCapable;
 
-  private View.OnClickListener expandCollapseListener;
+  private final View.OnClickListener expandCollapseListener;
   private final OnActionModeStateChangedListener onActionModeStateChangedListener;
   private final View.OnLongClickListener longPressListener;
   private boolean voicemailPrimaryActionButtonClicked;
@@ -279,8 +279,8 @@ public final class CallLogListItemViewHolder extends androidx.recyclerview.widge
     this.callLogEntryView = callLogEntryView;
     this.dayGroupHeader = dayGroupHeader;
     this.primaryActionButtonView = primaryActionButtonView;
-    this.workIconView = (ImageView) rootView.findViewById(R.id.work_profile_icon);
-    this.checkBoxView = (ImageView) rootView.findViewById(R.id.quick_contact_checkbox);
+    this.workIconView = rootView.findViewById(R.id.work_profile_icon);
+    this.checkBoxView = rootView.findViewById(R.id.quick_contact_checkbox);
 
     // Set text height to false on the TextViews so they don't have extra padding.
     phoneCallDetailsViews.nameView.setElegantTextHeight(false);
@@ -343,12 +343,12 @@ public final class CallLogListItemViewHolder extends androidx.recyclerview.widge
         callLogListItemHelper,
         voicemailPlaybackPresenter,
         view,
-        (DialerQuickContactBadge) view.findViewById(R.id.quick_contact_photo),
+            view.findViewById(R.id.quick_contact_photo),
         view.findViewById(R.id.primary_action_view),
         PhoneCallDetailsViews.fromView(view),
-        (CardView) view.findViewById(R.id.call_log_row),
-        (TextView) view.findViewById(R.id.call_log_day_group_label),
-        (ImageView) view.findViewById(R.id.primary_action_button));
+            view.findViewById(R.id.call_log_row),
+            view.findViewById(R.id.call_log_day_group_label),
+            view.findViewById(R.id.primary_action_button));
   }
 
   public static CallLogListItemViewHolder createForTest(Context context) {
@@ -447,12 +447,12 @@ public final class CallLogListItemViewHolder extends androidx.recyclerview.widge
    * necessary.
    */
   public void inflateActionViewStub() {
-    ViewStub stub = (ViewStub) rootView.findViewById(R.id.call_log_entry_actions_stub);
+    ViewStub stub = rootView.findViewById(R.id.call_log_entry_actions_stub);
     if (stub != null) {
       actionsView = stub.inflate();
 
       voicemailPlaybackView =
-          (VoicemailPlaybackLayout) actionsView.findViewById(R.id.voicemail_playback_layout);
+              actionsView.findViewById(R.id.voicemail_playback_layout);
       voicemailPlaybackView.setViewHolder(this);
 
       callButtonView = actionsView.findViewById(R.id.call_action);
@@ -650,7 +650,7 @@ public final class CallLogListItemViewHolder extends androidx.recyclerview.widge
     }
 
     TextView callTypeOrLocationView =
-        ((TextView) callButtonView.findViewById(R.id.call_type_or_location_text));
+            callButtonView.findViewById(R.id.call_type_or_location_text);
 
     if (canPlaceCallToNumber) {
       if (canSupportAssistedDialing()) {
@@ -815,9 +815,7 @@ public final class CallLogListItemViewHolder extends androidx.recyclerview.widge
 
   private boolean isFullyUndialableVoicemail() {
     if (callType == Calls.VOICEMAIL_TYPE) {
-      if (!hasDialableChar(number)) {
-        return true;
-      }
+        return !hasDialableChar(number);
     }
     return false;
   }
@@ -1074,10 +1072,7 @@ public final class CallLogListItemViewHolder extends androidx.recyclerview.widge
   }
 
   private static boolean isNonContactEntry(ContactInfo info) {
-    if (info == null || info.sourceType != Type.SOURCE_TYPE_DIRECTORY) {
-      return true;
-    }
-    return false;
+      return info == null || info.sourceType != Type.SOURCE_TYPE_DIRECTORY;
   }
 
   private DialerContact buildContact() {

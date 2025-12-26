@@ -101,7 +101,7 @@ public class OmtpVvmCarrierConfigHelper {
 
   @Nullable private final PersistableBundle overrideConfig;
 
-  private PhoneAccountHandle phoneAccountHandle;
+  private final PhoneAccountHandle phoneAccountHandle;
 
   public OmtpVvmCarrierConfigHelper(Context context, @Nullable PhoneAccountHandle handle) {
     this.context = context;
@@ -181,10 +181,7 @@ public class OmtpVvmCarrierConfigHelper {
    * known protocol.
    */
   public boolean isValid() {
-    if (protocol == null) {
-      return false;
-    }
-    return true;
+      return protocol != null;
   }
 
   @Nullable
@@ -420,32 +417,31 @@ public class OmtpVvmCarrierConfigHelper {
 
   @Override
   public String toString() {
-    StringBuilder builder = new StringBuilder("OmtpVvmCarrierConfigHelper [");
-    builder
-        .append("phoneAccountHandle: ")
-        .append(phoneAccountHandle)
-        .append(", carrierConfig: ")
-        .append(carrierConfig != null)
-        .append(", telephonyConfig: ")
-        .append(telephonyConfig != null)
-        .append(", type: ")
-        .append(getVvmType())
-        .append(", destinationNumber: ")
-        .append(getDestinationNumber())
-        .append(", applicationPort: ")
-        .append(getApplicationPort())
-        .append(", sslPort: ")
-        .append(getSslPort())
-        .append(", isEnabledByDefault: ")
-        .append(isEnabledByDefault())
-        .append(", isCellularDataRequired: ")
-        .append(isCellularDataRequired())
-        .append(", isPrefetchEnabled: ")
-        .append(isPrefetchEnabled())
-        .append(", isLegacyModeEnabled: ")
-        .append(isLegacyModeEnabled())
-        .append("]");
-    return builder.toString();
+      String builder = "OmtpVvmCarrierConfigHelper [" +
+              "phoneAccountHandle: " +
+              phoneAccountHandle +
+              ", carrierConfig: " +
+              (carrierConfig != null) +
+              ", telephonyConfig: " +
+              (telephonyConfig != null) +
+              ", type: " +
+              getVvmType() +
+              ", destinationNumber: " +
+              getDestinationNumber() +
+              ", applicationPort: " +
+              getApplicationPort() +
+              ", sslPort: " +
+              getSslPort() +
+              ", isEnabledByDefault: " +
+              isEnabledByDefault() +
+              ", isCellularDataRequired: " +
+              isCellularDataRequired() +
+              ", isPrefetchEnabled: " +
+              isPrefetchEnabled() +
+              ", isLegacyModeEnabled: " +
+              isLegacyModeEnabled() +
+              "]";
+    return builder;
   }
 
   @Nullable

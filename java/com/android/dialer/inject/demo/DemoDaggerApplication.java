@@ -32,7 +32,7 @@ public final class DemoDaggerApplication extends Application implements HasRootC
   /** Returns a cached instance of application's root component. */
   @Override
   @NonNull
-  public final Object component() {
+  public Object component() {
     // TODO: Dagger code generation not available in Gradle build
     // Returning a stub object for now
     if (rootComponent == null) {

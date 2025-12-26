@@ -40,8 +40,8 @@ public interface Simulator {
   })
   @interface ConferenceType {}
 
-  static final int CONFERENCE_TYPE_GSM = 1;
-  static final int CONFERENCE_TYPE_VOLTE = 2;
+  int CONFERENCE_TYPE_GSM = 1;
+  int CONFERENCE_TYPE_VOLTE = 2;
 
   /** The types of connection service listener events */
   @Retention(RetentionPolicy.SOURCE)
@@ -52,11 +52,11 @@ public interface Simulator {
   })
   @interface ConnectionServiceEventType {}
 
-  static final int ON_NEW_OUTGOING_CONNECTION = 1;
-  static final int ON_NEW_INCOMING_CONNECTION = 2;
-  static final int ON_CONFERENCE = 3;
+  int ON_NEW_OUTGOING_CONNECTION = 1;
+  int ON_NEW_INCOMING_CONNECTION = 2;
+  int ON_CONFERENCE = 3;
 
-  static final String CALLER_ID_PRESENTATION_TYPE = "caller_id_";
+  String CALLER_ID_PRESENTATION_TYPE = "caller_id_";
 
   /** Bundle keys that are used in making fake call. */
   @Retention(RetentionPolicy.SOURCE)
@@ -67,14 +67,14 @@ public interface Simulator {
   })
   @interface BundleKey {}
 
-  public final String IS_VOLTE = "ISVOLTE";
-  public final String PRESENTATION_CHOICE = "PRESENTATIONCHOICE";
-  public final String IS_ENRICHED_CALL = "ISENRICHEDCALL";
+  String IS_VOLTE = "ISVOLTE";
+  String PRESENTATION_CHOICE = "PRESENTATIONCHOICE";
+  String IS_ENRICHED_CALL = "ISENRICHEDCALL";
 
   /** Phone numbers for outgoing and incoming enriched call scenario. */
-  public static final String ENRICHED_CALL_OUTGOING_NUMBER = "+55-31-2128-6800";
+  String ENRICHED_CALL_OUTGOING_NUMBER = "+55-31-2128-6800";
 
-  public static final String ENRICHED_CALL_INCOMING_NUMBER = "+44 (0) 20 7031 3000";
+  String ENRICHED_CALL_INCOMING_NUMBER = "+44 (0) 20 7031 3000";
 
   boolean isSimulatorMode();
 
@@ -83,7 +83,7 @@ public interface Simulator {
   void disableSimulatorMode();
 
   /** Information about a connection event. */
-  public static class Event {
+  class Event {
     /** The type of connection event. */
     @Retention(RetentionPolicy.SOURCE)
     @IntDef({

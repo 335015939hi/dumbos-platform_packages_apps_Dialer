@@ -101,7 +101,7 @@ public class ImapStore {
   }
 
   static class ImapMessage extends MimeMessage {
-    private ImapFolder folder;
+    private final ImapFolder folder;
 
     ImapMessage(String uid, ImapFolder folder) {
       this.uid = uid;

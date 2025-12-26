@@ -16,23 +16,23 @@
 
 package com.android.dialer.contacts.hiresphoto;
 
-import android.content.ComponentName;
-import android.content.ContentUris;
+// import android.content.ComponentName;
+// import android.content.ContentUris;
 import android.content.Context;
-import android.content.Intent;
-import android.database.Cursor;
+// import android.content.Intent;
+// import android.database.Cursor;
 import android.net.Uri;
-import android.provider.ContactsContract.Contacts;
-import android.provider.ContactsContract.RawContacts;
-import androidx.annotation.VisibleForTesting;
+// import android.provider.ContactsContract.Contacts;
+// import android.provider.ContactsContract.RawContacts;
+// import androidx.annotation.VisibleForTesting;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.common.concurrent.Annotations.BackgroundExecutor;
-import com.android.dialer.common.database.Selection;
+// import com.android.dialer.common.database.Selection;
 import com.android.dialer.inject.ApplicationContext;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.ListeningExecutorService;
-import java.util.ArrayList;
-import java.util.List;
+// import java.util.ArrayList;
+// import java.util.List;
 import javax.inject.Inject;
 
 /**

@@ -79,19 +79,19 @@ public class CallDetailsEntryViewHolder extends ViewHolder {
     super(container);
     context = container.getContext();
 
-    callTypeIcon = (CallTypeIconsView) container.findViewById(R.id.call_direction);
-    callTypeText = (TextView) container.findViewById(R.id.call_type);
-    callTime = (TextView) container.findViewById(R.id.call_time);
-    callDuration = (TextView) container.findViewById(R.id.call_duration);
+    callTypeIcon = container.findViewById(R.id.call_direction);
+    callTypeText = container.findViewById(R.id.call_type);
+    callTime = container.findViewById(R.id.call_time);
+    callDuration = container.findViewById(R.id.call_duration);
 
     multimediaImageContainer = container.findViewById(R.id.multimedia_image_container);
     multimediaDetailsContainer = container.findViewById(R.id.ec_container);
     multimediaDivider = container.findViewById(R.id.divider);
-    multimediaDetails = (TextView) container.findViewById(R.id.multimedia_details);
-    postCallNote = (TextView) container.findViewById(R.id.post_call_note);
-    multimediaImage = (ImageView) container.findViewById(R.id.multimedia_image);
+    multimediaDetails = container.findViewById(R.id.multimedia_details);
+    postCallNote = container.findViewById(R.id.post_call_note);
+    multimediaImage = container.findViewById(R.id.multimedia_image);
     multimediaAttachmentsNumber =
-        (TextView) container.findViewById(R.id.multimedia_attachments_number);
+            container.findViewById(R.id.multimedia_attachments_number);
     rttTranscript = container.findViewById(R.id.rtt_transcript);
     this.callDetailsEntryListener = callDetailsEntryListener;
   }

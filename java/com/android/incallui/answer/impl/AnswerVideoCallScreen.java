@@ -44,7 +44,7 @@ public class AnswerVideoCallScreen implements VideoCallScreen {
     this.fragment = Assert.isNotNull(fragment);
 
     textureView =
-        Assert.isNotNull((TextureView) view.findViewById(R.id.incoming_preview_texture_view));
+        Assert.isNotNull(view.findViewById(R.id.incoming_preview_texture_view));
     View overlayView =
         Assert.isNotNull(view.findViewById(R.id.incoming_preview_texture_view_overlay));
     view.setBackgroundColor(0xff000000);

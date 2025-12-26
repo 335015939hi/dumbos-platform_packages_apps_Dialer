@@ -188,9 +188,9 @@ final class TaskExecutor {
       VvmLog.w("JobFinishedPoller.run", "Job still running");
       mainThreadHandler.postDelayed(this, TERMINATE_POLLING_INTERVAL_MILLISECONDS);
     }
-  };
+  }
 
-  /** Should attempt to run the next task when a task has finished or been added. */
+    /** Should attempt to run the next task when a task has finished or been added. */
   private boolean taskAutoRunDisabledForTesting = false;
 
   /** Handles execution of the background task in teh worker thread. */

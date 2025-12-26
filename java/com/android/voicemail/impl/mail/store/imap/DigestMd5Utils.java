@@ -121,7 +121,7 @@ public class DigestMd5Utils {
 
     private static class ResponseBuilder {
 
-      private StringBuilder builder = new StringBuilder();
+      private final StringBuilder builder = new StringBuilder();
 
       public ResponseBuilder appendQuoted(String key, String value) {
         if (builder.length() != 0) {
@@ -199,8 +199,7 @@ public class DigestMd5Utils {
    * and the string s.
    */
   private static byte[] getKeyDigest(String k, String s) {
-    StringBuilder builder = new StringBuilder(k).append(":").append(s);
-    return getMd5(builder.toString());
+      return getMd5(k + ":" + s);
   }
 
   /**
@@ -231,7 +230,7 @@ public class DigestMd5Utils {
 
     private final String message;
     private int position = 0;
-    private Map<String, String> result = new ArrayMap<>();
+    private final Map<String, String> result = new ArrayMap<>();
 
     public DigestMessageParser(String message) {
       this.message = message;

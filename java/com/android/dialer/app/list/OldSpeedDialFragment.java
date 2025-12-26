@@ -136,7 +136,7 @@ public class OldSpeedDialFragment extends Fragment
     Trace.beginSection(TAG + " onCreateView");
     View parentView = inflater.inflate(R.layout.speed_dial_fragment, container, false);
 
-    listView = (PhoneFavoriteListView) parentView.findViewById(R.id.contact_tile_list);
+    listView = parentView.findViewById(R.id.contact_tile_list);
     listView.setOnItemClickListener(this);
     listView.setVerticalScrollBarEnabled(false);
     listView.setVerticalScrollbarPosition(View.SCROLLBAR_POSITION_RIGHT);
@@ -145,7 +145,7 @@ public class OldSpeedDialFragment extends Fragment
     listView.setDragShadowOverlay(
         FragmentUtils.getParentUnsafe(this, HostInterface.class).getDragShadowOverlay());
 
-    emptyView = (EmptyContentView) parentView.findViewById(R.id.empty_list_view);
+    emptyView = parentView.findViewById(R.id.empty_list_view);
     emptyView.setImage(R.drawable.empty_speed_dial);
     emptyView.setActionClickedListener(this);
 

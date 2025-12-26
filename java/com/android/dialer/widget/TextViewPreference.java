@@ -104,7 +104,7 @@ public class TextViewPreference extends Preference {
   @Override
   protected void onBindView(View view) {
     super.onBindView(view);
-    textView = (TextView) view.findViewById(R.id.text);
+    textView = view.findViewById(R.id.text);
     if (textResourceId != 0) {
       setTitle(textResourceId);
     } else if (text != null) {

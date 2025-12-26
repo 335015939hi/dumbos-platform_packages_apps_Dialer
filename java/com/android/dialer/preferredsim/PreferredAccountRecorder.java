@@ -138,7 +138,7 @@ public class PreferredAccountRecorder {
               PreferredSimFallbackContract.CONTENT_URI,
               values,
               PreferredSim.DATA_ID + " = ?",
-              new String[] {String.valueOf(input.dataId)});
+              new String[] {input.dataId});
       return null;
     }
   }

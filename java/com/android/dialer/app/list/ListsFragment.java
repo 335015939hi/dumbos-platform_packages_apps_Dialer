@@ -195,7 +195,7 @@ public class ListsFragment extends Fragment
     tabIcons[DialtactsPagerAdapter.TAB_INDEX_ALL_CONTACTS] = R.drawable.quantum_ic_people_white_24;
     tabIcons[DialtactsPagerAdapter.TAB_INDEX_VOICEMAIL] = R.drawable.quantum_ic_voicemail_white_24;
 
-    viewPager = (DialerViewPager) parentView.findViewById(R.id.lists_pager);
+    viewPager = parentView.findViewById(R.id.lists_pager);
     adapter =
         new DialtactsPagerAdapter(
             getChildFragmentManager(),
@@ -211,11 +211,11 @@ public class ListsFragment extends Fragment
     viewPager.addOnPageChangeListener(this);
     showTab(DialtactsPagerAdapter.TAB_INDEX_SPEED_DIAL);
 
-    viewPagerTabs = (ViewPagerTabs) parentView.findViewById(R.id.lists_pager_header);
+    viewPagerTabs = parentView.findViewById(R.id.lists_pager_header);
     viewPagerTabs.configureTabIcons(tabIcons);
     viewPagerTabs.setViewPager(viewPager);
     addOnPageChangeListener(viewPagerTabs);
-    removeView = (RemoveView) parentView.findViewById(R.id.remove_view);
+    removeView = parentView.findViewById(R.id.remove_view);
     removeViewContent = parentView.findViewById(R.id.remove_view_content);
 
     if (PermissionsUtil.hasReadVoicemailPermissions(getContext())
@@ -415,12 +415,8 @@ public class ListsFragment extends Fragment
 
   public boolean shouldShowFab() {
     // If the VVM TOS is visible, don't show the fab
-    if (currentPage instanceof VisualVoicemailCallLogFragment
-        && ((VisualVoicemailCallLogFragment) currentPage).isModalAlertVisible()) {
-      return false;
-    }
-
-    return true;
+      return !(currentPage instanceof VisualVoicemailCallLogFragment)
+              || !((VisualVoicemailCallLogFragment) currentPage).isModalAlertVisible();
   }
 
   @Override

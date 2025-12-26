@@ -258,13 +258,13 @@ public class MimeUtility {
        * If we are not able to process the body there's nothing we can do about it. Return
        * null and let the upper layers handle the missing content.
        */
-      VvmLog.e(LOG_TAG, "Unable to getTextFromPart " + oom.toString());
+      VvmLog.e(LOG_TAG, "Unable to getTextFromPart " + oom);
     } catch (Exception e) {
       /*
        * If we are not able to process the body there's nothing we can do about it. Return
        * null and let the upper layers handle the missing content.
        */
-      VvmLog.e(LOG_TAG, "Unable to getTextFromPart " + e.toString());
+      VvmLog.e(LOG_TAG, "Unable to getTextFromPart " + e);
     }
     return null;
   }

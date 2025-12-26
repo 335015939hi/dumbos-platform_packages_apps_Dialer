@@ -52,7 +52,7 @@ public final class LicenseMenuActivity extends AppCompatActivity
 
     listAdapter = new ArrayAdapter<>(this, R.layout.license, R.id.license, new ArrayList<>());
     getSupportLoaderManager().initLoader(LOADER_ID, null, this);
-    ListView listView = (ListView) findViewById(R.id.license_list);
+    ListView listView = findViewById(R.id.license_list);
     listView.setAdapter(listAdapter);
     listView.setOnItemClickListener(
         new OnItemClickListener() {

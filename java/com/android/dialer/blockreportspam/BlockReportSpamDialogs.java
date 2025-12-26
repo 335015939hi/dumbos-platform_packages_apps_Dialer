@@ -154,12 +154,12 @@ public final class BlockReportSpamDialogs {
       super.onCreateDialog(savedInstanceState);
       View dialogView = View.inflate(getActivity(), R.layout.block_report_spam_dialog, null);
       final CheckBox isSpamCheckbox =
-          (CheckBox) dialogView.findViewById(R.id.report_number_as_spam_action);
+              dialogView.findViewById(R.id.report_number_as_spam_action);
       // Listen for changes on the checkbox and update if orientation changes
       isSpamCheckbox.setChecked(spamChecked);
       isSpamCheckbox.setOnCheckedChangeListener((buttonView, isChecked) -> spamChecked = isChecked);
 
-      TextView details = (TextView) dialogView.findViewById(R.id.block_details);
+      TextView details = dialogView.findViewById(R.id.block_details);
       details.setText(getBlockMessage(getContext()));
 
       AlertDialog.Builder alertDialogBuilder = createDialogBuilder(getActivity(), this);

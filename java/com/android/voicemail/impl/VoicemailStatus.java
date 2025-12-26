@@ -35,7 +35,7 @@ public class VoicemailStatus {
     private final Context context;
     @Nullable private final PhoneAccountHandle phoneAccountHandle;
 
-    private ContentValues values = new ContentValues();
+    private final ContentValues values = new ContentValues();
 
     private Editor(Context context, PhoneAccountHandle phoneAccountHandle) {
       this.context = context;

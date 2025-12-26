@@ -35,8 +35,8 @@ import com.android.dialer.simulator.Simulator.Event;
 final class SimulatorVideoProvider extends Connection.VideoProvider {
   @NonNull private final Context context;
   @NonNull private final SimulatorConnection connection;
-  @Nullable private String previewCameraId;;
-  @Nullable private SimulatorPreviewCamera simulatorPreviewCamera;
+  @Nullable private String previewCameraId;
+    @Nullable private SimulatorPreviewCamera simulatorPreviewCamera;
   @Nullable private SimulatorRemoteVideo simulatorRemoteVideo;
 
   SimulatorVideoProvider(@NonNull Context context, @NonNull SimulatorConnection connection) {

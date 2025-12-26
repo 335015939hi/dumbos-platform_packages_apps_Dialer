@@ -78,7 +78,7 @@ public class ImapFolder {
 
   /** Callback for each message retrieval. */
   public interface MessageRetrievalListener {
-    public void messageRetrieved(Message message);
+    void messageRetrieved(Message message);
   }
 
   private void destroyResponses() {
@@ -651,7 +651,7 @@ public class ImapFolder {
         } else if (part instanceof MimeBodyPart) {
           ((MimeBodyPart) part).setSize(size);
         } else {
-          throw new MessagingException("Unknown part type " + part.toString());
+          throw new MessagingException("Unknown part type " + part);
         }
       }
       part.setHeader(MimeHeader.HEADER_ANDROID_ATTACHMENT_STORE_DATA, id);

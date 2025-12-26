@@ -93,8 +93,6 @@ public class StructuredNameDataItem extends DataItem {
 
   public boolean isSuperPrimary() {
     final ContentValues contentValues = getContentValues();
-    return contentValues == null || !contentValues.containsKey(StructuredName.IS_SUPER_PRIMARY)
-        ? false
-        : contentValues.getAsBoolean(StructuredName.IS_SUPER_PRIMARY);
+    return contentValues != null && contentValues.containsKey(StructuredName.IS_SUPER_PRIMARY) && contentValues.getAsBoolean(StructuredName.IS_SUPER_PRIMARY);
   }
 }

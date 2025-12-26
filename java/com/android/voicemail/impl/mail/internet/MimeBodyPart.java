@@ -113,11 +113,7 @@ public class MimeBodyPart extends BodyPart {
   @Override
   public String getDisposition() throws MessagingException {
     String contentDisposition = getFirstHeader(MimeHeader.HEADER_CONTENT_DISPOSITION);
-    if (contentDisposition == null) {
-      return null;
-    } else {
       return contentDisposition;
-    }
   }
 
   @Override

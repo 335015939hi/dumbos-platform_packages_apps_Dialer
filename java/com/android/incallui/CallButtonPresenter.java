@@ -77,7 +77,7 @@ public class CallButtonPresenter
   private boolean isInCallButtonUiReady;
   private PhoneAccountHandle otherAccount;
 
-  private CallRecorder.RecordingProgressListener recordingProgressListener =
+  private final CallRecorder.RecordingProgressListener recordingProgressListener =
       new CallRecorder.RecordingProgressListener() {
     @Override
     public void onStartRecording() {
@@ -331,7 +331,7 @@ public class CallButtonPresenter
             DialerImpression.Type.IN_CALL_SHOW_DIALPAD_BUTTON_PRESSED,
             call.getUniqueCallId(),
             call.getTimeAddedMs());
-    LogUtil.v("CallButtonPresenter", "show dialpad " + String.valueOf(checked));
+    LogUtil.v("CallButtonPresenter", "show dialpad " + checked);
     getActivity().showDialpadFragment(checked /* show */, true /* animate */);
   }
 

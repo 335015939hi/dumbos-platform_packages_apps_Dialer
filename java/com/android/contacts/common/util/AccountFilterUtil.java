@@ -41,7 +41,7 @@ public class AccountFilterUtil {
       boolean forPhone) {
     final Context context = filterContainer.getContext();
     final TextView headerTextView =
-        (TextView) filterContainer.findViewById(R.id.account_filter_header);
+            filterContainer.findViewById(R.id.account_filter_header);
 
     boolean textWasSet = false;
     if (filter != null) {

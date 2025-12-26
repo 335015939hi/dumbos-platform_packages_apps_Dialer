@@ -388,7 +388,7 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
         }
       };
 
-  private long timeAddedMs;
+  private final long timeAddedMs;
   private int peerDimensionWidth = UNKNOWN_PEER_DIMENSIONS;
   private int peerDimensionHeight = UNKNOWN_PEER_DIMENSIONS;
 
@@ -403,7 +403,7 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
     this.dialerCallDelegate = dialerCallDelegate;
     this.telecomCall = telecomCall;
     this.latencyReport = latencyReport;
-    id = ID_PREFIX + Integer.toString(idCounter++);
+    id = ID_PREFIX + idCounter++;
 
     // Must be after assigning mTelecomCall
     videoTechManager = new VideoTechManager(this);
@@ -838,9 +838,7 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
         && getExtras().getLong(Call.EXTRA_LAST_EMERGENCY_CALLBACK_TIME_MILLIS, 0) > 0) {
       long lastEmergencyCallMillis =
           getExtras().getLong(Call.EXTRA_LAST_EMERGENCY_CALLBACK_TIME_MILLIS, 0);
-      if (isInEmergencyCallbackWindow(lastEmergencyCallMillis)) {
-        return true;
-      }
+        return isInEmergencyCallbackWindow(lastEmergencyCallMillis);
     }
     return false;
   }
@@ -1095,10 +1093,7 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
     if (phoneAccount == null) {
       return false;
     }
-    if (!phoneAccount.hasCapabilities(PhoneAccount.CAPABILITY_RTT)) {
-      return false;
-    }
-    return true;
+      return phoneAccount.hasCapabilities(PhoneAccount.CAPABILITY_RTT);
   }
 
   @TargetApi(28)
@@ -1115,10 +1110,7 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
     if (isConferenceCall()) {
       return false;
     }
-    if (CallList.getInstance().hasActiveRttCall()) {
-      return false;
-    }
-    return true;
+      return !CallList.getInstance().hasActiveRttCall();
   }
 
   @TargetApi(28)
@@ -1310,11 +1302,7 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
       return false;
     }
 
-    if (isPotentialEmergencyCallback()) {
-      return false;
-    }
-
-    return true;
+      return !isPotentialEmergencyCallback();
   }
 
   public boolean isBlocked() {
@@ -1352,11 +1340,9 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
       // placing the outgoing call.
       //
       // The existence of the assisted dialing extras indicates that assisted dialing took place.
-      if (getIntentExtras().getBoolean(TelephonyManagerCompat.USE_ASSISTED_DIALING, false)
-          && getAssistedDialingExtras() != null
-          && Build.VERSION.SDK_INT <= ConcreteCreator.BUILD_CODE_CEILING) {
-        return true;
-      }
+        return getIntentExtras().getBoolean(TelephonyManagerCompat.USE_ASSISTED_DIALING, false)
+                && getAssistedDialingExtras() != null
+                && VERSION.SDK_INT <= ConcreteCreator.BUILD_CODE_CEILING;
     }
 
     return false;

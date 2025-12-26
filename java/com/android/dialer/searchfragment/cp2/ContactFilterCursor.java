@@ -262,7 +262,7 @@ final class ContactFilterCursor implements Cursor {
       Set<String> numberSubstrings = new ArraySet<>();
       numberSubstrings.add(number);
       for (int start = 0; start < number.length(); start++) {
-        numberSubstrings.add(number.substring(start, number.length()));
+        numberSubstrings.add(number.substring(start));
       }
       for (String substring : numberSubstrings) {
         tree.put(substring, position);

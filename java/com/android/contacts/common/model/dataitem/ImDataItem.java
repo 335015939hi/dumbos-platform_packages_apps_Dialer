@@ -99,13 +99,10 @@ public class ImDataItem extends DataItem {
         return that.getProtocol() == Im.PROTOCOL_CUSTOM;
       }
       return true;
-    } else if (!Objects.equals(getProtocol(), that.getProtocol())) {
+    } else // Check if custom protocols are not the same
+        if (!Objects.equals(getProtocol(), that.getProtocol())) {
       return false;
-    } else if (getProtocol() == Im.PROTOCOL_CUSTOM
-        && !TextUtils.equals(getCustomProtocol(), that.getCustomProtocol())) {
-      // Check if custom protocols are not the same
-      return false;
-    }
-    return true;
+    } else return getProtocol() != Im.PROTOCOL_CUSTOM
+                || TextUtils.equals(getCustomProtocol(), that.getCustomProtocol());
   }
 }

@@ -101,11 +101,7 @@ public final class SearchCursorManager {
       return false;
     }
 
-    if (cursor != null) {
       contactsCursor = cursor;
-    } else {
-      contactsCursor = null;
-    }
     return true;
   }
 
@@ -115,11 +111,7 @@ public final class SearchCursorManager {
       return false;
     }
 
-    if (cursor != null) {
       nearbyPlacesCursor = cursor;
-    } else {
-      nearbyPlacesCursor = null;
-    }
     return true;
   }
 
@@ -138,11 +130,7 @@ public final class SearchCursorManager {
       return false;
     }
 
-    if (cursor != null) {
       corpDirectoryCursor = cursor;
-    } else {
-      corpDirectoryCursor = null;
-    }
     return true;
   }
 

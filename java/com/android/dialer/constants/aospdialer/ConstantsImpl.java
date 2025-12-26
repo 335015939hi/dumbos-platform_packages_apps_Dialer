@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
-package com.android.dialer.constants;
+package com.android.dialer.constants.aospdialer;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
 import com.android.dialer.BuildConfig;
+import com.android.dialer.constants.Constants;
 import com.android.dialer.proguard.UsedByReflection;
 
 /** Provider config values for AOSP Dialer. */

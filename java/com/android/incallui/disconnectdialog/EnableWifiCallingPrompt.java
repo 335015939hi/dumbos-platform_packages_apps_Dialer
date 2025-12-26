@@ -62,7 +62,7 @@ public class EnableWifiCallingPrompt implements DisconnectDialog {
             .setMessage(message)
             .setPositiveButton(
                 R.string.incall_enable_wifi_calling_button,
-                (OnClickListener) (dialog1, which) -> openWifiCallingSettings(context))
+                    (dialog1, which) -> openWifiCallingSettings(context))
             .setNegativeButton(android.R.string.cancel, null)
             .create();
     return new Pair<>(dialog, message);

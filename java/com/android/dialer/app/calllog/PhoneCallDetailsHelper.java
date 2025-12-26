@@ -85,7 +85,7 @@ public class PhoneCallDetailsHelper
 
   private CharSequence phoneTypeLabelForTest;
   /** List of items to be concatenated together for accessibility descriptions */
-  private ArrayList<CharSequence> descriptionItems = new ArrayList<>();
+  private final ArrayList<CharSequence> descriptionItems = new ArrayList<>();
 
   /**
    * Creates a new instance of the helper.
@@ -144,10 +144,7 @@ public class PhoneCallDetailsHelper
     }
 
     // Don't bother showing geo location for contacts.
-    if (!TextUtils.isEmpty(details.namePrimary)) {
-      return false;
-    }
-    return true;
+      return TextUtils.isEmpty(details.namePrimary);
   }
 
   /** Fills the call details views with content. */
@@ -318,12 +315,8 @@ public class PhoneCallDetailsHelper
 
     // Also show the rating option if voicemail donation is available (but not enabled)
     // and the donation promo has not yet been shown.
-    if (client.isVoicemailDonationAvailable(context, account)
-        && !hasSeenVoicemailDonationPromo(context)) {
-      return true;
-    }
-
-    return false;
+      return client.isVoicemailDonationAvailable(context, account)
+              && !hasSeenVoicemailDonationPromo(context);
   }
 
   private void recordTranscriptionRating(
@@ -398,7 +391,7 @@ public class PhoneCallDetailsHelper
     dialog.show();
 
     // Make the message link clickable and adjust the appearance of the message and buttons
-    TextView textView = (TextView) dialog.findViewById(android.R.id.message);
+    TextView textView = dialog.findViewById(android.R.id.message);
     textView.setLineSpacing(0, 1.2f);
     textView.setMovementMethod(LinkMovementMethod.getInstance());
     Button positiveButton = dialog.getButton(DialogInterface.BUTTON_POSITIVE);

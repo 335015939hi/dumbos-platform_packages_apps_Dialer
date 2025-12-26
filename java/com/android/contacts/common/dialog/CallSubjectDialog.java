@@ -159,7 +159,7 @@ public class CallSubjectDialog extends Activity {
         }
       };
   /** Click listener which handles user clicks outside of the dialog. */
-  private View.OnClickListener mBackgroundListener =
+  private final View.OnClickListener mBackgroundListener =
       new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -171,7 +171,7 @@ public class CallSubjectDialog extends Activity {
    * activity, returning the subject to the caller and closing the activity with the {@link
    * Activity#RESULT_OK} result code.
    */
-  private AdapterView.OnItemClickListener mItemClickListener =
+  private final AdapterView.OnItemClickListener mItemClickListener =
       new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> arg0, View view, int position, long arg3) {
@@ -291,22 +291,22 @@ public class CallSubjectDialog extends Activity {
     mBackgroundView = findViewById(R.id.call_subject_dialog);
     mBackgroundView.setOnClickListener(mBackgroundListener);
     mDialogView = findViewById(R.id.dialog_view);
-    mContactPhoto = (QuickContactBadge) findViewById(R.id.contact_photo);
-    mNameView = (TextView) findViewById(R.id.name);
-    mNumberView = (TextView) findViewById(R.id.number);
-    mCallSubjectView = (EditText) findViewById(R.id.call_subject);
+    mContactPhoto = findViewById(R.id.contact_photo);
+    mNameView = findViewById(R.id.name);
+    mNumberView = findViewById(R.id.number);
+    mCallSubjectView = findViewById(R.id.call_subject);
     mCallSubjectView.addTextChangedListener(mTextWatcher);
     mCallSubjectView.setOnClickListener(mCallSubjectClickListener);
     InputFilter[] filters = new InputFilter[1];
     filters[0] = new InputFilter.LengthFilter(mLimit);
     mCallSubjectView.setFilters(filters);
-    mCharacterLimitView = (TextView) findViewById(R.id.character_limit);
+    mCharacterLimitView = findViewById(R.id.character_limit);
     mHistoryButton = findViewById(R.id.history_button);
     mHistoryButton.setOnClickListener(mHistoryOnClickListener);
     mHistoryButton.setVisibility(mSubjectHistory.isEmpty() ? View.GONE : View.VISIBLE);
     mSendAndCallButton = findViewById(R.id.send_and_call_button);
     mSendAndCallButton.setOnClickListener(mSendAndCallOnClickListener);
-    mSubjectList = (ListView) findViewById(R.id.subject_list);
+    mSubjectList = findViewById(R.id.subject_list);
     mSubjectList.setOnItemClickListener(mItemClickListener);
     mSubjectList.setVisibility(View.GONE);
 

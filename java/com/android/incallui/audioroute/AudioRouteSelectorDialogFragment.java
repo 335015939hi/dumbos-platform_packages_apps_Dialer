@@ -124,17 +124,17 @@ public class AudioRouteSelectorDialogFragment extends BottomSheetDialogFragment 
     }
 
     initItem(
-        (TextView) view.findViewById(R.id.audioroute_speaker),
+            view.findViewById(R.id.audioroute_speaker),
         CallAudioState.ROUTE_SPEAKER,
         audioState,
         DialerImpression.Type.IN_CALL_SWITCH_AUDIO_ROUTE_SPEAKER);
     initItem(
-        (TextView) view.findViewById(R.id.audioroute_headset),
+            view.findViewById(R.id.audioroute_headset),
         CallAudioState.ROUTE_WIRED_HEADSET,
         audioState,
         DialerImpression.Type.IN_CALL_SWITCH_AUDIO_ROUTE_WIRED_HEADSET);
     initItem(
-        (TextView) view.findViewById(R.id.audioroute_earpiece),
+            view.findViewById(R.id.audioroute_earpiece),
         CallAudioState.ROUTE_EARPIECE,
         audioState,
         DialerImpression.Type.IN_CALL_SWITCH_AUDIO_ROUTE_EARPIECE);

@@ -82,14 +82,14 @@ public class PhoneFavoriteListView extends GridView
         }
       };
   private View dragShadowParent;
-  private int animationDuration;
+  private final int animationDuration;
   // X and Y offsets inside the item from where the user grabbed to the
   // child's left coordinate. This is used to aid in the drawing of the drag shadow.
   private int touchOffsetToChildLeft;
   private int touchOffsetToChildTop;
   private int dragShadowLeft;
   private int dragShadowTop;
-  private DragDropController dragDropController = new DragDropController(this);
+  private final DragDropController dragDropController = new DragDropController(this);
 
   public PhoneFavoriteListView(Context context) {
     this(context, null);

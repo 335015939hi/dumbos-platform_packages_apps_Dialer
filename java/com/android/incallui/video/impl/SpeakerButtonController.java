@@ -35,7 +35,7 @@ public class SpeakerButtonController implements OnCheckedChangeListener, OnClick
   @NonNull private final InCallButtonUiDelegate inCallButtonUiDelegate;
   @NonNull private final VideoCallScreenDelegate videoCallScreenDelegate;
 
-  @NonNull private CheckableImageButton button;
+  @NonNull private final CheckableImageButton button;
 
   @DrawableRes private int icon = R.drawable.quantum_ic_volume_up_vd_theme_24;
 

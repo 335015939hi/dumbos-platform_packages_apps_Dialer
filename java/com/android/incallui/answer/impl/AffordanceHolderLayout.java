@@ -31,7 +31,7 @@ import com.android.incallui.util.AccessibilityUtil;
 /** Layout that delegates touches to its SwipeButtonHelper */
 public class AffordanceHolderLayout extends FrameLayout {
 
-  private SwipeButtonHelper affordanceHelper;
+  private final SwipeButtonHelper affordanceHelper;
 
   private Callback affordanceCallback;
 

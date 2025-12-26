@@ -35,8 +35,8 @@ public class DialerToolbar extends Toolbar {
   public DialerToolbar(Context context, @Nullable AttributeSet attributeSet) {
     super(context, attributeSet);
     inflate(context, R.layout.dialer_toolbar, this);
-    title = (TextView) findViewById(R.id.title);
-    subtitle = (BidiTextView) findViewById(R.id.subtitle);
+    title = findViewById(R.id.title);
+    subtitle = findViewById(R.id.subtitle);
 
     setElevation(getResources().getDimensionPixelSize(R.dimen.toolbar_elevation));
     setBackgroundColor(ThemeComponent.get(context).theme().getColorPrimary());

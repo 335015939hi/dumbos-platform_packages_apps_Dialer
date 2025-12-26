@@ -89,7 +89,7 @@ public class CameraMediaChooserView extends FrameLayout {
             @Override
             public void run() {
               final HardwareCameraPreview cameraPreview =
-                  (HardwareCameraPreview) findViewById(R.id.camera_preview);
+                      findViewById(R.id.camera_preview);
               if (cameraPreview == null) {
                 return;
               }

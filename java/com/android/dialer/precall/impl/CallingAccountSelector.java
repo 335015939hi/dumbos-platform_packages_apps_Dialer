@@ -79,10 +79,7 @@ public class CallingAccountSelector implements PreCallAction {
 
     TelecomManager telecomManager = context.getSystemService(TelecomManager.class);
     List<PhoneAccountHandle> accounts = telecomManager.getCallCapablePhoneAccounts();
-    if (accounts.size() <= 1) {
-      return false;
-    }
-    return true;
+      return accounts.size() > 1;
   }
 
   @Override

@@ -292,9 +292,7 @@ public class DialpadFragment extends Fragment
       }
 
       // next char is ';' (WAIT)
-      if ((digits.length() > end) && (digits.charAt(end) == WAIT)) {
-        return false;
-      }
+        return (digits.length() <= end) || (digits.charAt(end) != WAIT);
     }
 
     return true;
@@ -1786,8 +1784,8 @@ public class DialpadFragment extends Fragment
     static final int DIALPAD_CHOICE_RETURN_TO_CALL = 102;
     static final int DIALPAD_CHOICE_ADD_NEW_CALL = 103;
     private static final int NUM_ITEMS = 3;
-    private LayoutInflater inflater;
-    private ChoiceItem[] choiceItems = new ChoiceItem[NUM_ITEMS];
+    private final LayoutInflater inflater;
+    private final ChoiceItem[] choiceItems = new ChoiceItem[NUM_ITEMS];
 
     DialpadChooserAdapter(Context context) {
       // Cache the LayoutInflate to avoid asking for a new one each time.

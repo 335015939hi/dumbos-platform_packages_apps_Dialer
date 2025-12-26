@@ -188,6 +188,7 @@ public class StatusBarNotifier
   }
 
   @Override
+  @SuppressWarnings("MissingPermission") // Permission is granted when InCallUI is active
   public void onEnrichedCallStateChanged() {
     LogUtil.enterBlock("StatusBarNotifier.onEnrichedCallStateChanged");
     updateNotification();
@@ -1144,7 +1145,7 @@ public class StatusBarNotifier
 
   private class StatusBarCallListener implements DialerCallListener {
 
-    private DialerCall dialerCall;
+    private final DialerCall dialerCall;
 
     StatusBarCallListener(DialerCall dialerCall) {
       this.dialerCall = dialerCall;
@@ -1191,6 +1192,7 @@ public class StatusBarNotifier
      * bar notification as required.
      */
     @Override
+    @SuppressWarnings("MissingPermission") // Permission is granted when InCallUI is active
     public void onDialerCallSessionModificationStateChange() {
       if (dialerCall.getVideoTech().getSessionModificationState()
           == SessionModificationState.NO_REQUEST) {

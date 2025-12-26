@@ -1148,7 +1148,7 @@ public class InCallActivity extends TransactionSafeFragmentActivity
     View dialogCheckBoxView =
         View.inflate(builder.getContext(), R.layout.video_call_lte_to_wifi_failed, null /* root */);
     CheckBox wifiHandoverFailureCheckbox =
-        (CheckBox) dialogCheckBoxView.findViewById(R.id.video_call_lte_to_wifi_failed_checkbox);
+            dialogCheckBoxView.findViewById(R.id.video_call_lte_to_wifi_failed_checkbox);
     wifiHandoverFailureCheckbox.setChecked(false);
 
     InCallUiLock lock = InCallPresenter.getInstance().acquireInCallUiLock("WifiFailedDialog");

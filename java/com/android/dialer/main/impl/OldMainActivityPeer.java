@@ -659,10 +659,7 @@ public class OldMainActivityPeer implements MainActivityPeer, FragmentUtilListen
   @Override
   public boolean onBackPressed() {
     LogUtil.enterBlock("OldMainActivityPeer.onBackPressed");
-    if (searchController.onBackPressed()) {
-      return true;
-    }
-    return false;
+      return searchController.onBackPressed();
   }
 
   @Nullable

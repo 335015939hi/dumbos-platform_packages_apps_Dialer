@@ -438,7 +438,7 @@ public class CallerInfoAsyncQuery {
         Log.d(
             this,
             "notifying listener: "
-                + cw.listener.getClass().toString()
+                + cw.listener.getClass()
                 + " for token: "
                 + token
                 + callerInfo);

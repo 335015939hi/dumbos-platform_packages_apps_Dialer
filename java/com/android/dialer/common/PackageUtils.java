@@ -44,10 +44,8 @@ public class PackageUtils {
     Assert.isNotNull(packageName);
     Assert.isNotNull(context);
     if (isPackageInstalled(packageName, context)) {
-      if (context.getPackageManager().getApplicationEnabledSetting(packageName)
-          != PackageManager.COMPONENT_ENABLED_STATE_DISABLED) {
-        return true;
-      }
+        return context.getPackageManager().getApplicationEnabledSetting(packageName)
+                != PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
     }
     return false;
   }

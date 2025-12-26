@@ -66,11 +66,11 @@ public class CallRecorder implements CallList.Listener {
   private boolean initialized = false;
   private ICallRecorderService service = null;
 
-  private HashSet<RecordingProgressListener> progressListeners =
+  private final HashSet<RecordingProgressListener> progressListeners =
       new HashSet<RecordingProgressListener>();
-  private Handler handler = new Handler();
+  private final Handler handler = new Handler();
 
-  private ServiceConnection connection = new ServiceConnection() {
+  private final ServiceConnection connection = new ServiceConnection() {
     @Override
     public void onServiceConnected(ComponentName name, IBinder service) {
       CallRecorder.this.service = ICallRecorderService.Stub.asInterface(service);
@@ -252,7 +252,7 @@ public class CallRecorder implements CallList.Listener {
     progressListeners.remove(listener);
   }
 
-  private Runnable updateRecordingProgressTask = new Runnable() {
+  private final Runnable updateRecordingProgressTask = new Runnable() {
     @Override
     public void run() {
       CallRecording active = getActiveRecording();

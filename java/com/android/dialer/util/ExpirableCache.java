@@ -100,7 +100,7 @@ public class ExpirableCache<K, V> {
    */
   private final AtomicInteger generation;
   /** The underlying cache used to stored the cached values. */
-  private LruCache<K, CachedValue<V>> cache;
+  private final LruCache<K, CachedValue<V>> cache;
 
   private ExpirableCache(LruCache<K, CachedValue<V>> cache) {
     this.cache = cache;

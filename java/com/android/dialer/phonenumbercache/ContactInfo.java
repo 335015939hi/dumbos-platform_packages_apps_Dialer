@@ -132,10 +132,7 @@ public class ContactInfo {
     if (carrierPresence != other.carrierPresence) {
       return false;
     }
-    if (!TextUtils.equals(geoDescription, other.geoDescription)) {
-      return false;
-    }
-    return true;
+      return TextUtils.equals(geoDescription, other.geoDescription);
   }
 
   @Override

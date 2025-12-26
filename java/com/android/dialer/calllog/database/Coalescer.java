@@ -348,11 +348,7 @@ public class Coalescer {
       }
 
       // A RTT call should not be combined with one that is not a RTT call.
-      if ((groupFeatures & Calls.FEATURES_RTT) != (rowFeatures & Calls.FEATURES_RTT)) {
-        return false;
-      }
-
-      return true;
+        return (groupFeatures & Calls.FEATURES_RTT) == (rowFeatures & Calls.FEATURES_RTT);
     }
 
     private boolean meetsDialerPhoneNumberCriteria(Cursor annotatedCallLogRow) {

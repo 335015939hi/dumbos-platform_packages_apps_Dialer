@@ -145,7 +145,7 @@ public class VoicemailPlaybackPresenter
   private FetchResultHandler fetchResultHandler;
 
   private PowerManager.WakeLock proximityWakeLock;
-  private VoicemailAudioManager voicemailAudioManager;
+  private final VoicemailAudioManager voicemailAudioManager;
   private OnVoicemailDeletedListener onVoicemailDeletedListener;
   private View shareVoicemailButtonView;
 
@@ -1055,7 +1055,7 @@ public class VoicemailPlaybackPresenter
 
     private final Handler fetchResultHandler;
     private final Uri voicemailUri;
-    private AtomicBoolean isWaitingForResult = new AtomicBoolean(true);
+    private final AtomicBoolean isWaitingForResult = new AtomicBoolean(true);
 
     public FetchResultHandler(Handler handler, Uri uri, int code) {
       super(handler);

@@ -338,7 +338,7 @@ class ContactPhotoManagerImpl extends ContactPhotoManager implements Callback {
       LogUtil.d(
           "ContactPhotoManagerImpl.dumpStats",
           "L1 Stats: "
-              + bitmapHolderCache.toString()
+              + bitmapHolderCache
               + ", overwrite: fresh="
               + freshCacheOverwrite.get()
               + " stale="
@@ -890,14 +890,11 @@ class ContactPhotoManagerImpl extends ContactPhotoManager implements Callback {
       if (requestedExtent != that.requestedExtent) {
         return false;
       }
-      if (!UriUtils.areEqual(uri, that.uri)) {
-        return false;
-      }
+        return UriUtils.areEqual(uri, that.uri);
       // Don't compare equality of mDarkTheme because it is only used in the default contact
       // photo case. When the contact does have a photo, the contact photo is the same
       // regardless of mDarkTheme, so we shouldn't need to put the photo request on the queue
       // twice.
-      return true;
     }
 
     public Object getKey() {

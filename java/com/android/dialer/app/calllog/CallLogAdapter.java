@@ -143,7 +143,7 @@ public class CallLogAdapter extends GroupingListAdapter
   private final CallLogGroupBuilder callLogGroupBuilder;
 
   private final AsyncTaskExecutor asyncTaskExecutor = AsyncTaskExecutors.createAsyncTaskExecutor();
-  private ContactInfoCache contactInfoCache;
+  private final ContactInfoCache contactInfoCache;
   // Tracks the position of the currently expanded list item.
   private int currentlyExpandedPosition = androidx.recyclerview.widget.RecyclerView.NO_POSITION;
   // Tracks the rowId of the currently expanded list item, so the position can be updated if there
@@ -475,7 +475,7 @@ public class CallLogAdapter extends GroupingListAdapter
    * if removing an item, it will be shown as an invisible view. This simplifies the calculation of
    * item position.
    */
-  @NonNull private Set<Long> hiddenRowIds = new ArraySet<>();
+  @NonNull private final Set<Long> hiddenRowIds = new ArraySet<>();
   /**
    * Holds a list of URIs that are pending deletion or undo. If the activity ends before the undo
    * timeout, all of the pending URIs will be deleted.
@@ -486,7 +486,7 @@ public class CallLogAdapter extends GroupingListAdapter
    */
   @NonNull private final Set<Uri> hiddenItemUris = new ArraySet<>();
 
-  private CallLogListItemViewHolder.OnClickListener blockReportSpamListener;
+  private final CallLogListItemViewHolder.OnClickListener blockReportSpamListener;
 
   /**
    * Map, keyed by call ID, used to track the callback action for a call. Calls associated with the
@@ -845,10 +845,7 @@ public class CallLogAdapter extends GroupingListAdapter
     if (isHideableEmergencyNumberRow(number)) {
       return true;
     }
-    if (hiddenRowIds.contains(rowId)) {
-      return true;
-    }
-    return false;
+      return hiddenRowIds.contains(rowId);
   }
 
   private boolean isHideableEmergencyNumberRow(@Nullable String number) {

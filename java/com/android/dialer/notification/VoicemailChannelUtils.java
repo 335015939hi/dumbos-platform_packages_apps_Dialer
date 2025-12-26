@@ -208,10 +208,7 @@ import com.android.dialer.R;
     if (phoneAccount == null) {
       return false;
     }
-    if (!phoneAccount.hasCapabilities(PhoneAccount.CAPABILITY_SIM_SUBSCRIPTION)) {
-      return false;
-    }
-    return true;
+      return phoneAccount.hasCapabilities(PhoneAccount.CAPABILITY_SIM_SUBSCRIPTION);
   }
 
   private static NotificationChannel newChannel(

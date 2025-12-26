@@ -75,7 +75,7 @@ public class CameraComposerFragment extends CallComposerFragment
 
   private Uri cameraUri;
   private boolean processingUri;
-  private String[] permissions = new String[] {Manifest.permission.CAMERA};
+  private final String[] permissions = new String[] {Manifest.permission.CAMERA};
   private CameraUriCallback uriCallback;
   private int cameraDirection = CameraInfo.CAMERA_FACING_BACK;
 

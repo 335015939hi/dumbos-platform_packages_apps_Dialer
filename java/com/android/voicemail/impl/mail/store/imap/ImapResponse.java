@@ -134,9 +134,6 @@ public class ImapResponse extends ImapList {
         return false;
       }
     }
-    if (isContinuationRequest != thatResponse.isContinuationRequest) {
-      return false;
-    }
-    return true;
+      return isContinuationRequest == thatResponse.isContinuationRequest;
   }
 }

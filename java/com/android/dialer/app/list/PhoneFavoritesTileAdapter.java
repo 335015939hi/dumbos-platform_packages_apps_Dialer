@@ -74,10 +74,10 @@ public class PhoneFavoritesTileAdapter extends BaseAdapter implements OnDragDrop
   private int numFrequents;
   private int numStarred;
 
-  private ContactTileView.Listener listener;
-  private OnDataSetChangedForAnimationListener dataSetChangedListener;
-  private Context context;
-  private Resources resources;
+  private final ContactTileView.Listener listener;
+  private final OnDataSetChangedForAnimationListener dataSetChangedListener;
+  private final Context context;
+  private final Resources resources;
   private final Comparator<ContactEntry> contactEntryComparator =
       new Comparator<ContactEntry>() {
         @Override

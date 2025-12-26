@@ -27,9 +27,9 @@ public class TouchPointManager {
 
   public static final String TOUCH_POINT = "touchPoint";
 
-  private static TouchPointManager instance = new TouchPointManager();
+  private static final TouchPointManager instance = new TouchPointManager();
 
-  private Point point = new Point();
+  private final Point point = new Point();
 
   /** Private constructor. Instance should only be acquired through getRunningInstance(). */
   private TouchPointManager() {}

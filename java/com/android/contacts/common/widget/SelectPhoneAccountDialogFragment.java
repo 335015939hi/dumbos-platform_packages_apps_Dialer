@@ -225,7 +225,7 @@ public class SelectPhoneAccountDialogFragment extends DialogFragment {
   static class SelectAccountListAdapter
       extends ArrayAdapter<SelectPhoneAccountDialogOptions.Entry> {
 
-    private int mResId;
+    private final int mResId;
     private final SelectPhoneAccountDialogOptions options;
 
     SelectAccountListAdapter(
@@ -257,10 +257,10 @@ public class SelectPhoneAccountDialogFragment extends DialogFragment {
         // Cache views for faster scrolling
         rowView = inflater.inflate(mResId, null);
         holder = new ViewHolder();
-        holder.labelTextView = (TextView) rowView.findViewById(R.id.label);
-        holder.numberTextView = (TextView) rowView.findViewById(R.id.number);
+        holder.labelTextView = rowView.findViewById(R.id.label);
+        holder.numberTextView = rowView.findViewById(R.id.number);
         holder.hintTextView = rowView.findViewById(R.id.hint);
-        holder.imageView = (ImageView) rowView.findViewById(R.id.icon);
+        holder.imageView = rowView.findViewById(R.id.icon);
         rowView.setTag(holder);
       } else {
         rowView = convertView;

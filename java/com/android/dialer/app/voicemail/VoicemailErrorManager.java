@@ -95,7 +95,6 @@ public class VoicemailErrorManager implements CallLogQueryHandler.Listener, Voic
     }
     alertItem.updateStatus(statuses, this);
     // TODO(twyen): a bug support error from multiple sources.
-    return;
   }
 
   @MainThread

@@ -16,6 +16,7 @@
 
 package com.android.contacts.common.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -32,6 +33,7 @@ public class LayoutSuppressingImageView extends AppCompatImageView {
     super(context, attrs);
   }
 
+  @SuppressLint("MissingSuperCall")
   @Override
   public void requestLayout() {
     forceLayout();

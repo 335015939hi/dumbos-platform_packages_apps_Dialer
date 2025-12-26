@@ -50,8 +50,8 @@ public class RemoveView extends FrameLayout {
 
   @Override
   protected void onFinishInflate() {
-    removeText = (TextView) findViewById(R.id.remove_view_text);
-    removeIcon = (ImageView) findViewById(R.id.remove_view_icon);
+    removeText = findViewById(R.id.remove_view_text);
+    removeIcon = findViewById(R.id.remove_view_icon);
     final Resources r = getResources();
     unhighlightedColor = r.getColor(android.R.color.white);
     highlightedColor = r.getColor(R.color.remove_highlighted_text_color);

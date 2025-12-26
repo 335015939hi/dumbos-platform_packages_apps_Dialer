@@ -56,7 +56,7 @@ public class CallLogDurations {
 
     // Since we don't want to update the strings.xml, we need to remove the quotations from the
     // previous implementation.
-    return formatPattern.replace("\'", "");
+    return formatPattern.replace("'", "");
   }
 
   private static CharSequence formatDurationA11y(Context context, long elapsedSeconds) {

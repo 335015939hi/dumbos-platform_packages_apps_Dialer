@@ -38,7 +38,7 @@ public class CallLogAlertManager implements AlertManager {
     this.inflater = inflater;
     this.parent = parent;
     view = inflater.inflate(R.layout.call_log_alert_item, parent, false);
-    container = (ViewGroup) view.findViewById(R.id.container);
+    container = view.findViewById(R.id.container);
   }
 
   @Override

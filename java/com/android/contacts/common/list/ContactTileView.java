@@ -48,8 +48,8 @@ public abstract class ContactTileView extends FrameLayout {
   @Override
   protected void onFinishInflate() {
     super.onFinishInflate();
-    mName = (BidiTextView) findViewById(R.id.contact_tile_name);
-    mPhoto = (ImageView) findViewById(R.id.contact_tile_image);
+    mName = findViewById(R.id.contact_tile_name);
+    mPhoto = findViewById(R.id.contact_tile_image);
 
     OnClickListener listener = createClickListener();
     setOnClickListener(listener);

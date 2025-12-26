@@ -124,9 +124,6 @@ final class ButtonChooser {
     if (mutuallyExclusiveButton == MappingInfo.NO_MUTUALLY_EXCLUSIVE_BUTTON_SET) {
       return false;
     }
-    if (allowedButtons.contains(mutuallyExclusiveButton)) {
-      return true;
-    }
-    return false;
+      return allowedButtons.contains(mutuallyExclusiveButton);
   }
 }

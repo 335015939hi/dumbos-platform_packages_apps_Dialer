@@ -152,7 +152,7 @@ public abstract class VvmNetworkRequestCallback extends ConnectivityManager.Netw
   }
 
   public void requestNetwork() {
-    if (requestSent == true) {
+    if (requestSent) {
       VvmLog.e(TAG, "requestNetwork() called twice");
       return;
     }
@@ -167,7 +167,7 @@ public abstract class VvmNetworkRequestCallback extends ConnectivityManager.Netw
         new Runnable() {
           @Override
           public void run() {
-            if (resultReceived == false) {
+            if (!resultReceived) {
               onFailed(NETWORK_REQUEST_FAILED_TIMEOUT);
             }
           }

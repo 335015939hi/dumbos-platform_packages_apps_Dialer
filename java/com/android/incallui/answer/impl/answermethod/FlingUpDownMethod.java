@@ -196,10 +196,10 @@ public class FlingUpDownMethod extends AnswerMethod implements OnProgressChanged
     View view = layoutInflater.inflate(R.layout.swipe_up_down_method, viewGroup, false);
 
     contactPuckContainer = view.findViewById(R.id.incoming_call_puck_container);
-    contactPuckBackground = (ImageView) view.findViewById(R.id.incoming_call_puck_bg);
-    contactPuckIcon = (ImageView) view.findViewById(R.id.incoming_call_puck_icon);
-    swipeToAnswerText = (TextView) view.findViewById(R.id.incoming_swipe_to_answer_text);
-    swipeToRejectText = (TextView) view.findViewById(R.id.incoming_swipe_to_reject_text);
+    contactPuckBackground = view.findViewById(R.id.incoming_call_puck_bg);
+    contactPuckIcon = view.findViewById(R.id.incoming_call_puck_icon);
+    swipeToAnswerText = view.findViewById(R.id.incoming_swipe_to_answer_text);
+    swipeToRejectText = view.findViewById(R.id.incoming_swipe_to_reject_text);
     incomingDisconnectText = view.findViewById(R.id.incoming_will_disconnect_text);
     incomingDisconnectText.setVisibility(incomingWillDisconnect ? View.VISIBLE : View.GONE);
     incomingDisconnectText.setAlpha(incomingWillDisconnect ? 1 : 0);
@@ -246,7 +246,7 @@ public class FlingUpDownMethod extends AnswerMethod implements OnProgressChanged
             .create(getContext(), ANIMATE_DURATION_LONG_MILLIS, BOUNCE_ANIMATION_DELAY);
     answerHint.onCreateView(
         layoutInflater,
-        (ViewGroup) view.findViewById(R.id.hint_container),
+            view.findViewById(R.id.hint_container),
         contactPuckContainer,
         swipeToAnswerText);
     Trace.endSection();
@@ -1149,7 +1149,7 @@ public class FlingUpDownMethod extends AnswerMethod implements OnProgressChanged
     private static final long RAMP_TOTAL_TIME_MS = RAMP_DOWN_END_MS;
     private final float ampMax;
     private final float freqMax = 80;
-    private Interpolator sliderInterpolator = new FastOutSlowInInterpolator();
+    private final Interpolator sliderInterpolator = new FastOutSlowInInterpolator();
 
     VibrateInterpolator(Context context) {
       ampMax = DpUtil.dpToPx(context, 1 /* dp */);

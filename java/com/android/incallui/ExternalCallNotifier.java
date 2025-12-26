@@ -16,7 +16,7 @@
 
 package com.android.incallui;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -76,7 +76,7 @@ public class ExternalCallNotifier implements ExternalCallList.ExternalCallListen
 
   private final Context context;
   private final ContactInfoCache contactInfoCache;
-  private Map<Call, NotificationInfo> notifications = new ArrayMap<>();
+  private final Map<Call, NotificationInfo> notifications = new ArrayMap<>();
   private int nextUniqueNotificationId;
 
   /** Initializes a new instance of the external call notifier. */
@@ -129,7 +129,7 @@ public class ExternalCallNotifier implements ExternalCallList.ExternalCallListen
    * @param notificationId The notification ID associated with the external call which is to be
    *     pulled.
    */
-  @TargetApi(VERSION_CODES.N_MR1)
+  @RequiresApi(VERSION_CODES.N_MR1)
   public void pullExternalCall(int notificationId) {
     for (NotificationInfo info : notifications.values()) {
       if (info.getNotificationId() == notificationId
@@ -267,11 +267,9 @@ public class ExternalCallNotifier implements ExternalCallList.ExternalCallListen
               .build());
     }
 
-    /**
-     * This builder is used for the notification shown when the device is locked and the user has
-     * set their notification settings to 'hide sensitive content' {@see
-     * Notification.Builder#setPublicVersion}.
-     */
+    // This builder is used for the notification shown when the device is locked and the user has
+    // set their notification settings to 'hide sensitive content'.
+    // See Notification.Builder#setPublicVersion.
     Notification.Builder publicBuilder = new Notification.Builder(context);
     publicBuilder.setSmallIcon(R.drawable.quantum_ic_call_white_24);
     publicBuilder.setColor(ThemeComponent.get(context).theme().getColorPrimary());
@@ -310,7 +308,7 @@ public class ExternalCallNotifier implements ExternalCallList.ExternalCallListen
           BitmapFactory.decodeResource(
               context.getResources(), R.drawable.quantum_ic_group_vd_theme_24);
     }
-    if (contactInfo.photo != null && (contactInfo.photo instanceof BitmapDrawable)) {
+    if (contactInfo.photo instanceof BitmapDrawable) {
       largeIcon = ((BitmapDrawable) contactInfo.photo).getBitmap();
     }
     return largeIcon;
@@ -410,6 +408,7 @@ public class ExternalCallNotifier implements ExternalCallList.ExternalCallListen
       this.notificationId = notificationId;
     }
 
+    @NonNull
     public Call getCall() {
       return call;
     }

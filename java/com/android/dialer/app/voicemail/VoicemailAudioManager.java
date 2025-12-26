@@ -32,9 +32,9 @@ public final class VoicemailAudioManager
 
   public static final int PLAYBACK_STREAM = AudioManager.STREAM_VOICE_CALL;
 
-  private AudioManager audioManager;
-  private VoicemailPlaybackPresenter voicemailPlaybackPresenter;
-  private WiredHeadsetManager wiredHeadsetManager;
+  private final AudioManager audioManager;
+  private final VoicemailPlaybackPresenter voicemailPlaybackPresenter;
+  private final WiredHeadsetManager wiredHeadsetManager;
   private boolean wasSpeakerOn;
   private CallAudioState callAudioState;
   private boolean bluetoothScoEnabled;

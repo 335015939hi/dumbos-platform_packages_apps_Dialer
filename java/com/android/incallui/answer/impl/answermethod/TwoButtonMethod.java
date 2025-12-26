@@ -79,7 +79,7 @@ public class TwoButtonMethod extends AnswerMethod
       LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
     View view = layoutInflater.inflate(R.layout.two_button_method, viewGroup, false);
 
-    hintTextView = (TextView) view.findViewById(R.id.two_button_hint_text);
+    hintTextView = view.findViewById(R.id.two_button_hint_text);
     updateHintText();
 
     answerButton = view.findViewById(R.id.two_button_answer_button);

@@ -39,9 +39,9 @@ public class VoicemailStatusQueryHelper {
   public static final int NOTIFICATION_CHANNEL_STATE = 2;
   public static final int SOURCE_PACKAGE = 3;
 
-  private Context context;
-  private ContentResolver contentResolver;
-  private Uri sourceUri;
+  private final Context context;
+  private final ContentResolver contentResolver;
+  private final Uri sourceUri;
 
   public VoicemailStatusQueryHelper(Context context) {
     this.context = context;

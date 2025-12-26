@@ -82,7 +82,7 @@ public class InCallFragment extends Fragment
         AudioRouteSelectorPresenter,
         OnButtonGridCreatedListener {
 
-  private List<ButtonController> buttonControllers = new ArrayList<>();
+  private final List<ButtonController> buttonControllers = new ArrayList<>();
   private View endCallButton;
   private InCallPaginator paginator;
   private LockableViewPager pager;
@@ -161,13 +161,13 @@ public class InCallFragment extends Fragment
     contactGridManager =
         new ContactGridManager(
             view,
-            (ImageView) view.findViewById(R.id.contactgrid_avatar),
+                view.findViewById(R.id.contactgrid_avatar),
             getResources().getDimensionPixelSize(R.dimen.incall_avatar_size),
             true /* showAnonymousAvatar */);
     contactGridManager.onMultiWindowModeChanged(getActivity().isInMultiWindowMode());
 
-    paginator = (InCallPaginator) view.findViewById(R.id.incall_paginator);
-    pager = (LockableViewPager) view.findViewById(R.id.incall_pager);
+    paginator = view.findViewById(R.id.incall_paginator);
+    pager = view.findViewById(R.id.incall_pager);
     pager.setOnTouchListener(
         (v, event) -> {
           handler.removeCallbacks(pagerRunnable);

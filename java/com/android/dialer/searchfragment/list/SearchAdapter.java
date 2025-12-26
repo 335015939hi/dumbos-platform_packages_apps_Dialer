@@ -49,7 +49,7 @@ public final class SearchAdapter extends androidx.recyclerview.widget.RecyclerVi
   private String rawNumber;
   private OnClickListener allowClickListener;
   private OnClickListener dismissClickListener;
-  private RowClickListener rowClickListener;
+  private final RowClickListener rowClickListener;
 
   @VisibleForTesting(otherwise = VisibleForTesting.PACKAGE_PRIVATE)
   public SearchAdapter(

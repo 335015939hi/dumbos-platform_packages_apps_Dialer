@@ -150,10 +150,7 @@ abstract class DialerShortcut {
     if (!oldInfo.getShortLabel().equals(this.getShortLabel())) {
       return true;
     }
-    if (!oldInfo.getLongLabel().equals(this.getLongLabel())) {
-      return true;
-    }
-    return false;
+      return !oldInfo.getLongLabel().equals(this.getLongLabel());
   }
 
   static Builder builder() {

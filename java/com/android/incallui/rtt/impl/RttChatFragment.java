@@ -301,11 +301,7 @@ public class RttChatFragment extends Fragment
 
   @Override
   public void afterTextChanged(Editable s) {
-    if (TextUtils.isEmpty(s)) {
-      submitButton.setEnabled(false);
-    } else {
-      submitButton.setEnabled(true);
-    }
+      submitButton.setEnabled(!TextUtils.isEmpty(s));
   }
 
   @Override

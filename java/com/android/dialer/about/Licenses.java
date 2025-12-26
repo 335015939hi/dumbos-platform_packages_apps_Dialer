@@ -23,6 +23,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import com.android.dialer.R;
@@ -98,10 +99,6 @@ public final class Licenses {
     } catch (IOException e) {
       throw new RuntimeException("Failed to read license or metadata text.", e);
     }
-    try {
-      return textArray.toString("UTF-8");
-    } catch (UnsupportedEncodingException e) {
-      throw new RuntimeException("Unsupported encoding UTF8. This should always be supported.", e);
-    }
+      return textArray.toString(StandardCharsets.UTF_8);
   }
 }

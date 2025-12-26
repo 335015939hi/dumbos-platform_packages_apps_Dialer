@@ -91,8 +91,7 @@ public class Vvm3Subscriber {
   private static final String TRANSACTION_ID_TAG = "transactionid";
   // language=XML
   private static final String VMG_XML_REQUEST_FORMAT =
-      ""
-          + "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+      "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
           + "<VMGVVMRequest>"
           + "  <MessageHeader>"
           + "    <transactionid>%1$s</transactionid>"

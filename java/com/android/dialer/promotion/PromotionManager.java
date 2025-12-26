@@ -30,7 +30,7 @@ import javax.inject.Inject;
 public final class PromotionManager {
 
   /** Promotion priority order list. Promotions with higher priority must be added first. */
-  private ImmutableList<Promotion> priorityPromotionList;
+  private final ImmutableList<Promotion> priorityPromotionList;
 
   @Inject
   public PromotionManager(ImmutableList<Promotion> priorityPromotionList) {

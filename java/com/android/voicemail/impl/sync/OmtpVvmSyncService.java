@@ -132,7 +132,6 @@ public class OmtpVvmSyncService {
       }
     } catch (InitializingException e) {
       VvmLog.w(TAG, "Can't retrieve Imap credentials.", e);
-      return;
     }
   }
 
@@ -324,8 +323,8 @@ public class OmtpVvmSyncService {
   /** Callback for {@link ImapHelper#fetchTranscription(TranscriptionFetchedCallback, String)} */
   public static class TranscriptionFetchedCallback {
 
-    private Context context;
-    private Voicemail voicemail;
+    private final Context context;
+    private final Voicemail voicemail;
 
     public TranscriptionFetchedCallback(Context context, Voicemail voicemail) {
       this.context = context;

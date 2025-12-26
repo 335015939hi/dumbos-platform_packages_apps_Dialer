@@ -172,9 +172,9 @@ public class ConfigOverrideFragment extends PreferenceFragment
       result.append(element);
     }
     return result.toString();
-  };
+  }
 
-  private static String[] fromCsv(String csv) {
+    private static String[] fromCsv(String csv) {
     return csv.split(",");
   }
 }

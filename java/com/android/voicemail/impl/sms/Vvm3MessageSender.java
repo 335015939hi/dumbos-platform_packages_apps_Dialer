@@ -51,7 +51,6 @@ public class Vvm3MessageSender extends OmtpMessageSender {
   public void requestVvmStatus(@Nullable PendingIntent sentIntent) {
     // Status message:
     // STATUS
-    StringBuilder sb = new StringBuilder().append("STATUS");
-    sendSms(sb.toString(), sentIntent);
+      sendSms("STATUS", sentIntent);
   }
 }

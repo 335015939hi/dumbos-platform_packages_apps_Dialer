@@ -196,7 +196,7 @@ public class SmartDialNameMatcher {
       }
       numberAt++;
     }
-    return new SmartDialMatchPosition(0 + offset, numberAt);
+    return new SmartDialMatchPosition(offset, numberAt);
   }
 
   /**

@@ -41,7 +41,7 @@ public class InCallCameraManager {
    */
   private boolean isInitialized = false;
   /** The context. */
-  private Context context;
+  private final Context context;
 
   /**
    * Initializes the InCall CameraManager.

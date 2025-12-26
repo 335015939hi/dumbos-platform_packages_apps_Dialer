@@ -101,7 +101,7 @@ public class MailTransport {
    * SSL connection if indicated.
    */
   public void open() throws MessagingException {
-    LogUtils.d(TAG, "*** IMAP open " + host + ":" + String.valueOf(port));
+    LogUtils.d(TAG, "*** IMAP open " + host + ":" + port);
 
     List<InetSocketAddress> socketAddresses = new ArrayList<InetSocketAddress>();
 

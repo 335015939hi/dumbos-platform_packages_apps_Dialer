@@ -60,9 +60,9 @@ public class SwipeButtonView extends AppCompatImageView {
   private ValueAnimator scaleAnimator;
   private float circleStartValue;
   private boolean circleWillBeHidden;
-  private int[] tempPoint = new int[2];
+  private final int[] tempPoint = new int[2];
   private float tmageScale = 1f;
-  private int circleColor;
+  private final int circleColor;
   private View previewView;
   private float circleStartRadius;
   private float maxCircleSize;
@@ -71,28 +71,28 @@ public class SwipeButtonView extends AppCompatImageView {
   private boolean finishing;
   private boolean launchingAffordance;
 
-  private AnimatorListenerAdapter clipEndListener =
+  private final AnimatorListenerAdapter clipEndListener =
       new AnimatorListenerAdapter() {
         @Override
         public void onAnimationEnd(Animator animation) {
           previewClipper = null;
         }
       };
-  private AnimatorListenerAdapter circleEndListener =
+  private final AnimatorListenerAdapter circleEndListener =
       new AnimatorListenerAdapter() {
         @Override
         public void onAnimationEnd(Animator animation) {
           circleAnimator = null;
         }
       };
-  private AnimatorListenerAdapter scaleEndListener =
+  private final AnimatorListenerAdapter scaleEndListener =
       new AnimatorListenerAdapter() {
         @Override
         public void onAnimationEnd(Animator animation) {
           scaleAnimator = null;
         }
       };
-  private AnimatorListenerAdapter alphaEndListener =
+  private final AnimatorListenerAdapter alphaEndListener =
       new AnimatorListenerAdapter() {
         @Override
         public void onAnimationEnd(Animator animation) {

@@ -52,12 +52,11 @@ public class PostCharDialogFragment extends DialogFragment {
       postDialStr = savedInstanceState.getString(STATE_POST_CHARS);
     }
 
-    final StringBuilder buf = new StringBuilder();
-    buf.append(getResources().getText(R.string.wait_prompt_str));
-    buf.append(postDialStr);
+      String buf = getResources().getText(R.string.wait_prompt_str) +
+              postDialStr;
 
     final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-    builder.setMessage(buf.toString());
+    builder.setMessage(buf);
 
     builder.setPositiveButton(
         R.string.pause_prompt_yes,

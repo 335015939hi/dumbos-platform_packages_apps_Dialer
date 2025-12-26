@@ -62,13 +62,13 @@ public class CurrentVoicemailGreetingActivity extends Activity {
     setContentView(R.layout.activity_current_voicemail_greeting);
 
     playbackDisplay = findViewById(R.id.current_voicemail_greeting_recording_display);
-    playbackProgressLabel = (TextView) findViewById(R.id.playback_progress_text_view);
-    currentVoicemailGreetingDialerToolbar = (DialerToolbar) findViewById(R.id.toolbar);
+    playbackProgressLabel = findViewById(R.id.playback_progress_text_view);
+    currentVoicemailGreetingDialerToolbar = findViewById(R.id.toolbar);
 
     currentVoicemailGreetingDialerToolbar.setTitle(
         R.string.voicemail_change_greeting_preference_title);
 
-    changeGreetingButton = (ImageButton) findViewById(R.id.change_greeting_button);
+    changeGreetingButton = findViewById(R.id.change_greeting_button);
     changeGreetingButton.setOnClickListener(
         new OnClickListener() {
           @Override
@@ -77,7 +77,7 @@ public class CurrentVoicemailGreetingActivity extends Activity {
           }
         });
 
-    playButton = (ImageButton) findViewById(R.id.play_button);
+    playButton = findViewById(R.id.play_button);
     playButton.setOnClickListener(
         new OnClickListener() {
           @Override

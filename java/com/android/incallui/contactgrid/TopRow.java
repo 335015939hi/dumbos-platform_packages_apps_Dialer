@@ -136,10 +136,7 @@ public class TopRow {
     if (primaryInfo.isLocalContact() && !isIncoming) {
       return false;
     }
-    if (TextUtils.isEmpty(primaryInfo.number())) {
-      return false;
-    }
-    return true;
+      return !TextUtils.isEmpty(primaryInfo.number());
   }
 
   private static CharSequence getLabelForIncoming(Context context, PrimaryCallState state) {

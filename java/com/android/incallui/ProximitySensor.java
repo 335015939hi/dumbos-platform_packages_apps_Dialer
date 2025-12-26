@@ -269,7 +269,7 @@ public class ProximitySensor
    */
   public class ProximityDisplayListener implements DisplayListener {
 
-    private DisplayManager displayManager;
+    private final DisplayManager displayManager;
     private boolean isDisplayOn = true;
 
     ProximityDisplayListener(DisplayManager displayManager) {

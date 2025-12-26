@@ -215,10 +215,7 @@ public class PhoneNumberHelper {
     if (isVoicemailNumber(context, accountHandle, number)) {
       return false;
     }
-    if (isLegacyUnknownNumbers(number)) {
-      return false;
-    }
-    return true;
+      return !isLegacyUnknownNumbers(number);
   }
 
   public static boolean isLegacyUnknownNumbers(CharSequence number) {

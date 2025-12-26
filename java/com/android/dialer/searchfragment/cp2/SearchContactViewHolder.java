@@ -237,10 +237,8 @@ public final class SearchContactViewHolder extends ViewHolder implements OnClick
     }
 
     // TODO(calderwoodra): implement SearchCursor#getHeaderCount
-    if (cursor.getCount() <= 5) { // 4 contacts + 1 header row element
-      return true;
-    }
-    return false;
+      // 4 contacts + 1 header row element
+      return cursor.getCount() <= 5;
   }
 
   @Override

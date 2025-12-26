@@ -88,7 +88,7 @@ public class SearchEditTextLayout extends FrameLayout {
 
     collapsed = findViewById(R.id.search_box_collapsed);
     expanded = findViewById(R.id.search_box_expanded);
-    searchView = (EditText) expanded.findViewById(R.id.search_view);
+    searchView = expanded.findViewById(R.id.search_view);
 
     searchIcon = findViewById(R.id.search_magnifying_glass);
     collapsedSearchBox = findViewById(R.id.search_box_start_search);

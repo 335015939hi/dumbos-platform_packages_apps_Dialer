@@ -91,11 +91,7 @@ public final class ContactInfoRequest implements Comparable<ContactInfoRequest> 
       return false;
     }
 
-    if (type != other.type) {
-      return false;
-    }
-
-    return true;
+      return type == other.type;
   }
 
   public boolean isLocalRequest() {

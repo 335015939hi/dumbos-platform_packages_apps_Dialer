@@ -99,7 +99,7 @@ public class VoicemailChangePinActivity extends Activity
   private Button cancelButton;
   private Button nextButton;
 
-  private Handler handler = new ChangePinHandler(new WeakReference<>(this));
+  private final Handler handler = new ChangePinHandler(new WeakReference<>(this));
 
   private enum State {
     /**
@@ -340,21 +340,21 @@ public class VoicemailChangePinActivity extends Activity
 
     View view = findViewById(android.R.id.content);
 
-    cancelButton = (Button) view.findViewById(R.id.cancel_button);
+    cancelButton = view.findViewById(R.id.cancel_button);
     cancelButton.setOnClickListener(this);
-    nextButton = (Button) view.findViewById(R.id.next_button);
+    nextButton = view.findViewById(R.id.next_button);
     nextButton.setOnClickListener(this);
 
-    pinEntry = (EditText) view.findViewById(R.id.pin_entry);
+    pinEntry = view.findViewById(R.id.pin_entry);
     pinEntry.setOnEditorActionListener(this);
     pinEntry.addTextChangedListener(this);
     if (pinMaxLength != 0) {
       pinEntry.setFilters(new InputFilter[] {new LengthFilter(pinMaxLength)});
     }
 
-    headerText = (TextView) view.findViewById(R.id.headerText);
-    hintText = (TextView) view.findViewById(R.id.hintText);
-    errorText = (TextView) view.findViewById(R.id.errorText);
+    headerText = view.findViewById(R.id.headerText);
+    hintText = view.findViewById(R.id.hintText);
+    errorText = view.findViewById(R.id.errorText);
 
     changePinExecutor =
         DialerExecutorComponent.get(this)

@@ -146,9 +146,7 @@ public class ReturnToCallActionReceiver extends BroadcastReceiver {
       if (call == null) {
         call = callList.getActiveOrBackgroundCall();
       }
-      if (call != null) {
         return call;
-      }
     }
     return null;
   }

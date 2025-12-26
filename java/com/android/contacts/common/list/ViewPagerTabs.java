@@ -71,7 +71,7 @@ public class ViewPagerTabs extends HorizontalScrollView implements ViewPager.OnP
   ViewPager mPager;
   int mPrevSelected = -1;
   int mSidePadding;
-  private ViewPagerTabStrip mTabStrip;
+  private final ViewPagerTabStrip mTabStrip;
   private int[] mTabIcons;
   // For displaying the unread count next to the tab icon.
   private int[] mUnreadCounts;
@@ -144,7 +144,7 @@ public class ViewPagerTabs extends HorizontalScrollView implements ViewPager.OnP
       View iconView = layout.findViewById(R.id.icon);
       iconView.setBackgroundResource(mTabIcons[position]);
       iconView.setContentDescription(tabTitle);
-      TextView textView = (TextView) layout.findViewById(R.id.count);
+      TextView textView = layout.findViewById(R.id.count);
       if (mUnreadCounts != null && mUnreadCounts[position] > 0) {
         textView.setText(Integer.toString(mUnreadCounts[position]));
         textView.setVisibility(View.VISIBLE);

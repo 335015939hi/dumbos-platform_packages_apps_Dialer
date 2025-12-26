@@ -51,9 +51,7 @@ public abstract class CarrierIdentifierMatcher {
       return false;
     }
     if (gid1().isPresent()) {
-      if (!gid1().get().equalsIgnoreCase(carrierIdentifier.gid1())) {
-        return false;
-      }
+        return gid1().get().equalsIgnoreCase(carrierIdentifier.gid1());
     }
     return true;
   }

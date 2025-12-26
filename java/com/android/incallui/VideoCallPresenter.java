@@ -128,7 +128,7 @@ public class VideoCallPresenter
    * enter fullscreen mode if the dialpad is visible (doing so would make it impossible to exit the
    * dialpad).
    */
-  private Runnable autoFullscreenRunnable =
+  private final Runnable autoFullscreenRunnable =
       new Runnable() {
         @Override
         public void run() {
@@ -837,11 +837,7 @@ public class VideoCallPresenter
       return true;
     }
 
-    if (isVideoUpgrade(call)) {
-      return true;
-    }
-
-    return false;
+      return isVideoUpgrade(call);
   }
 
   private void enableCamera(DialerCall call, boolean isCameraRequired) {
