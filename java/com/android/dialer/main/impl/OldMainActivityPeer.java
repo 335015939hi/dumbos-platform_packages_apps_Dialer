@@ -369,18 +369,8 @@ public class OldMainActivityPeer implements MainActivityPeer, FragmentUtilListen
    *     for the carrier.
    */
   private static boolean canVoicemailTabBeShown(Context context) {
-    PhoneAccountHandle defaultUserSelectedAccount =
-        TelecomUtil.getDefaultOutgoingPhoneAccount(context, PhoneAccount.SCHEME_VOICEMAIL);
-
-    if (!isVoicemailAvailable(context, defaultUserSelectedAccount)) {
-      LogUtil.i("OldMainActivityPeer.canVoicemailTabBeShown", "Voicemail is not available");
-      return false;
-    }
-
-    // Show the voicemail tab if voicemail is available (has voicemail number).
-    // Visual voicemail being enabled is not required - the tab should be visible
-    // as long as the user has voicemail capability.
-    LogUtil.i("OldMainActivityPeer.canVoicemailTabBeShown", "Voicemail is available, showing tab");
+    // Always show the voicemail tab. If permissions are not granted, the voicemail
+    // fragment will show a banner prompting the user to grant permissions.
     return true;
   }
 
