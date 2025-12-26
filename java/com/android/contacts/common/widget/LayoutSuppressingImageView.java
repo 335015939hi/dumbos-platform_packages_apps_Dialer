@@ -21,7 +21,7 @@ import android.util.AttributeSet;
 import androidx.appcompat.widget.AppCompatImageView;
 
 /**
- * Custom {@link ImageView} that improves layouting performance.
+ * Custom ImageView that improves layouting performance.
  *
  * <p>This improves the performance by not passing requestLayout() to its parent, taking advantage
  * of knowing that image size won't change once set.

@@ -737,9 +737,12 @@ public class StatusBarNotifier
 
   private String getOngoingCallNotificationMessage(boolean isWorkCall) {
     if (isWorkCall) {
-      DevicePolicyManager dpm = context.getSystemService(DevicePolicyManager.class);
-      return dpm.getResources().getString(NOTIFICATION_ONGOING_WORK_CALL_TITLE, () ->
-              context.getString(R.string.notification_ongoing_work_call));
+      if (VERSION.SDK_INT >= VERSION_CODES.TIRAMISU) {
+        DevicePolicyManager dpm = context.getSystemService(DevicePolicyManager.class);
+        return dpm.getResources().getString(NOTIFICATION_ONGOING_WORK_CALL_TITLE, () ->
+                context.getString(R.string.notification_ongoing_work_call));
+      }
+      return context.getString(R.string.notification_ongoing_work_call);
     } else {
       return context.getString(R.string.notification_ongoing_call);
     }
@@ -747,9 +750,12 @@ public class StatusBarNotifier
 
   private String getIncomingCallNotificationMessage(boolean isWorkCall) {
     if (isWorkCall) {
-      DevicePolicyManager dpm = context.getSystemService(DevicePolicyManager.class);
-      return dpm.getResources().getString(NOTIFICATION_INCOMING_WORK_CALL_TITLE, () ->
-              context.getString(R.string.notification_incoming_work_call));
+      if (VERSION.SDK_INT >= VERSION_CODES.TIRAMISU) {
+        DevicePolicyManager dpm = context.getSystemService(DevicePolicyManager.class);
+        return dpm.getResources().getString(NOTIFICATION_INCOMING_WORK_CALL_TITLE, () ->
+                context.getString(R.string.notification_incoming_work_call));
+      }
+      return context.getString(R.string.notification_incoming_work_call);
     } else {
       return context.getString(R.string.notification_incoming_call);
     }
@@ -757,9 +763,12 @@ public class StatusBarNotifier
 
   private String getWifiBrand(boolean isWorkCall) {
     if (isWorkCall) {
-      DevicePolicyManager dpm = context.getSystemService(DevicePolicyManager.class);
-      return dpm.getResources().getString(NOTIFICATION_WIFI_WORK_CALL_LABEL, () ->
-              context.getString(R.string.notification_call_wifi_work_brand));
+      if (VERSION.SDK_INT >= VERSION_CODES.TIRAMISU) {
+        DevicePolicyManager dpm = context.getSystemService(DevicePolicyManager.class);
+        return dpm.getResources().getString(NOTIFICATION_WIFI_WORK_CALL_LABEL, () ->
+                context.getString(R.string.notification_call_wifi_work_brand));
+      }
+      return context.getString(R.string.notification_call_wifi_work_brand);
     } else {
       return context.getString(R.string.notification_call_wifi_brand);
     }

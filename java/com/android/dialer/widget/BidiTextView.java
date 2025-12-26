@@ -22,7 +22,7 @@ import android.util.AttributeSet;
 import androidx.appcompat.widget.AppCompatTextView;
 import com.android.dialer.i18n.DialerBidiFormatter;
 
-/** A {@link TextView} that applies bidirectional formatting to its text. */
+/** A TextView that applies bidirectional formatting to its text. */
 public final class BidiTextView extends AppCompatTextView {
 
   public BidiTextView(Context context) {

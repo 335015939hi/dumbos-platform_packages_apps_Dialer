@@ -14,6 +14,23 @@
  * limitations under the License
  */
 
+/*
+ * TODO: DEPRECATED - Google Voicemail Transcription Service
+ *
+ * This gRPC service definition connects to Google's voicemail transcription backend
+ * (voicemailtranscription-pa.googleapis.com). The transcription feature has been DISABLED
+ * in TranscriptionConfigProvider to remove the Google Play Services dependency.
+ *
+ * To implement an open-source alternative:
+ * 1. Choose a speech-to-text service (Whisper, Vosk, Coqui STT, etc.)
+ * 2. Create a new gRPC service definition or REST client for that service
+ * 3. Update TranscriptionClient to use the new service
+ * 4. Re-enable transcription in TranscriptionConfigProvider
+ *
+ * This file can be removed entirely once an alternative is implemented, or kept as
+ * reference for the expected API contract.
+ */
+
 package com.google.internal.communications.voicemailtranscription.v1;
 
 import static io.grpc.stub.ClientCalls.asyncUnaryCall;

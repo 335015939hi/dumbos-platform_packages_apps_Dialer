@@ -38,6 +38,13 @@ public class GoogleAccountType extends BaseAccountType {
    * The package name that we should load contacts.xml from and rely on to handle G+ account
    * actions. Even though this points to gms, in some cases gms will still hand off responsibility
    * to the G+ app.
+   *
+   * <p>NOTE: This is a package name reference only and does not create a runtime dependency on
+   * Google Play Services. The app will function normally if GMS is not installed - contact
+   * extensions from GMS will simply not be available.
+   *
+   * <p>TODO: Consider removing G+ extension support entirely if not needed, or replace with
+   * an open-source contacts extension mechanism.
    */
   public static final String PLUS_EXTENSION_PACKAGE_NAME = "com.google.android.gms";
 

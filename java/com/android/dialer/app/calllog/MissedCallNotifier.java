@@ -28,6 +28,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Icon;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.CallLog.Calls;
 import android.service.notification.StatusBarNotification;
@@ -176,9 +177,13 @@ public class MissedCallNotifier implements Worker<Pair<Integer, String>, Void> {
           callLogNotificationsQueryHelper.getContactInfo(
               call.number, call.numberPresentation, call.countryIso);
       if (contactInfo.userType == ContactsUtils.USER_TYPE_WORK) {
-        titleText = context.getSystemService(DevicePolicyManager.class).getResources().getString(
-                NOTIFICATION_MISSED_WORK_CALL_TITLE,
-                () -> context.getString(R.string.notification_missedWorkCallTitle));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+          titleText = context.getSystemService(DevicePolicyManager.class).getResources().getString(
+                  NOTIFICATION_MISSED_WORK_CALL_TITLE,
+                  () -> context.getString(R.string.notification_missedWorkCallTitle));
+        } else {
+          titleText = context.getString(R.string.notification_missedWorkCallTitle);
+        }
       } else {
         titleText = context.getString(R.string.notification_missedCallTitle);
       }
@@ -506,10 +511,14 @@ public class MissedCallNotifier implements Worker<Pair<Integer, String>, Void> {
   private void closeSystemDialogs(Context context) {
     final Intent intent = new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)
             .addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
-    final Bundle options = BroadcastOptions.makeBasic()
-            .setDeliveryGroupPolicy(BroadcastOptions.DELIVERY_GROUP_POLICY_MOST_RECENT)
-            .setDeferralPolicy(BroadcastOptions.DEFERRAL_POLICY_UNTIL_ACTIVE)
-            .toBundle();
-    context.sendBroadcast(intent, null /* receiverPermission */, options);
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+      final Bundle options = BroadcastOptions.makeBasic()
+              .setDeliveryGroupPolicy(BroadcastOptions.DELIVERY_GROUP_POLICY_MOST_RECENT)
+              .setDeferralPolicy(BroadcastOptions.DEFERRAL_POLICY_UNTIL_ACTIVE)
+              .toBundle();
+      context.sendBroadcast(intent, null /* receiverPermission */, options);
+    } else {
+      context.sendBroadcast(intent);
+    }
   }
 }

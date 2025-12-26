@@ -87,8 +87,8 @@ public class ExternalCallNotifier implements ExternalCallList.ExternalCallListen
   }
 
   /**
-   * Handles the addition of a new external call by showing a new notification. Triggered by {@link
-   * CallList#onCallAdded(android.telecom.Call)}.
+   * Handles the addition of a new external call by showing a new notification. Triggered by
+   * CallList.onCallAdded(android.telecom.Call).
    */
   @Override
   public void onExternalCallAdded(android.telecom.Call call) {
@@ -102,7 +102,7 @@ public class ExternalCallNotifier implements ExternalCallList.ExternalCallListen
 
   /**
    * Handles the removal of an external call by hiding its associated notification. Triggered by
-   * {@link CallList#onCallRemoved(android.telecom.Call)}.
+   * CallList.onCallRemoved(android.telecom.Call).
    */
   @Override
   public void onExternalCallRemoved(android.telecom.Call call) {
