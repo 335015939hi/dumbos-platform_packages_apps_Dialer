@@ -19,18 +19,20 @@
   <!-- Used on sdk 27 and above -->
   <!-- TODO(a bug): refactor into dialer/theme -->
   <style name="MainActivityTheme" parent="MainActivityThemeBase">
-    <!-- Used to change the navigation bar color -->
+    <!-- Status bar: dark icons on light background -->
+    <item name="android:windowLightStatusBar">true</item>
+    <!-- Navigation bar: light icons on dark background -->
     <item name="android:windowLightNavigationBar">true</item>
-    <item name="android:navigationBarColor">?android:attr/colorBackgroundFloating</item>
-    <item name="android:navigationBarDividerColor">#E0E0E0</item>
+    <item name="android:navigationBarColor">@android:color/black</item>
+    <item name="android:navigationBarDividerColor">#424242</item>
   </style>
 
   <!-- Used on sdk 27 and above -->
   <!-- TODO(a bug): refactor into dialer/theme -->
   <style name="MainActivityTheme.Dark" parent="MainActivityThemeBase.Dark">
     <!-- Used to change the navigation bar color -->
-    <item name="android:windowLightNavigationBar">true</item>
-    <item name="android:navigationBarColor">?android:attr/colorBackgroundFloating</item>
+    <item name="android:windowLightNavigationBar">false</item>
+    <item name="android:navigationBarColor">@android:color/white</item>
     <item name="android:navigationBarDividerColor">#E0E0E0</item>
   </style>
 </resources>
