@@ -134,6 +134,9 @@ final class VisualVoicemailNotifier {
   }
 
   private static String getNotificationTagForVoicemail(@NonNull NewCall voicemail) {
+    if (voicemail.voicemailUri == null) {
+      return NOTIFICATION_TAG_PREFIX + "unknown";
+    }
     return getNotificationTagForUri(voicemail.voicemailUri);
   }
 
@@ -156,6 +159,7 @@ final class VisualVoicemailNotifier {
       @NonNull Map<String, ContactInfo> contactInfos) {
     PhoneAccountHandle handle = getAccountForCall(context, voicemail);
     ContactInfo contactInfo = contactInfos.get(voicemail.number);
+    String contactName = contactInfo != null ? contactInfo.name : voicemail.number;
 
     NotificationCompat.Builder builder =
         createNotificationBuilder(context)
@@ -163,7 +167,7 @@ final class VisualVoicemailNotifier {
                 ContactDisplayUtils.getTtsSpannedPhoneNumber(
                     context.getResources(),
                     R.string.notification_new_voicemail_ticker,
-                    contactInfo.name))
+                    contactName))
             .setWhen(voicemail.dateMs)
             .setSound(getVoicemailRingtoneUri(context, handle))
             .setDefaults(getNotificationDefaultFlags(context, handle));
@@ -219,10 +223,12 @@ final class VisualVoicemailNotifier {
       builder.setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_SUMMARY);
     }
 
-    ContactPhotoLoader loader = new ContactPhotoLoader(context, contactInfo);
-    Bitmap photoIcon = loader.loadPhotoIcon();
-    if (photoIcon != null) {
-      builder.setLargeIcon(photoIcon);
+    if (contactInfo != null) {
+      ContactPhotoLoader loader = new ContactPhotoLoader(context, contactInfo);
+      Bitmap photoIcon = loader.loadPhotoIcon();
+      if (photoIcon != null) {
+        builder.setLargeIcon(photoIcon);
+      }
     }
     builder.setContentIntent(newVoicemailIntent(context, voicemail));
     Logger.get(context).logImpression(DialerImpression.Type.VVM_NOTIFICATION_CREATED);
@@ -288,8 +294,11 @@ final class VisualVoicemailNotifier {
     if (call == null || call.accountComponentName == null || call.accountId == null) {
       return null;
     }
-    return new PhoneAccountHandle(
-        ComponentName.unflattenFromString(call.accountComponentName), call.accountId);
+    ComponentName componentName = ComponentName.unflattenFromString(call.accountComponentName);
+    if (componentName == null) {
+      return null;
+    }
+    return new PhoneAccountHandle(componentName, call.accountId);
   }
 
   /**

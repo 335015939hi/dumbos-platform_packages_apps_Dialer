@@ -36,7 +36,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.annotation.WorkerThread;
-import androidx.core.os.BuildCompat;
+import android.os.Build.VERSION;
+import android.os.Build.VERSION_CODES;
 import androidx.core.os.UserManagerCompat;
 import androidx.core.util.Pair;
 import android.telecom.PhoneAccount;
@@ -97,7 +98,9 @@ public class MissedCallNotifier implements Worker<Pair<Integer, String>, Void> {
   @Nullable
   @Override
   public Void doInBackground(@Nullable Pair<Integer, String> input) throws Throwable {
-    updateMissedCallNotification(input.first, input.second);
+    if (input != null) {
+      updateMissedCallNotification(input.first, input.second);
+    }
     return null;
   }
 
@@ -229,7 +232,7 @@ public class MissedCallNotifier implements Worker<Pair<Integer, String>, Void> {
         .setGroupSummary(useCallList)
         .setOnlyAlertOnce(useCallList)
         .setPublicVersion(publicSummaryBuilder.build());
-    if (BuildCompat.isAtLeastO()) {
+    if (VERSION.SDK_INT >= VERSION_CODES.O) {
       groupSummary.setChannelId(NotificationChannelId.MISSED_CALL);
     }
 
@@ -427,7 +430,7 @@ public class MissedCallNotifier implements Worker<Pair<Integer, String>, Void> {
                 CallLogNotificationsService.createCancelSingleMissedCallPendingIntent(
                     context, call.callsUri))
             .setContentIntent(createCallLogPendingIntent(call.callsUri));
-    if (BuildCompat.isAtLeastO()) {
+    if (VERSION.SDK_INT >= VERSION_CODES.O) {
       builder.setChannelId(NotificationChannelId.MISSED_CALL);
     }
 
@@ -506,9 +509,13 @@ public class MissedCallNotifier implements Worker<Pair<Integer, String>, Void> {
   }
 
   /** Configures a notification to emit the blinky notification light. */
+  @SuppressWarnings("deprecation")
   private void configureLedOnNotification(Notification notification) {
-    notification.flags |= Notification.FLAG_SHOW_LIGHTS;
-    notification.defaults |= Notification.DEFAULT_LIGHTS;
+    // On O+, notification lights are configured via notification channels
+    if (VERSION.SDK_INT < VERSION_CODES.O) {
+      notification.flags |= Notification.FLAG_SHOW_LIGHTS;
+      notification.defaults |= Notification.DEFAULT_LIGHTS;
+    }
   }
 
   /** Closes open system dialogs and the notification shade. */

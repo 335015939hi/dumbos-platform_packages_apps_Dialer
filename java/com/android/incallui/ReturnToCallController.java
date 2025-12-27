@@ -24,6 +24,7 @@ import android.graphics.drawable.Icon;
 import android.provider.Settings;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
+import androidx.appcompat.content.res.AppCompatResources;
 import android.telecom.CallAudioState;
 import android.text.TextUtils;
 import com.android.bubble.Bubble;
@@ -65,7 +66,7 @@ public class ReturnToCallController implements InCallUiListener, Listener, Audio
 
   private final Context context;
 
-  @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+  @VisibleForTesting
   Bubble bubble;
 
   private static Boolean canShowBubblesForTesting = null;
@@ -322,7 +323,7 @@ public class ReturnToCallController implements InCallUiListener, Listener, Audio
     actions.add(
         Action.builder()
             .setIconDrawable(
-                context.getDrawable(R.drawable.quantum_ic_exit_to_app_flip_vd_theme_24))
+                AppCompatResources.getDrawable(context, R.drawable.quantum_ic_exit_to_app_flip_vd_theme_24))
             .setIntent(fullScreen)
             .setName(context.getText(R.string.bubble_return_to_call))
             .setCheckable(false)
@@ -330,7 +331,7 @@ public class ReturnToCallController implements InCallUiListener, Listener, Audio
     // Mute/unmute
     actions.add(
         Action.builder()
-            .setIconDrawable(context.getDrawable(R.drawable.quantum_ic_mic_off_vd_theme_24))
+            .setIconDrawable(AppCompatResources.getDrawable(context, R.drawable.quantum_ic_mic_off_vd_theme_24))
             .setChecked(audioState.isMuted())
             .setIntent(toggleMute)
             .setName(context.getText(R.string.incall_label_mute))
@@ -338,11 +339,11 @@ public class ReturnToCallController implements InCallUiListener, Listener, Audio
     // Speaker/audio selector
     actions.add(
         Action.builder()
-            .setIconDrawable(context.getDrawable(speakerButtonInfo.icon))
+            .setIconDrawable(AppCompatResources.getDrawable(context, speakerButtonInfo.icon))
             .setSecondaryIconDrawable(
                 speakerButtonInfo.nonBluetoothMode
                     ? null
-                    : context.getDrawable(R.drawable.quantum_ic_arrow_drop_down_vd_theme_24))
+                    : AppCompatResources.getDrawable(context, R.drawable.quantum_ic_arrow_drop_down_vd_theme_24))
             .setName(context.getText(speakerButtonInfo.label))
             .setCheckable(speakerButtonInfo.nonBluetoothMode)
             .setChecked(speakerButtonInfo.isChecked)
@@ -351,7 +352,7 @@ public class ReturnToCallController implements InCallUiListener, Listener, Audio
     // End call
     actions.add(
         Action.builder()
-            .setIconDrawable(context.getDrawable(R.drawable.quantum_ic_call_end_vd_theme_24))
+            .setIconDrawable(AppCompatResources.getDrawable(context, R.drawable.quantum_ic_call_end_vd_theme_24))
             .setIntent(endCall)
             .setName(context.getText(R.string.incall_label_end_call))
             .setCheckable(false)

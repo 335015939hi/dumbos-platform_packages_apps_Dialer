@@ -53,7 +53,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresPermission;
 import androidx.annotation.StringRes;
 import androidx.annotation.VisibleForTesting;
-import androidx.core.os.BuildCompat;
+import androidx.core.content.res.ResourcesCompat;
 import android.telecom.Call.Details;
 import android.telecom.CallAudioState;
 import android.telecom.PhoneAccount;
@@ -363,7 +363,7 @@ public class StatusBarNotifier
     LogUtil.i("StatusBarNotifier.buildAndSendNotification", "notificationType=" + notificationType);
     switch (notificationType) {
       case NOTIFICATION_INCOMING_CALL:
-        if (BuildCompat.isAtLeastO()) {
+        if (VERSION.SDK_INT >= VERSION_CODES.O) {
           builder.setChannelId(NotificationChannelId.INCOMING_CALL);
         }
         // Set the intent as a full screen intent as well if a call is incoming
@@ -382,12 +382,12 @@ public class StatusBarNotifier
         }
         break;
       case NOTIFICATION_INCOMING_CALL_QUIET:
-        if (BuildCompat.isAtLeastO()) {
+        if (VERSION.SDK_INT >= VERSION_CODES.O) {
           builder.setChannelId(NotificationChannelId.ONGOING_CALL);
         }
         break;
       case NOTIFICATION_IN_CALL:
-        if (BuildCompat.isAtLeastO()) {
+        if (VERSION.SDK_INT >= VERSION_CODES.O) {
           publicBuilder.setColorized(true);
           builder.setColorized(true);
           builder.setChannelId(NotificationChannelId.ONGOING_CALL);
@@ -603,7 +603,7 @@ public class StatusBarNotifier
     Trace.beginSection("StatusBarNotifier.getLargeIconToDisplay");
     Resources resources = context.getResources();
     Bitmap largeIcon = null;
-    if (contactInfo.photo != null && (contactInfo.photo instanceof BitmapDrawable)) {
+    if (contactInfo.photo instanceof BitmapDrawable) {
       largeIcon = ((BitmapDrawable) contactInfo.photo).getBitmap();
     }
     if (contactInfo.photo == null) {
@@ -628,7 +628,7 @@ public class StatusBarNotifier
     }
 
     if (call.isSpam()) {
-      Drawable drawable = resources.getDrawable(R.drawable.blocked_contact, context.getTheme());
+      Drawable drawable = ResourcesCompat.getDrawable(resources, R.drawable.blocked_contact, context.getTheme());
       largeIcon = DrawableConverter.drawableToBitmap(drawable);
     }
     Trace.endSection();

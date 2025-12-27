@@ -25,7 +25,7 @@ import android.provider.VoicemailContract.Voicemails;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.os.BuildCompat;
+import android.os.Build;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.TelephonyManager;
 import com.android.dialer.common.Assert;
@@ -47,6 +47,7 @@ import javax.inject.Inject;
  * {@link VoicemailClient} to be used when the voicemail module is activated. May only be used above
  * O.
  */
+@RequiresApi(VERSION_CODES.O)
 public class VoicemailClientImpl implements VoicemailClient {
 
   /**
@@ -68,7 +69,7 @@ public class VoicemailClientImpl implements VoicemailClient {
 
   @Inject
   public VoicemailClientImpl() {
-    Assert.checkArgument(BuildCompat.isAtLeastO());
+    Assert.checkArgument(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
   }
 
   @Override
@@ -100,7 +101,7 @@ public class VoicemailClientImpl implements VoicemailClient {
 
   @Override
   public boolean isVoicemailArchiveAvailable(Context context) {
-    if (!BuildCompat.isAtLeastO()) {
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
       LogUtil.i("VoicemailClientImpl.isVoicemailArchiveAllowed", "not running on O or later");
       return false;
     }
@@ -132,7 +133,7 @@ public class VoicemailClientImpl implements VoicemailClient {
           "VoicemailClientImpl.isVoicemailTranscriptionAvailable", "phone account handle is null");
     }
 
-    if (!BuildCompat.isAtLeastO()) {
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
       LogUtil.i(
           "VoicemailClientImpl.isVoicemailTranscriptionAvailable", "not running on O or later");
       return false;
@@ -239,7 +240,8 @@ public class VoicemailClientImpl implements VoicemailClient {
   }
 
   @Override
-  public PersistableBundle getConfig(Context context, PhoneAccountHandle phoneAccountHandle) {
+  @NonNull
+  public PersistableBundle getConfig(@NonNull Context context, PhoneAccountHandle phoneAccountHandle) {
     return new OmtpVvmCarrierConfigHelper(context, phoneAccountHandle).getConfig();
   }
 
