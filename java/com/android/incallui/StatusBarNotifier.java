@@ -172,11 +172,16 @@ public class StatusBarNotifier
 
   /**
    * Returns PendingIntent for answering a phone call. This will typically be used from Notification
-   * context.
+   * context. Each action needs a unique request code to prevent PendingIntent collisions.
    */
   private static PendingIntent createNotificationPendingIntent(Context context, String action) {
-    final Intent intent = new Intent(action, null, context, NotificationBroadcastReceiver.class);
-    return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
+    final Intent intent = new Intent(action);
+    // Explicitly set the component with the app's package name to ensure proper delivery
+    intent.setClassName(context.getPackageName(), NotificationBroadcastReceiver.class.getName());
+    // Use action's hashCode as request code to ensure each action has a unique PendingIntent
+    int requestCode = action.hashCode();
+    return PendingIntent.getBroadcast(context, requestCode, intent,
+        PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
   }
 
   /** Creates notifications according to the state we receive from {@link InCallPresenter}. */

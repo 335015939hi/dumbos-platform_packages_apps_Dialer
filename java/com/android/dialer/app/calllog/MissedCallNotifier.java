@@ -477,7 +477,9 @@ public class MissedCallNotifier implements Worker<Pair<Integer, String>, Void> {
 
     // TODO (a bug): scroll to call
     contentIntent.setData(callUri);
-    return PendingIntent.getActivity(context, 0, contentIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+    // Use unique request code based on callUri to prevent PendingIntent collisions
+    int requestCode = callUri != null ? callUri.hashCode() : 0;
+    return PendingIntent.getActivity(context, requestCode, contentIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
   }
 
   private PendingIntent createCallBackPendingIntent(String number, @NonNull Uri callUri) {
@@ -486,8 +488,9 @@ public class MissedCallNotifier implements Worker<Pair<Integer, String>, Void> {
     intent.putExtra(MissedCallNotificationReceiver.EXTRA_NOTIFICATION_PHONE_NUMBER, number);
     intent.setData(callUri);
     // Use FLAG_UPDATE_CURRENT to make sure any previous pending intent is updated with the new
-    // extra.
-    return PendingIntent.getService(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+    // extra. Use unique request code based on callUri to prevent PendingIntent collisions
+    int requestCode = callUri.hashCode();
+    return PendingIntent.getService(context, requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
   }
 
   private PendingIntent createSendSmsFromNotificationPendingIntent(
@@ -497,8 +500,9 @@ public class MissedCallNotifier implements Worker<Pair<Integer, String>, Void> {
     intent.putExtra(CallLogNotificationsActivity.EXTRA_MISSED_CALL_NUMBER, number);
     intent.setData(callUri);
     // Use FLAG_UPDATE_CURRENT to make sure any previous pending intent is updated with the new
-    // extra.
-    return PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+    // extra. Use unique request code based on action + callUri to prevent PendingIntent collisions
+    int requestCode = (CallLogNotificationsActivity.ACTION_SEND_SMS_FROM_MISSED_CALL_NOTIFICATION + callUri.toString()).hashCode();
+    return PendingIntent.getActivity(context, requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
   }
 
   /** Configures a notification to emit the blinky notification light. */

@@ -277,6 +277,10 @@ public class VoicemailClientImpl implements VoicemailClient {
       Context context, StringBuilder where, List<String> selectionArgs) {
     String omtpSource =
         context.getSystemService(TelephonyManager.class).getVisualVoicemailPackageName();
+    // Use empty string if null to avoid SQLite bind error
+    if (omtpSource == null) {
+      omtpSource = "";
+    }
     if (where.length() != 0) {
       where.append(" AND ");
     }
@@ -309,6 +313,10 @@ public class VoicemailClientImpl implements VoicemailClient {
       Context context, StringBuilder where, List<String> selectionArgs) {
     String omtpSource =
         context.getSystemService(TelephonyManager.class).getVisualVoicemailPackageName();
+    // Use empty string if null to avoid SQLite bind error
+    if (omtpSource == null) {
+      omtpSource = "";
+    }
     if (where.length() != 0) {
       where.append(" AND ");
     }

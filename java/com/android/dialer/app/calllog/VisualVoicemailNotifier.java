@@ -272,7 +272,10 @@ final class VisualVoicemailNotifier {
     if (voicemail != null) {
       intent.setData(voicemail.voicemailUri);
     }
-    return PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+    // Use unique request code based on voicemail URI to prevent PendingIntent collisions
+    int requestCode = voicemail != null && voicemail.voicemailUri != null
+        ? voicemail.voicemailUri.hashCode() : 0;
+    return PendingIntent.getActivity(context, requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
   }
 
   /**
