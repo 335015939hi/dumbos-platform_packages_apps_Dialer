@@ -363,8 +363,8 @@ public class ReturnToCallController implements InCallUiListener, Listener, Audio
   @NonNull
   private PendingIntent createActionIntent(String action) {
     Intent intent = new Intent(action);
-    // Explicitly set the component with the app's package name to ensure proper delivery
-    intent.setClassName(context.getPackageName(), ReturnToCallActionReceiver.class.getName());
+    // Set package to ensure the broadcast stays within our app
+    intent.setPackage(context.getPackageName());
     // Use action's hashCode as request code to ensure each action has a unique PendingIntent
     int requestCode = action.hashCode();
     return PendingIntent.getBroadcast(context, requestCode, intent,

@@ -80,7 +80,10 @@ public class NotificationBroadcastReceiver extends BroadcastReceiver {
   @Override
   public void onReceive(Context context, Intent intent) {
     final String action = intent.getAction();
-    LogUtil.i("NotificationBroadcastReceiver.onReceive", "Broadcast from Notification: " + action);
+    LogUtil.i("NotificationBroadcastReceiver.onReceive",
+        "Broadcast from Notification: " + action +
+        ", package=" + (intent.getPackage() != null ? intent.getPackage() : "null") +
+        ", component=" + (intent.getComponent() != null ? intent.getComponent().toString() : "null"));
 
     // TODO: Commands of this nature should exist in the CallList.
     if (action.equals(ACTION_ANSWER_VIDEO_INCOMING_CALL)) {

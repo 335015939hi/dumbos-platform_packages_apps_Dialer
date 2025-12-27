@@ -148,6 +148,12 @@
       </intent-filter>
     </receiver>
 
+    <!-- Service for handling notification actions (required for Android 12+) -->
+    <service
+        android:name="com.android.incallui.NotificationActionService"
+        android:exported="false">
+    </service>
+
   </application>
 
 </manifest>

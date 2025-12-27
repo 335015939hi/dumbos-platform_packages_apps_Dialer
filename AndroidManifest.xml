@@ -214,6 +214,11 @@
       </intent-filter>
     </service>
 
+    <!-- Service for handling notification actions (required for Android 12+) -->
+    <service
+      android:name="com.android.incallui.NotificationActionService"
+      android:exported="false"/>
+
     <!-- JobService for call log polling -->
     <service
       android:name="com.android.dialer.calllog.config.CallLogConfigImpl$PollingJob"
