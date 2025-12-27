@@ -967,12 +967,12 @@ public class OldMainActivityPeer implements MainActivityPeer, FragmentUtilListen
               hasActiveVoicemailProvider,
               numberOfActiveVoicemailSources));
 
+      // Always show the voicemail tab regardless of provider status
+      // Users can request permissions from within the voicemail fragment if needed
+      Logger.get(context).logImpression(DialerImpression.Type.MAIN_VVM_TAB_VISIBLE);
+      bottomNavBar.showVoicemail(true);
       if (hasActiveVoicemailProvider) {
-        Logger.get(context).logImpression(DialerImpression.Type.MAIN_VVM_TAB_VISIBLE);
-        bottomNavBar.showVoicemail(true);
         callLogQueryHandler.fetchVoicemailUnreadCount();
-      } else {
-        bottomNavBar.showVoicemail(false);
       }
 
       StorageComponent.get(context)

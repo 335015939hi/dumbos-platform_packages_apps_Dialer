@@ -305,7 +305,7 @@ public class ContactGridManager {
       } else if (avatarSize > 0 && updateAvatarVisibility()) {
         if (ConfigProviderComponent.get(context)
             .getConfigProvider()
-            .getBoolean("enable_glide_photo", false)) {
+            .getBoolean("enable_glide_photo", true)) {
           loadPhotoWithGlide();
         } else {
           loadPhotoWithLegacy();

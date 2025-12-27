@@ -244,9 +244,8 @@ public class PostCall {
   }
 
   private static boolean isEnabled(Context context) {
-    return ConfigProviderComponent.get(context)
-        .getConfigProvider()
-        .getBoolean("enable_post_call_prod", true);
+    // Disabled: Post-call messaging feature causes crashes and is not needed
+    return false;
   }
 
   private static boolean isSimReady(Context context) {

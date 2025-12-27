@@ -123,6 +123,7 @@ public class PostCallActivity extends AppCompatActivity implements MessageFragme
   @Override
   public void onRequestPermissionsResult(
       int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     if (permissions.length > 0 && permissions[0].equals(permission.SEND_SMS)) {
       PermissionsUtil.permissionRequested(this, permissions[0]);
     }
