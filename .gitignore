@@ -2,10 +2,25 @@
 .gradle/
 build/
 local.properties
+out/
 
 # IDE
 .idea/
+*.iml
+.vscode/
 
-# Temporary scripts
-fix_duplicates.py
-remove_duplicates.sh
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.swp
+*.swo
+*~
+*.log
+
+# Build artifacts
+captures/
+lint-results*/
+*.apk
+*.zip
