@@ -179,7 +179,7 @@ public class PreCallCoordinatorImpl implements PreCallCoordinator {
 
     uiListener.listen(
         activity,
-        Futures.transform(future, (output) -> (Object) output, MoreExecutors.directExecutor()),
+        Futures.transform(future, (output) -> output, MoreExecutors.directExecutor()),
         output -> successListener.accept((OutputT) output),
         failureListener::accept);
   }

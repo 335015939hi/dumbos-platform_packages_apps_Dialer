@@ -27,6 +27,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.GradientDrawable.Orientation;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Trace;
 import androidx.annotation.ColorInt;
@@ -619,6 +620,7 @@ public class InCallActivity extends TransactionSafeFragmentActivity
 
   @Override
   protected void onNewIntent(Intent intent) {
+    super.onNewIntent(intent);
     LogUtil.enterBlock("InCallActivity.onNewIntent");
 
     // If the screen is off, we need to make sure it gets turned on for incoming calls.
@@ -1443,7 +1445,7 @@ public class InCallActivity extends TransactionSafeFragmentActivity
       return new ShouldShowUiResult(false, null);
     }
 
-    if (call.isActiveRttCall()) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && call.isActiveRttCall()) {
       LogUtil.i("InCallActivity.getShouldShowRttUi", "found rtt call");
       return new ShouldShowUiResult(true, call);
     }
@@ -1492,10 +1494,11 @@ public class InCallActivity extends TransactionSafeFragmentActivity
     }
 
     // Show a new answer screen.
+    boolean isActiveRttCall = Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && call.isActiveRttCall();
     AnswerScreen answerScreen =
         AnswerBindings.createAnswerScreen(
             call.getId(),
-            call.isActiveRttCall(),
+            isActiveRttCall,
             call.isVideoCall(),
             isVideoUpgradeRequest,
             call.getVideoTech().isSelfManagedCamera(),
@@ -1702,7 +1705,11 @@ public class InCallActivity extends TransactionSafeFragmentActivity
 
   @Override
   public RttCallScreenDelegate newRttCallScreenDelegate(RttCallScreen videoCallScreen) {
-    return new RttCallPresenter();
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+      return new RttCallPresenter();
+    }
+    // RTT is only available on Android P (API 28) and above
+    throw new UnsupportedOperationException("RTT requires API 28 or higher");
   }
 
   private static class ShouldShowUiResult {

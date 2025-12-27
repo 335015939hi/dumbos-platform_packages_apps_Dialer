@@ -743,7 +743,7 @@ public class DialtactsActivity extends TransactionSafeActivity
       if (resultCode == RESULT_OK) {
         final ArrayList<String> matches =
             data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-        if (matches.size() > 0) {
+        if (matches != null && !matches.isEmpty()) {
           voiceSearchQuery = matches.get(0);
         } else {
           LogUtil.i("DialtactsActivity.onActivityResult", "voice search - nothing heard");
@@ -1079,6 +1079,7 @@ public class DialtactsActivity extends TransactionSafeActivity
 
   @Override
   public void onNewIntent(Intent newIntent) {
+    super.onNewIntent(newIntent);
     LogUtil.enterBlock("DialtactsActivity.onNewIntent");
     setIntent(newIntent);
     firstLaunch = true;
@@ -1332,7 +1333,7 @@ public class DialtactsActivity extends TransactionSafeActivity
     final PackageManager packageManager = getPackageManager();
     final List<ResolveInfo> resolveInfo =
         packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-    return resolveInfo != null && resolveInfo.size() > 0;
+    return resolveInfo != null && !resolveInfo.isEmpty();
   }
 
   /** Called when the user has long-pressed a contact tile to start a drag operation. */
@@ -1521,6 +1522,7 @@ public class DialtactsActivity extends TransactionSafeActivity
   @Override
   public void onRequestPermissionsResult(
       int requestCode, String[] permissions, int[] grantResults) {
+    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     // This should never happen; it should be impossible to start an interaction without the
     // contacts permission from the Dialtacts activity.
     Assert.fail(

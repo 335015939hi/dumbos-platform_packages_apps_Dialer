@@ -58,6 +58,10 @@
     android:minSdkVersion="24"
     android:targetSdkVersion="30"/>
 
+  <!-- Hardware features - marked as not required for broader device compatibility -->
+  <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+  <uses-feature android:name="android.hardware.camera" android:required="false"/>
+
   <application>
 
   <activity

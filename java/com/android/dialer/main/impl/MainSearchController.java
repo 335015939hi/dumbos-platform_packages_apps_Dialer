@@ -527,7 +527,7 @@ public class MainSearchController implements SearchBarListener {
   public void onVoiceResults(int resultCode, Intent data) {
     if (resultCode == AppCompatActivity.RESULT_OK) {
       ArrayList<String> matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-      if (matches.size() > 0) {
+      if (matches != null && !matches.isEmpty()) {
         LogUtil.i("MainSearchController.onVoiceResults", "voice search - match found");
         openSearch(Optional.of(matches.get(0)));
       } else {
