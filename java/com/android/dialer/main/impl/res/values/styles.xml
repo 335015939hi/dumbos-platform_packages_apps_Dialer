@@ -38,10 +38,6 @@
     <item name="dialpad_style">@style/Dialpad.Themed</item>
     <item name="android:colorPrimaryDark">@color/dialer_theme_color_dark</item>
     <item name="colorPrimaryDark">@color/dialer_theme_color_dark</item>
-    <!-- System bar styling for proper insets -->
-    <item name="android:statusBarColor">@color/dialer_background_color</item>
-    <item name="android:windowLightStatusBar">true</item>
-    <item name="android:fitsSystemWindows">true</item>
   </style>
 
   <style name="MainActivityThemeBase.Dark" parent="Dialer.Dark.ThemeBase.NoActionBar">

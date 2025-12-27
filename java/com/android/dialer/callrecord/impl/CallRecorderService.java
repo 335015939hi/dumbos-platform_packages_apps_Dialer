@@ -53,7 +53,7 @@ public class CallRecorderService extends Service {
   private MediaRecorder mMediaRecorder = null;
   private CallRecording mCurrentRecording = null;
 
-  private final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyyMMdd-HHmmss");
+  private SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyyMMdd-HHmmss");
 
   private final ICallRecorderService.Stub mBinder = new ICallRecorderService.Stub() {
     @Override
