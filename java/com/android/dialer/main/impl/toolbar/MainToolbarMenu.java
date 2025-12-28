@@ -30,7 +30,7 @@ import com.android.dialer.R;
 public final class MainToolbarMenu extends PopupMenu {
 
   public MainToolbarMenu(Context context, View anchor) {
-    super(context, anchor, Gravity.NO_GRAVITY, 0, 0);
+    super(context, anchor, Gravity.NO_GRAVITY, android.R.attr.popupMenuStyle, 0);
   }
 
   public void showClearFrequents(boolean show) {

@@ -213,6 +213,11 @@ public class AudioRouteSelectorDialogFragment extends BottomSheetDialogFragment 
     }
   }
 
+  @Override
+  public int getTheme() {
+    return com.google.android.material.R.style.Theme_Material3_DayNight_BottomSheetDialog;
+  }
+
   private void logCallAudioRouteImpression(DialerImpression.Type impressionType) {
     DialerCall dialerCall = CallList.getInstance().getOutgoingCall();
     if (dialerCall == null) {

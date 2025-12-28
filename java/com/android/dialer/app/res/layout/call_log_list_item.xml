@@ -33,7 +33,7 @@
     android:paddingBottom="@dimen/call_log_day_group_padding_bottom"
     style="@style/Dialer.TextAppearance.OVERLINE.Ellipsize"/>
 
-  <androidx.cardview.widget.CardView
+  <com.google.android.material.card.MaterialCardView
     android:id="@+id/call_log_row"
     style="@style/CallLogCardStyle">
 
@@ -236,6 +236,6 @@
 
     </LinearLayout>
 
-  </androidx.cardview.widget.CardView>
+  </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>
