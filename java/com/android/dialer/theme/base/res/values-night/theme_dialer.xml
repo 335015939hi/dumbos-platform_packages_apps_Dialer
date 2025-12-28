@@ -17,36 +17,22 @@
 <resources>
   <!-- Deprecated: ActionBars are clunky and Toolbar (along with Dialer.ThemeBase.NoActionBar)
       should be used in favor-->
-  <style name="Dialer.ThemeBase.ActionBar" parent="Dialer.ThemeBase">
+  <style name="Dialer.Dark.ThemeBase.ActionBar" parent="Dialer.Dark.ThemeBase">
     <!-- These are used to style all actionbars in Dialer. These aren't needed in Dialer.ThemeBase.NoActionBar -->
     <item name="actionBarStyle">@style/DialerActionBarBaseStyle</item>
     <item name="actionBarSize">@dimen/action_bar_height</item>
-
-    <!-- Pulled from Theme.AppCompat.Light.DarkActionbar-->
-    <item name="actionBarPopupTheme">@style/ThemeOverlay.AppCompat.Light</item>
-    <item name="actionBarWidgetTheme">@null</item>
-    <item name="actionBarTheme">@style/DialerActionBarBaseTheme</item>
-    <item name="listChoiceBackgroundIndicator">@drawable/abc_list_selector_holo_dark</item>
-
-    <item name="android:colorPrimaryDark">@color/settings_primary_dark</item>
-    <item name="colorControlHighlight">@color/dialer_ripple_color</item>
   </style>
 
-  <style name="Dialer.ThemeBase.NoActionBar" parent="Dialer.ThemeBase">
+  <style name="Dialer.Dark.ThemeBase.NoActionBar" parent="Dialer.Dark.ThemeBase">
     <!-- Copied from Theme.AppCompat.Light.NoActionBar. We can remove this and update the Dialer
         base style once none of our activities depend on ActionBar anymore. -->
     <item name="windowActionBar">false</item>
     <item name="windowNoTitle">true</item>
-
-    <item name="android:colorPrimaryDark">@color/settings_primary_dark</item>
-    <item name="colorControlHighlight">@color/dialer_ripple_color</item>
   </style>
 
   <!-- Activities and Applications should inherit from one of the themes above. -->
-  <style name="Dialer.ThemeBase" parent="Theme.Material3.DayNight.NoActionBar">
-    <item name="android:forceDarkAllowed">true</item>
-
-    <!-- Material Design 3 Color Roles -->
+  <style name="Dialer.Dark.ThemeBase" parent="Theme.Material3.DayNight.NoActionBar">
+    <!-- Material Design 3 Color Roles (Dark Theme uses -night qualified colors) -->
     <!-- Primary colors -->
     <item name="colorPrimary">@color/md3_primary</item>
     <item name="colorOnPrimary">@color/md3_onPrimary</item>
@@ -86,18 +72,17 @@
 
     <!-- Legacy attributes for backwards compatibility -->
     <item name="android:colorPrimary">@color/md3_primary</item>
-    <item name="android:textColorPrimary">@color/dialer_primary_text_color</item>
-    <item name="android:textColorSecondary">@color/dialer_secondary_text_color</item>
-    <item name="android:textColorPrimaryInverse">@color/google_grey_300</item>
-    <item name="android:textColorSecondaryInverse">@color/google_grey_400</item>
+    <item name="android:textColorPrimary">@color/dialer_dark_primary_text_color</item>
+    <item name="android:textColorSecondary">@color/dialer_dark_secondary_text_color</item>
+    <item name="android:textColorPrimaryInverse">@color/dialer_primary_text_color</item>
+    <item name="android:textColorSecondaryInverse">@color/dialer_secondary_text_color</item>
     <item name="android:textColorHint">@color/google_grey_600</item>
     <item name="android:colorBackgroundFloating">?attr/colorSurface</item>
     <item name="android:navigationBarColor">?attr/colorSurface</item>
-    <item name="android:windowLightNavigationBar">true</item>
-    <item name="android:windowLightStatusBar">true</item>
+    <item name="android:windowLightNavigationBar">false</item>
+    <item name="android:windowLightStatusBar">false</item>
     <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
     <item name="colorControlActivated">?attr/colorPrimary</item>
-    <item name="colorControlHighlight">@color/dialer_ripple_color</item>
 
     <!-- Dialer specific attributes mapped to MD3 colors -->
     <item name="colorBackgroundSearchBar">?attr/colorSecondaryContainer</item>
@@ -105,11 +90,7 @@
     <item name="colorIconSecondary">?attr/colorOutline</item>
     <item name="colorTextOnUnthemedDarkBackground">@android:color/white</item>
     <item name="colorIconOnUnthemedDarkBackground">@android:color/white</item>
-    <item name="colorMobileTerminatingChatText">@color/google_grey_900</item>
-    <item name="colorMobileTerminatingChatBackground">@color/google_grey_100</item>
-    <item name="colorMobileOriginatingChatText">@color/google_blue_900</item>
-    <item name="colorMobileOriginatingChatBackground">@color/google_blue_100</item>
-    <item name="colorPrimary20pct">@color/dialer_theme_color_20pct</item>
+    <item name="colorPrimary20pct">@color/dialer_dark_theme_color_20pct</item>
 
     <!-- Material Design 3 Shape System -->
     <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Dialer.SmallComponent</item>
@@ -119,27 +100,5 @@
     <!-- Material Design 3 Menus -->
     <item name="popupMenuStyle">@style/Widget.Material3.PopupMenu</item>
     <item name="android:popupMenuStyle">@style/Widget.Material3.PopupMenu</item>
-  </style>
-
-  <!-- TODO(a bug): investigate making this style's parent Dialer.ThemeBase.NoActionBar -->
-  <style name="Theme.AppCompat.Translucent" parent="Theme.AppCompat.NoActionBar">
-    <item name="android:windowNoTitle">true</item>
-    <item name="android:windowBackground">@android:color/transparent</item>
-    <item name="android:colorBackgroundCacheHint">@null</item>
-    <item name="android:windowIsTranslucent">true</item>
-    <item name="android:windowAnimationStyle">@android:style/Animation</item>
-  </style>
-
-  <!-- Deprecated: Use Toolbar instead of ActionBar. -->
-  <!-- Used to style all Dialer's action bars. Every actionbar is awarded this for free if the parent
-     activity's theme extends from Dialer.ThemeBase.ActionBar or doesn't specify a theme. -->
-  <style name="DialerActionBarBaseStyle"
-      parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
-    <item name="android:background">?android:attr/colorPrimary</item>
-    <item name="background">?android:attr/colorPrimary</item>
-  </style>
-  <style name="DialerActionBarBaseTheme"
-      parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-    <item name="colorControlNormal">@android:color/white</item>
   </style>
 </resources>

@@ -125,7 +125,7 @@ public class SmsBottomSheetFragment extends BottomSheetDialogFragment {
 
   @Override
   public int getTheme() {
-    return com.google.android.material.R.style.Theme_MaterialComponents_Light_BottomSheetDialog;
+    return com.google.android.material.R.style.Theme_Material3_DayNight_BottomSheetDialog;
   }
 
   @Override

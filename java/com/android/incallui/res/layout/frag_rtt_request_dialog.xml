@@ -49,32 +49,24 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/rtt_button_decline_request"
-        style="@style/Widget.AppCompat.Button"
+        style="@style/Widget.Material3.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:backgroundTint="?android:attr/colorBackgroundFloating"
-        android:fontFamily="sans-serif-medium"
-        android:stateListAnimator="@null"
-        android:text="@string/rtt_button_decline_request"
-        android:textColor="#757575"/>
-    <Button
+        android:text="@string/rtt_button_decline_request"/>
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/rtt_button_accept_request"
-        style="@style/Widget.AppCompat.Button"
+        style="@style/Widget.Material3.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:backgroundTint="?android:attr/colorPrimary"
-        android:fontFamily="sans-serif-medium"
-        android:stateListAnimator="@null"
-        android:text="@string/rtt_button_accept_request"
-        android:textColor="@android:color/white"/>
+        android:text="@string/rtt_button_accept_request"/>
   </LinearLayout>
 
 </LinearLayout>

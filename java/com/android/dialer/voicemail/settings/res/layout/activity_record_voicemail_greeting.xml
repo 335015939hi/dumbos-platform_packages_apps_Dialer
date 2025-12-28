@@ -58,22 +58,22 @@
       android:orientation="horizontal"
       style="?android:attr/buttonBarStyle">
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/save_button"
+        style="@style/Widget.Material3.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/save_button_text"
-        android:visibility="gone"
-        style="?android:attr/buttonBarButtonStyle"/>
+        android:visibility="gone"/>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/redo_button"
+        style="@style/Widget.Material3.Button.TextButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/redo_button_text"
-        android:visibility="gone"
-        style="?android:attr/buttonBarButtonStyle"/>
+        android:visibility="gone"/>
   </LinearLayout>
 </RelativeLayout>

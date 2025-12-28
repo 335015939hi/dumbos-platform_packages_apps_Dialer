@@ -77,7 +77,9 @@
           android:src="@drawable/quantum_ic_call_white_24"
           android:visibility="invisible"
           app:backgroundTint="@color/dialer_call_green"
-          app:elevation="@dimen/floating_action_button_translation_z"/>
+          app:tint="?colorIconOnUnthemedDarkBackground"
+          app:elevation="@dimen/floating_action_button_translation_z"
+          style="@style/Widget.Material3.FloatingActionButton.Primary"/>
     </RelativeLayout>
   </LinearLayout>
 </view>

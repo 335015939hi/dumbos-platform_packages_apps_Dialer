@@ -120,7 +120,7 @@ final class SearchBarView extends FrameLayout {
     int duration = animate ? ANIMATION_DURATION : 0;
     searchBoxExpanded.setVisibility(VISIBLE);
     AnimUtils.crossFadeViews(searchBoxExpanded, searchBoxCollapsed, duration);
-    ValueAnimator animator = ValueAnimator.ofFloat(EXPAND_MARGIN_FRACTION_START, 0f);
+    ValueAnimator animator = ValueAnimator.ofFloat(EXPAND_MARGIN_FRACTION_START, EXPAND_MARGIN_FRACTION_START);
     animator.addUpdateListener(animation -> setMargins((Float) animation.getAnimatedValue()));
     animator.setDuration(duration);
     animator.addListener(
@@ -157,7 +157,7 @@ final class SearchBarView extends FrameLayout {
 
     int duration = animate ? ANIMATION_DURATION : 0;
     AnimUtils.crossFadeViews(searchBoxCollapsed, searchBoxExpanded, duration);
-    ValueAnimator animator = ValueAnimator.ofFloat(0f, EXPAND_MARGIN_FRACTION_START);
+    ValueAnimator animator = ValueAnimator.ofFloat(EXPAND_MARGIN_FRACTION_START, EXPAND_MARGIN_FRACTION_START);
     animator.addUpdateListener(animation -> setMargins((Float) animation.getAnimatedValue()));
     animator.setDuration(duration);
 

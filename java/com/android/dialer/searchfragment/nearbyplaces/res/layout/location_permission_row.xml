@@ -14,7 +14,7 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License
   -->
-<androidx.cardview.widget.CardView
+<com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -22,7 +22,7 @@
     android:layout_marginStart="8dp"
     android:layout_marginEnd="8dp"
     android:layout_marginTop="8dp"
-    app:cardElevation="2dp">
+    app:cardElevation="1dp">
 
   <RelativeLayout
       android:layout_width="match_parent"
@@ -49,8 +49,9 @@
         android:lineSpacingMultiplier="1.2"
         style="@style/Dialer.TextAppearance.Primary"/>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/location_permission_allow"
+        style="@style/Widget.Material3.Button"
         android:layout_width="wrap_content"
         android:layout_height="52dp"
         android:layout_alignParentEnd="true"
@@ -60,8 +61,9 @@
         android:paddingBottom="8dp"
         android:text="@string/nearby_places_allow"/>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/location_permission_dismiss"
+        style="@style/Widget.Material3.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="52dp"
         android:layout_toStartOf="@+id/location_permission_allow"
@@ -70,8 +72,6 @@
         android:layout_marginTop="18dp"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:text="@string/nearby_places_dismiss"
-        android:textColor="?android:attr/colorPrimary"
-        style="@style/Widget.AppCompat.Button.Borderless"/>
+        android:text="@string/nearby_places_dismiss"/>
   </RelativeLayout>
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

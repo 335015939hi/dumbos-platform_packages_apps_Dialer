@@ -75,16 +75,18 @@
     android:orientation="horizontal">
 
     <!-- left : cancel -->
-    <Button
+    <com.google.android.material.button.MaterialButton
       android:id="@+id/cancel_button"
+      style="@style/Widget.Material3.Button.TextButton"
       android:layout_width="0dp"
       android:layout_weight="1"
       android:layout_height="wrap_content"
       android:text="@string/change_pin_cancel_label"/>
 
     <!-- right : continue -->
-    <Button
+    <com.google.android.material.button.MaterialButton
       android:id="@+id/next_button"
+      style="@style/Widget.Material3.Button"
       android:layout_width="0dp"
       android:layout_weight="1"
       android:layout_height="wrap_content"
