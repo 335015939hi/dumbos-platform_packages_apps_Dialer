@@ -21,13 +21,12 @@
     <item name="colorPrimary">@color/dialer_theme_color</item>
     <item name="android:colorPrimaryDark">@color/dialer_theme_color_dark</item>
     <item name="colorPrimaryDark">@color/dialer_theme_color_dark</item>
-    <item name="android:windowLightStatusBar">true</item>
   </style>
 
   <!-- Activities should use this theme as their style -->
   <style name="MainActivityTheme" parent="MainActivityThemeBase"/>
 
-  <style name="MainActivityTheme.Dark" parent="MainActivityTheme.Dark"/>
+  <style name="MainActivityTheme.Dark" parent="MainActivityThemeBase.Dark"/>
 
   <!-- Used as a procy for values-v27/styles.xml -->
   <style name="MainActivityThemeBase" parent="Dialer.ThemeBase.NoActionBar">
@@ -38,6 +37,10 @@
     <item name="dialpad_style">@style/Dialpad.Themed</item>
     <item name="android:colorPrimaryDark">@color/dialer_theme_color_dark</item>
     <item name="colorPrimaryDark">@color/dialer_theme_color_dark</item>
+
+    <!-- Explicit status bar configuration for light theme -->
+    <item name="android:statusBarColor">@color/md3_background</item>
+    <item name="android:windowLightStatusBar">true</item>
   </style>
 
   <style name="MainActivityThemeBase.Dark" parent="Dialer.Dark.ThemeBase.NoActionBar">
@@ -47,9 +50,11 @@
     <item name="actionBarTheme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
     <item name="dialpad_style">@style/Dialpad.Themed</item>
     <!-- System bar styling for proper insets -->
-    <item name="android:statusBarColor">@color/dialer_background_color</item>
-    <item name="android:windowLightStatusBar">false</item>
     <item name="android:fitsSystemWindows">true</item>
+
+    <!-- Explicit status bar configuration for dark theme -->
+    <item name="android:statusBarColor">@color/md3_background</item>
+    <item name="android:windowLightStatusBar">false</item>
   </style>
 
   <!-- Colors our actionbar in action mode to dialer theme color. -->
