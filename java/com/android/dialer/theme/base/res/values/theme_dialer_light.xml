@@ -94,8 +94,9 @@
     <item name="android:colorBackgroundFloating">?attr/colorSurface</item>
     <item name="android:navigationBarColor">?attr/colorSurface</item>
     <item name="android:windowLightNavigationBar">true</item>
-    <item name="android:windowLightStatusBar">true</item>
     <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
+    <item name="android:statusBarColor">@color/md3_background</item>
+    <item name="android:windowLightStatusBar">true</item>
     <item name="colorControlActivated">?attr/colorPrimary</item>
     <item name="colorControlHighlight">@color/dialer_ripple_color</item>
 

@@ -80,12 +80,13 @@
     <item name="android:colorBackgroundFloating">?attr/colorSurface</item>
     <item name="android:navigationBarColor">?attr/colorSurface</item>
     <item name="android:windowLightNavigationBar">false</item>
-    <item name="android:windowLightStatusBar">false</item>
     <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
+    <item name="android:statusBarColor">@color/md3_background</item>
+    <item name="android:windowLightStatusBar">false</item>
     <item name="colorControlActivated">?attr/colorPrimary</item>
 
     <!-- Dialer specific attributes mapped to MD3 colors -->
-    <item name="colorBackgroundSearchBar">?attr/colorSecondaryContainer</item>
+    <item name="colorBackgroundSearchBar">?attr/colorSurfaceContainer</item>
     <item name="colorIcon">?attr/colorOnSurfaceVariant</item>
     <item name="colorIconSecondary">?attr/colorOutline</item>
     <item name="colorTextOnUnthemedDarkBackground">@android:color/white</item>
