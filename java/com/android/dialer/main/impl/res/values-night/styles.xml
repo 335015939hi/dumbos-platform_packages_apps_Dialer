@@ -23,4 +23,7 @@
     <item name="colorPrimaryDark">@color/dialer_theme_color_dark</item>
   </style>
 
+  <!-- Activities should use this theme as their style -->
+  <style name="MainActivityTheme" parent="MainActivityThemeBase.Dark"/>
+
 </resources>
