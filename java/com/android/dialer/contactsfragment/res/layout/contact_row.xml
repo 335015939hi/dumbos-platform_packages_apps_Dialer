@@ -16,42 +16,53 @@
  -->
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/row_height">
+    android:layout_height="wrap_content">
 
   <include layout="@layout/header"/>
 
-  <LinearLayout
-      android:id="@+id/click_target"
-      android:orientation="horizontal"
+  <com.google.android.material.card.MaterialCardView
+      android:id="@+id/contact_row_card"
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
+      android:layout_height="wrap_content"
       android:layout_marginStart="@dimen/header_width"
-      android:layout_marginEnd="@dimen/row_end_margin"
-      android:paddingTop="@dimen/row_top_bottom_padding"
-      android:paddingBottom="@dimen/row_top_bottom_padding"
-      android:paddingStart="@dimen/row_start_padding"
-      android:gravity="center_vertical"
-      android:background="?android:attr/selectableItemBackground">
+      android:layout_marginEnd="16dp"
+      android:layout_marginTop="4dp"
+      android:layout_marginBottom="4dp"
+      app:cardCornerRadius="12dp"
+      app:cardElevation="1dp"
+      app:strokeWidth="0dp"
+      android:background="?attr/colorSurfaceContainer"
+      android:foreground="?android:attr/selectableItemBackground">
 
-    <QuickContactBadge
-        android:id="@+id/photo"
-        android:layout_width="@dimen/photo_size"
-        android:layout_height="@dimen/photo_size"
-        android:clickable="false"/>
+    <RelativeLayout
+        android:id="@+id/click_target"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="60dp">
 
-    <com.android.dialer.widget.BidiTextView
-        android:id="@+id/contact_name"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:paddingStart="@dimen/text_padding_start"
-        android:paddingEnd="@dimen/text_padding_end"
-        android:maxLines="1"
-        android:ellipsize="end"
-        android:gravity="center_vertical"
-        android:textSize="@dimen/text_size"
-        android:textColor="?android:attr/textColorPrimary"
-        android:fontFamily="sans-serif"/>
-  </LinearLayout>
+      <QuickContactBadge
+          android:id="@+id/photo"
+          android:layout_width="@dimen/photo_size"
+          android:layout_height="@dimen/photo_size"
+          android:layout_marginStart="8dp"
+          android:layout_marginEnd="8dp"
+          android:layout_centerVertical="true"
+          android:clickable="false"/>
+
+      <com.android.dialer.widget.BidiTextView
+          android:id="@+id/contact_name"
+          style="@style/Dialer.TextAppearance.Primary.Ellipsize"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_toEndOf="@+id/photo"
+          android:layout_marginEnd="16dp"
+          android:lineSpacingMultiplier="1.5"/>
+
+    </RelativeLayout>
+
+  </com.google.android.material.card.MaterialCardView>
+
 </FrameLayout>
