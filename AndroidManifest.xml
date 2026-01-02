@@ -15,13 +15,8 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   coreApp="true"
-  package="com.android.dialer"
   android:versionCode="2900000"
   android:versionName="23.0">
-
-  <uses-sdk
-    android:minSdkVersion="24"
-    android:targetSdkVersion="30"/>
 
 
   <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
@@ -64,7 +59,6 @@
   <uses-permission android:name="android.permission.CONNECTIVITY_USE_RESTRICTED_NETWORKS"/>
   <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
   <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
-  <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
   <uses-permission android:name="android.permission.CONTROL_INCALL_EXPERIENCE"/>
   <!-- We use this to disable the status bar buttons of home, back and recent
@@ -125,8 +119,7 @@
     android:appCategory="social"
     android:supportsRtl="true"
     android:usesCleartextTraffic="false"
-    android:enableOnBackInvokedCallback="false"
-    android:extractNativeLibs="true">
+    android:enableOnBackInvokedCallback="false">
 
     <!-- Main launcher activity - must handle DIAL intent for default dialer eligibility -->
     <activity

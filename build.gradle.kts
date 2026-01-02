@@ -35,20 +35,6 @@ android {
         manifestPlaceholders["appPackageName"] = applicationId ?: "com.android.dialer"
     }
 
-    flavorDimensions += "variant"
-    productFlavors {
-        create("aosp") {
-            dimension = "variant"
-        }
-        create("dev") {
-            dimension = "variant"
-            applicationIdSuffix = ".dev"
-            versionNameSuffix = "-dev"
-            resValue("string", "applicationLabel", "DEV Phone")
-            manifestPlaceholders["appPackageName"] = "com.android.dialer.dev"
-        }
-    }
-
     buildTypes {
         release {
             isMinifyEnabled = true
@@ -57,8 +43,13 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard.flags"
             )
+            signingConfig = signingConfigs.getByName("debug")
         }
         debug {
+            applicationIdSuffix = ".dev"
+            versionNameSuffix = "-dev"
+            resValue("string", "applicationLabel", "DEV Phone")
+            manifestPlaceholders["appPackageName"] = "com.android.dialer.dev"
             isMinifyEnabled = false
             isDebuggable = true
         }
@@ -67,7 +58,10 @@ android {
     sourceSets {
         getByName("main") {
             manifest.srcFile("AndroidManifest.xml")
-            java.setSrcDirs(listOf("java"))
+            java.setSrcDirs(listOf(
+                "java",
+                "java/com/android/dialer/constants/aospdialer"
+            ))
             res.srcDirs(
                 "assets/product/res",
                 "assets/quantum/res",
@@ -158,12 +152,6 @@ android {
             )
             aidl.srcDirs("java")
             assets.srcDirs("assets")
-        }
-        getByName("aosp") {
-            java.srcDirs("java/com/android/dialer/constants/aospdialer")
-        }
-        getByName("dev") {
-            java.srcDirs("java/com/android/dialer/constants/aospdialer")
         }
     }
 
