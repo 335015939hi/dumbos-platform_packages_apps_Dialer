@@ -225,6 +225,117 @@
       android:permission="android.permission.BIND_JOB_SERVICE"
       android:exported="false"/>
 
+    <!-- Settings Activity -->
+    <activity
+        android:name="com.android.dialer.app.settings.DialerSettingsActivity"
+        android:exported="true"
+        android:label="@string/dialer_settings_label"
+        android:parentActivityName="com.android.dialer.main.impl.MainActivity"
+        android:theme="@style/SettingsStyle">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <data android:scheme="header"/>
+      </intent-filter>
+    </activity>
+
+    <!-- Call Log Activity -->
+    <activity
+        android:name="com.android.dialer.app.calllog.CallLogActivity"
+        android:label="@string/call_log_activity_title"
+        android:theme="@style/DialtactsTheme">
+    </activity>
+
+    <!-- Blocked Numbers Settings -->
+    <activity
+        android:name="com.android.dialer.app.filterednumber.BlockedNumbersSettingsActivity"
+        android:exported="false"
+        android:label="@string/manage_blocked_numbers_label"
+        android:parentActivityName="com.android.dialer.app.settings.DialerSettingsActivity"
+        android:theme="@style/ManageBlockedNumbersStyle">
+      <intent-filter>
+        <action android:name="com.android.dialer.action.BLOCKED_NUMBERS_SETTINGS"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+      </intent-filter>
+    </activity>
+
+    <!-- Call Log Notifications Activity -->
+    <activity
+        android:name="com.android.dialer.app.calllog.CallLogNotificationsActivity"
+        android:theme="@style/Theme.AppCompat.Translucent">
+    </activity>
+
+    <!-- Call Log Receiver -->
+    <receiver android:name="com.android.dialer.app.calllog.CallLogReceiver"
+        android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.NEW_VOICEMAIL"/>
+        <data
+          android:host="com.android.voicemail"
+          android:mimeType="vnd.android.cursor.item/voicemail"
+          android:scheme="content"/>
+        <data
+          android:host="com.android.voicemail"
+          android:mimeType="vnd.android.cursor.dir/voicemails"
+          android:scheme="content"/>
+      </intent-filter>
+      <intent-filter android:priority="100">
+        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+      </intent-filter>
+    </receiver>
+
+    <!-- Missed Call Notification Receiver -->
+    <receiver
+        android:name="com.android.dialer.app.calllog.MissedCallNotificationReceiver"
+        android:directBootAware="true"
+        android:exported="true">
+      <intent-filter>
+        <action android:name="android.telecom.action.SHOW_MISSED_CALLS_NOTIFICATION"/>
+      </intent-filter>
+    </receiver>
+
+    <!-- Legacy Voicemail Notification Receiver -->
+    <receiver android:name="com.android.dialer.app.voicemail.LegacyVoicemailNotificationReceiver"
+        android:exported="true"
+        android:directBootAware="true">
+      <intent-filter>
+        <action android:name="android.telephony.action.SHOW_VOICEMAIL_NOTIFICATION"/>
+      </intent-filter>
+      <intent-filter>
+        <action android:name="com.android.voicemail.VoicemailClient.ACTION_SHOW_LEGACY_VOICEMAIL"/>
+      </intent-filter>
+    </receiver>
+
+    <!-- Call Log Notifications Service -->
+    <service
+        android:name="com.android.dialer.app.calllog.CallLogNotificationsService"
+        android:directBootAware="true"
+        android:exported="false"/>
+
+    <!-- Voicemail Notification Job Service -->
+    <service
+        android:name="com.android.dialer.app.calllog.VoicemailNotificationJobService"
+        android:permission="android.permission.BIND_JOB_SERVICE"/>
+
+    <!-- Command Line Receiver -->
+    <receiver
+        android:name="com.android.dialer.commandline.CommandLineReceiver"
+        android:exported="false"/>
+
+    <!-- File Provider -->
+    <provider
+        android:name="androidx.core.content.FileProvider"
+        android:authorities="${appPackageName}.files"
+        android:exported="false"
+        android:grantUriPermissions="true">
+      <meta-data
+          android:name="android.support.FILE_PROVIDER_PATHS"
+          android:resource="@xml/file_paths"/>
+    </provider>
+
+    <!-- Per-number preferred account support -->
+    <meta-data android:name="supports_per_number_preferred_account" android:value="true"/>
+    <!-- TODO (OzztheWoz): migrate all AndroidManifest to this file -->
   </application>
 
 </manifest>
