@@ -156,9 +156,7 @@ public class CallLogActivity extends TransactionSafeActivity
 
     if (item.getItemId() == android.R.id.home) {
       PerformanceReport.recordClick(UiAction.Type.CLOSE_CALL_HISTORY_WITH_CANCEL_BUTTON);
-      final Intent intent = new Intent("com.android.dialer.main.impl.MAIN");
-      intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-      startActivity(intent);
+      finish();
       return true;
     } else if (item.getItemId() == R.id.delete_all) {
       ClearCallLogDialog.show(getFragmentManager());
