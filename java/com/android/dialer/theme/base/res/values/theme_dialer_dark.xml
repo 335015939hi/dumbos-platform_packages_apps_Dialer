@@ -18,9 +18,37 @@
   <!-- Deprecated: ActionBars are clunky and Toolbar (along with Dialer.ThemeBase.NoActionBar)
       should be used in favor-->
   <style name="Dialer.Dark.ThemeBase.ActionBar" parent="Dialer.Dark.ThemeBase">
+    <!-- Override NoActionBar from parent to enable ActionBar -->
+    <item name="windowActionBar">true</item>
+    <item name="windowNoTitle">false</item>
+
     <!-- These are used to style all actionbars in Dialer. These aren't needed in Dialer.ThemeBase.NoActionBar -->
-    <item name="actionBarStyle">@style/DialerActionBarBaseStyle</item>
+    <item name="actionBarStyle">@style/DialerDarkActionBarStyle</item>
     <item name="actionBarSize">@dimen/action_bar_height</item>
+
+    <!-- Pulled from Theme.AppCompat.Light.DarkActionbar-->
+    <item name="actionBarPopupTheme">@style/ThemeOverlay.AppCompat.Dark</item>
+    <item name="actionBarWidgetTheme">@null</item>
+    <item name="actionBarTheme">@style/DialerDarkActionBarTheme</item>
+    <item name="listChoiceBackgroundIndicator">@drawable/abc_list_selector_holo_dark</item>
+
+    <!-- Status bar should match the action bar background (dark with light text) -->
+    <item name="android:statusBarColor">?attr/colorSurfaceContainer</item>
+    <item name="android:windowLightStatusBar">false</item>
+    <item name="colorControlHighlight">@color/dialer_ripple_color</item>
+  </style>
+
+  <!-- Dark mode action bar styles -->
+  <style name="DialerDarkActionBarStyle"
+      parent="@style/Widget.AppCompat.ActionBar.Solid">
+    <item name="android:background">?attr/colorSurfaceContainer</item>
+    <item name="background">?attr/colorSurfaceContainer</item>
+  </style>
+  <style name="DialerDarkActionBarTheme"
+      parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+    <item name="colorControlNormal">?attr/colorOnSurface</item>
+    <item name="android:textColorPrimary">?attr/colorOnSurface</item>
+    <item name="titleTextColor">?attr/colorOnSurface</item>
   </style>
 
   <style name="Dialer.Dark.ThemeBase.NoActionBar" parent="Dialer.Dark.ThemeBase">
