@@ -32,8 +32,9 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/action_bar_height_large"
-        android:background="?android:attr/colorPrimary"
-        android:elevation="@dimen/tab_elevation"/>
+        android:layout_margin="@dimen/search_bar_margin"
+        android:background="@drawable/search_bar_background_rounded_corners"
+        android:elevation="@dimen/action_bar_elevation"/>
 
     <com.android.contacts.common.list.ViewPagerTabs
         android:id="@+id/lists_pager_header"
@@ -41,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/tab_height"
         android:layout_gravity="top"
-        android:elevation="@dimen/tab_elevation"
+        android:elevation="0dp"
         android:orientation="horizontal"
         android:textAllCaps="true"/>
 
@@ -69,7 +70,7 @@
         android:id="@+id/remove_view_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?android:attr/colorPrimary"
+        android:background="?attr/colorBackgroundSearchBar"
         android:gravity="center"
         android:orientation="horizontal"
         android:visibility="gone">
@@ -81,14 +82,14 @@
           android:layout_marginTop="8dp"
           android:layout_marginBottom="8dp"
           android:src="@drawable/ic_remove"
-          android:tint="?colorTextOnUnthemedDarkBackground"/>
+          android:tint="?attr/colorOnSurface"/>
 
       <TextView
           android:id="@+id/remove_view_text"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="@string/remove_contact"
-          android:textColor="?colorTextOnUnthemedDarkBackground"
+          android:textColor="?attr/colorOnSurface"
           style="@style/Dialer.TextAppearance.Primary"/>
 
     </LinearLayout>
