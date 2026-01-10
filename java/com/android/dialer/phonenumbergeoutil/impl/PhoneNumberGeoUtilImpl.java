@@ -17,18 +17,15 @@
 package com.android.dialer.phonenumbergeoutil.impl;
 
 import android.content.Context;
-import android.text.TextUtils;
-import com.android.dialer.common.LogUtil;
-import com.android.dialer.i18n.LocaleUtils;
 import com.android.dialer.phonenumbergeoutil.PhoneNumberGeoUtil;
-import com.google.i18n.phonenumbers.NumberParseException;
-import com.google.i18n.phonenumbers.PhoneNumberUtil;
-import com.google.i18n.phonenumbers.Phonenumber;
-import com.google.i18n.phonenumbers.geocoding.PhoneNumberOfflineGeocoder;
-import java.util.Locale;
 import javax.inject.Inject;
 
-/** Implementation of {@link PhoneNumberGeoUtil}. */
+/**
+ * Implementation of {@link PhoneNumberGeoUtil}.
+ *
+ * <p>Note: Geo description lookup is disabled to reduce APK size by ~7MB.
+ * The libphonenumber geocoder dependency was removed.
+ */
 public class PhoneNumberGeoUtilImpl implements PhoneNumberGeoUtil {
 
   @Inject
@@ -36,40 +33,7 @@ public class PhoneNumberGeoUtilImpl implements PhoneNumberGeoUtil {
 
   @Override
   public String getGeoDescription(Context context, String number, String countryIso) {
-    LogUtil.v("PhoneNumberGeoUtilImpl.getGeoDescription", LogUtil.sanitizePii(number));
-
-    if (TextUtils.isEmpty(number)) {
-      return null;
-    }
-
-    PhoneNumberUtil util = PhoneNumberUtil.getInstance();
-    PhoneNumberOfflineGeocoder geocoder = PhoneNumberOfflineGeocoder.getInstance();
-
-    Locale locale = LocaleUtils.getLocale(context);
-    Phonenumber.PhoneNumber pn = null;
-    try {
-      LogUtil.v(
-          "PhoneNumberGeoUtilImpl.getGeoDescription",
-          "parsing '" + LogUtil.sanitizePii(number) + "' for countryIso '" + countryIso + "'...");
-      pn = util.parse(number, countryIso);
-      LogUtil.v(
-          "PhoneNumberGeoUtilImpl.getGeoDescription",
-          "- parsed number: " + LogUtil.sanitizePii(pn));
-    } catch (NumberParseException e) {
-      LogUtil.e(
-          "PhoneNumberGeoUtilImpl.getGeoDescription",
-          "getGeoDescription: NumberParseException for incoming number '"
-              + LogUtil.sanitizePii(number)
-              + "'");
-    }
-
-    if (pn != null) {
-      String description = geocoder.getDescriptionForNumber(pn, locale);
-      LogUtil.v(
-          "PhoneNumberGeoUtilImpl.getGeoDescription", "- got description: '" + description + "'");
-      return description;
-    }
-
+    // Geo description disabled - geocoder library removed to reduce APK size
     return null;
   }
 }
