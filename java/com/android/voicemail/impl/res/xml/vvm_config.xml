@@ -191,6 +191,21 @@
         <string name="vvm_transcription_allowed_for_carrier_flag_name"> vvm_tracfone_tmo_us_allows_transcription </string>
         <boolean name="vvm_change_greeting_enabled_bool" value="true" />
     </pbundle_as_map>
+    <!-- Mint Mobile (T-Mobile MVNO) -->
+    <pbundle_as_map>
+        <string-array name="mccmnc">
+            <item value="310260?gid1=756D" />
+            <item value="310240?gid1=756D" />
+        </string-array>
+        <int name="vvm_port_number_int" value="1808" />
+        <int name="vvm_ssl_port_number_int" value="993" />
+        <string name="vvm_destination_number_string">122</string>
+        <string name="vvm_type_string">vvm_type_cvvm</string>
+        <string-array name="vvm_disabled_capabilities_string_array">
+            <item value="AUTH=DIGEST-MD5" />
+        </string-array>
+        <boolean name="vvm_change_greeting_enabled_bool" value="true" />
+    </pbundle_as_map>
     <pbundle_as_map>
         <string-array name="mccmnc">
             <item value="311480?gid1=BA01270000000000" />

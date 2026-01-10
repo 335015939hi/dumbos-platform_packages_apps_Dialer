@@ -207,7 +207,6 @@ dependencies {
     implementation("androidx.dynamicanimation:dynamicanimation:1.0.0")
     implementation("androidx.interpolator:interpolator:1.0.0")
     implementation("com.googlecode.libphonenumber:libphonenumber:8.13.50")
-    implementation("com.googlecode.libphonenumber:geocoder:2.234")
     implementation("me.leolin:ShortcutBadger:1.1.22")
     implementation("com.android.volley:volley:1.2.1")
     implementation("com.google.zxing:core:3.5.3")
