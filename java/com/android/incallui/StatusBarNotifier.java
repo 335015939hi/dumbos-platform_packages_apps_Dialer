@@ -34,6 +34,7 @@ import static com.android.incallui.NotificationBroadcastReceiver.ACTION_TURN_ON_
 import android.Manifest;
 import android.app.Notification;
 import android.app.PendingIntent;
+import android.app.Person;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.Intent;
@@ -396,16 +397,21 @@ public class StatusBarNotifier
     builder.setContentTitle(contentTitle);
     builder.setLargeIcon(largeIcon);
     builder.setColor(InCallPresenter.getInstance().getThemeColorManager().getPrimaryColor());
+    // Content title contains the contact's name, or number, or indicates a conference call
+    Person person = getPersonReference(contentTitle, contactInfo, call);
+    builder.addPerson(person);
 
     if (isVideoUpgradeRequest) {
+      // Note: In Google Dialer, video upgrade request is only read in a Build.VERSION.SDK_INT < 31
+      // branch which doesn't use CallStyle at all. CallStyle doesn't allow us to change the names
+      // of the accept and decline buttons anyway, so an action is better here to indicate upgrade
+      // request.
       builder.setUsesChronometer(false);
       addDismissUpgradeRequestAction(builder);
       addAcceptUpgradeRequestAction(builder);
     } else {
-      createIncomingCallNotification(call, callState, callAudioState, builder);
+      createIncomingCallNotification(call, callState, callAudioState, builder, person);
     }
-
-    addPersonReference(builder, contactInfo, call);
 
     Trace.beginSection("fire notification");
     // Fire off the notification
@@ -441,23 +447,33 @@ public class StatusBarNotifier
   }
 
   private void createIncomingCallNotification(
-      DialerCall call, int state, CallAudioState callAudioState, Notification.Builder builder) {
+      DialerCall call, int state, CallAudioState callAudioState, Notification.Builder builder,
+          @NonNull Person personForCallStyle) {
     setNotificationWhen(call, state, builder);
 
     // Add hang up option for any active calls (active | onhold), outgoing calls (dialing).
     if (state == DialerCallState.ACTIVE
         || state == DialerCallState.ONHOLD
         || DialerCallState.isDialing(state)) {
-      addHangupAction(builder);
+      PendingIntent hangupIntent = getHangupAction();
+      builder.setStyle(Notification.CallStyle.forOngoingCall(personForCallStyle, hangupIntent));
+      // OutgoingCall CallStyle will allow up to two custom actions
       addSpeakerAction(builder, callAudioState);
     } else if (state == DialerCallState.INCOMING || state == DialerCallState.CALL_WAITING) {
-      addDismissAction(builder);
+      PendingIntent dismissAction = getDismissAction();
+      final PendingIntent answerAction;
       if (call.isVideoCall()) {
-        addVideoCallAction(builder);
+        answerAction = getVideoCallAction();
       } else {
-        addAnswerAction(builder);
+        answerAction = getAnswerAction();
+        // IncomingCall CallStyle will allow up to one custom action
         addSpeakeasyAnswerAction(builder, call);
       }
+
+      Notification.CallStyle incomingCallStyle = Notification.CallStyle
+          .forIncomingCall(personForCallStyle, dismissAction, answerAction)
+          .setIsVideo(call.isVideoCall());
+      builder.setStyle(incomingCallStyle);
     }
   }
 
@@ -564,7 +580,7 @@ public class StatusBarNotifier
       return CallerInfoUtils.getConferenceString(
           context, call.hasProperty(Details.PROPERTY_GENERIC_CONFERENCE));
     }
-
+    // Note that this is copy and pasted from CallCardPresenter#getNameForCall
     String preferredName =
         ContactsComponent.get(context)
             .contactDisplayPreferences()
@@ -578,15 +594,25 @@ public class StatusBarNotifier
     return preferredName;
   }
 
-  private void addPersonReference(
-      Notification.Builder builder, ContactCacheEntry contactInfo, DialerCall call) {
+  @NonNull
+  private Person getPersonReference(String name, ContactCacheEntry contactInfo, DialerCall call) {
+    // name is required for CallStyle
+    if (TextUtils.isEmpty(name)) {
+      name = context.getString(R.string.unknown);
+    }
+    final Person.Builder builder = new Person.Builder().setName(name);
+
     // Query {@link Contacts#CONTENT_LOOKUP_URI} directly with work lookup key is not allowed.
     // So, do not pass {@link Contacts#CONTENT_LOOKUP_URI} to NotificationManager to avoid
     // NotificationManager using it.
     if (contactInfo.lookupUri != null && contactInfo.userType != ContactsUtils.USER_TYPE_WORK) {
-      builder.addPerson(contactInfo.lookupUri.toString());
+      return builder.setUri(contactInfo.lookupUri.toString()).build();
     } else if (!TextUtils.isEmpty(call.getNumber())) {
-      builder.addPerson(Uri.fromParts(PhoneAccount.SCHEME_TEL, call.getNumber(), null).toString());
+      return builder
+          .setUri(Uri.fromParts(PhoneAccount.SCHEME_TEL, call.getNumber(), null).toString())
+          .build();
+    } else {
+      return builder.build();
     }
   }
 
@@ -884,19 +910,13 @@ public class StatusBarNotifier
     return spannable;
   }
 
-  private void addAnswerAction(Notification.Builder builder) {
+  private PendingIntent getAnswerAction() {
     LogUtil.d(
         "StatusBarNotifier.addAnswerAction",
         "will show \"answer\" action in the incoming call Notification");
     PendingIntent answerVoicePendingIntent =
         createNotificationPendingIntent(context, ACTION_ANSWER_VOICE_INCOMING_CALL);
-    builder.addAction(
-        new Notification.Action.Builder(
-                Icon.createWithResource(context, R.drawable.quantum_ic_call_white_24),
-                getActionText(
-                    R.string.notification_action_answer, R.color.notification_action_accept),
-                answerVoicePendingIntent)
-            .build());
+    return answerVoicePendingIntent;
   }
 
   private void addSpeakeasyAnswerAction(Notification.Builder builder, DialerCall call) {
@@ -941,33 +961,22 @@ public class StatusBarNotifier
             .build());
   }
 
-  private void addDismissAction(Notification.Builder builder) {
+  private PendingIntent getDismissAction() {
     LogUtil.d(
         "StatusBarNotifier.addDismissAction",
         "will show \"decline\" action in the incoming call Notification");
     PendingIntent declinePendingIntent =
         createNotificationPendingIntent(context, ACTION_DECLINE_INCOMING_CALL);
-    builder.addAction(
-        new Notification.Action.Builder(
-                Icon.createWithResource(context, R.drawable.quantum_ic_close_white_24),
-                getActionText(
-                    R.string.notification_action_dismiss, R.color.notification_action_dismiss),
-                declinePendingIntent)
-            .build());
+    return declinePendingIntent;
   }
 
-  private void addHangupAction(Notification.Builder builder) {
+  private PendingIntent getHangupAction() {
     LogUtil.d(
         "StatusBarNotifier.addHangupAction",
         "will show \"hang-up\" action in the ongoing active call Notification");
     PendingIntent hangupPendingIntent =
         createNotificationPendingIntent(context, ACTION_HANG_UP_ONGOING_CALL);
-    builder.addAction(
-        new Notification.Action.Builder(
-                Icon.createWithResource(context, R.drawable.quantum_ic_call_end_white_24),
-                context.getText(R.string.notification_action_end_call),
-                hangupPendingIntent)
-            .build());
+    return hangupPendingIntent;
   }
 
   private void addSpeakerAction(Notification.Builder builder, CallAudioState callAudioState) {
@@ -1011,20 +1020,13 @@ public class StatusBarNotifier
             .build());
   }
 
-  private void addVideoCallAction(Notification.Builder builder) {
+  private PendingIntent getVideoCallAction() {
     LogUtil.i(
         "StatusBarNotifier.addVideoCallAction",
         "will show \"video\" action in the incoming call Notification");
     PendingIntent answerVideoPendingIntent =
         createNotificationPendingIntent(context, ACTION_ANSWER_VIDEO_INCOMING_CALL);
-    builder.addAction(
-        new Notification.Action.Builder(
-                Icon.createWithResource(context, R.drawable.quantum_ic_videocam_vd_white_24),
-                getActionText(
-                    R.string.notification_action_answer_video,
-                    R.color.notification_action_answer_video),
-                answerVideoPendingIntent)
-            .build());
+    return answerVideoPendingIntent;
   }
 
   private void addAcceptUpgradeRequestAction(Notification.Builder builder) {
