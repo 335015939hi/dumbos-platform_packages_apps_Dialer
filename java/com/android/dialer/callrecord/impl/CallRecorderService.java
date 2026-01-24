@@ -16,6 +16,8 @@
 
 package com.android.dialer.callrecord.impl;
 
+import static java.lang.Integer.parseInt;
+
 import android.app.Service;
 import android.content.ContentUris;
 import android.content.Intent;
@@ -30,6 +32,7 @@ import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.android.dialer.R;
 import com.android.dialer.callrecord.CallRecording;
 import com.android.dialer.callrecord.ICallRecorderService;
 
@@ -38,22 +41,18 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
-import com.android.dialer.R;
-
-import static java.lang.Integer.parseInt;
-
 public class CallRecorderService extends Service {
 
   private static final String TAG = "CallRecorderService";
   private static final boolean DBG = false;
 
-  private static final String KEY_CALL_RECORDING_AUDIO_SOURCE = "call_recording_audio_source";
+  static final String KEY_CALL_RECORDING_AUDIO_SOURCE = "call_recording_audio_source";
   private static final String KEY_CALL_RECORDING_OUTPUT_FORMAT = "call_recording_output_format";
 
   private MediaRecorder mMediaRecorder = null;
   private CallRecording mCurrentRecording = null;
 
-  private SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyyMMdd-HHmmss");
+  static SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyyMMdd-HHmmss");
 
   private final ICallRecorderService.Stub mBinder = new ICallRecorderService.Stub() {
     @Override
@@ -100,12 +99,10 @@ public class CallRecorderService extends Service {
     return parseInt(getPrefs().getString(KEY_CALL_RECORDING_AUDIO_SOURCE, def));
   }
 
-  private static final int OUTPUT_FORMAT_AAC_MPEG_4 = 0;
-  private static final int OUTPUT_FORMAT_AMR_WB = 1;
-
-  private int getOutputFormat() {
+  private OutputFormat getOutputFormat() {
     String def = getString(R.string.call_recording_output_format_default);
-    return parseInt(getPrefs().getString(KEY_CALL_RECORDING_OUTPUT_FORMAT, def));
+    int selectionId = parseInt(getPrefs().getString(KEY_CALL_RECORDING_OUTPUT_FORMAT, def));
+    return OutputFormat.getOutputFormat(selectionId);
   }
 
   private synchronized boolean startRecordingInternal(String phoneNumber, long creationTime) {
@@ -123,17 +120,17 @@ public class CallRecorderService extends Service {
     Log.i(TAG, "Starting recording");
 
     final int audioSource = getAudioSource();
-    final int outputFormat = getOutputFormat();
+    final OutputFormat outputFormat = getOutputFormat();
 
     mMediaRecorder = new MediaRecorder();
     try {
       Log.d(TAG, "Creating media recorder with audio source " + audioSource);
 
       mMediaRecorder.setAudioSource(audioSource);
-      if (outputFormat == OUTPUT_FORMAT_AAC_MPEG_4) {
+      if (outputFormat == OutputFormat.AAC_MPEG_4) {
         mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
         mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
-      } else if (outputFormat == OUTPUT_FORMAT_AMR_WB){
+      } else if (outputFormat == OutputFormat.AMR_WB) {
         mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AMR_WB);
         mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_WB);
       } else {
@@ -210,16 +207,15 @@ public class CallRecorderService extends Service {
     if (DBG) Log.d(TAG, "Destroying CallRecorderService");
   }
 
-  private String generateFilename(String number, int outputFormat) {
+  static String generateFilename(String number, OutputFormat outputFormat) {
     String timestamp = DATE_FORMAT.format(new Date());
-    String extension = (outputFormat == OUTPUT_FORMAT_AAC_MPEG_4) ? ".m4a" : ".amr";
 
     if (TextUtils.isEmpty(number)) {
       number = "unknown";
     }
 
     // CallRecord_yyyyMMdd-HHmmss_numberextension.amr/m4a
-    return "CallRecord_" + timestamp + "_" + number + extension;
+    return "CallRecord_" + timestamp + "_" + number + outputFormat.extension;
   }
 
   private void releaseMediaRecorder() {
