@@ -22,5 +22,7 @@
   <application>
     <service android:name="com.android.dialer.callrecord.impl.CallRecorderService"
         android:process="com.android.incallui" />
+    <service android:name="com.android.dialer.callrecord.impl.CallRecorderServiceV2"
+        android:process="com.android.incallui" />
   </application>
 </manifest>

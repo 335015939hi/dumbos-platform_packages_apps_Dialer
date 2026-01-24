@@ -34,6 +34,7 @@ import com.android.dialer.R;
 import com.android.dialer.callrecord.CallRecording;
 import com.android.dialer.callrecord.ICallRecorderService;
 import com.android.dialer.callrecord.impl.CallRecorderService;
+import com.android.dialer.callrecord.impl.CallRecorderServiceV2;
 import com.android.dialer.location.GeoUtil;
 import com.android.incallui.call.state.DialerCallState;
 
@@ -99,7 +100,10 @@ public class CallRecorder implements CallList.Listener {
 
   private void initialize() {
     if (!initialized) {
-      Intent serviceIntent = new Intent(context, CallRecorderService.class);
+      final boolean v2Enabled = CallRecorderServiceV2.isV2Enabled(context);
+      Log.d(TAG, "Using Call Recording V2: " + v2Enabled);
+      Intent serviceIntent = new Intent(context, v2Enabled ? CallRecorderServiceV2.class
+              : CallRecorderService.class);
       context.bindService(serviceIntent, connection, Context.BIND_AUTO_CREATE);
       initialized = true;
     }
