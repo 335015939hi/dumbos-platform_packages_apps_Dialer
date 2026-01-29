@@ -31,7 +31,6 @@ import java.nio.charset.StandardCharsets;
 public class WavLPCMRecorder extends BaseCallRecorder {
   private static final String TAG = "WavLPCMRecorder";
   private BufferedOutputStream mOutputStream;
-  private int mBytesWritten;
   private final boolean mShouldUseExtensibleHeader;
   private final int mWavHeaderSize;
   private final int bytesPerSample;
@@ -60,17 +59,17 @@ public class WavLPCMRecorder extends BaseCallRecorder {
   }
 
   @Override
-  protected void onPcmBufferRead(int totalRead, int read, byte[] pcmBuffer) throws IOException {
+  protected void onPcmBufferRead(int read, byte[] pcmBuffer) throws IOException {
     mOutputStream.write(pcmBuffer, 0, read);
-    mBytesWritten += read;
   }
 
   @Override
   protected void onRecordingStop() throws IOException {
     // WAV readers expect samples to be interleaved fully per frame.
     // Trailing partial frames are invalid, so trim to a whole number of frames.
-    final int roundedBytes = mBytesWritten - (mBytesWritten % mAudioFormat.getFrameSizeInBytes());
-    Log.d(TAG, "mBytesWritten " + mBytesWritten + ", roundedBytes " + roundedBytes);
+    final int bytesWritten = mBytesRead.get();
+    final int roundedBytes = bytesWritten - (bytesWritten % mAudioFormat.getFrameSizeInBytes());
+    Log.d(TAG, "mBytesWritten " + bytesWritten + ", roundedBytes " + roundedBytes);
     if (roundedBytes % 2 == 1) {
       Log.d(TAG, "adding empty byte for padding");
       mOutputStream.write(0);
@@ -225,7 +224,6 @@ public class WavLPCMRecorder extends BaseCallRecorder {
 
   @Override
   protected void reset() {
-    mBytesWritten = 0;
     onClose();
   }
 
