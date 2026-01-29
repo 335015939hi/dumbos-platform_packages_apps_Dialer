@@ -1,5 +1,6 @@
 package com.android.dialer.callrecord.impl;
 
+import java.nio.ByteBuffer;
 import java.util.ArrayDeque;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
@@ -7,15 +8,14 @@ import java.util.concurrent.locks.ReentrantLock;
 import javax.annotation.concurrent.GuardedBy;
 
 /**
- * Fixed-size pool of reusable byte[] buffers
+ * Fixed-size pool of reusable ByteBuffers
  */
-public final class ByteArrayPool {
+public final class ByteBufferPool {
   public final class Buffer implements AutoCloseable {
-    public final byte[] data;
-    public int length;
+    public final ByteBuffer data;
     private boolean released;
 
-    private Buffer(byte[] data) {
+    private Buffer(ByteBuffer data) {
       this.data = data;
       this.released = true;
     }
@@ -26,7 +26,7 @@ public final class ByteArrayPool {
         return;
       }
       released = true;
-      ByteArrayPool.this.release(this);
+      ByteBufferPool.this.release(this);
     }
   }
 
@@ -38,13 +38,13 @@ public final class ByteArrayPool {
   private final Condition mNotEmpty = mLock.newCondition();
   private final Condition mHasFree = mLock.newCondition();
   @GuardedBy("mLock")
-  private boolean mClosed;
+  private volatile boolean mClosed;
 
-  public ByteArrayPool(int poolSize, int bufferSize) {
+  public ByteBufferPool(int poolSize, int bufferSize) {
     mFree = new ArrayDeque<>(poolSize);
     mFilled = new ArrayDeque<>(poolSize);
     for (int i = 0; i < poolSize; i++) {
-      mFree.addLast(new Buffer(new byte[bufferSize]));
+      mFree.addLast(new Buffer(ByteBuffer.allocateDirect(bufferSize)));
     }
   }
 
@@ -78,7 +78,8 @@ public final class ByteArrayPool {
       if (mClosed) {
         return false;
       }
-      buffer.length = length;
+      buffer.data.limit(length);
+      buffer.data.position(0);
       mFilled.addLast(buffer);
       mNotEmpty.signal();
       return true;
@@ -87,7 +88,10 @@ public final class ByteArrayPool {
     }
   }
 
-  /** Consumer: take a filled buffer. Returns null if closed and empty. */
+  /**
+   * Consumer: take a filled buffer. The position is set to 0 and limit is set appropriately.
+   * Returns null if closed and empty.
+   */
   public Buffer consume() throws InterruptedException {
     mLock.lock();
     try {
@@ -113,8 +117,7 @@ public final class ByteArrayPool {
       if (mClosed) {
         return false;
       }
-      buffer.length = 0;
-      // Arrays.fill(buffer.data, (byte) 0);
+      buffer.data.clear();
       mFree.addLast(buffer);
       mHasFree.signal();
       return true;
