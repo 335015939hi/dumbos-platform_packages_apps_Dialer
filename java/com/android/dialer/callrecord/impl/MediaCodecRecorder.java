@@ -87,9 +87,9 @@ public class MediaCodecRecorder extends BaseCallRecorder {
   }
 
   @Override
-  protected void onPcmBufferRead(int totalRead, int read, byte[] pcmBuffer) throws IOException {
+  protected void onPcmBufferRead(int read, byte[] pcmBuffer) throws IOException {
     int bytesEnqueued = 0;
-    final int totalReadBefore = totalRead - read;
+    final int totalReadBefore = mBytesRead.get() - read;
     while (bytesEnqueued < read) {
       // From queueInputBuffer documentation:
       // "The presentation timestamp in microseconds for this buffer. This is normally the media time
