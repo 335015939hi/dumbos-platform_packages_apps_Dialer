@@ -87,10 +87,11 @@ public class MediaCodecRecorder extends BaseCallRecorder {
   }
 
   @Override
-  protected void onPcmBufferRead(int read, byte[] pcmBuffer) throws IOException {
+  protected void onPcmBufferRead(ByteBuffer pcmBuffer) throws IOException {
     int bytesEnqueued = 0;
-    final int totalReadBefore = mBytesRead.get() - read;
-    while (bytesEnqueued < read) {
+    final int totalReadBefore = mBytesRead.get() - pcmBuffer.limit();
+    pcmBuffer.position(0);
+    while (pcmBuffer.hasRemaining()) {
       // From queueInputBuffer documentation:
       // "The presentation timestamp in microseconds for this buffer. This is normally the media time
       // at which this buffer should be presented (rendered)."
@@ -99,10 +100,15 @@ public class MediaCodecRecorder extends BaseCallRecorder {
       if (inputBufferIndex >= 0) {
         ByteBuffer inBuf = mMediaCodec.getInputBuffer(inputBufferIndex);
         if (inBuf != null) {
-          int bytesToQueue = Math.min(inBuf.capacity(), read - bytesEnqueued);
-
           inBuf.clear();
-          inBuf.put(pcmBuffer, bytesEnqueued, bytesToQueue);
+          // Fill as much as we can into inBuf
+          final int bytesToQueue = Math.min(inBuf.capacity(), pcmBuffer.remaining());
+          // Copy only bytesToQueue from pcmBuffer. ByteBuffer doesnt allow us to put in a certain
+          // number of bytes from a source buffer
+          final int oldLimit = pcmBuffer.limit();
+          pcmBuffer.limit(pcmBuffer.position() + bytesToQueue);
+          inBuf.put(pcmBuffer);
+          pcmBuffer.limit(oldLimit);
           inBuf.flip();
 
           bytesEnqueued += bytesToQueue;
@@ -112,7 +118,8 @@ public class MediaCodecRecorder extends BaseCallRecorder {
           mMediaCodec.queueInputBuffer(inputBufferIndex, offset, bytesToQueue, presentationTimeUs, flags);
         }
       } else {
-        Log.d(TAG, " dequeueInputBuffer index is < 0 : " + inputBufferIndex + ", bytesEnqueued " + bytesEnqueued);
+        Log.d(TAG, " dequeueInputBuffer index is < 0 : " + inputBufferIndex
+                + ", bytesEnqueued " + bytesEnqueued);
       }
 
       MediaCodec.BufferInfo info = new MediaCodec.BufferInfo();

@@ -11,6 +11,7 @@ import android.util.Log;
 
 import java.io.Closeable;
 import java.io.IOException;
+import java.nio.ByteBuffer;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
@@ -59,7 +60,7 @@ public abstract class BaseCallRecorder implements Closeable {
             return thread;
           });
   private final ExecutorService mAudioBufferConsumerExecutor = Executors.newSingleThreadExecutor();
-  private ByteArrayPool mAudioBufArrayPool;
+  private ByteBufferPool mAudioBufferPool;
 
   @GuardedBy("this")
   private Future<?> mWritingTask;
@@ -88,7 +89,7 @@ public abstract class BaseCallRecorder implements Closeable {
                     mAudioRecord.getSampleRate(), mAudioRecord.getChannelConfiguration(),
                     mAudioRecord.getAudioFormat()));
     Log.d(TAG, "mPcmBufferSize " + mPcmBufferSize);
-    mAudioBufArrayPool = new ByteArrayPool(BUFFER_POOL_NUM_BUFFERS, mPcmBufferSize);
+    mAudioBufferPool = new ByteBufferPool(BUFFER_POOL_NUM_BUFFERS, mPcmBufferSize);
   }
 
   protected final long computePresentationTimeUs(int bytesRead) {
@@ -112,8 +113,8 @@ public abstract class BaseCallRecorder implements Closeable {
     }
 
     mBytesRead.set(0);
-    if (mAudioBufArrayPool.isClosed()) {
-      mAudioBufArrayPool = new ByteArrayPool(BUFFER_POOL_NUM_BUFFERS, mPcmBufferSize);
+    if (mAudioBufferPool.isClosed()) {
+      mAudioBufferPool = new ByteBufferPool(BUFFER_POOL_NUM_BUFFERS, mPcmBufferSize);
     }
 
     mRecordLoopJob.set(
@@ -176,7 +177,7 @@ public abstract class BaseCallRecorder implements Closeable {
     private final long mPeriodMs;
     // This might be left here if the job is cancelled, but that's fine since the pool this
     // buffer belongs to gets closed if this is cancelled anyway.
-    private ByteArrayPool.Buffer mBuffer;
+    private ByteBufferPool.Buffer mBuffer;
 
     RecordJobLoop(long startTimeMs, long periodMs) {
       mStartTimeMs = startTimeMs;
@@ -208,7 +209,7 @@ public abstract class BaseCallRecorder implements Closeable {
       Log.d(TAG, "closeQuietly: AudioRecord loop finished");
       if (mBuffer != null) {
         // not needed since we're going to close the pool and only one producer
-        mAudioBufArrayPool.release(mBuffer);
+        mAudioBufferPool.release(mBuffer);
         mBuffer = null;
       }
       stopAudioRecordResources();
@@ -240,35 +241,35 @@ public abstract class BaseCallRecorder implements Closeable {
       }
 
       if (mBuffer == null) {
-        mBuffer = mAudioBufArrayPool.acquire();
+        mBuffer = mAudioBufferPool.acquire();
         if (mBuffer == null) {
           // pool is closed
           return false;
+        } else {
+          mBuffer.data.clear();
         }
       }
 
       int read = 0;
 
-      // Google Dialer passes a byte[] instead of short[] for ENCODING_PCM_16BIT, despite this
-      // method documenting that byte[] is only for ENCODING_PCM_8BIT and that using byte[] here
-      // is deprecated.
-      read = mAudioRecord.read(mBuffer.data, 0, mBuffer.data.length,
+      // AudioRecord does not change the ByteBuffer position
+      read = mAudioRecord.read(mBuffer.data, mBuffer.data.capacity(),
               AudioRecord.READ_NON_BLOCKING);
       if (read < 0) {
-        mAudioBufArrayPool.release(mBuffer);
+        mAudioBufferPool.release(mBuffer);
         mBuffer = null;
         Log.e(TAG, "error on AudioRecord read: " + read);
         throw new IOException("error on AudioRecord read: " + read);
       } else if (read > 0) {
-        if (!mAudioBufArrayPool.produce(mBuffer, read)) {
+        if (!mAudioBufferPool.produce(mBuffer, read)) {
           // pool is closed
           return false;
         }
         mBuffer = null;
+      } else {
+        // If read == 0, keep mBuffer for the next iteration so that we don't need to acquire from
+        // pool again.
       }
-      // If we read 0 bytes, keep the buffer for the next scheduled run to avoid polling for a
-      // free one again
-
 
       return shouldContinue();
     }
@@ -284,7 +285,7 @@ public abstract class BaseCallRecorder implements Closeable {
 
   public final synchronized void stopRecordingBlocking() {
     mIsRecording = false;
-    mAudioBufArrayPool.close();
+    mAudioBufferPool.close();
     if (mWritingTask == null) {
       return;
     }
@@ -333,21 +334,21 @@ public abstract class BaseCallRecorder implements Closeable {
 
   private void runConsumerJob() throws IOException, InterruptedException {
     while (true) {
-      try (ByteArrayPool.Buffer newPcmAudio = mAudioBufArrayPool.consume()) {
+      try (ByteBufferPool.Buffer newPcmAudio = mAudioBufferPool.consume()) {
         if (newPcmAudio == null) {
           Log.d(TAG, "consumer job exit");
           break;
         }
 
-        mBytesRead.addAndGet(newPcmAudio.length);
-        onPcmBufferRead(newPcmAudio.length, newPcmAudio.data);
+        mBytesRead.addAndGet(newPcmAudio.data.limit());
+        onPcmBufferRead(newPcmAudio.data);
       }
     }
   }
 
   /**
    * Called before the buffer loop to prepare for recording. After this, the buffer reading loop is
-   * entered and {@link #onPcmBufferRead(int, byte[])} will be called repeatedly.
+   * entered and {@link #onPcmBufferRead(ByteBuffer)} will be called repeatedly.
    *
    * @param pfd A file descriptor for the call recording file in storage to write to. This is open
    *            in "w" mode, so seeking isn't possible. Do not close this.
@@ -356,15 +357,15 @@ public abstract class BaseCallRecorder implements Closeable {
   protected abstract void onRecordingStart(ParcelFileDescriptor pfd) throws IOException;
 
   /**
-   * Repeatedly called after {@link android.media.AudioRecord#read} in a loop.
+   * Repeatedly called after bytes from {@link android.media.AudioRecord#read} are read in a loop.
    * This will be called in a different thread from the thread that's reading from AudioRecord.
    *
-   * @param read The number of bytes that was read into the buffer after
-   * {@link android.media.AudioRecord#read} was called
-   * @param pcmBuffer The buffer containing PCM data from call audio
+   * @param pcmBuffer The buffer containing PCM data from call audio. The position set to 0 and
+   *                  limit is set to the number of bytes read from the
+   *                  {@link android.media.AudioRecord#read} call.
    * @throws IOException
    */
-  protected abstract void onPcmBufferRead(int read, byte[] pcmBuffer) throws IOException;
+  protected abstract void onPcmBufferRead(ByteBuffer pcmBuffer) throws IOException;
 
   /**
    * Called after recording is done and the file should be completed. The file descriptor from
@@ -393,7 +394,7 @@ public abstract class BaseCallRecorder implements Closeable {
     mIsClosed = true;
     mIsRecording = false;
     onClose();
-    mAudioBufArrayPool.close();
+    mAudioBufferPool.close();
     mAudioRecord.release();
     mAudioBufferProducerExecutor.shutdownNow();
     mAudioBufferConsumerExecutor.shutdownNow();

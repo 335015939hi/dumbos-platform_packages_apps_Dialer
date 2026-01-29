@@ -13,6 +13,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.nio.channels.Channels;
+import java.nio.channels.WritableByteChannel;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -31,6 +33,7 @@ import java.nio.charset.StandardCharsets;
 public class WavLPCMRecorder extends BaseCallRecorder {
   private static final String TAG = "WavLPCMRecorder";
   private BufferedOutputStream mOutputStream;
+  private WritableByteChannel mOutputStreamChannel;
   private final boolean mShouldUseExtensibleHeader;
   private final int mWavHeaderSize;
   private final int bytesPerSample;
@@ -52,6 +55,7 @@ public class WavLPCMRecorder extends BaseCallRecorder {
   @Override
   protected void onRecordingStart(ParcelFileDescriptor pfd) throws IOException {
     mOutputStream = new BufferedOutputStream(new FileOutputStream(pfd.getFileDescriptor()));
+    mOutputStreamChannel = Channels.newChannel(mOutputStream);
     // Allocate space for the WAV header. This will be written after recording is done, as the
     // header requires the data size.
     byte[] empty = new byte[mWavHeaderSize];
@@ -59,8 +63,8 @@ public class WavLPCMRecorder extends BaseCallRecorder {
   }
 
   @Override
-  protected void onPcmBufferRead(int read, byte[] pcmBuffer) throws IOException {
-    mOutputStream.write(pcmBuffer, 0, read);
+  protected void onPcmBufferRead(ByteBuffer pcmBuffer) throws IOException {
+    mOutputStreamChannel.write(pcmBuffer);
   }
 
   @Override
