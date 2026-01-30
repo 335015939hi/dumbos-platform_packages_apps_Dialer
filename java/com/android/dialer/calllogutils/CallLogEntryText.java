@@ -29,6 +29,7 @@ import com.google.common.collect.Collections2;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import com.android.dialer.R;
 
 /**
  * Computes the primary text and secondary text for call log entries.

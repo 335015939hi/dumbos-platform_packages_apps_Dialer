@@ -24,8 +24,8 @@ import android.hardware.Camera.CameraInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -50,6 +50,7 @@ import com.android.dialer.logging.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.theme.base.ThemeComponent;
 import com.android.dialer.util.PermissionsUtil;
+import com.android.dialer.R;
 
 /** Fragment used to compose call with image from the user's camera. */
 public class CameraComposerFragment extends CallComposerFragment
@@ -74,7 +75,7 @@ public class CameraComposerFragment extends CallComposerFragment
 
   private Uri cameraUri;
   private boolean processingUri;
-  private String[] permissions = new String[] {Manifest.permission.CAMERA};
+  private final String[] permissions = new String[] {Manifest.permission.CAMERA};
   private CameraUriCallback uriCallback;
   private int cameraDirection = CameraInfo.CAMERA_FACING_BACK;
 

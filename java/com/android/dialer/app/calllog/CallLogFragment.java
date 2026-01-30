@@ -32,13 +32,13 @@ import android.os.Message;
 import android.provider.CallLog;
 import android.provider.CallLog.Calls;
 import android.provider.ContactsContract;
-import android.support.annotation.CallSuper;
-import android.support.annotation.Nullable;
-import android.support.v13.app.FragmentCompat;
-import android.support.v13.app.FragmentCompat.OnRequestPermissionsResultCallback;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.CallSuper;
+import androidx.annotation.Nullable;
+import androidx.legacy.v13.app.FragmentCompat;
+import androidx.legacy.v13.app.FragmentCompat.OnRequestPermissionsResultCallback;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -46,7 +46,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.android.dialer.app.Bindings;
-import com.android.dialer.app.R;
+import com.android.dialer.R;
 import com.android.dialer.app.calllog.CallLogAdapter.CallFetcher;
 import com.android.dialer.app.calllog.CallLogAdapter.MultiSelectRemoveView;
 import com.android.dialer.app.calllog.calllogcache.CallLogCache;
@@ -296,7 +296,7 @@ public class CallLogFragment extends Fragment
   }
 
   protected void setupView(View view) {
-    recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+    recyclerView = view.findViewById(R.id.recycler_view);
     if (ConfigProviderComponent.get(getContext())
         .getConfigProvider()
         .getBoolean("is_call_log_item_anim_null", false)) {
@@ -309,16 +309,16 @@ public class CallLogFragment extends Fragment
     layoutManager = new LinearLayoutManager(getActivity());
     recyclerView.setLayoutManager(layoutManager);
     PerformanceReport.logOnScrollStateChange(recyclerView);
-    emptyListView = (EmptyContentView) view.findViewById(R.id.empty_list_view);
+    emptyListView = view.findViewById(R.id.empty_list_view);
     emptyListView.setImage(R.drawable.empty_call_log);
     emptyListView.setActionClickedListener(this);
-    modalAlertView = (ViewGroup) view.findViewById(R.id.modal_message_container);
+    modalAlertView = view.findViewById(R.id.modal_message_container);
     modalAlertManager =
         new CallLogModalAlertManager(LayoutInflater.from(getContext()), modalAlertView, this);
     multiSelectUnSelectAllViewContent =
         view.findViewById(R.id.multi_select_select_all_view_content);
-    selectUnselectAllViewText = (TextView) view.findViewById(R.id.select_all_view_text);
-    selectUnselectAllIcon = (ImageView) view.findViewById(R.id.select_all_view_icon);
+    selectUnselectAllViewText = view.findViewById(R.id.select_all_view_text);
+    selectUnselectAllIcon = view.findViewById(R.id.select_all_view_icon);
     multiSelectUnSelectAllViewContent.setOnClickListener(null);
     selectUnselectAllIcon.setOnClickListener(this);
     selectUnselectAllViewText.setOnClickListener(this);

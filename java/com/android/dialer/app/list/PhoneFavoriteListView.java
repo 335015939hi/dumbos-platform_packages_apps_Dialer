@@ -29,7 +29,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.GridView;
 import android.widget.ImageView;
-import com.android.dialer.app.R;
+import com.android.dialer.R;
 import com.android.dialer.app.list.DragDropController.DragItemContainer;
 import com.android.dialer.common.LogUtil;
 
@@ -43,7 +43,7 @@ public class PhoneFavoriteListView extends GridView
   private static final int DRAG_SCROLL_PX_UNIT = 25;
   private static final float DRAG_SHADOW_ALPHA = 0.7f;
   /**
-   * {@link #topScrollBound} and {@link bottomScrollBound} will be offseted to the top / bottom by
+   * {@link #topScrollBound} and {@link #bottomScrollBound} will be offset to the top / bottom by
    * {@link #getHeight} * {@link #BOUND_GAP_RATIO} pixels.
    */
   private static final float BOUND_GAP_RATIO = 0.2f;
@@ -82,14 +82,14 @@ public class PhoneFavoriteListView extends GridView
         }
       };
   private View dragShadowParent;
-  private int animationDuration;
+  private final int animationDuration;
   // X and Y offsets inside the item from where the user grabbed to the
   // child's left coordinate. This is used to aid in the drawing of the drag shadow.
   private int touchOffsetToChildLeft;
   private int touchOffsetToChildTop;
   private int dragShadowLeft;
   private int dragShadowTop;
-  private DragDropController dragDropController = new DragDropController(this);
+  private final DragDropController dragDropController = new DragDropController(this);
 
   public PhoneFavoriteListView(Context context) {
     this(context, null);

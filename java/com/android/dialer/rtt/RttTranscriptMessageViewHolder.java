@@ -18,7 +18,7 @@ package com.android.dialer.rtt;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.support.v7.widget.RecyclerView.ViewHolder;
+import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import android.text.format.DateUtils;
 import android.view.Gravity;
 import android.view.View;
@@ -28,6 +28,7 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 import com.android.dialer.glidephotomanager.GlidePhotoManagerComponent;
 import com.android.dialer.glidephotomanager.PhotoInfo;
+import com.android.dialer.R;
 
 /** ViewHolder class for RTT chat message bubble. */
 public class RttTranscriptMessageViewHolder extends ViewHolder {

@@ -28,13 +28,13 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
-import android.support.v13.app.FragmentCompat;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.Recycler;
-import android.support.v7.widget.RecyclerView.State;
+import androidx.annotation.IntDef;
+import androidx.annotation.Nullable;
+import androidx.legacy.v13.app.FragmentCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.Recycler;
+import androidx.recyclerview.widget.RecyclerView.State;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnScrollChangeListener;
@@ -53,6 +53,7 @@ import com.android.dialer.widget.EmptyContentView.OnEmptyViewActionButtonClicked
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Arrays;
+import com.android.dialer.R;
 
 /** Fragment containing a list of all contacts. */
 public class ContactsFragment extends Fragment
@@ -280,7 +281,7 @@ public class ContactsFragment extends Fragment
     fastScroller.updateContainerAndScrollBarPosition(recyclerView);
     int firstVisibleItem = manager.findFirstVisibleItemPosition();
     int firstCompletelyVisible = manager.findFirstCompletelyVisibleItemPosition();
-    if (firstCompletelyVisible == RecyclerView.NO_POSITION) {
+    if (firstCompletelyVisible == androidx.recyclerview.widget.RecyclerView.NO_POSITION) {
       // No items are visible, so there are no headers to update.
       return;
     }
@@ -290,7 +291,7 @@ public class ContactsFragment extends Fragment
         FragmentUtils.getParent(this, OnContactsListScrolledListener.class);
     if (listener != null) {
       listener.onContactsListScrolled(
-          recyclerView.getScrollState() == RecyclerView.SCROLL_STATE_DRAGGING
+          recyclerView.getScrollState() == androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_DRAGGING
               || fastScroller.isDragStarted());
     }
 

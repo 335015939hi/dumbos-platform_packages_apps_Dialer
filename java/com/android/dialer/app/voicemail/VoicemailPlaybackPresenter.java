@@ -33,17 +33,17 @@ import android.os.PowerManager;
 import android.provider.CallLog;
 import android.provider.VoicemailContract;
 import android.provider.VoicemailContract.Voicemails;
-import android.support.annotation.MainThread;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.content.FileProvider;
+import androidx.annotation.MainThread;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.core.content.FileProvider;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.view.View;
 import android.view.WindowManager.LayoutParams;
 import android.webkit.MimeTypeMap;
 import com.android.common.io.MoreCloseables;
-import com.android.dialer.app.R;
+import com.android.dialer.R;
 import com.android.dialer.app.calllog.CallLogListItemViewHolder;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
@@ -145,7 +145,7 @@ public class VoicemailPlaybackPresenter
   private FetchResultHandler fetchResultHandler;
 
   private PowerManager.WakeLock proximityWakeLock;
-  private VoicemailAudioManager voicemailAudioManager;
+  private final VoicemailAudioManager voicemailAudioManager;
   private OnVoicemailDeletedListener onVoicemailDeletedListener;
   private View shareVoicemailButtonView;
 
@@ -1055,7 +1055,7 @@ public class VoicemailPlaybackPresenter
 
     private final Handler fetchResultHandler;
     private final Uri voicemailUri;
-    private AtomicBoolean isWaitingForResult = new AtomicBoolean(true);
+    private final AtomicBoolean isWaitingForResult = new AtomicBoolean(true);
 
     public FetchResultHandler(Handler handler, Uri uri, int code) {
       super(handler);

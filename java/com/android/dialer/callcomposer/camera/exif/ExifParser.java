@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
@@ -115,7 +116,7 @@ public class ExifParser {
   private static final int TAG_SIZE = 12;
   private static final int OFFSET_SIZE = 2;
 
-  private static final Charset US_ASCII = Charset.forName("US-ASCII");
+  private static final Charset US_ASCII = StandardCharsets.US_ASCII;
 
   private static final int DEFAULT_IFD0_OFFSET = 8;
 
@@ -612,7 +613,7 @@ public class ExifParser {
             // Tag value overlaps thumbnail, ignore thumbnail.
             LogUtil.i(
                 "ExifParser.readFullTagValue",
-                "Thumbnail overlaps value for tag: \n" + tag.toString());
+                "Thumbnail overlaps value for tag: \n" + tag);
             Entry<Integer, Object> entry = correspondingEvent.pollFirstEntry();
             LogUtil.i("ExifParser.readFullTagValue", "Invalid thumbnail offset: " + entry.getKey());
           } else {
@@ -620,19 +621,19 @@ public class ExifParser {
             if (event instanceof IfdEvent) {
               LogUtil.i(
                   "ExifParser.readFullTagValue",
-                  "Ifd " + ((IfdEvent) event).ifd + " overlaps value for tag: \n" + tag.toString());
+                  "Ifd " + ((IfdEvent) event).ifd + " overlaps value for tag: \n" + tag);
             } else if (event instanceof ExifTagEvent) {
               LogUtil.i(
                   "ExifParser.readFullTagValue",
                   "Tag value for tag: \n"
                       + ((ExifTagEvent) event).tag.toString()
                       + " overlaps value for tag: \n"
-                      + tag.toString());
+                      + tag);
             }
             size = correspondingEvent.firstEntry().getKey() - tiffStream.getReadByteCount();
             LogUtil.i(
                 "ExifParser.readFullTagValue",
-                "Invalid size of tag: \n" + tag.toString() + " setting count to: " + size);
+                "Invalid size of tag: \n" + tag + " setting count to: " + size);
             tag.forceSetComponentCount(size);
           }
         }
@@ -697,7 +698,7 @@ public class ExifParser {
         break;
     }
     if (LOGV) {
-      LogUtil.v("ExifParser.readFullTagValue", "\n" + tag.toString());
+      LogUtil.v("ExifParser.readFullTagValue", "\n" + tag);
     }
   }
 

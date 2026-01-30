@@ -20,14 +20,13 @@ import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 import com.android.contacts.common.list.ContactListFilter;
-import com.android.dialer.contacts.resources.R;
+import com.android.dialer.R;
 
 /** Utility class for account filter manipulation. */
 public class AccountFilterUtil {
 
   /**
-   * Similar to {@link #updateAccountFilterTitleForPeople(View, ContactListFilter, boolean,
-   * boolean)}, but for Phone UI.
+   * Updates the account filter title for the Phone UI.
    */
   public static boolean updateAccountFilterTitleForPhone(
       View filterContainer, ContactListFilter filter, boolean showTitleForAllAccounts) {
@@ -41,7 +40,7 @@ public class AccountFilterUtil {
       boolean forPhone) {
     final Context context = filterContainer.getContext();
     final TextView headerTextView =
-        (TextView) filterContainer.findViewById(R.id.account_filter_header);
+            filterContainer.findViewById(R.id.account_filter_header);
 
     boolean textWasSet = false;
     if (filter != null) {

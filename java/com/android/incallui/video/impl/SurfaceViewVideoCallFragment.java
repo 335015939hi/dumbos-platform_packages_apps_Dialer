@@ -22,14 +22,14 @@ import android.content.pm.PackageManager;
 import android.graphics.Point;
 import android.graphics.drawable.Animatable;
 import android.os.Bundle;
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.animation.FastOutLinearInInterpolator;
-import android.support.v4.view.animation.LinearOutSlowInInterpolator;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
+import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
 import android.telecom.CallAudioState;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -71,6 +71,7 @@ import com.android.incallui.video.protocol.VideoCallScreen;
 import com.android.incallui.video.protocol.VideoCallScreenDelegate;
 import com.android.incallui.video.protocol.VideoCallScreenDelegateFactory;
 import com.android.incallui.videotech.utils.VideoUtils;
+import com.android.dialer.R;
 
 /**
  * Contains UI elements for a video call.
@@ -188,24 +189,24 @@ public class SurfaceViewVideoCallFragment extends Fragment
     controls = view.findViewById(R.id.videocall_video_controls);
     controls.setVisibility(getActivity().isInMultiWindowMode() ? View.GONE : View.VISIBLE);
     controlsContainer = view.findViewById(R.id.videocall_video_controls_container);
-    speakerButton = (CheckableImageButton) view.findViewById(R.id.videocall_speaker_button);
-    muteButton = (CheckableImageButton) view.findViewById(R.id.videocall_mute_button);
+    speakerButton = view.findViewById(R.id.videocall_speaker_button);
+    muteButton = view.findViewById(R.id.videocall_mute_button);
     muteButton.setOnCheckedChangeListener(this);
     mutePreviewOverlay = view.findViewById(R.id.videocall_video_preview_mute_overlay);
-    cameraOffButton = (CheckableImageButton) view.findViewById(R.id.videocall_mute_video);
+    cameraOffButton = view.findViewById(R.id.videocall_mute_video);
     cameraOffButton.setOnCheckedChangeListener(this);
     previewOffOverlay = view.findViewById(R.id.videocall_video_preview_off_overlay);
-    swapCameraButton = (ImageButton) view.findViewById(R.id.videocall_switch_video);
+    swapCameraButton = view.findViewById(R.id.videocall_switch_video);
     swapCameraButton.setOnClickListener(this);
     view.findViewById(R.id.videocall_switch_controls)
         .setVisibility(getActivity().isInMultiWindowMode() ? View.GONE : View.VISIBLE);
     switchOnHoldButton = view.findViewById(R.id.videocall_switch_on_hold);
     onHoldContainer = view.findViewById(R.id.videocall_on_hold_banner);
-    remoteVideoOff = (TextView) view.findViewById(R.id.videocall_remote_video_off);
+    remoteVideoOff = view.findViewById(R.id.videocall_remote_video_off);
     remoteVideoOff.setAccessibilityLiveRegion(View.ACCESSIBILITY_LIVE_REGION_POLITE);
     endCallButton = view.findViewById(R.id.videocall_end_call);
     endCallButton.setOnClickListener(this);
-    previewSurfaceView = (SurfaceView) view.findViewById(R.id.videocall_video_preview);
+    previewSurfaceView = view.findViewById(R.id.videocall_video_preview);
     previewSurfaceView.setZOrderMediaOverlay(true);
     previewOffOverlay.setOnClickListener(
         new OnClickListener() {
@@ -214,21 +215,18 @@ public class SurfaceViewVideoCallFragment extends Fragment
             checkCameraPermission();
           }
         });
-    remoteSurfaceView = (SurfaceView) view.findViewById(R.id.videocall_video_remote);
+    remoteSurfaceView = view.findViewById(R.id.videocall_video_remote);
     remoteSurfaceView.setOnClickListener(
         surfaceView -> {
           videoCallScreenDelegate.resetAutoFullscreenTimer();
-          if (isInFullscreenMode) {
+            /* shouldShowFullscreen */
+            /* shouldShowGreenScreen */
             updateFullscreenAndGreenScreenMode(
-                false /* shouldShowFullscreen */, false /* shouldShowGreenScreen */);
-          } else {
-            updateFullscreenAndGreenScreenMode(
-                true /* shouldShowFullscreen */, false /* shouldShowGreenScreen */);
-          }
+                    !isInFullscreenMode /* shouldShowFullscreen */, false /* shouldShowGreenScreen */);
         });
     greenScreenBackgroundView = view.findViewById(R.id.videocall_green_screen_background);
     fullscreenBackgroundView = view.findViewById(R.id.videocall_fullscreen_background);
-    previewRoot = (FrameLayout) view.findViewById(R.id.videocall_preview_root);
+    previewRoot = view.findViewById(R.id.videocall_preview_root);
 
     // We need the texture view size to be able to scale the remote video. At this point the view
     // layout won't be complete so add a layout listener.
@@ -854,7 +852,7 @@ public class SurfaceViewVideoCallFragment extends Fragment
         transaction.remove(oldBanner);
       }
     }
-    transaction.setCustomAnimations(R.anim.abc_slide_in_top, R.anim.abc_slide_out_top);
+    transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
     transaction.commitAllowingStateLoss();
   }
 
@@ -1036,13 +1034,10 @@ public class SurfaceViewVideoCallFragment extends Fragment
   public void onSystemUiVisibilityChange(int visibility) {
     boolean navBarVisible = (visibility & View.SYSTEM_UI_FLAG_HIDE_NAVIGATION) == 0;
     videoCallScreenDelegate.onSystemUiVisibilityChange(navBarVisible);
-    if (navBarVisible) {
+      /* shouldShowFullscreen */
+      /* shouldShowGreenScreen */
       updateFullscreenAndGreenScreenMode(
-          false /* shouldShowFullscreen */, false /* shouldShowGreenScreen */);
-    } else {
-      updateFullscreenAndGreenScreenMode(
-          true /* shouldShowFullscreen */, false /* shouldShowGreenScreen */);
-    }
+              !navBarVisible /* shouldShowFullscreen */, false /* shouldShowGreenScreen */);
   }
 
   private void checkCameraPermission() {

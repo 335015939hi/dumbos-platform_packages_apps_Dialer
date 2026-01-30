@@ -16,10 +16,10 @@
 
 package com.android.voicemail.impl;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.Context;
 import android.os.Build.VERSION_CODES;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.TelephonyManager;
 import com.google.auto.value.AutoValue;
@@ -27,7 +27,7 @@ import java.util.Optional;
 
 /** Identifies a carrier. */
 @AutoValue
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 @SuppressWarnings({"missingpermission"})
 public abstract class CarrierIdentifier {
 

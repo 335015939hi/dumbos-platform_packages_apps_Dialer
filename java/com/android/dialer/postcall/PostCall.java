@@ -20,9 +20,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.annotation.Nullable;
-import android.support.design.widget.BaseTransientBottomBar.BaseCallback;
-import android.support.design.widget.Snackbar;
+import androidx.annotation.Nullable;
+import com.google.android.material.snackbar.BaseTransientBottomBar.BaseCallback;
+import com.google.android.material.snackbar.Snackbar;
 import android.telephony.TelephonyManager;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -39,6 +39,7 @@ import com.android.dialer.performancereport.PerformanceReport;
 import com.android.dialer.storage.StorageComponent;
 import com.android.dialer.util.DialerUtils;
 import com.android.dialer.util.IntentUtil;
+import com.android.dialer.R;
 
 /** Helper class to handle all post call actions. */
 public class PostCall {
@@ -243,9 +244,8 @@ public class PostCall {
   }
 
   private static boolean isEnabled(Context context) {
-    return ConfigProviderComponent.get(context)
-        .getConfigProvider()
-        .getBoolean("enable_post_call_prod", true);
+    // Disabled: Post-call messaging feature causes crashes and is not needed
+    return false;
   }
 
   private static boolean isSimReady(Context context) {

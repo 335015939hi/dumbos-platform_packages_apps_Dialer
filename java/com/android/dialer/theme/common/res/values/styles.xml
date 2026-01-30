@@ -17,13 +17,20 @@
 <resources>
   <!-- TODO(calderwoodra): Delete this once new call log and new voicemail ship. -->
   <!-- Ideally we would make a callLogCardStyle attribute but we don't want to expand dialer/app -->
-  <style name="CallLogCardStyle" parent="CardView">
+  <style name="CallLogCardStyle" parent="Widget.Material3.CardView.Elevated">
     <item name="android:layout_width">match_parent</item>
     <item name="android:layout_height">wrap_content</item>
     <item name="android:layout_margin">4dp</item>
     <item name="android:baselineAligned">false</item>
-    <item name="cardCornerRadius">2dp</item>
-    <item name="cardBackgroundColor">?android:attr/colorBackgroundFloating</item>
+    <item name="cardCornerRadius">12dp</item> <!-- MD3 uses larger corner radii -->
+    <item name="cardElevation">1dp</item> <!-- MD3 uses smaller elevation -->
+    <item name="cardBackgroundColor">?attr/colorSurface</item>
+  </style>
+
+  <!-- Material3 BottomSheet theme -->
+  <style name="Dialer.BottomSheet" parent="Theme.Material3.DayNight.BottomSheetDialog">
+    <item name="bottomSheetStyle">@style/Widget.Material3.BottomSheet</item>
+    <item name="android:windowIsFloating">false</item>
   </style>
 
   <!-- This Checkbox style helps align checkboxes with the common list element layout(Image + text) -->

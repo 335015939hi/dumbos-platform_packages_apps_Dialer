@@ -23,7 +23,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.TelephonyManager;
 import android.text.Layout;
@@ -46,6 +46,7 @@ import com.android.voicemail.VoicemailClient;
 import com.android.voicemail.VoicemailComponent;
 import com.android.voicemail.VoicemailVersionConstants;
 import java.util.Locale;
+import com.android.dialer.R;
 
 /**
  * Create error message from {@link VoicemailStatus} for voicemail. This is will show different

@@ -26,8 +26,8 @@ import java.util.concurrent.TimeUnit;
  * example, provide information on the current touch state.
  */
 class ClassifierData {
-  private SparseArray<Stroke> currentStrokes = new SparseArray<>();
-  private ArrayList<Stroke> endingStrokes = new ArrayList<>();
+  private final SparseArray<Stroke> currentStrokes = new SparseArray<>();
+  private final ArrayList<Stroke> endingStrokes = new ArrayList<>();
   private final float dpi;
   private final float screenHeight;
 

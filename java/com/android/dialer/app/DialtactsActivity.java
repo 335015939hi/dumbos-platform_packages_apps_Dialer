@@ -33,15 +33,15 @@ import android.os.Trace;
 import android.provider.CallLog.Calls;
 import android.provider.ContactsContract.QuickContact;
 import android.speech.RecognizerIntent;
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.FloatingActionButton.OnVisibilityChangedListener;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton.OnVisibilityChangedListener;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.core.app.ActivityCompat;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.ActionBar;
 import android.telecom.PhoneAccount;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -137,6 +137,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
+import com.android.dialer.R;
 
 /** The dialer tab's title is 'phone', a more common name (see strings.xml). */
 @UsedByReflection(value = "AndroidManifest-app.xml")
@@ -453,7 +454,7 @@ public class DialtactsActivity extends TransactionSafeActivity
     slideIn.setAnimationListener(slideInListener);
     slideOut.setAnimationListener(slideOutListener);
 
-    parentLayout = (CoordinatorLayout) findViewById(R.id.dialtacts_mainlayout);
+    parentLayout = findViewById(R.id.dialtacts_mainlayout);
     parentLayout.setOnDragListener(new LayoutOnDragListener());
     ViewUtil.doOnGlobalLayout(
         floatingActionButton,
@@ -742,7 +743,7 @@ public class DialtactsActivity extends TransactionSafeActivity
       if (resultCode == RESULT_OK) {
         final ArrayList<String> matches =
             data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-        if (matches.size() > 0) {
+        if (matches != null && !matches.isEmpty()) {
           voiceSearchQuery = matches.get(0);
         } else {
           LogUtil.i("DialtactsActivity.onActivityResult", "voice search - nothing heard");
@@ -1078,6 +1079,7 @@ public class DialtactsActivity extends TransactionSafeActivity
 
   @Override
   public void onNewIntent(Intent newIntent) {
+    super.onNewIntent(newIntent);
     LogUtil.enterBlock("DialtactsActivity.onNewIntent");
     setIntent(newIntent);
     firstLaunch = true;
@@ -1096,9 +1098,7 @@ public class DialtactsActivity extends TransactionSafeActivity
     }
     if (Intent.ACTION_VIEW.equals(action)) {
       final Uri data = intent.getData();
-      if (data != null && PhoneAccount.SCHEME_TEL.equals(data.getScheme())) {
-        return true;
-      }
+        return data != null && PhoneAccount.SCHEME_TEL.equals(data.getScheme());
     }
     return false;
   }
@@ -1333,7 +1333,7 @@ public class DialtactsActivity extends TransactionSafeActivity
     final PackageManager packageManager = getPackageManager();
     final List<ResolveInfo> resolveInfo =
         packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-    return resolveInfo != null && resolveInfo.size() > 0;
+    return resolveInfo != null && !resolveInfo.isEmpty();
   }
 
   /** Called when the user has long-pressed a contact tile to start a drag operation. */
@@ -1522,6 +1522,7 @@ public class DialtactsActivity extends TransactionSafeActivity
   @Override
   public void onRequestPermissionsResult(
       int requestCode, String[] permissions, int[] grantResults) {
+    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     // This should never happen; it should be impossible to start an interaction without the
     // contacts permission from the Dialtacts activity.
     Assert.fail(
@@ -1553,6 +1554,8 @@ public class DialtactsActivity extends TransactionSafeActivity
   public void onCallPlacedFromSearch() {
     DialerUtils.hideInputMethod(parentLayout);
     clearSearchOnPause = true;
+    // Move activity to background to prevent flash during transition to InCallActivity
+    moveTaskToBack(true);
   }
 
   @Override

@@ -24,9 +24,9 @@ import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.os.Bundle;
-import android.support.annotation.FloatRange;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.FloatRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -38,6 +38,7 @@ import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.incallui.answer.impl.answermethod.FlingUpDownTouchHandler.OnProgressChangedListener;
 import com.android.incallui.util.AccessibilityUtil;
+import com.android.dialer.R;
 
 /** Answer method that shows two buttons for answer/reject. */
 public class TwoButtonMethod extends AnswerMethod
@@ -78,7 +79,7 @@ public class TwoButtonMethod extends AnswerMethod
       LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
     View view = layoutInflater.inflate(R.layout.two_button_method, viewGroup, false);
 
-    hintTextView = (TextView) view.findViewById(R.id.two_button_hint_text);
+    hintTextView = view.findViewById(R.id.two_button_hint_text);
     updateHintText();
 
     answerButton = view.findViewById(R.id.two_button_answer_button);

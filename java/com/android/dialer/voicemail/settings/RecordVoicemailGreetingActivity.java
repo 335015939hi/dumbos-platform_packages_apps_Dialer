@@ -18,12 +18,13 @@ package com.android.dialer.voicemail.settings;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import com.android.dialer.R;
 
 /** Activity for recording a new voicemail greeting */
 public class RecordVoicemailGreetingActivity extends Activity implements OnClickListener {

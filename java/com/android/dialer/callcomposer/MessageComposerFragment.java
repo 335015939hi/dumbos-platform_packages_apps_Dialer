@@ -17,7 +17,7 @@
 package com.android.dialer.callcomposer;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextUtils;
@@ -30,6 +30,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
+import com.android.dialer.R;
 
 /** Fragment used to compose call with message fragment. */
 public class MessageComposerFragment extends CallComposerFragment
@@ -61,14 +62,14 @@ public class MessageComposerFragment extends CallComposerFragment
     charLimit = getArguments().getInt(CHAR_LIMIT_KEY, NO_CHAR_LIMIT);
 
     View view = inflater.inflate(R.layout.fragment_message_composer, container, false);
-    TextView urgent = (TextView) view.findViewById(R.id.message_urgent);
-    customMessage = (EditText) view.findViewById(R.id.custom_message);
+    TextView urgent = view.findViewById(R.id.message_urgent);
+    customMessage = view.findViewById(R.id.custom_message);
 
     urgent.setOnClickListener(this);
     customMessage.addTextChangedListener(this);
     customMessage.setOnEditorActionListener(this);
     if (charLimit != NO_CHAR_LIMIT) {
-      TextView remainingChar = (TextView) view.findViewById(R.id.remaining_characters);
+      TextView remainingChar = view.findViewById(R.id.remaining_characters);
       remainingChar.setText("" + charLimit);
       customMessage.setFilters(new InputFilter[] {new InputFilter.LengthFilter(charLimit)});
       customMessage.addTextChangedListener(

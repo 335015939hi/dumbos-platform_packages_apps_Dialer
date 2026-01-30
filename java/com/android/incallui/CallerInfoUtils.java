@@ -32,6 +32,7 @@ import com.android.dialer.phonenumberutil.PhoneNumberHelper;
 import com.android.dialer.util.PermissionsUtil;
 import com.android.incallui.call.DialerCall;
 import java.util.Arrays;
+import com.android.dialer.R;
 
 /** Utility methods for contact and caller info related functionality */
 public class CallerInfoUtils {
@@ -188,7 +189,7 @@ public class CallerInfoUtils {
             && presentation == TelecomManager.PRESENTATION_ALLOWED)) {
       // For all special strings, change number & numberPrentation.
       if (isCnapSpecialCaseRestricted(number)) {
-        number = PhoneNumberHelper.getDisplayNameForRestrictedNumber(context).toString();
+        number = PhoneNumberHelper.getDisplayNameForRestrictedNumber(context);
         ci.numberPresentation = TelecomManager.PRESENTATION_RESTRICTED;
       } else if (isCnapSpecialCaseUnknown(number)) {
         number = context.getString(R.string.unknown);

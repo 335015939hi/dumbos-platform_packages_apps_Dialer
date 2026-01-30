@@ -22,9 +22,9 @@ import android.hardware.Camera.CameraInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Looper;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.OrientationEventListener;
@@ -114,7 +114,7 @@ public class CameraManager implements FocusOverlayManager.Listener {
   private OrientationHandler orientationHandler;
 
   /** Tracks whether the preview has hardware acceleration */
-  private boolean isHardwareAccelerationSupported;
+  private final boolean isHardwareAccelerationSupported;
 
   /**
    * The task for opening the camera, so it doesn't block the UI thread Using AsyncTask rather than

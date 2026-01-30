@@ -16,15 +16,16 @@
 
 package com.android.dialer.enrichedcall.simulator;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import com.android.dialer.R;
 import com.android.dialer.common.Assert;
 import java.util.List;
 
 /** Adapter for the RecyclerView in {@link EnrichedCallSimulatorActivity}. */
-class SessionsAdapter extends RecyclerView.Adapter<SessionViewHolder> {
+class SessionsAdapter extends androidx.recyclerview.widget.RecyclerView.Adapter<SessionViewHolder> {
 
   /** List of the string representation of all in-memory sessions */
   private List<String> sessionStrings;

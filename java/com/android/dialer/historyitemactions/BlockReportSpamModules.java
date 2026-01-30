@@ -22,6 +22,7 @@ import com.android.dialer.blockreportspam.ShowBlockReportSpamDialogNotifier;
 import com.android.dialer.logging.DialerImpression;
 import com.android.dialer.logging.Logger;
 import java.util.Optional;
+import com.android.dialer.R;
 
 /** Modules for blocking/unblocking a number and/or reporting it as spam/not spam. */
 final class BlockReportSpamModules {

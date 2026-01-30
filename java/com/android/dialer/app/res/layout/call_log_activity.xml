@@ -20,16 +20,17 @@
     android:layout_height="match_parent"
     android:background="?android:attr/colorBackground"
     android:orientation="vertical">
+
+  <!-- Tab container - flows seamlessly with ActionBar header -->
   <com.android.contacts.common.list.ViewPagerTabs
       android:id="@+id/viewpager_header"
       style="@style/DialtactsActionBarTabTextStyle"
       android:layout_width="match_parent"
       android:layout_height="@dimen/tab_height"
-      android:layout_gravity="top"
-      android:elevation="@dimen/tab_elevation"
+      android:background="?attr/colorBackgroundSearchBar"
       android:orientation="horizontal"
       android:textAllCaps="true"/>
-  <android.support.v4.view.ViewPager
+  <androidx.viewpager.widget.ViewPager
       android:id="@+id/call_log_pager"
       android:layout_width="match_parent"
       android:layout_height="0dp"

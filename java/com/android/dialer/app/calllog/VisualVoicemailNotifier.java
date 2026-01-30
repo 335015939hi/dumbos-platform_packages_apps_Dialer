@@ -25,16 +25,16 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.NotificationCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.android.contacts.common.util.ContactDisplayUtils;
 import com.android.dialer.app.MainComponent;
-import com.android.dialer.app.R;
+import com.android.dialer.R;
 import com.android.dialer.app.calllog.CallLogNotificationsQueryHelper.NewCall;
 import com.android.dialer.app.contactinfo.ContactPhotoLoader;
 import com.android.dialer.common.LogUtil;
@@ -94,11 +94,11 @@ final class VisualVoicemailNotifier {
       if (shouldAlert) {
         groupSummary.setOnlyAlertOnce(false);
         // Group summary will alert when posted/updated
-        groupSummary.setGroupAlertBehavior(Notification.GROUP_ALERT_ALL);
+        groupSummary.setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_ALL);
       } else {
         // Only children will alert. but since all children are set to "only alert summary" it is
         // effectively silenced.
-        groupSummary.setGroupAlertBehavior(Notification.GROUP_ALERT_CHILDREN);
+        groupSummary.setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN);
       }
       PhoneAccountHandle handle = getAccountForCall(context, newCalls.get(0));
       groupSummary.setChannelId(NotificationChannelManager.getVoicemailChannelId(context, handle));
@@ -134,6 +134,9 @@ final class VisualVoicemailNotifier {
   }
 
   private static String getNotificationTagForVoicemail(@NonNull NewCall voicemail) {
+    if (voicemail.voicemailUri == null) {
+      return NOTIFICATION_TAG_PREFIX + "unknown";
+    }
     return getNotificationTagForUri(voicemail.voicemailUri);
   }
 
@@ -156,6 +159,7 @@ final class VisualVoicemailNotifier {
       @NonNull Map<String, ContactInfo> contactInfos) {
     PhoneAccountHandle handle = getAccountForCall(context, voicemail);
     ContactInfo contactInfo = contactInfos.get(voicemail.number);
+    String contactName = contactInfo != null ? contactInfo.name : voicemail.number;
 
     NotificationCompat.Builder builder =
         createNotificationBuilder(context)
@@ -163,7 +167,7 @@ final class VisualVoicemailNotifier {
                 ContactDisplayUtils.getTtsSpannedPhoneNumber(
                     context.getResources(),
                     R.string.notification_new_voicemail_ticker,
-                    contactInfo.name))
+                    contactName))
             .setWhen(voicemail.dateMs)
             .setSound(getVoicemailRingtoneUri(context, handle))
             .setDefaults(getNotificationDefaultFlags(context, handle));
@@ -216,13 +220,15 @@ final class VisualVoicemailNotifier {
 
     if (VERSION.SDK_INT >= VERSION_CODES.O) {
       builder.setChannelId(NotificationChannelManager.getVoicemailChannelId(context, handle));
-      builder.setGroupAlertBehavior(Notification.GROUP_ALERT_SUMMARY);
+      builder.setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_SUMMARY);
     }
 
-    ContactPhotoLoader loader = new ContactPhotoLoader(context, contactInfo);
-    Bitmap photoIcon = loader.loadPhotoIcon();
-    if (photoIcon != null) {
-      builder.setLargeIcon(photoIcon);
+    if (contactInfo != null) {
+      ContactPhotoLoader loader = new ContactPhotoLoader(context, contactInfo);
+      Bitmap photoIcon = loader.loadPhotoIcon();
+      if (photoIcon != null) {
+        builder.setLargeIcon(photoIcon);
+      }
     }
     builder.setContentIntent(newVoicemailIntent(context, voicemail));
     Logger.get(context).logImpression(DialerImpression.Type.VVM_NOTIFICATION_CREATED);
@@ -272,7 +278,10 @@ final class VisualVoicemailNotifier {
     if (voicemail != null) {
       intent.setData(voicemail.voicemailUri);
     }
-    return PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+    // Use unique request code based on voicemail URI to prevent PendingIntent collisions
+    int requestCode = voicemail != null && voicemail.voicemailUri != null
+        ? voicemail.voicemailUri.hashCode() : 0;
+    return PendingIntent.getActivity(context, requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
   }
 
   /**
@@ -285,8 +294,11 @@ final class VisualVoicemailNotifier {
     if (call == null || call.accountComponentName == null || call.accountId == null) {
       return null;
     }
-    return new PhoneAccountHandle(
-        ComponentName.unflattenFromString(call.accountComponentName), call.accountId);
+    ComponentName componentName = ComponentName.unflattenFromString(call.accountComponentName);
+    if (componentName == null) {
+      return null;
+    }
+    return new PhoneAccountHandle(componentName, call.accountId);
   }
 
   /**

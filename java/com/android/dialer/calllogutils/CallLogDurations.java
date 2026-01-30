@@ -23,6 +23,7 @@ import com.android.dialer.util.DialerUtils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import com.android.dialer.R;
 
 /** Utility class for formatting duration and data usage in call log entries. */
 public class CallLogDurations {
@@ -55,7 +56,7 @@ public class CallLogDurations {
 
     // Since we don't want to update the strings.xml, we need to remove the quotations from the
     // previous implementation.
-    return formatPattern.replace("\'", "");
+    return formatPattern.replace("'", "");
   }
 
   private static CharSequence formatDurationA11y(Context context, long elapsedSeconds) {

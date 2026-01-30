@@ -27,9 +27,9 @@ import android.os.RemoteException;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.RawContacts;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import android.text.TextUtils;
 import com.android.dialer.common.Assert;
 import com.google.auto.value.AutoValue;
@@ -175,8 +175,8 @@ public final class ContactsPopulator {
           .applyBatch(
               ContactsContract.AUTHORITY,
               new ArrayList<>(
-                  Arrays.asList(
-                      ContentProviderOperation.newDelete(RawContacts.CONTENT_URI).build())));
+                      List.of(
+                              ContentProviderOperation.newDelete(RawContacts.CONTENT_URI).build())));
     } catch (RemoteException | OperationApplicationException e) {
       Assert.fail("failed to delete contacts: " + e);
     }

@@ -58,6 +58,10 @@
     android:minSdkVersion="24"
     android:targetSdkVersion="30"/>
 
+  <!-- Hardware features - marked as not required for broader device compatibility -->
+  <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+  <uses-feature android:name="android.hardware.camera" android:required="false"/>
+
   <application>
 
   <activity
@@ -140,12 +144,12 @@
     </receiver>
 
     <provider
-      android:authorities="com.android.dialer.files"
+      android:authorities="${applicationId}.files"
       android:exported="false"
       android:grantUriPermissions="true"
-      android:name="android.support.v4.content.FileProvider">
+      android:name="androidx.core.content.FileProvider">
       <meta-data
-        android:name="android.support.FILE_PROVIDER_PATHS"
+        android:name="androidx.core.content.FILE_PROVIDER_PATHS"
         android:resource="@xml/file_paths"/>
     </provider>
     <meta-data android:name="supports_per_number_preferred_account" android:value="true" />

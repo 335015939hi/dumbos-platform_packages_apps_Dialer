@@ -16,17 +16,21 @@
 
 package com.android.dialer.voicemail.listui;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.VoicemailContract.Status;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.LoaderManager.LoaderCallbacks;
-import android.support.v4.content.Loader;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.loader.app.LoaderManager.LoaderCallbacks;
+import androidx.loader.content.Loader;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,10 +48,14 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.util.concurrent.ListenableFuture;
 import java.util.ArrayList;
 import java.util.List;
+import com.android.dialer.R;
 
 // TODO(uabdullah): Register content observer for VoicemailContract.Status.CONTENT_URI in onStart
 /** Fragment for Dialer Voicemail Tab. */
-public final class NewVoicemailFragment extends Fragment implements LoaderCallbacks<Cursor> {
+public final class NewVoicemailFragment extends Fragment implements LoaderCallbacks<Cursor>,
+    EmptyContentView.OnEmptyViewActionButtonClickedListener {
+
+  private static final int REQUEST_CODE_PHONE_PERMISSIONS = 1;
 
   private RecyclerView recyclerView;
   private RefreshAnnotatedCallLogReceiver refreshAnnotatedCallLogReceiver;
@@ -127,11 +135,56 @@ public final class NewVoicemailFragment extends Fragment implements LoaderCallba
    * will be called but it is not visible.
    */
   private void onFragmentShown() {
+    // Check for phone permissions before loading voicemails
+    if (!hasPhonePermissions()) {
+      showPermissionRequestView();
+      return;
+    }
+
     registerRefreshAnnotatedCallLogReceiver();
 
     CallLogComponent.get(getContext())
         .getRefreshAnnotatedCallLogNotifier()
         .notify(/* checkDirty = */ true);
+  }
+
+  private boolean hasPhonePermissions() {
+    return ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_PHONE_STATE)
+        == PackageManager.PERMISSION_GRANTED;
+  }
+
+  private void showPermissionRequestView() {
+    LogUtil.enterBlock("NewVoicemailFragment.showPermissionRequestView");
+    showView(emptyContentView);
+    emptyContentView.setImage(R.drawable.quantum_ic_voicemail_vd_theme_24);
+    emptyContentView.setDescription(R.string.voicemail_permission_needed);
+    emptyContentView.setActionLabel(R.string.voicemail_grant_permission);
+    emptyContentView.setActionClickedListener(this);
+  }
+
+  @Override
+  public void onEmptyViewActionButtonClicked() {
+    LogUtil.enterBlock("NewVoicemailFragment.onEmptyViewActionButtonClicked");
+    requestPermissions(
+        new String[] {Manifest.permission.READ_PHONE_STATE},
+        REQUEST_CODE_PHONE_PERMISSIONS);
+  }
+
+  @Override
+  public void onRequestPermissionsResult(
+      int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    if (requestCode == REQUEST_CODE_PHONE_PERMISSIONS) {
+      if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        LogUtil.i("NewVoicemailFragment.onRequestPermissionsResult", "Permission granted");
+        // Permission granted, reload the fragment
+        onFragmentShown();
+        getLoaderManager().restartLoader(0, null, this);
+      } else {
+        LogUtil.i("NewVoicemailFragment.onRequestPermissionsResult", "Permission denied");
+        // Permission denied, keep showing the permission request view
+        showPermissionRequestView();
+      }
+    }
   }
 
   /**
@@ -141,7 +194,7 @@ public final class NewVoicemailFragment extends Fragment implements LoaderCallba
    *
    * <ul>
    *   <li>hide the fragment but keep the parent activity visible (e.g., calling {@link
-   *       android.support.v4.app.FragmentTransaction#hide(Fragment)} in an activity, or
+   *       androidx.fragment.app.FragmentTransaction#hide(Fragment)} in an activity, or
    *   <li>the parent activity is paused.
    * </ul>
    */
@@ -159,7 +212,13 @@ public final class NewVoicemailFragment extends Fragment implements LoaderCallba
     recyclerView = fragmentRootFrameLayout.findViewById(R.id.new_voicemail_call_log_recycler_view);
 
     emptyContentView = fragmentRootFrameLayout.findViewById(R.id.empty_content_view);
-    getLoaderManager().restartLoader(0, null, this);
+
+    // Only start the loader if we have permissions
+    if (hasPhonePermissions()) {
+      getLoaderManager().restartLoader(0, null, this);
+    } else {
+      showPermissionRequestView();
+    }
     return fragmentRootFrameLayout;
   }
 

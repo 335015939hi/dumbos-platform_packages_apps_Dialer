@@ -20,8 +20,8 @@ import android.content.Context;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.os.SystemClock;
-import android.support.annotation.Nullable;
-import android.support.v4.view.ViewCompat;
+import androidx.annotation.Nullable;
+import androidx.core.view.ViewCompat;
 import android.telephony.PhoneNumberUtils;
 import android.text.BidiFormatter;
 import android.text.TextDirectionHeuristics;
@@ -45,6 +45,7 @@ import com.android.incallui.incall.protocol.ContactPhotoType;
 import com.android.incallui.incall.protocol.PrimaryCallState;
 import com.android.incallui.incall.protocol.PrimaryInfo;
 import java.util.List;
+import com.android.dialer.R;
 
 /** Utility to manage the Contact grid */
 public class ContactGridManager {
@@ -304,7 +305,7 @@ public class ContactGridManager {
       } else if (avatarSize > 0 && updateAvatarVisibility()) {
         if (ConfigProviderComponent.get(context)
             .getConfigProvider()
-            .getBoolean("enable_glide_photo", false)) {
+            .getBoolean("enable_glide_photo", true)) {
           loadPhotoWithGlide();
         } else {
           loadPhotoWithLegacy();

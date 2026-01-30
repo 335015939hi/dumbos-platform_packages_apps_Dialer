@@ -36,7 +36,7 @@ public class PhoneNumberGeoUtilImpl implements PhoneNumberGeoUtil {
 
   @Override
   public String getGeoDescription(Context context, String number, String countryIso) {
-    LogUtil.v("PhoneNumberGeoUtilImpl.getGeoDescription", "" + LogUtil.sanitizePii(number));
+    LogUtil.v("PhoneNumberGeoUtilImpl.getGeoDescription", LogUtil.sanitizePii(number));
 
     if (TextUtils.isEmpty(number)) {
       return null;

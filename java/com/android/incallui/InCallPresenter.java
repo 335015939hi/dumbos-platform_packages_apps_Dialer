@@ -22,11 +22,11 @@ import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Trace;
-import android.support.annotation.MainThread;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.os.UserManagerCompat;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.core.os.UserManagerCompat;
 import android.telecom.Call.Details;
 import android.telecom.CallAudioState;
 import android.telecom.DisconnectCause;
@@ -86,6 +86,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
+import com.android.dialer.R;
 
 /**
  * Takes updates from the CallList and notifies the InCallActivity (UI) of the changes. Responsible
@@ -209,7 +210,7 @@ public class InCallPresenter implements CallList.Listener, AudioModeProvider.Aud
 
   private boolean screenTimeoutEnabled = true;
 
-  private PhoneStateListener phoneStateListener =
+  private final PhoneStateListener phoneStateListener =
       new PhoneStateListener() {
         @Override
         public void onCallStateChanged(int state, String incomingNumber) {
@@ -238,7 +239,7 @@ public class InCallPresenter implements CallList.Listener, AudioModeProvider.Aud
 
   private boolean awaitingCallListUpdate = false;
 
-  private ExternalCallList.ExternalCallListener externalCallListener =
+  private final ExternalCallList.ExternalCallListener externalCallListener =
       new ExternalCallList.ExternalCallListener() {
 
         @Override

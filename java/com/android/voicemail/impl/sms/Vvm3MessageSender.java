@@ -17,7 +17,7 @@ package com.android.voicemail.impl.sms;
 
 import android.app.PendingIntent;
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.telecom.PhoneAccountHandle;
 
 public class Vvm3MessageSender extends OmtpMessageSender {
@@ -51,7 +51,6 @@ public class Vvm3MessageSender extends OmtpMessageSender {
   public void requestVvmStatus(@Nullable PendingIntent sentIntent) {
     // Status message:
     // STATUS
-    StringBuilder sb = new StringBuilder().append("STATUS");
-    sendSms(sb.toString(), sentIntent);
+      sendSms("STATUS", sentIntent);
   }
 }

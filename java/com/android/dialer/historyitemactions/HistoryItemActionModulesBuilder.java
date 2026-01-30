@@ -21,7 +21,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.provider.CallLog.Calls;
 import android.provider.ContactsContract;
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 import android.text.TextUtils;
 import com.android.dialer.blockreportspam.BlockReportSpamDialogInfo;
 import com.android.dialer.callintent.CallInitiationType;
@@ -43,6 +43,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import com.android.dialer.R;
 
 /**
  * Builds a list of {@link HistoryItemActionModule HistoryItemActionModules}.

@@ -136,7 +136,7 @@ public final class ContactListFilter implements Comparable<ContactListFilter>, P
     return new ContactListFilter(filterType, accountType, accountName, dataSet, null);
   }
 
-  public static final String filterTypeToString(int filterType) {
+  public static String filterTypeToString(int filterType) {
     switch (filterType) {
       case FILTER_TYPE_DEFAULT:
         return "FILTER_TYPE_DEFAULT";

@@ -25,9 +25,9 @@ import android.content.res.ColorStateList;
 import android.graphics.PorterDuff.Mode;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.annotation.Nullable;
-import android.support.design.widget.BottomSheetDialogFragment;
-import android.support.v4.os.BuildCompat;
+import androidx.annotation.Nullable;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import androidx.core.os.BuildCompat;
 import android.telecom.CallAudioState;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,6 +46,7 @@ import com.android.incallui.call.TelecomAdapter;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Collection;
+import com.android.dialer.R;
 
 /** Shows picker for audio routes */
 public class AudioRouteSelectorDialogFragment extends BottomSheetDialogFragment {
@@ -123,17 +124,17 @@ public class AudioRouteSelectorDialogFragment extends BottomSheetDialogFragment 
     }
 
     initItem(
-        (TextView) view.findViewById(R.id.audioroute_speaker),
+            view.findViewById(R.id.audioroute_speaker),
         CallAudioState.ROUTE_SPEAKER,
         audioState,
         DialerImpression.Type.IN_CALL_SWITCH_AUDIO_ROUTE_SPEAKER);
     initItem(
-        (TextView) view.findViewById(R.id.audioroute_headset),
+            view.findViewById(R.id.audioroute_headset),
         CallAudioState.ROUTE_WIRED_HEADSET,
         audioState,
         DialerImpression.Type.IN_CALL_SWITCH_AUDIO_ROUTE_WIRED_HEADSET);
     initItem(
-        (TextView) view.findViewById(R.id.audioroute_earpiece),
+            view.findViewById(R.id.audioroute_earpiece),
         CallAudioState.ROUTE_EARPIECE,
         audioState,
         DialerImpression.Type.IN_CALL_SWITCH_AUDIO_ROUTE_EARPIECE);
@@ -210,6 +211,11 @@ public class AudioRouteSelectorDialogFragment extends BottomSheetDialogFragment 
       e.printStackTrace();
       return bluetoothDevice.getName();
     }
+  }
+
+  @Override
+  public int getTheme() {
+    return com.google.android.material.R.style.Theme_Material3_DayNight_BottomSheetDialog;
   }
 
   private void logCallAudioRouteImpression(DialerImpression.Type impressionType) {

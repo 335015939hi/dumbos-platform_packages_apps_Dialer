@@ -19,11 +19,11 @@ package com.android.dialer.calldetails;
 import android.content.Context;
 import android.net.Uri;
 import android.provider.CallLog.Calls;
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.os.BuildCompat;
-import android.support.v7.widget.RecyclerView.ViewHolder;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.core.os.BuildCompat;
+import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
@@ -40,6 +40,7 @@ import com.android.dialer.glidephotomanager.PhotoInfo;
 import com.android.dialer.oem.MotorolaUtils;
 import com.android.dialer.util.DialerUtils;
 import com.android.dialer.util.IntentUtil;
+import com.android.dialer.R;
 
 /** ViewHolder for call entries in {@link OldCallDetailsActivity} or {@link CallDetailsActivity}. */
 public class CallDetailsEntryViewHolder extends ViewHolder {
@@ -78,19 +79,19 @@ public class CallDetailsEntryViewHolder extends ViewHolder {
     super(container);
     context = container.getContext();
 
-    callTypeIcon = (CallTypeIconsView) container.findViewById(R.id.call_direction);
-    callTypeText = (TextView) container.findViewById(R.id.call_type);
-    callTime = (TextView) container.findViewById(R.id.call_time);
-    callDuration = (TextView) container.findViewById(R.id.call_duration);
+    callTypeIcon = container.findViewById(R.id.call_direction);
+    callTypeText = container.findViewById(R.id.call_type);
+    callTime = container.findViewById(R.id.call_time);
+    callDuration = container.findViewById(R.id.call_duration);
 
     multimediaImageContainer = container.findViewById(R.id.multimedia_image_container);
     multimediaDetailsContainer = container.findViewById(R.id.ec_container);
     multimediaDivider = container.findViewById(R.id.divider);
-    multimediaDetails = (TextView) container.findViewById(R.id.multimedia_details);
-    postCallNote = (TextView) container.findViewById(R.id.post_call_note);
-    multimediaImage = (ImageView) container.findViewById(R.id.multimedia_image);
+    multimediaDetails = container.findViewById(R.id.multimedia_details);
+    postCallNote = container.findViewById(R.id.post_call_note);
+    multimediaImage = container.findViewById(R.id.multimedia_image);
     multimediaAttachmentsNumber =
-        (TextView) container.findViewById(R.id.multimedia_attachments_number);
+            container.findViewById(R.id.multimedia_attachments_number);
     rttTranscript = container.findViewById(R.id.rtt_transcript);
     this.callDetailsEntryListener = callDetailsEntryListener;
   }

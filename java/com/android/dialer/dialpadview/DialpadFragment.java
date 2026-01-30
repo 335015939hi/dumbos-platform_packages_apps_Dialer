@@ -16,7 +16,7 @@
 
 package com.android.dialer.dialpadview;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -44,10 +44,11 @@ import android.provider.Contacts.People;
 import android.provider.Contacts.Phones;
 import android.provider.Contacts.PhonesColumns;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.design.widget.FloatingActionButton;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.android.dialer.R;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.PhoneNumberFormattingTextWatcher;
@@ -291,9 +292,7 @@ public class DialpadFragment extends Fragment
       }
 
       // next char is ';' (WAIT)
-      if ((digits.length() > end) && (digits.charAt(end) == WAIT)) {
-        return false;
-      }
+        return (digits.length() <= end) || (digits.charAt(end) != WAIT);
     }
 
     return true;
@@ -489,7 +488,7 @@ public class DialpadFragment extends Fragment
    * cannot be inflated in robolectric.
    */
   @SuppressWarnings("missingPermission")
-  @TargetApi(VERSION_CODES.O)
+  @RequiresApi(VERSION_CODES.O)
   @VisibleForTesting
   static boolean shouldShowEmergencyCallWarning(Context context) {
     if (showEmergencyCallWarningForTest != null) {
@@ -1785,8 +1784,8 @@ public class DialpadFragment extends Fragment
     static final int DIALPAD_CHOICE_RETURN_TO_CALL = 102;
     static final int DIALPAD_CHOICE_ADD_NEW_CALL = 103;
     private static final int NUM_ITEMS = 3;
-    private LayoutInflater inflater;
-    private ChoiceItem[] choiceItems = new ChoiceItem[NUM_ITEMS];
+    private final LayoutInflater inflater;
+    private final ChoiceItem[] choiceItems = new ChoiceItem[NUM_ITEMS];
 
     DialpadChooserAdapter(Context context) {
       // Cache the LayoutInflate to avoid asking for a new one each time.

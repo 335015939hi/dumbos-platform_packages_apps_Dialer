@@ -19,9 +19,9 @@ package com.android.dialer.main.impl;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import com.android.dialer.calllog.CallLogComponent;
 import com.android.dialer.calllog.ui.NewCallLogFragment;
 import com.android.dialer.common.concurrent.DefaultFutureCallback;
@@ -32,6 +32,7 @@ import com.android.dialer.main.impl.bottomnav.BottomNavBar.TabIndex;
 import com.android.dialer.voicemail.listui.NewVoicemailFragment;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.MoreExecutors;
+import com.android.dialer.R;
 
 /** MainActivityPeer that implements the new fragments. */
 public class NewMainActivityPeer implements MainActivityPeer {

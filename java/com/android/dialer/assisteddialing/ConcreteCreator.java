@@ -19,13 +19,14 @@ package com.android.dialer.assisteddialing;
 import android.content.Context;
 import android.os.Build;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.v4.os.UserManagerCompat;
+import androidx.annotation.NonNull;
+import androidx.core.os.UserManagerCompat;
 import android.telephony.TelephonyManager;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.configprovider.ConfigProvider;
 import com.android.dialer.configprovider.ConfigProviderComponent;
 import com.android.dialer.strictmode.StrictModeUtils;
+import com.android.dialer.R;
 
 /**
  * A Creator for AssistedDialingMediators.

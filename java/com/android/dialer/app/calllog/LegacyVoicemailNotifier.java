@@ -16,21 +16,21 @@
 
 package com.android.dialer.app.calllog;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.os.Build.VERSION_CODES;
 import android.os.PersistableBundle;
-import android.support.annotation.NonNull;
-import android.support.v4.os.BuildCompat;
+import androidx.annotation.NonNull;
+import androidx.core.os.BuildCompat;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
 import android.telephony.CarrierConfigManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.android.dialer.app.R;
+import com.android.dialer.R;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.location.GeoUtil;
@@ -41,7 +41,7 @@ import com.android.dialer.telecom.TelecomUtil;
 import com.android.dialer.theme.base.ThemeComponent;
 
 /** Shows a notification in the status bar for legacy vociemail. */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public final class LegacyVoicemailNotifier {
   private static final String NOTIFICATION_TAG_PREFIX = "LegacyVoicemail_";
   private static final String NOTIFICATION_TAG = "LegacyVoicemail";

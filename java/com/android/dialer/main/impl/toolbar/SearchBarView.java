@@ -20,9 +20,9 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -36,6 +36,7 @@ import com.android.dialer.common.Assert;
 import com.android.dialer.common.UiUtil;
 import com.android.dialer.util.DialerUtils;
 import com.google.common.base.Optional;
+import com.android.dialer.R;
 
 /** Search bar for {@link MainToolbar}. Mostly used to handle expand and collapse animation. */
 final class SearchBarView extends FrameLayout {
@@ -119,7 +120,7 @@ final class SearchBarView extends FrameLayout {
     int duration = animate ? ANIMATION_DURATION : 0;
     searchBoxExpanded.setVisibility(VISIBLE);
     AnimUtils.crossFadeViews(searchBoxExpanded, searchBoxCollapsed, duration);
-    ValueAnimator animator = ValueAnimator.ofFloat(EXPAND_MARGIN_FRACTION_START, 0f);
+    ValueAnimator animator = ValueAnimator.ofFloat(EXPAND_MARGIN_FRACTION_START, EXPAND_MARGIN_FRACTION_START);
     animator.addUpdateListener(animation -> setMargins((Float) animation.getAnimatedValue()));
     animator.setDuration(duration);
     animator.addListener(
@@ -156,7 +157,7 @@ final class SearchBarView extends FrameLayout {
 
     int duration = animate ? ANIMATION_DURATION : 0;
     AnimUtils.crossFadeViews(searchBoxCollapsed, searchBoxExpanded, duration);
-    ValueAnimator animator = ValueAnimator.ofFloat(0f, EXPAND_MARGIN_FRACTION_START);
+    ValueAnimator animator = ValueAnimator.ofFloat(EXPAND_MARGIN_FRACTION_START, EXPAND_MARGIN_FRACTION_START);
     animator.addUpdateListener(animation -> setMargins((Float) animation.getAnimatedValue()));
     animator.setDuration(duration);
 

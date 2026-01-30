@@ -22,7 +22,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.app.KeyguardManager;
 import android.app.KeyguardManager.KeyguardDismissCallback;
 import android.content.Context;
@@ -35,13 +35,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Trace;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.FloatRange;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.app.Fragment;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.FloatRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.annotation.VisibleForTesting;
+import androidx.fragment.app.Fragment;
 import android.text.TextUtils;
 import android.transition.TransitionManager;
 import android.view.LayoutInflater;
@@ -97,6 +97,7 @@ import com.google.common.base.Optional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import com.android.dialer.R;
 
 /** The new version of the incoming call screen. */
 @SuppressLint("ClickableViewAccessibility")
@@ -169,7 +170,7 @@ public class AnswerFragment extends Fragment
   private SecondaryBehavior answerAndReleaseBehavior;
   private ContactGridManager contactGridManager;
   private VideoCallScreen answerVideoCallScreen;
-  private Handler handler = new Handler(Looper.getMainLooper());
+  private final Handler handler = new Handler(Looper.getMainLooper());
 
   private enum SecondaryBehavior {
     REJECT_WITH_SMS(
@@ -350,7 +351,7 @@ public class AnswerFragment extends Fragment
         }
       };
 
-  private Runnable swipeHintRestoreTimer = this::restoreSwipeHintTexts;
+  private final Runnable swipeHintRestoreTimer = this::restoreSwipeHintTexts;
 
   private void performSecondaryButtonAction() {
     secondaryBehavior.performAction(this);
@@ -721,10 +722,10 @@ public class AnswerFragment extends Fragment
     buttonRejectClicked = false;
 
     View view = inflater.inflate(R.layout.fragment_incoming_call, container, false);
-    secondaryButton = (SwipeButtonView) view.findViewById(R.id.incoming_secondary_button);
-    answerAndReleaseButton = (SwipeButtonView) view.findViewById(R.id.incoming_secondary_button2);
+    secondaryButton = view.findViewById(R.id.incoming_secondary_button);
+    answerAndReleaseButton = view.findViewById(R.id.incoming_secondary_button2);
 
-    affordanceHolderLayout = (AffordanceHolderLayout) view.findViewById(R.id.incoming_container);
+    affordanceHolderLayout = view.findViewById(R.id.incoming_container);
     affordanceHolderLayout.setAffordanceCallback(affordanceCallback);
 
     chipContainer = view.findViewById(R.id.incall_data_container_chip_container);
@@ -1057,7 +1058,7 @@ public class AnswerFragment extends Fragment
   }
 
   @Override
-  @TargetApi(VERSION_CODES.O)
+  @RequiresApi(VERSION_CODES.O)
   public void smsSelected(@Nullable CharSequence text) {
     LogUtil.i("AnswerFragment.smsSelected", null);
     textResponsesFragment = null;
@@ -1193,7 +1194,7 @@ public class AnswerFragment extends Fragment
     @Override
     public void onViewCreated(View view, @Nullable Bundle bundle) {
       super.onViewCreated(view, bundle);
-      avatarImageView = ((ImageView) view.findViewById(R.id.contactgrid_avatar));
+      avatarImageView = view.findViewById(R.id.contactgrid_avatar);
       FragmentUtils.getParentUnsafe(this, MultimediaFragment.Holder.class).updateAvatar(this);
     }
 

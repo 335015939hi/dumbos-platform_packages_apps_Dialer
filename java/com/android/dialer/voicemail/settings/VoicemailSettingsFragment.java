@@ -13,7 +13,7 @@
  */
 package com.android.dialer.voicemail.settings;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -25,9 +25,9 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.IntDef;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
@@ -48,12 +48,13 @@ import com.android.voicemail.VoicemailComponent;
 import com.google.common.base.Optional;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import com.android.dialer.R;
 
 /**
  * Fragment for voicemail settings. Requires {@link VoicemailClient#PARAM_PHONE_ACCOUNT_HANDLE} set
  * in arguments.
  */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public class VoicemailSettingsFragment extends PreferenceFragment
     implements Preference.OnPreferenceChangeListener, ActivationStateListener {
 
@@ -140,7 +141,6 @@ public class VoicemailSettingsFragment extends PreferenceFragment
         .getVoicemailClient()
         .isVoicemailTranscriptionAvailable(getContext(), phoneAccountHandle)) {
       removeAllTranscriptionPreferences();
-      return;
     } else {
       showTranscriptionEnabledPreference();
       updateTranscriptionDonationPreference();

@@ -27,8 +27,8 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
@@ -37,6 +37,7 @@ import com.android.dialer.common.Assert;
 import com.android.dialer.common.concurrent.ThreadUtil;
 import com.android.dialer.strictmode.StrictModeUtils;
 import com.android.voicemail.VoicemailComponent;
+import com.android.dialer.R;
 
 /**
  * Fragment to edit the override values for the {@link import
@@ -93,6 +94,7 @@ public class ConfigOverrideFragment extends PreferenceFragment
    * Loads the config for the currently carrier into the override values, from the dialer or the
    * carrier config app. This is a "reset" button to load the defaults.
    */
+  @SuppressWarnings("MissingPermission") // Called from settings, phone permission already granted
   private void loadCurrentConfig() {
     Context context = getActivity();
     PhoneAccountHandle phoneAccountHandle =
@@ -171,9 +173,9 @@ public class ConfigOverrideFragment extends PreferenceFragment
       result.append(element);
     }
     return result.toString();
-  };
+  }
 
-  private static String[] fromCsv(String csv) {
+    private static String[] fromCsv(String csv) {
     return csv.split(",");
   }
 }

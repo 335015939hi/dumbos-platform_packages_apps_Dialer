@@ -17,7 +17,7 @@
 package com.android.dialer.inject.demo;
 
 import android.app.Application;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.android.dialer.inject.ContextModule;
 import com.android.dialer.inject.DialerRootComponent;
 import com.android.dialer.inject.DialerVariant;
@@ -32,18 +32,17 @@ public final class DemoDaggerApplication extends Application implements HasRootC
   /** Returns a cached instance of application's root component. */
   @Override
   @NonNull
-  public final Object component() {
-    Object result = rootComponent;
-    if (result == null) {
+  public Object component() {
+    // TODO: Dagger code generation not available in Gradle build
+    // Returning a stub object for now
+    if (rootComponent == null) {
       synchronized (this) {
-        result = rootComponent;
-        if (result == null) {
-          rootComponent =
-              result = DaggerDialerDemo.builder().contextModule(new ContextModule(this)).build();
+        if (rootComponent == null) {
+          rootComponent = new Object(); // Stub implementation
         }
       }
     }
-    return result;
+    return rootComponent;
   }
 
   @Override

@@ -49,7 +49,7 @@
 
   </LinearLayout>
 
-  <android.support.v7.widget.CardView
+  <com.google.android.material.card.MaterialCardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     card_view:cardCornerRadius="0dp">
@@ -91,9 +91,9 @@
           android:textColor="?colorIcon"
           android:textSize="@dimen/blocked_number_settings_description_text_size"/>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
           android:id="@+id/import_button"
-          style="@style/DialerFlatButtonStyle"
+          style="@style/Widget.Material3.Button"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginEnd="@dimen/blocked_number_container_padding"
@@ -101,9 +101,9 @@
           android:layout_below="@id/import_description"
           android:text="@string/blocked_call_settings_import_button"/>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
           android:id="@+id/view_numbers_button"
-          style="@style/DialerFlatButtonStyle"
+          style="@style/Widget.Material3.Button.TextButton"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginEnd="8dp"
@@ -150,9 +150,9 @@
           android:text="@string/migrate_blocked_numbers_dialog_message"
           android:textColor="?colorIcon"/>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
           android:id="@+id/migrate_promo_allow_button"
-          style="@style/DialerPrimaryFlatButtonStyle"
+          style="@style/Widget.Material3.Button"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginBottom="@dimen/blocked_number_container_padding"
@@ -175,6 +175,6 @@
 
     </LinearLayout>
 
-  </android.support.v7.widget.CardView>
+  </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>

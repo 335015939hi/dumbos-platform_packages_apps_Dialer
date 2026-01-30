@@ -22,6 +22,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 
 /** Subclass of {@link ImapString} used for literals backed by an in-memory byte array. */
 public class ImapMemoryLiteral extends ImapString {
@@ -53,12 +54,7 @@ public class ImapMemoryLiteral extends ImapString {
 
   @Override
   public String getString() {
-    try {
-      return new String(data, "US-ASCII");
-    } catch (UnsupportedEncodingException e) {
-      VvmLog.e(TAG, "Unsupported encoding: ", e);
-    }
-    return null;
+      return new String(data, StandardCharsets.US_ASCII);
   }
 
   @Override

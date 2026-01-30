@@ -26,11 +26,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.LoaderManager.LoaderCallbacks;
-import android.support.v4.content.CursorLoader;
-import android.support.v4.content.Loader;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.loader.app.LoaderManager.LoaderCallbacks;
+import androidx.loader.content.CursorLoader;
+import androidx.loader.content.Loader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -47,6 +47,7 @@ import com.android.dialer.theme.base.ThemeComponent;
 import com.android.dialer.util.PermissionsUtil;
 import java.util.ArrayList;
 import java.util.List;
+import com.android.dialer.R;
 
 /** Fragment used to compose call with image from the user's gallery. */
 public class GalleryComposerFragment extends CallComposerFragment
@@ -64,7 +65,7 @@ public class GalleryComposerFragment extends CallComposerFragment
   private View permissionView;
   private View allowPermission;
 
-  private String[] permissions = new String[] {permission.READ_EXTERNAL_STORAGE};
+  private final String[] permissions = new String[] {permission.READ_EXTERNAL_STORAGE};
   private CursorLoader cursorLoader;
   private GalleryGridItemData selectedData = null;
   private boolean selectedDataIsCopy;
@@ -81,14 +82,14 @@ public class GalleryComposerFragment extends CallComposerFragment
   public View onCreateView(
       LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle bundle) {
     View view = inflater.inflate(R.layout.fragment_gallery_composer, container, false);
-    galleryGridView = (GridView) view.findViewById(R.id.gallery_grid_view);
+    galleryGridView = view.findViewById(R.id.gallery_grid_view);
     permissionView = view.findViewById(R.id.permission_view);
 
     if (!PermissionsUtil.hasPermission(getContext(), permission.READ_EXTERNAL_STORAGE)) {
       Logger.get(getContext()).logImpression(DialerImpression.Type.STORAGE_PERMISSION_DISPLAYED);
       LogUtil.i("GalleryComposerFragment.onCreateView", "Permission view shown.");
-      ImageView permissionImage = (ImageView) permissionView.findViewById(R.id.permission_icon);
-      TextView permissionText = (TextView) permissionView.findViewById(R.id.permission_text);
+      ImageView permissionImage = permissionView.findViewById(R.id.permission_icon);
+      TextView permissionText = permissionView.findViewById(R.id.permission_text);
       allowPermission = permissionView.findViewById(R.id.allow);
 
       allowPermission.setOnClickListener(this);
@@ -179,7 +180,6 @@ public class GalleryComposerFragment extends CallComposerFragment
         intent.setData(Uri.parse("package:" + getContext().getPackageName()));
         startActivityForResult(intent, RESULT_OPEN_SETTINGS);
       }
-      return;
     } else {
       GalleryGridItemView itemView = ((GalleryGridItemView) view);
       if (itemView.isGallery()) {

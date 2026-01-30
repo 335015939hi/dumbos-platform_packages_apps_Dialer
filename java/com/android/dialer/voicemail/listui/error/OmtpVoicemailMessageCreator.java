@@ -19,7 +19,7 @@ package com.android.dialer.voicemail.listui.error;
 import android.content.Context;
 import android.preference.PreferenceManager;
 import android.provider.VoicemailContract.Status;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.telecom.PhoneAccountHandle;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.common.PerAccountSharedPreferences;
@@ -30,6 +30,7 @@ import com.android.voicemail.VoicemailClient;
 import com.android.voicemail.VoicemailComponent;
 import java.util.ArrayList;
 import java.util.List;
+import com.android.dialer.R;
 
 /**
  * Create error message from {@link VoicemailStatus} for OMTP visual voicemail. This is also the

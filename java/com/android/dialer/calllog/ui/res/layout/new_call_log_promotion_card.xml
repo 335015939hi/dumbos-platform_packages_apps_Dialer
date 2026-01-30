@@ -57,8 +57,9 @@
           android:layout_marginBottom="16dp"
           android:lineSpacingExtra="8dp"
           style="@style/Dialer.TextAppearance.Secondary"/>
-      <Button
+      <com.google.android.material.button.MaterialButton
           android:id="@+id/new_call_log_promotion_card_ok"
+          style="@style/Widget.Material3.Button.TextButton"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginTop="6dp"

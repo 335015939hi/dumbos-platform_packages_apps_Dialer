@@ -23,7 +23,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.VoicemailContract;
 import android.provider.VoicemailContract.Voicemails;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.telecom.PhoneAccountHandle;
 import com.android.dialer.common.Assert;
 import com.android.voicemail.impl.Voicemail;
@@ -50,9 +50,9 @@ public class VoicemailsQueryHelper {
   static final String DELETED_SELECTION = Voicemails.DELETED + "=1";
   static final String ARCHIVED_SELECTION = Voicemails.ARCHIVED + "=0";
 
-  private Context context;
-  private ContentResolver contentResolver;
-  private Uri sourceUri;
+  private final Context context;
+  private final ContentResolver contentResolver;
+  private final Uri sourceUri;
 
   public VoicemailsQueryHelper(Context context) {
     this.context = context;
@@ -132,7 +132,7 @@ public class VoicemailsQueryHelper {
       sb.append(voicemails.get(i).getId());
     }
 
-    String selectionStatement = String.format(Voicemails._ID + " IN (%s)", sb.toString());
+    String selectionStatement = String.format(Voicemails._ID + " IN (%s)", sb);
     return contentResolver.delete(Voicemails.CONTENT_URI, selectionStatement, null);
   }
 
@@ -220,11 +220,7 @@ public class VoicemailsQueryHelper {
                 + "=?";
         String[] whereArgs = {phoneAccountComponentName, phoneAccountId, sourceData};
         cursor = contentResolver.query(sourceUri, PROJECTION, whereClause, whereArgs, null);
-        if (cursor.getCount() == 0) {
-          return true;
-        } else {
-          return false;
-        }
+          return cursor.getCount() == 0;
       } finally {
         if (cursor != null) {
           cursor.close();

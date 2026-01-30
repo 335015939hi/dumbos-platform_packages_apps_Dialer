@@ -27,12 +27,12 @@ import android.os.AsyncTask;
 import android.provider.CallLog;
 import android.provider.CallLog.Calls;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresPermission;
-import android.support.annotation.VisibleForTesting;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.IntDef;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresPermission;
+import androidx.annotation.VisibleForTesting;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
@@ -51,7 +51,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.android.contacts.common.dialog.CallSubjectDialog;
-import com.android.dialer.app.R;
+import com.android.dialer.R;
 import com.android.dialer.app.calllog.CallLogAdapter.OnActionModeStateChangedListener;
 import com.android.dialer.app.calllog.calllogcache.CallLogCache;
 import com.android.dialer.app.voicemail.VoicemailPlaybackLayout;
@@ -104,7 +104,7 @@ import java.lang.ref.WeakReference;
  * <p>This object also contains UI logic pertaining to the view, to isolate it from the
  * CallLogAdapter.
  */
-public final class CallLogListItemViewHolder extends RecyclerView.ViewHolder
+public final class CallLogListItemViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder
     implements View.OnClickListener,
         MenuItem.OnMenuItemClickListener,
         View.OnCreateContextMenuListener {
@@ -227,7 +227,7 @@ public final class CallLogListItemViewHolder extends RecyclerView.ViewHolder
 
   public boolean isCallComposerCapable;
 
-  private View.OnClickListener expandCollapseListener;
+  private final View.OnClickListener expandCollapseListener;
   private final OnActionModeStateChangedListener onActionModeStateChangedListener;
   private final View.OnLongClickListener longPressListener;
   private boolean voicemailPrimaryActionButtonClicked;
@@ -279,8 +279,8 @@ public final class CallLogListItemViewHolder extends RecyclerView.ViewHolder
     this.callLogEntryView = callLogEntryView;
     this.dayGroupHeader = dayGroupHeader;
     this.primaryActionButtonView = primaryActionButtonView;
-    this.workIconView = (ImageView) rootView.findViewById(R.id.work_profile_icon);
-    this.checkBoxView = (ImageView) rootView.findViewById(R.id.quick_contact_checkbox);
+    this.workIconView = rootView.findViewById(R.id.work_profile_icon);
+    this.checkBoxView = rootView.findViewById(R.id.quick_contact_checkbox);
 
     // Set text height to false on the TextViews so they don't have extra padding.
     phoneCallDetailsViews.nameView.setElegantTextHeight(false);
@@ -343,12 +343,12 @@ public final class CallLogListItemViewHolder extends RecyclerView.ViewHolder
         callLogListItemHelper,
         voicemailPlaybackPresenter,
         view,
-        (DialerQuickContactBadge) view.findViewById(R.id.quick_contact_photo),
+            view.findViewById(R.id.quick_contact_photo),
         view.findViewById(R.id.primary_action_view),
         PhoneCallDetailsViews.fromView(view),
-        (CardView) view.findViewById(R.id.call_log_row),
-        (TextView) view.findViewById(R.id.call_log_day_group_label),
-        (ImageView) view.findViewById(R.id.primary_action_button));
+            view.findViewById(R.id.call_log_row),
+            view.findViewById(R.id.call_log_day_group_label),
+            view.findViewById(R.id.primary_action_button));
   }
 
   public static CallLogListItemViewHolder createForTest(Context context) {
@@ -447,12 +447,12 @@ public final class CallLogListItemViewHolder extends RecyclerView.ViewHolder
    * necessary.
    */
   public void inflateActionViewStub() {
-    ViewStub stub = (ViewStub) rootView.findViewById(R.id.call_log_entry_actions_stub);
+    ViewStub stub = rootView.findViewById(R.id.call_log_entry_actions_stub);
     if (stub != null) {
       actionsView = stub.inflate();
 
       voicemailPlaybackView =
-          (VoicemailPlaybackLayout) actionsView.findViewById(R.id.voicemail_playback_layout);
+              actionsView.findViewById(R.id.voicemail_playback_layout);
       voicemailPlaybackView.setViewHolder(this);
 
       callButtonView = actionsView.findViewById(R.id.call_action);
@@ -650,7 +650,7 @@ public final class CallLogListItemViewHolder extends RecyclerView.ViewHolder
     }
 
     TextView callTypeOrLocationView =
-        ((TextView) callButtonView.findViewById(R.id.call_type_or_location_text));
+            callButtonView.findViewById(R.id.call_type_or_location_text);
 
     if (canPlaceCallToNumber) {
       if (canSupportAssistedDialing()) {
@@ -815,9 +815,7 @@ public final class CallLogListItemViewHolder extends RecyclerView.ViewHolder
 
   private boolean isFullyUndialableVoicemail() {
     if (callType == Calls.VOICEMAIL_TYPE) {
-      if (!hasDialableChar(number)) {
-        return true;
-      }
+        return !hasDialableChar(number);
     }
     return false;
   }
@@ -1074,10 +1072,7 @@ public final class CallLogListItemViewHolder extends RecyclerView.ViewHolder
   }
 
   private static boolean isNonContactEntry(ContactInfo info) {
-    if (info == null || info.sourceType != Type.SOURCE_TYPE_DIRECTORY) {
-      return true;
-    }
-    return false;
+      return info == null || info.sourceType != Type.SOURCE_TYPE_DIRECTORY;
   }
 
   private DialerContact buildContact() {

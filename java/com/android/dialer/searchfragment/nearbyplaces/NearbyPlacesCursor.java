@@ -20,8 +20,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.database.MergeCursor;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import com.android.dialer.searchfragment.common.SearchCursor;
+import com.android.dialer.R;
 
 /** {@link SearchCursor} implementation for displaying on nearby places. */
 final class NearbyPlacesCursor extends MergeCursor implements SearchCursor {

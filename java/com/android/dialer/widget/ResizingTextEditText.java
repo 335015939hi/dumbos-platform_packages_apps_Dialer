@@ -19,11 +19,12 @@ package com.android.dialer.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.widget.EditText;
+import androidx.appcompat.widget.AppCompatEditText;
+import com.android.dialer.R;
 import com.android.dialer.util.ViewUtil;
 
 /** EditText which resizes dynamically with respect to text length. */
-public class ResizingTextEditText extends EditText {
+public class ResizingTextEditText extends AppCompatEditText {
 
   private final int originalTextSize;
   private final int minTextSize;

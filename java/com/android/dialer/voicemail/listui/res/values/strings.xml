@@ -90,4 +90,10 @@ If you do not accept all of these terms and conditions, do not use Visual Voice 
   <!-- Text for snackbar to undo a voicemail delete. [CHAR LIMIT=30] -->
   <string name="snackbar_voicemail_deleted">Voicemail deleted</string>
 
+  <!-- Text displayed when phone permissions are not granted for voicemail [CHAR LIMIT=NONE] -->
+  <string name="voicemail_permission_needed">To access voicemail, please grant phone permissions.</string>
+
+  <!-- Button text to request phone permissions for voicemail [CHAR LIMIT=30] -->
+  <string name="voicemail_grant_permission">Grant Permission</string>
+
 </resources>

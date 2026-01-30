@@ -16,15 +16,15 @@
 
 package com.android.voicemail.impl.protocol;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.Context;
 import android.net.Network;
 import android.os.Build;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
+import androidx.annotation.WorkerThread;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.TelephonyManager;
 import android.text.Html;
@@ -81,7 +81,7 @@ import org.json.JSONException;
  * <p>After the process is completed, the carrier should send us another STATUS SMS with a new or
  * ready user.
  */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public class Vvm3Subscriber {
 
   private static final String TAG = "Vvm3Subscriber";
@@ -91,8 +91,7 @@ public class Vvm3Subscriber {
   private static final String TRANSACTION_ID_TAG = "transactionid";
   // language=XML
   private static final String VMG_XML_REQUEST_FORMAT =
-      ""
-          + "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+      "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
           + "<VMGVVMRequest>"
           + "  <MessageHeader>"
           + "    <transactionid>%1$s</transactionid>"

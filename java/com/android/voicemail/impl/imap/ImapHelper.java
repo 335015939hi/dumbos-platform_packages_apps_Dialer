@@ -19,7 +19,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkInfo;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.telecom.PhoneAccountHandle;
 import android.util.Base64;
 import com.android.voicemail.PinChanger;
@@ -67,7 +67,7 @@ public class ImapHelper implements Closeable {
   private static final String TAG = "ImapHelper";
 
   private ImapFolder folder;
-  private ImapStore imapStore;
+  private final ImapStore imapStore;
 
   private final Context context;
   private final PhoneAccountHandle phoneAccount;
@@ -130,7 +130,7 @@ public class ImapHelper implements Closeable {
     } catch (NumberFormatException e) {
       handleEvent(OmtpEvents.DATA_INVALID_PORT);
       LogUtils.w(TAG, "Could not parse port number");
-      throw new InitializingException("cannot initialize ImapHelper:" + e.toString());
+      throw new InitializingException("cannot initialize ImapHelper:" + e);
     }
   }
 
@@ -540,7 +540,6 @@ public class ImapHelper implements Closeable {
         messageStructure = getMessageOrNull(message);
         if (messageStructure == null) {
           LogUtils.d(TAG, "This voicemail does not have an attachment...");
-          return;
         }
       } catch (MessagingException e) {
         LogUtils.e(TAG, e, "Messaging Exception");

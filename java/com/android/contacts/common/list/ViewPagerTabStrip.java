@@ -21,15 +21,15 @@ import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.LinearLayout;
-import com.android.dialer.contacts.resources.R;
-import com.android.dialer.theme.base.ThemeComponent;
+import com.android.dialer.R;
 
 public class ViewPagerTabStrip extends LinearLayout {
 
   private final Paint mSelectedUnderlinePaint;
-  private int mSelectedUnderlineThickness;
+  private final int mSelectedUnderlineThickness;
   private int mIndexForSelection;
   private float mSelectionOffset;
 
@@ -43,13 +43,18 @@ public class ViewPagerTabStrip extends LinearLayout {
     final Resources res = context.getResources();
 
     mSelectedUnderlineThickness = res.getDimensionPixelSize(R.dimen.tab_selected_underline_height);
-    int underlineColor = ThemeComponent.get(context).theme().getColorAccent();
-    int backgroundColor = ThemeComponent.get(context).theme().getColorPrimary();
+
+    // Resolve colorOnSurface from theme for underline color
+    TypedValue typedValue = new TypedValue();
+    context.getTheme().resolveAttribute(
+        com.google.android.material.R.attr.colorOnSurface, typedValue, true);
+    int underlineColor = typedValue.data;
 
     mSelectedUnderlinePaint = new Paint();
     mSelectedUnderlinePaint.setColor(underlineColor);
 
-    setBackgroundColor(backgroundColor);
+    // Don't set background here - let the parent FrameLayout handle it with search bar styling
+    setBackgroundColor(android.graphics.Color.TRANSPARENT);
     setWillNotDraw(false);
   }
 

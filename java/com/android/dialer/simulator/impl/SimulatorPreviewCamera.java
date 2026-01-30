@@ -26,14 +26,15 @@ import android.hardware.camera2.CameraManager;
 import android.hardware.camera2.CameraMetadata;
 import android.hardware.camera2.CaptureRequest;
 import android.hardware.camera2.params.StreamConfigurationMap;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.telecom.VideoProfile.CameraCapabilities;
 import android.util.Size;
 import android.view.Surface;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Used by the video provider to draw the local camera. The in-call UI is responsible for setting
@@ -111,7 +112,7 @@ final class SimulatorPreviewCamera {
 
       try {
         camera.createCaptureSession(
-            Arrays.asList(Assert.isNotNull(surface)),
+                List.of(Assert.isNotNull(surface)),
             new CaptureSessionCallback(),
             null /* handler */);
       } catch (CameraAccessException e) {

@@ -21,8 +21,8 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Trace;
 import android.provider.CallLog;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.SubscriptionInfo;
@@ -43,6 +43,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import com.android.dialer.R;
 
 public class PhoneNumberHelper {
 
@@ -214,10 +215,7 @@ public class PhoneNumberHelper {
     if (isVoicemailNumber(context, accountHandle, number)) {
       return false;
     }
-    if (isLegacyUnknownNumbers(number)) {
-      return false;
-    }
-    return true;
+      return !isLegacyUnknownNumbers(number);
   }
 
   public static boolean isLegacyUnknownNumbers(CharSequence number) {

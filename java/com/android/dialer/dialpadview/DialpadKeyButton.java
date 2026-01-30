@@ -50,7 +50,7 @@ public class DialpadKeyButton extends FrameLayout {
   private AccessibilityManager accessibilityManager;
 
   /** Bounds used to filter HOVER_EXIT events. */
-  private RectF hoverBounds = new RectF();
+  private final RectF hoverBounds = new RectF();
 
   /** Alternate content description for long-hover state. */
   private CharSequence longHoverContentDesc;

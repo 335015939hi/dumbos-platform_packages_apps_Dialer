@@ -17,6 +17,7 @@
 package com.android.dialer.historyitemactions;
 
 import com.android.dialer.common.Assert;
+import com.android.dialer.R;
 
 /**
  * A module that inserts a grey line divider into {@link HistoryItemActionModule}. Layout it

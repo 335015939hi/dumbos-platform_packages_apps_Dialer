@@ -17,15 +17,15 @@
 package com.android.dialer.shortcuts;
 
 import android.Manifest;
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
 import android.os.Build.VERSION_CODES;
-import android.support.annotation.NonNull;
-import android.support.annotation.WorkerThread;
-import android.support.v4.content.ContextCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
+import androidx.core.content.ContextCompat;
 import android.util.ArrayMap;
 import com.android.contacts.common.list.ContactEntry;
 import com.android.dialer.common.Assert;
@@ -60,7 +60,7 @@ import java.util.Map.Entry;
  * updated periodically (about once a day).
  *
  */
-@TargetApi(VERSION_CODES.N_MR1) // Shortcuts introduced in N MR1
+@RequiresApi(VERSION_CODES.N_MR1) // Shortcuts introduced in N MR1
 final class DynamicShortcuts {
 
   private static final int MAX_DYNAMIC_SHORTCUTS = 3;

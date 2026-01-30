@@ -31,8 +31,8 @@ public class PieItem {
   }
 
   private Drawable drawable;
-  private int level;
-  private float center;
+  private final int level;
+  private final float center;
   private float start;
   private float sweep;
   private float animate;

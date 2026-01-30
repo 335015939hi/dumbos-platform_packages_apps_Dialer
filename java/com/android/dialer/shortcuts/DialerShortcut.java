@@ -16,12 +16,12 @@
 
 package com.android.dialer.shortcuts;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.pm.ShortcutInfo;
 import android.net.Uri;
 import android.os.Build.VERSION_CODES;
 import android.provider.ContactsContract.Contacts;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.google.auto.value.AutoValue;
 
 /**
@@ -30,7 +30,7 @@ import com.google.auto.value.AutoValue;
  * <p>This differs from {@link ShortcutInfo} in that it doesn't hold an icon or intent, and provides
  * convenience methods for doing things like constructing labels.
  */
-@TargetApi(VERSION_CODES.N_MR1) // Shortcuts introduced in N MR1
+@RequiresApi(VERSION_CODES.N_MR1) // Shortcuts introduced in N MR1
 @AutoValue
 abstract class DialerShortcut {
 
@@ -150,10 +150,7 @@ abstract class DialerShortcut {
     if (!oldInfo.getShortLabel().equals(this.getShortLabel())) {
       return true;
     }
-    if (!oldInfo.getLongLabel().equals(this.getLongLabel())) {
-      return true;
-    }
-    return false;
+      return !oldInfo.getLongLabel().equals(this.getLongLabel());
   }
 
   static Builder builder() {

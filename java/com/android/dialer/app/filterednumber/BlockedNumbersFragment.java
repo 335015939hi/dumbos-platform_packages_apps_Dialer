@@ -23,13 +23,13 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.android.dialer.app.R;
+import com.android.dialer.R;
 import com.android.dialer.blocking.BlockedNumbersMigrator;
 import com.android.dialer.blocking.BlockedNumbersMigrator.Listener;
 import com.android.dialer.blocking.FilteredNumberCompat;
@@ -84,7 +84,7 @@ public class BlockedNumbersFragment extends ListFragment
     }
     setListAdapter(adapter);
 
-    blockedNumbersText = (TextView) getListView().findViewById(R.id.blocked_number_text_view);
+    blockedNumbersText = getListView().findViewById(R.id.blocked_number_text_view);
     migratePromoView = getListView().findViewById(R.id.migrate_promo);
     getListView().findViewById(R.id.migrate_promo_allow_button).setOnClickListener(this);
     importSettings = getListView().findViewById(R.id.import_settings);
@@ -94,7 +94,7 @@ public class BlockedNumbersFragment extends ListFragment
     getListView().findViewById(R.id.import_button).setOnClickListener(this);
     getListView().findViewById(R.id.view_numbers_button).setOnClickListener(this);
 
-    footerText = (TextView) getActivity().findViewById(R.id.blocked_number_footer_textview);
+    footerText = getActivity().findViewById(R.id.blocked_number_footer_textview);
     voicemailEnabledChecker = new VisualVoicemailEnabledChecker(getContext(), this);
     voicemailEnabledChecker.asyncUpdate();
     updateActiveVoicemailProvider();

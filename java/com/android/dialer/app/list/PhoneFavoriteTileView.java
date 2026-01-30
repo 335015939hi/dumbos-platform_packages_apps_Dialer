@@ -30,7 +30,7 @@ import com.android.contacts.common.MoreContactUtils;
 import com.android.contacts.common.list.ContactEntry;
 import com.android.contacts.common.list.ContactTileView;
 import com.android.contacts.common.model.ContactLoader;
-import com.android.dialer.app.R;
+import com.android.dialer.R;
 import com.android.dialer.callintent.CallInitiationType;
 import com.android.dialer.callintent.CallSpecificAppData;
 import com.android.dialer.callintent.SpeedDialContactType;
@@ -105,7 +105,7 @@ public abstract class PhoneFavoriteTileView extends ContactTileView {
       if (entry == ContactEntry.BLANK_ENTRY) {
         setVisibility(View.INVISIBLE);
       } else {
-        final ImageView starIcon = (ImageView) findViewById(R.id.contact_star_icon);
+        final ImageView starIcon = findViewById(R.id.contact_star_icon);
         starIcon.setVisibility(entry.isFavorite ? View.VISIBLE : View.GONE);
         setVisibility(View.VISIBLE);
       }

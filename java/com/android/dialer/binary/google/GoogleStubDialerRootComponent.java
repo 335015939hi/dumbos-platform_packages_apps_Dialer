@@ -43,8 +43,8 @@ import com.android.dialer.spam.stub.StubSpamModule;
 import com.android.dialer.storage.StorageModule;
 import com.android.dialer.strictmode.impl.SystemStrictModeModule;
 import com.android.dialer.theme.base.impl.AospThemeModule;
-import com.android.incallui.calllocation.impl.CallLocationModule;
-import com.android.incallui.maps.impl.MapsModule;
+import com.android.incallui.calllocation.stub.StubCallLocationModule;
+import com.android.incallui.maps.stub.StubMapsModule;
 import com.android.incallui.speakeasy.StubSpeakEasyModule;
 import com.android.voicemail.impl.VoicemailModule;
 import dagger.Component;
@@ -58,7 +58,7 @@ import javax.inject.Singleton;
 @Component(
     modules = {
       ActiveCallsModule.class,
-      CallLocationModule.class,
+      StubCallLocationModule.class,
       CallLogModule.class,
       CallLogConfigModule.class,
       CommandLineModule.class,
@@ -66,7 +66,7 @@ import javax.inject.Singleton;
       ContactsModule.class,
       DialerExecutorModule.class,
       GlidePhotoManagerModule.class,
-      MapsModule.class,
+      StubMapsModule.class,
       PhoneLookupModule.class, // TODO(zachh): Module which uses APDL?
       PhoneNumberGeoUtilModule.class,
       PreCallModule.class,

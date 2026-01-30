@@ -18,7 +18,7 @@ package com.android.incallui.answer.impl;
 
 import android.content.Context;
 import android.content.res.Configuration;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -31,7 +31,7 @@ import com.android.incallui.util.AccessibilityUtil;
 /** Layout that delegates touches to its SwipeButtonHelper */
 public class AffordanceHolderLayout extends FrameLayout {
 
-  private SwipeButtonHelper affordanceHelper;
+  private final SwipeButtonHelper affordanceHelper;
 
   private Callback affordanceCallback;
 

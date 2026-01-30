@@ -42,8 +42,8 @@ public class AccelerometerListener {
   private static final int VERTICAL_DEBOUNCE = 100;
   private static final int HORIZONTAL_DEBOUNCE = 500;
   private static final double VERTICAL_ANGLE = 50.0;
-  private SensorManager sensorManager;
-  private Sensor sensor;
+  private final SensorManager sensorManager;
+  private final Sensor sensor;
   // mOrientation is the orientation value most recently reported to the client.
   private int orientation;
   // mPendingOrientation is the latest orientation computed based on the sensor value.

@@ -15,12 +15,12 @@
  */
 package com.android.voicemail.impl.sync;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.Context;
 import android.net.Network;
 import android.net.Uri;
 import android.os.Build.VERSION_CODES;
-import android.support.v4.os.BuildCompat;
+import androidx.core.os.BuildCompat;
 import android.telecom.PhoneAccountHandle;
 import android.text.TextUtils;
 import android.util.ArrayMap;
@@ -48,7 +48,7 @@ import java.util.List;
 import java.util.Map;
 
 /** Sync OMTP visual voicemail. */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public class OmtpVvmSyncService {
 
   private static final String TAG = "OmtpVvmSyncService";
@@ -132,7 +132,6 @@ public class OmtpVvmSyncService {
       }
     } catch (InitializingException e) {
       VvmLog.w(TAG, "Can't retrieve Imap credentials.", e);
-      return;
     }
   }
 
@@ -324,8 +323,8 @@ public class OmtpVvmSyncService {
   /** Callback for {@link ImapHelper#fetchTranscription(TranscriptionFetchedCallback, String)} */
   public static class TranscriptionFetchedCallback {
 
-    private Context context;
-    private Voicemail voicemail;
+    private final Context context;
+    private final Voicemail voicemail;
 
     public TranscriptionFetchedCallback(Context context, Voicemail voicemail) {
       this.context = context;

@@ -17,18 +17,18 @@
 package com.android.dialer.notification;
 
 import android.Manifest.permission;
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.media.AudioAttributes;
 import android.os.Build.VERSION_CODES;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresPermission;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.os.BuildCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresPermission;
+import androidx.annotation.VisibleForTesting;
+import androidx.core.os.BuildCompat;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
@@ -41,9 +41,10 @@ import com.android.dialer.util.PermissionsUtil;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import com.android.dialer.R;
 
 /** Utilities for working with voicemail channels. */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 /* package */ final class VoicemailChannelUtils {
   @VisibleForTesting static final String GLOBAL_VOICEMAIL_CHANNEL_ID = "phone_voicemail";
   private static final String PER_ACCOUNT_VOICEMAIL_CHANNEL_ID_PREFIX = "phone_voicemail_account_";
@@ -207,10 +208,7 @@ import java.util.Set;
     if (phoneAccount == null) {
       return false;
     }
-    if (!phoneAccount.hasCapabilities(PhoneAccount.CAPABILITY_SIM_SUBSCRIPTION)) {
-      return false;
-    }
-    return true;
+      return phoneAccount.hasCapabilities(PhoneAccount.CAPABILITY_SIM_SUBSCRIPTION);
   }
 
   private static NotificationChannel newChannel(

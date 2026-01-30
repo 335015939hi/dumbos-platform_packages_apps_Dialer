@@ -26,9 +26,9 @@ import android.hardware.camera2.CameraManager;
 import android.hardware.camera2.CameraMetadata;
 import android.hardware.camera2.CaptureRequest;
 import android.hardware.camera2.params.StreamConfigurationMap;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import android.util.Size;
 import android.view.Surface;
 import android.view.SurfaceHolder;
@@ -38,6 +38,9 @@ import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.incallui.video.protocol.VideoCallScreen;
 import java.util.Arrays;
+import java.util.List;
+
+import com.android.dialer.R;
 
 /**
  * Shows the local preview for the incoming video call or video upgrade request. This class is used
@@ -67,7 +70,7 @@ public class SelfManagedAnswerVideoCallScreen extends StateCallback implements V
 
     surfaceView =
         Assert.isNotNull(
-            (FixedAspectSurfaceView) view.findViewById(R.id.incoming_preview_surface_view));
+                view.findViewById(R.id.incoming_preview_surface_view));
     surfaceView.setVisibility(View.VISIBLE);
     view.findViewById(R.id.incoming_preview_texture_view_overlay).setVisibility(View.VISIBLE);
     view.setBackgroundColor(0xff000000);
@@ -117,6 +120,7 @@ public class SelfManagedAnswerVideoCallScreen extends StateCallback implements V
    * Opens the first front facing camera on the device into a {@link SurfaceView} while preserving
    * aspect ratio.
    */
+  @SuppressWarnings("MissingPermission") // Called only when camera permission is granted
   private void openCamera() {
     CameraManager manager = context.getSystemService(CameraManager.class);
 
@@ -219,7 +223,7 @@ public class SelfManagedAnswerVideoCallScreen extends StateCallback implements V
     try {
       captureRequestBuilder = camera.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
       captureRequestBuilder.addTarget(surface);
-      camera.createCaptureSession(Arrays.asList(surface), new CaptureSessionCallback(), null);
+      camera.createCaptureSession(List.of(surface), new CaptureSessionCallback(), null);
     } catch (CameraAccessException e) {
       LogUtil.e(
           "SelfManagedAnswerVideoCallScreen.createCameraPreview", "failed to create preview", e);

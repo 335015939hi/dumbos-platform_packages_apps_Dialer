@@ -79,9 +79,7 @@ public class DragDropController {
   }
 
   public void removeOnDragDropListener(OnDragDropListener listener) {
-    if (onDragDropListeners.contains(listener)) {
       onDragDropListeners.remove(listener);
-    }
   }
 
   /**

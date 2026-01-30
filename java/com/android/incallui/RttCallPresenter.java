@@ -16,7 +16,7 @@
 
 package com.android.incallui;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
@@ -36,7 +36,7 @@ import java.io.IOException;
  * Logic related to the {@link RttCallScreen} and for managing changes to the RTT calling surfaces
  * based on other user interface events and incoming events.
  */
-@TargetApi(28)
+@RequiresApi(28)
 public class RttCallPresenter implements RttCallScreenDelegate, InCallStateListener {
 
   private RttCallScreen rttCallScreen;

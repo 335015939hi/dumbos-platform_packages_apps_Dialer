@@ -19,14 +19,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
   <!-- MainToolbar -->
   <include
       android:id="@+id/toolbar"
       layout="@layout/toolbar_layout"/>
 
-  <android.support.design.widget.CoordinatorLayout
+  <androidx.coordinatorlayout.widget.CoordinatorLayout
       xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto"
       android:id="@+id/coordinator_layout"
@@ -62,26 +63,31 @@
         android:layout_gravity="end|bottom"
         android:src="@drawable/quantum_ic_dialpad_white_24"
         android:contentDescription="@string/dialpad_button_content_description"
-        app:backgroundTint="?android:attr/colorAccent"/>
+        app:backgroundTint="?attr/colorPrimary"
+        app:tint="?attr/colorOnPrimary"
+        style="@style/Widget.Material3.FloatingActionButton.Primary"/>
 
     <include android:id="@+id/promotion_bottom_sheet"
         layout="@layout/promotion_bottom_sheet"/>
-  </android.support.design.widget.CoordinatorLayout>
+  </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-  <!-- BottomNavBar -->
-  <include
+  <!-- Material3 Bottom Navigation (custom BottomNavBar extends BottomNavigationView) -->
+  <com.android.dialer.main.impl.bottomnav.BottomNavBar
       android:id="@+id/bottom_nav_bar"
-      layout="@layout/bottom_nav_bar_layout"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_alignParentBottom="true"/>
+      android:layout_alignParentBottom="true"
+      android:background="?attr/colorSurface"
+      app:menu="@menu/bottom_nav_menu"
+      app:elevation="0dp"
+      style="@style/Widget.Material3.BottomNavigationView"/>
 
   <!-- Holds Dialpad fragment -->
   <FrameLayout
       android:id="@+id/dialpad_fragment_container"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:elevation="10dp"/>
+      android:elevation="6dp"/>
 
   <!-- TODO(calderwoodra): investigate what this is for and why we want it. -->
   <!-- Host container for the contact tile drag shadow -->

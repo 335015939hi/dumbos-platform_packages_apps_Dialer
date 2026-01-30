@@ -20,8 +20,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.database.MergeCursor;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.cp2.DirectoryUtils;
 import com.android.dialer.searchfragment.common.SearchCursor;
@@ -29,6 +29,7 @@ import com.android.dialer.searchfragment.directories.DirectoriesCursorLoader.Dir
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.android.dialer.R;
 
 /**
  * {@link MergeCursor} used for combining directory cursors into one cursor.

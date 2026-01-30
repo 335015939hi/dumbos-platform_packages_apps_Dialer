@@ -15,7 +15,7 @@
  */
 package com.android.voicemail.impl.transcribe;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -24,8 +24,8 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.VoicemailContract.Voicemails;
-import android.support.annotation.VisibleForTesting;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.VisibleForTesting;
+import androidx.annotation.WorkerThread;
 import android.util.Pair;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
@@ -34,7 +34,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** Helper class for reading and writing transcription data in the database */
-@TargetApi(Build.VERSION_CODES.O)
+@RequiresApi(Build.VERSION_CODES.O)
 public class TranscriptionDbHelper {
   @VisibleForTesting
   static final String[] PROJECTION =

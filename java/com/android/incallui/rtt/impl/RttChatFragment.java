@@ -20,13 +20,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.OnScrollListener;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.OnScrollListener;
 import android.telecom.CallAudioState;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -74,6 +74,7 @@ import com.android.incallui.rtt.protocol.RttCallScreen;
 import com.android.incallui.rtt.protocol.RttCallScreenDelegate;
 import com.android.incallui.rtt.protocol.RttCallScreenDelegateFactory;
 import java.util.List;
+import com.android.dialer.R;
 
 /** RTT chat fragment to show chat bubbles. */
 public class RttChatFragment extends Fragment
@@ -205,9 +206,9 @@ public class RttChatFragment extends Fragment
         new OnScrollListener() {
           @Override
           public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-            if (i == RecyclerView.SCROLL_STATE_DRAGGING) {
+            if (i == androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_DRAGGING) {
               isUserScrolling = true;
-            } else if (i == RecyclerView.SCROLL_STATE_IDLE) {
+            } else if (i == androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE) {
               isUserScrolling = false;
               // Auto scrolling for new messages should be resumed if it's scrolled to bottom.
               shouldAutoScrolling = !recyclerView.canScrollVertically(1);
@@ -300,11 +301,7 @@ public class RttChatFragment extends Fragment
 
   @Override
   public void afterTextChanged(Editable s) {
-    if (TextUtils.isEmpty(s)) {
-      submitButton.setEnabled(false);
-    } else {
-      submitButton.setEnabled(true);
-    }
+      submitButton.setEnabled(!TextUtils.isEmpty(s));
   }
 
   @Override
@@ -447,7 +444,7 @@ public class RttChatFragment extends Fragment
         transaction.remove(oldBanner);
       }
     }
-    transaction.setCustomAnimations(R.anim.abc_slide_in_top, R.anim.abc_slide_out_top);
+    transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
     transaction.commitNowAllowingStateLoss();
     overflowMenu.enableSwitchToSecondaryButton(secondaryInfo.shouldShow());
   }

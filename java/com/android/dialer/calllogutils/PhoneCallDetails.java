@@ -21,7 +21,7 @@ import android.content.res.Resources;
 import android.net.Uri;
 import android.provider.CallLog;
 import android.provider.CallLog.Calls;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.telecom.PhoneAccountHandle;
 import android.text.TextUtils;
 import com.android.contacts.common.ContactsUtils.UserType;
@@ -29,6 +29,7 @@ import com.android.contacts.common.util.ContactDisplayUtils;
 import com.android.dialer.contacts.displaypreference.ContactDisplayPreferences.DisplayOrder;
 import com.android.dialer.logging.ContactSource;
 import com.android.dialer.phonenumbercache.ContactInfo;
+import com.android.dialer.R;
 
 /** The details of a phone call to be shown in the UI. */
 public class PhoneCallDetails {

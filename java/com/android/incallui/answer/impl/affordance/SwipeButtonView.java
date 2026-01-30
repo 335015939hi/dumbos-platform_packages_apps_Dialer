@@ -27,17 +27,18 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.animation.Interpolator;
-import android.widget.ImageView;
+import androidx.appcompat.widget.AppCompatImageView;
 import com.android.incallui.answer.impl.utils.FlingAnimationUtils;
 import com.android.incallui.answer.impl.utils.Interpolators;
+import com.android.dialer.R;
 
 /** Button that allows swiping to trigger */
-public class SwipeButtonView extends ImageView {
+public class SwipeButtonView extends AppCompatImageView {
 
   private static final long CIRCLE_APPEAR_DURATION = 80;
   private static final long CIRCLE_DISAPPEAR_MAX_DURATION = 200;
@@ -59,9 +60,9 @@ public class SwipeButtonView extends ImageView {
   private ValueAnimator scaleAnimator;
   private float circleStartValue;
   private boolean circleWillBeHidden;
-  private int[] tempPoint = new int[2];
+  private final int[] tempPoint = new int[2];
   private float tmageScale = 1f;
-  private int circleColor;
+  private final int circleColor;
   private View previewView;
   private float circleStartRadius;
   private float maxCircleSize;
@@ -70,28 +71,28 @@ public class SwipeButtonView extends ImageView {
   private boolean finishing;
   private boolean launchingAffordance;
 
-  private AnimatorListenerAdapter clipEndListener =
+  private final AnimatorListenerAdapter clipEndListener =
       new AnimatorListenerAdapter() {
         @Override
         public void onAnimationEnd(Animator animation) {
           previewClipper = null;
         }
       };
-  private AnimatorListenerAdapter circleEndListener =
+  private final AnimatorListenerAdapter circleEndListener =
       new AnimatorListenerAdapter() {
         @Override
         public void onAnimationEnd(Animator animation) {
           circleAnimator = null;
         }
       };
-  private AnimatorListenerAdapter scaleEndListener =
+  private final AnimatorListenerAdapter scaleEndListener =
       new AnimatorListenerAdapter() {
         @Override
         public void onAnimationEnd(Animator animation) {
           scaleAnimator = null;
         }
       };
-  private AnimatorListenerAdapter alphaEndListener =
+  private final AnimatorListenerAdapter alphaEndListener =
       new AnimatorListenerAdapter() {
         @Override
         public void onAnimationEnd(Animator animation) {
@@ -108,11 +109,25 @@ public class SwipeButtonView extends ImageView {
   }
 
   public SwipeButtonView(Context context, AttributeSet attrs, int defStyleAttr) {
-    this(context, attrs, defStyleAttr, 0);
+    super(context, attrs, defStyleAttr);
+    circlePaint = new Paint();
+    circlePaint.setAntiAlias(true);
+    circleColor = 0xffffffff;
+    circlePaint.setColor(circleColor);
+
+    normalColor = 0xffffffff;
+    inverseColor = 0xff000000;
+    minBackgroundRadius =
+        context
+            .getResources()
+            .getDimensionPixelSize(R.dimen.answer_affordance_min_background_radius);
+    colorInterpolator = new ArgbEvaluator();
+    flingAnimationUtils = new FlingAnimationUtils(context, 0.3f);
   }
 
   public SwipeButtonView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-    super(context, attrs, defStyleAttr, defStyleRes);
+    // AppCompatImageView doesn't support 4-parameter constructor, use 3-parameter instead
+    super(context, attrs, defStyleAttr);
     circlePaint = new Paint();
     circlePaint.setAntiAlias(true);
     circleColor = 0xffffffff;

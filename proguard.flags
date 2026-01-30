@@ -10,3 +10,28 @@
 -keep public class * extends android.support.v4.app.Fragment {
   public <init>();
 }
+
+# Keep BuildType classes - used via reflection (Class.forName + "Impl")
+-keep class com.android.dialer.buildtype.BuildTypeAccessor { *; }
+-keep class com.android.dialer.buildtype.BuildTypeAccessorImpl { *; }
+-keep class com.android.dialer.buildtype.release.BuildTypeAccessorImpl { *; }
+
+# Keep Constants classes - used via reflection (Class.forName + "Impl")
+-keep class com.android.dialer.constants.Constants { *; }
+-keep class com.android.dialer.constants.ConstantsImpl { *; }
+
+# Keep Dagger-generated components
+-keep class **Dagger* { *; }
+-keep class **_Factory { *; }
+-keep class **_MembersInjector { *; }
+
+# Keep classes annotated with @Component, @Module, @Provides
+-keep @dagger.Component class * { *; }
+-keep @dagger.Module class * { *; }
+-keepclassmembers class * {
+    @dagger.Provides *;
+}
+
+# Keep Dagger component implementations
+-keep class com.android.dialer.binary.aosp.DaggerAospDialerRootComponent { *; }
+-keep class com.android.dialer.binary.aosp.DaggerAospDialerRootComponent$* { *; }

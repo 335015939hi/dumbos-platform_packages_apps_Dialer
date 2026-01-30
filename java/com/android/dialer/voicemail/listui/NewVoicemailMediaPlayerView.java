@@ -25,9 +25,9 @@ import android.media.AudioManager;
 import android.net.Uri;
 import android.provider.VoicemailContract;
 import android.provider.VoicemailContract.Voicemails;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.util.Pair;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -50,6 +50,7 @@ import com.android.dialer.telecom.TelecomUtil;
 import com.android.dialer.voicemail.listui.NewVoicemailViewHolder.NewVoicemailViewHolderListener;
 import com.android.dialer.voicemail.model.VoicemailEntry;
 import java.util.Locale;
+import com.android.dialer.R;
 
 /**
  * The view of the media player that is visible when a {@link NewVoicemailViewHolder} is expanded.
@@ -322,7 +323,7 @@ public final class NewVoicemailMediaPlayerView extends LinearLayout {
    * from the server. However once we have the voicemail downloaded, we want to start playing, so as
    * to make it seem like that this is a continuation of the users initial play button click.
    */
-  public final void clickPlayButton() {
+  public void clickPlayButton() {
     playButtonListener.onClick(null);
   }
 
@@ -502,7 +503,7 @@ public final class NewVoicemailMediaPlayerView extends LinearLayout {
               "speaker request for voicemailUri: %s",
               voicemailUri.toString());
           AudioManager audioManager =
-              (AudioManager) getContext().getSystemService(AudioManager.class);
+                  getContext().getSystemService(AudioManager.class);
           audioManager.setMode(AudioManager.STREAM_MUSIC);
           if (audioManager.isSpeakerphoneOn()) {
             LogUtil.i(

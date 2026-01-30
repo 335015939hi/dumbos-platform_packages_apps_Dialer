@@ -19,7 +19,7 @@ package com.android.incallui.autoresizetext;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.RectF;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.Layout.Alignment;
 import android.text.StaticLayout;
 import android.text.TextPaint;
@@ -27,7 +27,8 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.SparseIntArray;
 import android.util.TypedValue;
-import android.widget.TextView;
+import androidx.appcompat.widget.AppCompatTextView;
+import com.android.dialer.R;
 
 /**
  * A TextView that automatically scales its text to completely fill its allotted width.
@@ -37,7 +38,7 @@ import android.widget.TextView;
  * found yet. A known workaround is the solution provided on StackOverflow:
  * http://stackoverflow.com/a/5535672
  */
-public class AutoResizeTextView extends TextView {
+public class AutoResizeTextView extends AppCompatTextView {
   private static final int NO_LINE_LIMIT = -1;
   private static final float DEFAULT_MIN_TEXT_SIZE = 16.0f;
   private static final int DEFAULT_RESIZE_STEP_UNIT = TypedValue.COMPLEX_UNIT_PX;
@@ -68,7 +69,8 @@ public class AutoResizeTextView extends TextView {
 
   public AutoResizeTextView(
       Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-    super(context, attrs, defStyleAttr, defStyleRes);
+    // AppCompatTextView doesn't support 4-parameter constructor, use 3-parameter instead
+    super(context, attrs, defStyleAttr);
     initialize(context, attrs, defStyleAttr, defStyleRes);
   }
 

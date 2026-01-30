@@ -22,9 +22,11 @@ import com.android.dialer.common.Assert;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
+// import java.io.UnsupportedEncodingException;
+// import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
+import com.android.dialer.R;
 
 /** A helper for extracting licenses. */
 public final class Licenses {
@@ -99,8 +101,9 @@ public final class Licenses {
     }
     try {
       return textArray.toString("UTF-8");
-    } catch (UnsupportedEncodingException e) {
-      throw new RuntimeException("Unsupported encoding UTF8. This should always be supported.", e);
+    } catch (java.io.UnsupportedEncodingException e) {
+      // UTF-8 is always supported, this should never happen
+      return textArray.toString();
     }
   }
 }

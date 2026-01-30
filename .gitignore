@@ -1,0 +1,27 @@
+# Gradle
+.gradle/
+build/
+local.properties
+out/
+gradle-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.swp
+*.swo
+*~
+*.log
+
+# Build artifacts
+captures/
+lint-results*/
+*.apk
+*.zip

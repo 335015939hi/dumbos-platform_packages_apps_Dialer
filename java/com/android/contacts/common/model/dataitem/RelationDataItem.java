@@ -50,13 +50,10 @@ public class RelationDataItem extends DataItem {
       return false;
     } else if (!hasKindTypeColumn(mKind) || !that.hasKindTypeColumn(that.getDataKind())) {
       return hasKindTypeColumn(mKind) == that.hasKindTypeColumn(that.getDataKind());
-    } else if (getKindTypeColumn(mKind) != that.getKindTypeColumn(that.getDataKind())) {
+    } else // Check if custom types are not the same
+        if (getKindTypeColumn(mKind) != that.getKindTypeColumn(that.getDataKind())) {
       return false;
-    } else if (getKindTypeColumn(mKind) == Relation.TYPE_CUSTOM
-        && !TextUtils.equals(getLabel(), that.getLabel())) {
-      // Check if custom types are not the same
-      return false;
-    }
-    return true;
+    } else return getKindTypeColumn(mKind) != Relation.TYPE_CUSTOM
+                || TextUtils.equals(getLabel(), that.getLabel());
   }
 }

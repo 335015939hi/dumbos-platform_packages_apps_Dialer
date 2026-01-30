@@ -18,8 +18,8 @@ package com.android.dialer.calllog.database;
 import android.database.Cursor;
 import android.database.StaleDataException;
 import android.provider.CallLog.Calls;
-import android.support.annotation.NonNull;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
 import android.telecom.PhoneAccountHandle;
 import android.text.TextUtils;
 import com.android.dialer.CoalescedIds;
@@ -348,11 +348,7 @@ public class Coalescer {
       }
 
       // A RTT call should not be combined with one that is not a RTT call.
-      if ((groupFeatures & Calls.FEATURES_RTT) != (rowFeatures & Calls.FEATURES_RTT)) {
-        return false;
-      }
-
-      return true;
+        return (groupFeatures & Calls.FEATURES_RTT) == (rowFeatures & Calls.FEATURES_RTT);
     }
 
     private boolean meetsDialerPhoneNumberCriteria(Cursor annotatedCallLogRow) {

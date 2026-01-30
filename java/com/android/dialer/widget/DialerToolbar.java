@@ -18,12 +18,13 @@ package com.android.dialer.widget;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.widget.Toolbar;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.android.dialer.theme.base.ThemeComponent;
+import com.android.dialer.R;
 
 /** Toolbar widget for Dialer. */
 public class DialerToolbar extends Toolbar {
@@ -34,8 +35,8 @@ public class DialerToolbar extends Toolbar {
   public DialerToolbar(Context context, @Nullable AttributeSet attributeSet) {
     super(context, attributeSet);
     inflate(context, R.layout.dialer_toolbar, this);
-    title = (TextView) findViewById(R.id.title);
-    subtitle = (BidiTextView) findViewById(R.id.subtitle);
+    title = findViewById(R.id.title);
+    subtitle = findViewById(R.id.subtitle);
 
     setElevation(getResources().getDimensionPixelSize(R.dimen.toolbar_elevation));
     setBackgroundColor(ThemeComponent.get(context).theme().getColorPrimary());

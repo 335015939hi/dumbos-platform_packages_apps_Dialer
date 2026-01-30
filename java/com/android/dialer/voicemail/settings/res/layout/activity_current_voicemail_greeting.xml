@@ -52,7 +52,7 @@
         <!-- Change Greeting Button -->
       <ImageButton
           android:id="@+id/change_greeting_button"
-          style="@android:style/Widget.Material.Light.ImageButton"
+          style="@style/Widget.Material3.Button.IconButton"
           android:layout_width="40dp"
           android:layout_height="40dp"
           android:layout_marginStart="16dp"
@@ -87,7 +87,7 @@
         <!-- Play Button -->
       <ImageButton
           android:id="@+id/play_button"
-          style="@android:style/Widget.Material.Light.ImageButton"
+          style="@style/Widget.Material3.Button.IconButton"
           android:layout_width="40dp"
           android:layout_height="40dp"
           android:layout_marginStart="16dp"

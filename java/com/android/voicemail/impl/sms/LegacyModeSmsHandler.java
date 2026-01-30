@@ -16,13 +16,13 @@
 
 package com.android.voicemail.impl.sms;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.TelephonyManager;
 import android.telephony.VisualVoicemailSms;
@@ -39,7 +39,7 @@ import com.android.voicemail.impl.VvmLog;
  *
  * @see OmtpVvmCarrierConfigHelper#isLegacyModeEnabled()
  */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public class LegacyModeSmsHandler {
 
   private static final String TAG = "LegacyModeSmsHandler";

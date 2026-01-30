@@ -24,6 +24,7 @@ import android.text.TextDirectionHeuristics;
 import android.text.TextUtils;
 import com.android.dialer.phonenumberutil.PhoneNumberHelper;
 import com.google.common.base.Optional;
+import com.android.dialer.R;
 
 /** Helper for formatting and managing the display of phone numbers. */
 public class PhoneNumberDisplayUtil {

@@ -16,10 +16,10 @@
 
 package com.android.voicemail.impl.sync;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.net.Network;
 import android.os.Build.VERSION_CODES;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.telecom.PhoneAccountHandle;
 import com.android.voicemail.impl.OmtpVvmCarrierConfigHelper;
 import com.android.voicemail.impl.VoicemailStatus;
@@ -33,7 +33,7 @@ import java.util.concurrent.Future;
  * Class to retrieve a {@link Network} synchronously. {@link #getNetwork(OmtpVvmCarrierConfigHelper,
  * PhoneAccountHandle)} will block until a suitable network is retrieved or it has failed.
  */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public class VvmNetworkRequest {
 
   private static final String TAG = "VvmNetworkRequest";

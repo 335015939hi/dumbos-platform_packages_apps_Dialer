@@ -26,9 +26,9 @@ import android.database.sqlite.SQLiteException;
 import android.graphics.drawable.Icon;
 import android.provider.CallLog;
 import android.provider.CallLog.Calls;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.os.BuildCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.os.BuildCompat;
 import android.telecom.DisconnectCause;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
@@ -53,6 +53,7 @@ import com.android.incallui.call.CallList;
 import com.android.incallui.call.DialerCall;
 import com.android.incallui.call.DialerCall.CallHistoryStatus;
 import java.util.Random;
+import com.android.dialer.R;
 
 /**
  * Creates notifications after a call ends if the call matched the criteria (incoming, accepted,
@@ -453,7 +454,7 @@ public class SpamCallListListener implements CallList.Listener {
         SpamNotificationService.createServiceIntent(
             context, call, action, getNotificationTagForCall(call), NOTIFICATION_ID);
     return PendingIntent.getService(
-        context, (int) System.currentTimeMillis(), intent, PendingIntent.FLAG_ONE_SHOT);
+        context, (int) System.currentTimeMillis(), intent, PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE);
   }
 
   /** Creates a pending intent for {@link SpamNotificationActivity}. */
@@ -462,7 +463,7 @@ public class SpamCallListListener implements CallList.Listener {
         SpamNotificationActivity.createActivityIntent(
             context, call, action, getNotificationTagForCall(call), NOTIFICATION_ID);
     return PendingIntent.getActivity(
-        context, (int) System.currentTimeMillis(), intent, PendingIntent.FLAG_ONE_SHOT);
+        context, (int) System.currentTimeMillis(), intent, PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE);
   }
 
   static String getNotificationTagForCall(@NonNull DialerCall call) {

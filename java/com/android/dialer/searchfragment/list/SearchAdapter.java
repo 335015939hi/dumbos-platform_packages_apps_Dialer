@@ -17,10 +17,10 @@
 package com.android.dialer.searchfragment.list;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.ViewHolder;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,10 +34,11 @@ import com.android.dialer.searchfragment.directories.DirectoryContactViewHolder;
 import com.android.dialer.searchfragment.list.SearchCursorManager.RowType;
 import com.android.dialer.searchfragment.nearbyplaces.NearbyPlaceViewHolder;
 import java.util.List;
+import com.android.dialer.R;
 
 /** RecyclerView adapter for {@link NewSearchFragment}. */
 @VisibleForTesting(otherwise = VisibleForTesting.PACKAGE_PRIVATE)
-public final class SearchAdapter extends RecyclerView.Adapter<ViewHolder> {
+public final class SearchAdapter extends androidx.recyclerview.widget.RecyclerView.Adapter<ViewHolder> {
 
   private final SearchCursorManager searchCursorManager;
   private final Context context;
@@ -48,7 +49,7 @@ public final class SearchAdapter extends RecyclerView.Adapter<ViewHolder> {
   private String rawNumber;
   private OnClickListener allowClickListener;
   private OnClickListener dismissClickListener;
-  private RowClickListener rowClickListener;
+  private final RowClickListener rowClickListener;
 
   @VisibleForTesting(otherwise = VisibleForTesting.PACKAGE_PRIVATE)
   public SearchAdapter(
@@ -193,7 +194,7 @@ public final class SearchAdapter extends RecyclerView.Adapter<ViewHolder> {
   }
 
   /** Viewholder for R.layout.location_permission_row that requests the location permission. */
-  private static class LocationPermissionViewHolder extends RecyclerView.ViewHolder {
+  private static class LocationPermissionViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder {
 
     LocationPermissionViewHolder(
         View itemView, OnClickListener allowClickListener, OnClickListener dismissClickListener) {
@@ -202,11 +203,11 @@ public final class SearchAdapter extends RecyclerView.Adapter<ViewHolder> {
       Assert.isNotNull(dismissClickListener);
       itemView
           .findViewById(
-              com.android.dialer.searchfragment.nearbyplaces.R.id.location_permission_allow)
+              R.id.location_permission_allow)
           .setOnClickListener(allowClickListener);
       itemView
           .findViewById(
-              com.android.dialer.searchfragment.nearbyplaces.R.id.location_permission_dismiss)
+              R.id.location_permission_dismiss)
           .setOnClickListener(dismissClickListener);
     }
   }

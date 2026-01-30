@@ -20,13 +20,14 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
 import com.android.incallui.answer.impl.utils.FlingAnimationUtils;
 import com.android.incallui.answer.impl.utils.Interpolators;
+import com.android.dialer.R;
 
 /** A touch handler of the swipe buttons */
 public class SwipeButtonHelper {
@@ -59,7 +60,7 @@ public class SwipeButtonHelper {
   private int touchTargetSize;
   private View targetedView;
   private boolean touchSlopExeeded;
-  private AnimatorListenerAdapter flingEndListener =
+  private final AnimatorListenerAdapter flingEndListener =
       new AnimatorListenerAdapter() {
         @Override
         public void onAnimationEnd(Animator animation) {
@@ -80,9 +81,9 @@ public class SwipeButtonHelper {
     public void run() {
       callback.onAnimationToSideEnded(rightPage);
     }
-  };
+  }
 
-  public SwipeButtonHelper(Callback callback, Context context) {
+    public SwipeButtonHelper(Callback callback, Context context) {
     this.context = context;
     this.callback = callback;
     init();
@@ -601,7 +602,7 @@ public class SwipeButtonHelper {
     } else {
       callback.onAnimationToSideStarted(!left, translation, 0);
       translation =
-          left ? callback.getMaxTranslationDistance() : callback.getMaxTranslationDistance();
+              callback.getMaxTranslationDistance();
       updateIcon(otherView, 0.0f, 0.0f, false, false, true, false);
       targetView.instantFinishAnimation();
       flingEndListener.onAnimationEnd(null);

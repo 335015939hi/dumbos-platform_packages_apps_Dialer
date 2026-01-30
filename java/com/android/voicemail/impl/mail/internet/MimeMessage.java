@@ -15,7 +15,7 @@
  */
 package com.android.voicemail.impl.mail.internet;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import com.android.voicemail.impl.VvmLog;
 import com.android.voicemail.impl.mail.Address;
@@ -105,7 +105,7 @@ public class MimeMessage extends Message {
       sb.append(c);
     }
     sb.append(".");
-    sb.append(Long.toString(System.currentTimeMillis()));
+    sb.append(System.currentTimeMillis());
     sb.append("@email.android.com>");
     return sb.toString();
   }

@@ -16,7 +16,7 @@
 
 package com.android.dialer.voicemail.settings;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -27,7 +27,7 @@ import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.telecom.PhoneAccountHandle;
 import android.text.Editable;
 import android.text.InputFilter;
@@ -56,13 +56,14 @@ import com.android.voicemail.PinChanger.PinSpecification;
 import com.android.voicemail.VoicemailClient;
 import com.android.voicemail.VoicemailComponent;
 import java.lang.ref.WeakReference;
+import com.android.dialer.R;
 
 /**
  * Dialog to change the voicemail PIN. The TUI (Telephony User Interface) PIN is used when accessing
  * traditional voicemail through phone call. The intent to launch this activity must contain {@link
  * VoicemailClient#PARAM_PHONE_ACCOUNT_HANDLE}
  */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public class VoicemailChangePinActivity extends Activity
     implements OnClickListener, OnEditorActionListener, TextWatcher {
 
@@ -98,7 +99,7 @@ public class VoicemailChangePinActivity extends Activity
   private Button cancelButton;
   private Button nextButton;
 
-  private Handler handler = new ChangePinHandler(new WeakReference<>(this));
+  private final Handler handler = new ChangePinHandler(new WeakReference<>(this));
 
   private enum State {
     /**
@@ -339,21 +340,21 @@ public class VoicemailChangePinActivity extends Activity
 
     View view = findViewById(android.R.id.content);
 
-    cancelButton = (Button) view.findViewById(R.id.cancel_button);
+    cancelButton = view.findViewById(R.id.cancel_button);
     cancelButton.setOnClickListener(this);
-    nextButton = (Button) view.findViewById(R.id.next_button);
+    nextButton = view.findViewById(R.id.next_button);
     nextButton.setOnClickListener(this);
 
-    pinEntry = (EditText) view.findViewById(R.id.pin_entry);
+    pinEntry = view.findViewById(R.id.pin_entry);
     pinEntry.setOnEditorActionListener(this);
     pinEntry.addTextChangedListener(this);
     if (pinMaxLength != 0) {
       pinEntry.setFilters(new InputFilter[] {new LengthFilter(pinMaxLength)});
     }
 
-    headerText = (TextView) view.findViewById(R.id.headerText);
-    hintText = (TextView) view.findViewById(R.id.hintText);
-    errorText = (TextView) view.findViewById(R.id.errorText);
+    headerText = view.findViewById(R.id.headerText);
+    hintText = view.findViewById(R.id.hintText);
+    errorText = view.findViewById(R.id.errorText);
 
     changePinExecutor =
         DialerExecutorComponent.get(this)

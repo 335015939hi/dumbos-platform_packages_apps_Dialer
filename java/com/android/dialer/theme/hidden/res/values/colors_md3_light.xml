@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2025 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License
+  -->
+
+<resources>
+  <!-- Material Design 3 Semantic Color Tokens - Light Theme -->
+
+  <!-- Primary colors -->
+  <color name="md3_primary">#2A56C6</color> <!-- from dialer_theme_color -->
+  <color name="md3_onPrimary">#FFFFFF</color>
+  <color name="md3_primaryContainer">#D2E3FC</color> <!-- google_blue_100 -->
+  <color name="md3_onPrimaryContainer">#174EA6</color>
+
+  <!-- Secondary colors -->
+  <color name="md3_secondary">#F50057</color> <!-- from dialer_secondary_color -->
+  <color name="md3_onSecondary">#FFFFFF</color>
+  <color name="md3_secondaryContainer">#FCE4EC</color> <!-- light pink -->
+  <color name="md3_onSecondaryContainer">#880E4F</color> <!-- dark pink -->
+
+  <!-- Tertiary colors (NEW in MD3) -->
+  <color name="md3_tertiary">#4285F4</color> <!-- google_blue_500 -->
+  <color name="md3_onTertiary">#FFFFFF</color>
+  <color name="md3_tertiaryContainer">#E8F0FE</color> <!-- google_blue_50 -->
+  <color name="md3_onTertiaryContainer">#1967D2</color> <!-- google_blue_700 -->
+
+  <!-- Error colors -->
+  <color name="md3_error">#B00020</color>
+  <color name="md3_onError">#FFFFFF</color>
+  <color name="md3_errorContainer">#F9DEDC</color>
+  <color name="md3_onErrorContainer">#370B1E</color>
+
+  <!-- Background and Surface -->
+  <color name="md3_background">#FAFAFA</color> <!-- from dialer_background_color -->
+  <color name="md3_onBackground">#202124</color> <!-- google_grey_900 -->
+  <color name="md3_surface">#FFFFFF</color>
+  <color name="md3_onSurface">#202124</color> <!-- google_grey_900 -->
+  <color name="md3_surfaceContainer">#F3F3F3</color> <!-- light gray for containers -->
+  <color name="md3_surfaceVariant">#E8EAED</color> <!-- google_grey_200 -->
+  <color name="md3_onSurfaceVariant">#5F6368</color> <!-- google_grey_700 -->
+
+  <!-- Outline -->
+  <color name="md3_outline">#80868B</color> <!-- google_grey_600 -->
+  <color name="md3_outlineVariant">#BDC1C6</color> <!-- google_grey_400 -->
+</resources>

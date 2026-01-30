@@ -22,8 +22,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import android.telecom.CallAudioState;
 import android.telecom.VideoProfile;
 
@@ -80,7 +80,10 @@ public class NotificationBroadcastReceiver extends BroadcastReceiver {
   @Override
   public void onReceive(Context context, Intent intent) {
     final String action = intent.getAction();
-    LogUtil.i("NotificationBroadcastReceiver.onReceive", "Broadcast from Notification: " + action);
+    LogUtil.i("NotificationBroadcastReceiver.onReceive",
+        "Broadcast from Notification: " + action +
+        ", package=" + (intent.getPackage() != null ? intent.getPackage() : "null") +
+        ", component=" + (intent.getComponent() != null ? intent.getComponent().toString() : "null"));
 
     // TODO: Commands of this nature should exist in the CallList.
     if (action.equals(ACTION_ANSWER_VIDEO_INCOMING_CALL)) {
