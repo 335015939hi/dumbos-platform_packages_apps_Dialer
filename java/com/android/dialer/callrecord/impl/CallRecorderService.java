@@ -41,6 +41,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
+@Deprecated
 public class CallRecorderService extends Service {
 
   private static final String TAG = "CallRecorderService";
