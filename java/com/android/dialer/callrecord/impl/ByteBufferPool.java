@@ -90,7 +90,8 @@ public final class ByteBufferPool {
 
   /**
    * Consumer: take a filled buffer. The position is set to 0 and limit is set appropriately.
-   * Returns null if closed and empty.
+   * Returns null if closed and empty. If the pool is closed, there may still be buffers left to
+   * consume.
    */
   public Buffer consume() throws InterruptedException {
     mLock.lock();
