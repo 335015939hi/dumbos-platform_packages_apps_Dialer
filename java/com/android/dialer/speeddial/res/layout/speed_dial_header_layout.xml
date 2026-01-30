@@ -29,8 +29,9 @@
       android:textSize="16sp"
       style="@style/Dialer.TextAppearance.Secondary"/>
 
-  <Button
+  <com.google.android.material.button.MaterialButton
       android:id="@+id/speed_dial_add_button"
+      style="@style/Widget.Material3.Button.TextButton"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_alignParentEnd="true"
@@ -39,7 +40,5 @@
       android:minWidth="48dp"
       android:paddingStart="8dp"
       android:paddingEnd="8dp"
-      android:text="@string/speed_dial_add_button_text"
-      android:textColor="?android:attr/colorPrimary"
-      style="@style/Widget.AppCompat.Button.Borderless"/>
+      android:text="@string/speed_dial_add_button_text"/>
 </RelativeLayout>

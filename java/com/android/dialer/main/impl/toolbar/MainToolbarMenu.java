@@ -17,19 +17,20 @@
 package com.android.dialer.main.impl.toolbar;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
 import com.android.dialer.simulator.Simulator;
 import com.android.dialer.simulator.SimulatorComponent;
+import com.android.dialer.R;
 
 /** Popup menu accessible from the search bar */
 public final class MainToolbarMenu extends PopupMenu {
 
   public MainToolbarMenu(Context context, View anchor) {
-    super(context, anchor, Gravity.NO_GRAVITY, R.attr.actionOverflowMenuStyle, 0);
+    super(context, anchor, Gravity.NO_GRAVITY, android.R.attr.popupMenuStyle, 0);
   }
 
   public void showClearFrequents(boolean show) {

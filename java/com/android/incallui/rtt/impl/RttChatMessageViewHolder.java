@@ -18,7 +18,7 @@ package com.android.incallui.rtt.impl;
 
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.RecyclerView.ViewHolder;
+import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
@@ -26,6 +26,7 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 import com.android.incallui.rtt.protocol.RttChatMessage;
+import com.android.dialer.R;
 
 /** ViewHolder class for RTT chat message bubble. */
 public class RttChatMessageViewHolder extends ViewHolder {

@@ -69,6 +69,7 @@
     <item name="android:layout_width">0dp</item>
     <item name="android:layout_height">match_parent</item>
     <item name="android:layout_weight">15</item>
+    <item name="android:layout_margin">4dp</item>
     <item name="android:minHeight">@dimen/dialpad_key_height</item>
     <item name="android:background">@drawable/btn_dialpad_key</item>
     <item name="android:focusable">true</item>

@@ -26,6 +26,7 @@ import java.io.PrintWriter;
 
 public class VvmDumpHandler {
 
+  @SuppressWarnings("MissingPermission") // Called from system dump, permission granted
   public static void dump(Context context, FileDescriptor fd, PrintWriter writer, String[] args) {
     IndentingPrintWriter indentedWriter = new IndentingPrintWriter(writer, "  ");
     indentedWriter.println("******* OmtpVvm *******");
@@ -34,7 +35,7 @@ public class VvmDumpHandler {
     for (PhoneAccountHandle handle :
         context.getSystemService(TelecomManager.class).getCallCapablePhoneAccounts()) {
       OmtpVvmCarrierConfigHelper config = new OmtpVvmCarrierConfigHelper(context, handle);
-      indentedWriter.println(config.toString());
+      indentedWriter.println(config);
     }
     indentedWriter.decreaseIndent();
     indentedWriter.println("======== Logs =========");

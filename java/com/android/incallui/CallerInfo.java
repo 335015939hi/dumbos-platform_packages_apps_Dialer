@@ -35,6 +35,7 @@ import com.android.contacts.common.util.TelephonyManagerUtils;
 import com.android.dialer.logging.ContactLookupResult;
 import com.android.dialer.phonenumbercache.ContactInfoHelper;
 import com.android.dialer.phonenumberutil.PhoneNumberHelper;
+import com.android.dialer.R;
 
 /**
  * Looks up caller information for the given phone number. This is intermediate data and should NOT
@@ -514,41 +515,37 @@ public class CallerInfo {
     final boolean VERBOSE_DEBUG = false;
 
     if (VERBOSE_DEBUG) {
-      return new StringBuilder(384)
-          .append(super.toString() + " { ")
-          .append("\nname: " + name)
-          .append("\nphoneNumber: " + phoneNumber)
-          .append("\nnormalizedNumber: " + normalizedNumber)
-          .append("\forwardingNumber: " + forwardingNumber)
-          .append("\ngeoDescription: " + geoDescription)
-          .append("\ncnapName: " + cnapName)
-          .append("\nnumberPresentation: " + numberPresentation)
-          .append("\nnamePresentation: " + namePresentation)
-          .append("\ncontactExists: " + contactExists)
-          .append("\nphoneLabel: " + phoneLabel)
-          .append("\nnumberType: " + numberType)
-          .append("\nnumberLabel: " + numberLabel)
-          .append("\nphotoResource: " + photoResource)
-          .append("\ncontactIdOrZero: " + contactIdOrZero)
-          .append("\nneedUpdate: " + needUpdate)
-          .append("\ncontactRefUri: " + contactRefUri)
-          .append("\ncontactRingtoneUri: " + contactRingtoneUri)
-          .append("\ncontactDisplayPhotoUri: " + contactDisplayPhotoUri)
-          .append("\nshouldSendToVoicemail: " + shouldSendToVoicemail)
-          .append("\ncachedPhoto: " + cachedPhoto)
-          .append("\nisCachedPhotoCurrent: " + isCachedPhotoCurrent)
-          .append("\nemergency: " + isEmergency)
-          .append("\nvoicemail: " + isVoiceMail)
-          .append("\nuserType: " + userType)
-          .append(" }")
-          .toString();
+      return super.toString() + " { " +
+              "\nname: " + name +
+              "\nphoneNumber: " + phoneNumber +
+              "\nnormalizedNumber: " + normalizedNumber +
+              "\forwardingNumber: " + forwardingNumber +
+              "\ngeoDescription: " + geoDescription +
+              "\ncnapName: " + cnapName +
+              "\nnumberPresentation: " + numberPresentation +
+              "\nnamePresentation: " + namePresentation +
+              "\ncontactExists: " + contactExists +
+              "\nphoneLabel: " + phoneLabel +
+              "\nnumberType: " + numberType +
+              "\nnumberLabel: " + numberLabel +
+              "\nphotoResource: " + photoResource +
+              "\ncontactIdOrZero: " + contactIdOrZero +
+              "\nneedUpdate: " + needUpdate +
+              "\ncontactRefUri: " + contactRefUri +
+              "\ncontactRingtoneUri: " + contactRingtoneUri +
+              "\ncontactDisplayPhotoUri: " + contactDisplayPhotoUri +
+              "\nshouldSendToVoicemail: " + shouldSendToVoicemail +
+              "\ncachedPhoto: " + cachedPhoto +
+              "\nisCachedPhotoCurrent: " + isCachedPhotoCurrent +
+              "\nemergency: " + isEmergency +
+              "\nvoicemail: " + isVoiceMail +
+              "\nuserType: " + userType +
+              " }";
     } else {
-      return new StringBuilder(128)
-          .append(super.toString() + " { ")
-          .append("name " + ((name == null) ? "null" : "non-null"))
-          .append(", phoneNumber " + ((phoneNumber == null) ? "null" : "non-null"))
-          .append(" }")
-          .toString();
+      return super.toString() + " { " +
+              "name " + ((name == null) ? "null" : "non-null") +
+              ", phoneNumber " + ((phoneNumber == null) ? "null" : "non-null") +
+              " }";
     }
   }
 }

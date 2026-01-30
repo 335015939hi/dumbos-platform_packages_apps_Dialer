@@ -22,8 +22,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -32,6 +32,7 @@ import com.android.dialer.common.LogUtil;
 import com.android.dialer.widget.DialerToolbar;
 import java.io.IOException;
 import java.util.Locale;
+import com.android.dialer.R;
 
 /** Activity to display current voicemail greeting and allow user to navigate to record a new one */
 public class CurrentVoicemailGreetingActivity extends Activity {
@@ -61,13 +62,13 @@ public class CurrentVoicemailGreetingActivity extends Activity {
     setContentView(R.layout.activity_current_voicemail_greeting);
 
     playbackDisplay = findViewById(R.id.current_voicemail_greeting_recording_display);
-    playbackProgressLabel = (TextView) findViewById(R.id.playback_progress_text_view);
-    currentVoicemailGreetingDialerToolbar = (DialerToolbar) findViewById(R.id.toolbar);
+    playbackProgressLabel = findViewById(R.id.playback_progress_text_view);
+    currentVoicemailGreetingDialerToolbar = findViewById(R.id.toolbar);
 
     currentVoicemailGreetingDialerToolbar.setTitle(
         R.string.voicemail_change_greeting_preference_title);
 
-    changeGreetingButton = (ImageButton) findViewById(R.id.change_greeting_button);
+    changeGreetingButton = findViewById(R.id.change_greeting_button);
     changeGreetingButton.setOnClickListener(
         new OnClickListener() {
           @Override
@@ -76,7 +77,7 @@ public class CurrentVoicemailGreetingActivity extends Activity {
           }
         });
 
-    playButton = (ImageButton) findViewById(R.id.play_button);
+    playButton = findViewById(R.id.play_button);
     playButton.setOnClickListener(
         new OnClickListener() {
           @Override

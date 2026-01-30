@@ -25,12 +25,12 @@
     android:paddingEnd="24dp"
     android:background="#FAFAFA"
     android:clickable="true"
-    android:elevation="8dp"
+    android:elevation="6dp"
     android:orientation="horizontal"
     android:visibility="gone"
     app:behavior_hideable="true"
     app:behavior_skipCollapsed="true"
-    app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     app:layout_insetEdge="bottom">
 
   <ImageView
@@ -57,8 +57,9 @@
         android:layout_marginBottom="16dp"
         android:lineSpacingMultiplier="1.5"
         style="@style/Dialer.TextAppearance.Secondary"/>
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/ok_got_it"
+        style="@style/Widget.Material3.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -66,10 +67,7 @@
         android:layout_gravity="end"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:fontFamily="sans-serif-medium"
-        android:stateListAnimator="@null"
         android:text="@string/ok_got_it"
-        android:textColor="@android:color/white"
         android:textSize="16sp"/>
   </LinearLayout>
 

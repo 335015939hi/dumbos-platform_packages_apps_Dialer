@@ -38,9 +38,9 @@ import android.provider.ContactsContract.CommonDataKinds.SipAddress;
 import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.Data;
 import android.provider.ContactsContract.RawContacts;
-import android.support.annotation.IntDef;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.app.ActivityCompat;
+import androidx.annotation.IntDef;
+import androidx.annotation.VisibleForTesting;
+import androidx.core.app.ActivityCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,6 +56,7 @@ import com.android.dialer.callintent.CallInitiationType;
 import com.android.dialer.callintent.CallIntentBuilder;
 import com.android.dialer.callintent.CallIntentParser;
 import com.android.dialer.callintent.CallSpecificAppData;
+import com.android.dialer.R;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.logging.InteractionEvent;
@@ -118,7 +119,7 @@ public class PhoneNumberInteraction implements OnLoadCompleteListener<Cursor> {
   private final CallSpecificAppData callSpecificAppData;
   private long contactId = UNKNOWN_CONTACT_ID;
   private CursorLoader loader;
-  private boolean isVideoCall;
+  private final boolean isVideoCall;
 
   /** Error codes for interactions. */
   @Retention(RetentionPolicy.SOURCE)
@@ -469,7 +470,7 @@ public class PhoneNumberInteraction implements OnLoadCompleteListener<Cursor> {
 
       final PhoneItem item = getItem(position);
       Assert.isNotNull(item, "Null item at position: %d", position);
-      final TextView typeView = (TextView) view.findViewById(android.R.id.text1);
+      final TextView typeView = view.findViewById(android.R.id.text1);
       CharSequence value =
           ContactDisplayUtils.getLabelForCallOrSms(
               (int) item.type, item.label, interactionType, getContext());
@@ -557,7 +558,7 @@ public class PhoneNumberInteraction implements OnLoadCompleteListener<Cursor> {
       final AlertDialog alertDialog = (AlertDialog) dialog;
       if (phoneList.size() > which && which >= 0) {
         final PhoneItem phoneItem = phoneList.get(which);
-        final CheckBox checkBox = (CheckBox) alertDialog.findViewById(R.id.setPrimary);
+        final CheckBox checkBox = alertDialog.findViewById(R.id.setPrimary);
         if (checkBox.isChecked()) {
           if (callSpecificAppData.getCallInitiationType() == CallInitiationType.Type.SPEED_DIAL) {
             Logger.get(getContext())

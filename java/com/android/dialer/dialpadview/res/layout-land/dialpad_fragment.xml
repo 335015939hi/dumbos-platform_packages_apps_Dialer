@@ -67,7 +67,7 @@
           android:layout_height="@dimen/floating_action_button_margin_bottom"
           android:layout_alignParentBottom="true"/>
 
-      <android.support.design.widget.FloatingActionButton
+      <com.google.android.material.floatingactionbutton.FloatingActionButton
           android:id="@+id/dialpad_floating_action_button"
           android:layout_width="@dimen/floating_action_button_width"
           android:layout_height="@dimen/floating_action_button_height"
@@ -77,7 +77,9 @@
           android:src="@drawable/quantum_ic_call_white_24"
           android:visibility="invisible"
           app:backgroundTint="@color/dialer_call_green"
-          app:elevation="@dimen/floating_action_button_translation_z"/>
+          app:tint="?colorIconOnUnthemedDarkBackground"
+          app:elevation="@dimen/floating_action_button_translation_z"
+          style="@style/Widget.Material3.FloatingActionButton.Primary"/>
     </RelativeLayout>
   </LinearLayout>
 </view>

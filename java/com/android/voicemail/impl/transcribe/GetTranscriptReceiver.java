@@ -22,7 +22,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.SystemClock;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.telecom.PhoneAccountHandle;
 import android.util.Pair;
 import com.android.dialer.common.Assert;
@@ -168,7 +168,7 @@ public class GetTranscriptReceiver extends BroadcastReceiver {
   }
 
   private static PendingIntent getPendingIntent(Context context, Intent intent, int flags) {
-    return PendingIntent.getBroadcast(context.getApplicationContext(), 0, intent, flags);
+    return PendingIntent.getBroadcast(context.getApplicationContext(), 0, intent, flags | PendingIntent.FLAG_IMMUTABLE);
   }
 
   private static class PollWorker implements Worker<Intent, Void> {

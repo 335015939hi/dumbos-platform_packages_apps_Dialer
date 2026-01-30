@@ -18,7 +18,7 @@ package com.android.dialer.calllogutils;
 
 import android.content.Context;
 import android.provider.CallLog.Calls;
-import android.support.annotation.PluralsRes;
+import androidx.annotation.PluralsRes;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
@@ -27,6 +27,7 @@ import com.android.dialer.telecom.TelecomUtil;
 import com.android.dialer.time.Clock;
 import com.google.common.collect.Collections2;
 import java.util.List;
+import com.android.dialer.R;
 
 /** Builds descriptions of call log entries for accessibility users. */
 public final class CallLogEntryDescriptions {

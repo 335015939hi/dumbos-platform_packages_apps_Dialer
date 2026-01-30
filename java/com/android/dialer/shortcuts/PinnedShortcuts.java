@@ -17,7 +17,7 @@
 package com.android.dialer.shortcuts;
 
 import android.Manifest;
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.ShortcutInfo;
@@ -26,15 +26,16 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build.VERSION_CODES;
 import android.provider.ContactsContract.Contacts;
-import android.support.annotation.NonNull;
-import android.support.annotation.WorkerThread;
-import android.support.v4.content.ContextCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
+import androidx.core.content.ContextCompat;
 import android.util.ArrayMap;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import com.android.dialer.R;
 
 /**
  * Handles refreshing of dialer pinned shortcuts.
@@ -47,7 +48,7 @@ import java.util.Map;
  * still up to date (e.g. photo and name). We also check to see if the contact has been deleted from
  * the user's contacts, and if so, we disable the pinned shortcut.
  */
-@TargetApi(VERSION_CODES.N_MR1) // Shortcuts introduced in N MR1
+@RequiresApi(VERSION_CODES.N_MR1) // Shortcuts introduced in N MR1
 final class PinnedShortcuts {
 
   private static final String[] PROJECTION =

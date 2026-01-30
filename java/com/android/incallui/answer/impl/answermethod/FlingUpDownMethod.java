@@ -29,17 +29,17 @@ import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Trace;
-import android.support.annotation.ColorInt;
-import android.support.annotation.FloatRange;
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.graphics.ColorUtils;
-import android.support.v4.view.animation.FastOutLinearInInterpolator;
-import android.support.v4.view.animation.FastOutSlowInInterpolator;
-import android.support.v4.view.animation.LinearOutSlowInInterpolator;
-import android.support.v4.view.animation.PathInterpolatorCompat;
+import androidx.annotation.ColorInt;
+import androidx.annotation.FloatRange;
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.core.graphics.ColorUtils;
+import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
+import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
+import androidx.core.view.animation.PathInterpolatorCompat;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -64,6 +64,7 @@ import com.android.incallui.answer.impl.hint.AnswerHintFactory;
 import com.android.incallui.answer.impl.hint.PawImageLoaderImpl;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import com.android.dialer.R;
 
 /** Answer method that swipes up to answer or down to reject. */
 @SuppressLint("ClickableViewAccessibility")
@@ -195,10 +196,10 @@ public class FlingUpDownMethod extends AnswerMethod implements OnProgressChanged
     View view = layoutInflater.inflate(R.layout.swipe_up_down_method, viewGroup, false);
 
     contactPuckContainer = view.findViewById(R.id.incoming_call_puck_container);
-    contactPuckBackground = (ImageView) view.findViewById(R.id.incoming_call_puck_bg);
-    contactPuckIcon = (ImageView) view.findViewById(R.id.incoming_call_puck_icon);
-    swipeToAnswerText = (TextView) view.findViewById(R.id.incoming_swipe_to_answer_text);
-    swipeToRejectText = (TextView) view.findViewById(R.id.incoming_swipe_to_reject_text);
+    contactPuckBackground = view.findViewById(R.id.incoming_call_puck_bg);
+    contactPuckIcon = view.findViewById(R.id.incoming_call_puck_icon);
+    swipeToAnswerText = view.findViewById(R.id.incoming_swipe_to_answer_text);
+    swipeToRejectText = view.findViewById(R.id.incoming_swipe_to_reject_text);
     incomingDisconnectText = view.findViewById(R.id.incoming_will_disconnect_text);
     incomingDisconnectText.setVisibility(incomingWillDisconnect ? View.VISIBLE : View.GONE);
     incomingDisconnectText.setAlpha(incomingWillDisconnect ? 1 : 0);
@@ -245,7 +246,7 @@ public class FlingUpDownMethod extends AnswerMethod implements OnProgressChanged
             .create(getContext(), ANIMATE_DURATION_LONG_MILLIS, BOUNCE_ANIMATION_DELAY);
     answerHint.onCreateView(
         layoutInflater,
-        (ViewGroup) view.findViewById(R.id.hint_container),
+            view.findViewById(R.id.hint_container),
         contactPuckContainer,
         swipeToAnswerText);
     Trace.endSection();
@@ -1148,7 +1149,7 @@ public class FlingUpDownMethod extends AnswerMethod implements OnProgressChanged
     private static final long RAMP_TOTAL_TIME_MS = RAMP_DOWN_END_MS;
     private final float ampMax;
     private final float freqMax = 80;
-    private Interpolator sliderInterpolator = new FastOutSlowInInterpolator();
+    private final Interpolator sliderInterpolator = new FastOutSlowInInterpolator();
 
     VibrateInterpolator(Context context) {
       ampMax = DpUtil.dpToPx(context, 1 /* dp */);

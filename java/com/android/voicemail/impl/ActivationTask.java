@@ -16,15 +16,15 @@
 
 package com.android.voicemail.impl;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.annotation.WorkerThread;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.ServiceState;
 import android.telephony.TelephonyManager;
@@ -52,7 +52,7 @@ import java.util.concurrent.TimeoutException;
  * boots, the SIM is inserted, signal returned when VVM is not activated yet, and when the carrier
  * spontaneously sent a STATUS SMS.
  */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 @UsedByReflection(value = "Tasks.java")
 public class ActivationTask extends BaseTask {
 

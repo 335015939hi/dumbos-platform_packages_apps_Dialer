@@ -20,8 +20,8 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Handler;
-import android.support.annotation.VisibleForTesting;
-import android.support.design.widget.Snackbar;
+import androidx.annotation.VisibleForTesting;
+import com.google.android.material.snackbar.Snackbar;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +30,7 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
-import com.android.dialer.app.R;
+import com.android.dialer.R;
 import com.android.dialer.app.calllog.CallLogAsyncTaskUtil;
 import com.android.dialer.app.calllog.CallLogListItemViewHolder;
 import com.android.dialer.logging.DialerImpression;
@@ -58,7 +58,7 @@ public class VoicemailPlaybackLayout extends LinearLayout
   private static final String TAG = VoicemailPlaybackLayout.class.getSimpleName();
   private static final int VOICEMAIL_DELETE_DELAY_MS = 3000;
 
-  private Context context;
+  private final Context context;
   private CallLogListItemViewHolder viewHolder;
   private VoicemailPlaybackPresenter presenter;
   /** Click listener to toggle speakerphone. */
@@ -212,15 +212,15 @@ public class VoicemailPlaybackLayout extends LinearLayout
   protected void onFinishInflate() {
     super.onFinishInflate();
 
-    playbackSeek = (SeekBar) findViewById(R.id.playback_seek);
-    startStopButton = (ImageButton) findViewById(R.id.playback_start_stop);
-    playbackSpeakerphone = (ImageButton) findViewById(R.id.playback_speakerphone);
-    deleteButton = (ImageButton) findViewById(R.id.delete_voicemail);
+    playbackSeek = findViewById(R.id.playback_seek);
+    startStopButton = findViewById(R.id.playback_start_stop);
+    playbackSpeakerphone = findViewById(R.id.playback_speakerphone);
+    deleteButton = findViewById(R.id.delete_voicemail);
 
-    stateText = (TextView) findViewById(R.id.playback_state_text);
+    stateText = findViewById(R.id.playback_state_text);
     stateText.setAccessibilityLiveRegion(ACCESSIBILITY_LIVE_REGION_POLITE);
-    positionText = (TextView) findViewById(R.id.playback_position_text);
-    totalDurationText = (TextView) findViewById(R.id.total_duration_text);
+    positionText = findViewById(R.id.playback_position_text);
+    totalDurationText = findViewById(R.id.total_duration_text);
 
     playbackSeek.setOnSeekBarChangeListener(seekBarChangeListener);
     startStopButton.setOnClickListener(startStopButtonListener);
@@ -382,12 +382,12 @@ public class VoicemailPlaybackLayout extends LinearLayout
 
     private final ScheduledExecutorService executorService;
     private final Object lock = new Object();
-    private int durationMs;
+    private final int durationMs;
 
     @GuardedBy("lock")
     private ScheduledFuture<?> scheduledFuture;
 
-    private Runnable updateClipPositionRunnable =
+    private final Runnable updateClipPositionRunnable =
         new Runnable() {
           @Override
           public void run() {

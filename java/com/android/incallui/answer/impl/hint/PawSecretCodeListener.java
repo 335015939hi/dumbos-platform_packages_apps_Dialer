@@ -20,8 +20,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.annotation.IntDef;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.IntDef;
+import androidx.annotation.VisibleForTesting;
 import android.text.TextUtils;
 import android.widget.Toast;
 import com.android.dialer.common.LogUtil;
@@ -30,6 +30,7 @@ import com.android.dialer.logging.DialerImpression.Type;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.storage.StorageComponent;
 import java.util.Random;
+import com.android.dialer.R;
 
 /**
  * Listen to the broadcast when the user dials "*#*#[number]#*#*" to toggle the event answer hint.

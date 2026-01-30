@@ -16,7 +16,7 @@
 
 package com.android.dialer.common.preference;
 
-import static android.support.v4.content.ContextCompat.startActivity;
+import static androidx.core.content.ContextCompat.startActivity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -28,6 +28,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import com.android.dialer.common.Assert;
+import com.android.dialer.R;
 
 /**
  * Utility to allow the summary of a {@link SwitchPreference} to be clicked and opened via a browser

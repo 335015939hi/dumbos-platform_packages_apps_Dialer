@@ -16,7 +16,7 @@
 
 package com.android.dialer.app.contactinfo;
 
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 import android.text.TextUtils;
 import com.android.dialer.phonenumbercache.ContactInfo;
 import java.lang.annotation.Retention;
@@ -91,11 +91,7 @@ public final class ContactInfoRequest implements Comparable<ContactInfoRequest> 
       return false;
     }
 
-    if (type != other.type) {
-      return false;
-    }
-
-    return true;
+      return type == other.type;
   }
 
   public boolean isLocalRequest() {

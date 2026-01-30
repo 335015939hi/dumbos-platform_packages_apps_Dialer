@@ -36,6 +36,7 @@ import com.android.dialer.telecom.TelecomUtil;
 import java.io.File;
 import java.util.Iterator;
 import java.util.Random;
+import com.android.dialer.R;
 
 /** General purpose utility methods for the Dialer. */
 public class DialerUtils {

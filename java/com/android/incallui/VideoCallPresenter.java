@@ -20,8 +20,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Point;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.telecom.InCallService.VideoCall;
 import android.telecom.VideoProfile;
 import android.telecom.VideoProfile.CameraCapabilities;
@@ -49,6 +49,7 @@ import com.android.incallui.videosurface.protocol.VideoSurfaceTexture;
 import com.android.incallui.videotech.utils.SessionModificationState;
 import com.android.incallui.videotech.utils.VideoUtils;
 import java.util.Objects;
+import com.android.dialer.R;
 
 /**
  * Logic related to the {@link VideoCallScreen} and for managing changes to the video calling
@@ -127,7 +128,7 @@ public class VideoCallPresenter
    * enter fullscreen mode if the dialpad is visible (doing so would make it impossible to exit the
    * dialpad).
    */
-  private Runnable autoFullscreenRunnable =
+  private final Runnable autoFullscreenRunnable =
       new Runnable() {
         @Override
         public void run() {
@@ -836,11 +837,7 @@ public class VideoCallPresenter
       return true;
     }
 
-    if (isVideoUpgrade(call)) {
-      return true;
-    }
-
-    return false;
+      return isVideoUpgrade(call);
   }
 
   private void enableCamera(DialerCall call, boolean isCameraRequired) {

@@ -17,13 +17,41 @@
 <resources>
   <!-- Deprecated: ActionBars are clunky and Toolbar (along with Dialer.ThemeBase.NoActionBar)
       should be used in favor-->
-  <style name="Dialer.Dark.ThemeBase.ActionBar">
+  <style name="Dialer.Dark.ThemeBase.ActionBar" parent="Dialer.Dark.ThemeBase">
+    <!-- Override NoActionBar from parent to enable ActionBar -->
+    <item name="windowActionBar">true</item>
+    <item name="windowNoTitle">false</item>
+
     <!-- These are used to style all actionbars in Dialer. These aren't needed in Dialer.ThemeBase.NoActionBar -->
-    <item name="actionBarStyle">@style/DialerActionBarBaseStyle</item>
+    <item name="actionBarStyle">@style/DialerDarkActionBarStyle</item>
     <item name="actionBarSize">@dimen/action_bar_height</item>
+
+    <!-- Pulled from Theme.AppCompat.Light.DarkActionbar-->
+    <item name="actionBarPopupTheme">@style/ThemeOverlay.AppCompat.Dark</item>
+    <item name="actionBarWidgetTheme">@null</item>
+    <item name="actionBarTheme">@style/DialerDarkActionBarTheme</item>
+    <item name="listChoiceBackgroundIndicator">@drawable/abc_list_selector_holo_dark</item>
+
+    <!-- Status bar should match the action bar background (dark with light text) -->
+    <item name="android:statusBarColor">?attr/colorSurfaceContainer</item>
+    <item name="android:windowLightStatusBar">false</item>
+    <item name="colorControlHighlight">@color/dialer_ripple_color</item>
   </style>
 
-  <style name="Dialer.Dark.ThemeBase.NoActionBar">
+  <!-- Dark mode action bar styles -->
+  <style name="DialerDarkActionBarStyle"
+      parent="@style/Widget.AppCompat.ActionBar.Solid">
+    <item name="android:background">?attr/colorSurfaceContainer</item>
+    <item name="background">?attr/colorSurfaceContainer</item>
+  </style>
+  <style name="DialerDarkActionBarTheme"
+      parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+    <item name="colorControlNormal">?attr/colorOnSurface</item>
+    <item name="android:textColorPrimary">?attr/colorOnSurface</item>
+    <item name="titleTextColor">?attr/colorOnSurface</item>
+  </style>
+
+  <style name="Dialer.Dark.ThemeBase.NoActionBar" parent="Dialer.Dark.ThemeBase">
     <!-- Copied from Theme.AppCompat.Light.NoActionBar. We can remove this and update the Dialer
         base style once none of our activities depend on ActionBar anymore. -->
     <item name="windowActionBar">false</item>
@@ -31,35 +59,75 @@
   </style>
 
   <!-- Activities and Applications should inherit from one of the themes above. -->
-  <style name="Dialer.Dark.ThemeBase">
-    <!-- These values should be used to color all backgrounds. -->
-    <item name="android:colorBackground">@color/google_grey_900</item>
-    <item name="android:colorBackgroundFloating">@color/google_grey_800</item>
+  <style name="Dialer.Dark.ThemeBase" parent="Theme.Material3.DayNight.NoActionBar">
+    <!-- Material Design 3 Color Roles (Dark Theme uses -night qualified colors) -->
+    <!-- Primary colors -->
+    <item name="colorPrimary">@color/md3_primary</item>
+    <item name="colorOnPrimary">@color/md3_onPrimary</item>
+    <item name="colorPrimaryContainer">@color/md3_primaryContainer</item>
+    <item name="colorOnPrimaryContainer">@color/md3_onPrimaryContainer</item>
 
-    <!-- These values should be used to set text color. -->
-    <!-- swap text colors. -->
+    <!-- Secondary colors -->
+    <item name="colorSecondary">@color/md3_secondary</item>
+    <item name="colorOnSecondary">@color/md3_onSecondary</item>
+    <item name="colorSecondaryContainer">@color/md3_secondaryContainer</item>
+    <item name="colorOnSecondaryContainer">@color/md3_onSecondaryContainer</item>
+
+    <!-- Tertiary colors -->
+    <item name="colorTertiary">@color/md3_tertiary</item>
+    <item name="colorOnTertiary">@color/md3_onTertiary</item>
+    <item name="colorTertiaryContainer">@color/md3_tertiaryContainer</item>
+    <item name="colorOnTertiaryContainer">@color/md3_onTertiaryContainer</item>
+
+    <!-- Error colors -->
+    <item name="colorError">@color/md3_error</item>
+    <item name="colorOnError">@color/md3_onError</item>
+    <item name="colorErrorContainer">@color/md3_errorContainer</item>
+    <item name="colorOnErrorContainer">@color/md3_onErrorContainer</item>
+
+    <!-- Background and Surface -->
+    <item name="android:colorBackground">@color/md3_background</item>
+    <item name="colorOnBackground">@color/md3_onBackground</item>
+    <item name="colorSurface">@color/md3_surface</item>
+    <item name="colorOnSurface">@color/md3_onSurface</item>
+    <item name="colorSurfaceContainer">@color/md3_surfaceContainer</item>
+    <item name="colorSurfaceVariant">@color/md3_surfaceVariant</item>
+    <item name="colorOnSurfaceVariant">@color/md3_onSurfaceVariant</item>
+
+    <!-- Outline -->
+    <item name="colorOutline">@color/md3_outline</item>
+    <item name="colorOutlineVariant">@color/md3_outlineVariant</item>
+
+    <!-- Legacy attributes for backwards compatibility -->
+    <item name="android:colorPrimary">@color/md3_primary</item>
     <item name="android:textColorPrimary">@color/dialer_dark_primary_text_color</item>
     <item name="android:textColorSecondary">@color/dialer_dark_secondary_text_color</item>
     <item name="android:textColorPrimaryInverse">@color/dialer_primary_text_color</item>
     <item name="android:textColorSecondaryInverse">@color/dialer_secondary_text_color</item>
     <item name="android:textColorHint">@color/google_grey_600</item>
+    <item name="android:colorBackgroundFloating">?attr/colorSurface</item>
+    <item name="android:navigationBarColor">?attr/colorSurface</item>
+    <item name="android:windowLightNavigationBar">false</item>
+    <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
+    <item name="android:statusBarColor">@color/md3_background</item>
+    <item name="android:windowLightStatusBar">false</item>
+    <item name="colorControlActivated">?attr/colorPrimary</item>
 
-    <!-- These will be automatically used to color most Appcompat/Material widgets. -->
-    <item name="android:colorPrimary">@color/dialer_dark_theme_color</item>
-    <item name="colorPrimary">@color/dialer_dark_theme_color</item>
-    <item name="android:colorPrimaryDark">@color/dialer_dark_theme_color_dark</item>
-    <item name="colorPrimaryDark">@color/dialer_dark_theme_color_dark</item>
-    <item name="android:colorAccent">@color/dialer_dark_secondary_color</item>
-    <item name="colorAccent">@color/dialer_dark_secondary_color</item>
-
-    <!-- Used to automatically style check/selected checkbox, switches and radio buttons -->
-    <item name="colorControlActivated">?android:attr/colorPrimary</item>
-
-    <!-- Dialer specific attributes. -->
-    <item name="colorIcon">?android:attr/textColorSecondary</item>
-    <item name="colorIconSecondary">?android:attr/textColorSecondary</item>
+    <!-- Dialer specific attributes mapped to MD3 colors -->
+    <item name="colorBackgroundSearchBar">?attr/colorSurfaceContainer</item>
+    <item name="colorIcon">?attr/colorOnSurfaceVariant</item>
+    <item name="colorIconSecondary">?attr/colorOutline</item>
     <item name="colorTextOnUnthemedDarkBackground">@android:color/white</item>
     <item name="colorIconOnUnthemedDarkBackground">@android:color/white</item>
     <item name="colorPrimary20pct">@color/dialer_dark_theme_color_20pct</item>
+
+    <!-- Material Design 3 Shape System -->
+    <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Dialer.SmallComponent</item>
+    <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Dialer.MediumComponent</item>
+    <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Dialer.LargeComponent</item>
+
+    <!-- Material Design 3 Menus -->
+    <item name="popupMenuStyle">@style/Widget.Material3.PopupMenu</item>
+    <item name="android:popupMenuStyle">@style/Widget.Material3.PopupMenu</item>
   </style>
 </resources>

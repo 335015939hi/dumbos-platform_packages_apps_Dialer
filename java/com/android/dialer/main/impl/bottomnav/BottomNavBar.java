@@ -17,11 +17,14 @@
 package com.android.dialer.main.impl.bottomnav;
 
 import android.content.Context;
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
+import com.google.android.material.badge.BadgeDrawable;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.logging.DialerImpression;
@@ -30,9 +33,10 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
+import com.android.dialer.R;
 
-/** Dialer Bottom Nav Bar for {@link MainActivity}. */
-public final class BottomNavBar extends LinearLayout {
+/** Dialer Bottom Nav Bar for {@link MainActivity} using Material3 BottomNavigationView. */
+public final class BottomNavBar extends BottomNavigationView {
 
   /** Index for each tab in the bottom nav. */
   @Retention(RetentionPolicy.SOURCE)
@@ -50,11 +54,6 @@ public final class BottomNavBar extends LinearLayout {
   }
 
   private final List<OnBottomNavTabSelectedListener> listeners = new ArrayList<>();
-
-  private BottomNavItem speedDial;
-  private BottomNavItem callLog;
-  private BottomNavItem contacts;
-  private BottomNavItem voicemail;
   private @TabIndex int selectedTab;
 
   public BottomNavBar(Context context, @Nullable AttributeSet attrs) {
@@ -64,80 +63,55 @@ public final class BottomNavBar extends LinearLayout {
   @Override
   protected void onFinishInflate() {
     super.onFinishInflate();
-    speedDial = findViewById(R.id.speed_dial_tab);
-    callLog = findViewById(R.id.call_log_tab);
-    contacts = findViewById(R.id.contacts_tab);
-    voicemail = findViewById(R.id.voicemail_tab);
 
-    speedDial.setup(R.string.tab_title_speed_dial, R.drawable.quantum_ic_star_vd_theme_24);
-    callLog.setup(R.string.tab_title_call_history, R.drawable.quantum_ic_access_time_vd_theme_24);
-    contacts.setup(R.string.tab_title_contacts, R.drawable.quantum_ic_people_vd_theme_24);
-    voicemail.setup(R.string.tab_title_voicemail, R.drawable.quantum_ic_voicemail_vd_theme_24);
+    // Set up Material3 BottomNavigationView listener
+    setOnItemSelectedListener(item -> {
+      int itemId = item.getItemId();
+      @TabIndex int newTab;
 
-    speedDial.setOnClickListener(
-        v -> {
-          if (selectedTab != TabIndex.SPEED_DIAL) {
-            Logger.get(getContext())
-                .logImpression(DialerImpression.Type.MAIN_SWITCH_TAB_TO_FAVORITE);
-          }
-          selectTab(TabIndex.SPEED_DIAL);
-        });
-    callLog.setOnClickListener(
-        v -> {
-          if (selectedTab != TabIndex.CALL_LOG) {
-            Logger.get(getContext())
-                .logImpression(DialerImpression.Type.MAIN_SWITCH_TAB_TO_CALL_LOG);
-          }
-          selectTab(TabIndex.CALL_LOG);
-        });
-    contacts.setOnClickListener(
-        v -> {
-          if (selectedTab != TabIndex.CONTACTS) {
-            Logger.get(getContext())
-                .logImpression(DialerImpression.Type.MAIN_SWITCH_TAB_TO_CONTACTS);
-          }
-          selectTab(TabIndex.CONTACTS);
-        });
-    voicemail.setOnClickListener(
-        v -> {
-          if (selectedTab != TabIndex.VOICEMAIL) {
-            Logger.get(getContext())
-                .logImpression(DialerImpression.Type.MAIN_SWITCH_TAB_TO_VOICEMAIL);
-          }
-          selectTab(TabIndex.VOICEMAIL);
-        });
-  }
+      if (itemId == R.id.speed_dial_tab) {
+        newTab = TabIndex.SPEED_DIAL;
+        if (selectedTab != TabIndex.SPEED_DIAL) {
+          Logger.get(getContext())
+              .logImpression(DialerImpression.Type.MAIN_SWITCH_TAB_TO_FAVORITE);
+        }
+      } else if (itemId == R.id.call_log_tab) {
+        newTab = TabIndex.CALL_LOG;
+        if (selectedTab != TabIndex.CALL_LOG) {
+          Logger.get(getContext())
+              .logImpression(DialerImpression.Type.MAIN_SWITCH_TAB_TO_CALL_LOG);
+        }
+      } else if (itemId == R.id.contacts_tab) {
+        newTab = TabIndex.CONTACTS;
+        if (selectedTab != TabIndex.CONTACTS) {
+          Logger.get(getContext())
+              .logImpression(DialerImpression.Type.MAIN_SWITCH_TAB_TO_CONTACTS);
+        }
+      } else if (itemId == R.id.voicemail_tab) {
+        newTab = TabIndex.VOICEMAIL;
+        if (selectedTab != TabIndex.VOICEMAIL) {
+          Logger.get(getContext())
+              .logImpression(DialerImpression.Type.MAIN_SWITCH_TAB_TO_VOICEMAIL);
+        }
+      } else {
+        return false;
+      }
 
-  private void setSelected(View view) {
-    speedDial.setSelected(view == speedDial);
-    callLog.setSelected(view == callLog);
-    contacts.setSelected(view == contacts);
-    voicemail.setSelected(view == voicemail);
+      selectedTab = newTab;
+      updateListeners(selectedTab);
+      return true;
+    });
   }
 
   /**
-   * Select tab for uesr and non-user click.
+   * Select tab for user and non-user click.
    *
    * @param tab {@link TabIndex}
    */
   public void selectTab(@TabIndex int tab) {
-    if (tab == TabIndex.SPEED_DIAL) {
-      selectedTab = TabIndex.SPEED_DIAL;
-      setSelected(speedDial);
-    } else if (tab == TabIndex.CALL_LOG) {
-      selectedTab = TabIndex.CALL_LOG;
-      setSelected(callLog);
-    } else if (tab == TabIndex.CONTACTS) {
-      selectedTab = TabIndex.CONTACTS;
-      setSelected(contacts);
-    } else if (tab == TabIndex.VOICEMAIL) {
-      selectedTab = TabIndex.VOICEMAIL;
-      setSelected(voicemail);
-    } else {
-      throw new IllegalStateException("Invalid tab: " + tab);
-    }
-
-    updateListeners(selectedTab);
+    selectedTab = tab;
+    int menuItemId = getMenuItemIdForTab(tab);
+    setSelectedItemId(menuItemId);
   }
 
   /**
@@ -150,29 +124,26 @@ public final class BottomNavBar extends LinearLayout {
    */
   public void showVoicemail(boolean showTab) {
     LogUtil.i("OldMainActivityPeer.showVoicemail", "showing Tab:%b", showTab);
-    int voicemailpreviousVisibility = voicemail.getVisibility();
-    voicemail.setVisibility(showTab ? View.VISIBLE : View.GONE);
-    int voicemailcurrentVisibility = voicemail.getVisibility();
+    MenuItem voicemailItem = getMenu().findItem(R.id.voicemail_tab);
+    boolean wasVisible = voicemailItem.isVisible();
+    voicemailItem.setVisible(showTab);
 
-    if (voicemailpreviousVisibility != voicemailcurrentVisibility
-        && voicemailpreviousVisibility == View.VISIBLE
-        && getSelectedTab() == TabIndex.VOICEMAIL) {
+    if (wasVisible && !showTab && getSelectedTab() == TabIndex.VOICEMAIL) {
       LogUtil.i("OldMainActivityPeer.showVoicemail", "hid VM tab and moved to speed dial tab");
       selectTab(TabIndex.SPEED_DIAL);
     }
   }
 
   public void setNotificationCount(@TabIndex int tab, int count) {
-    if (tab == TabIndex.SPEED_DIAL) {
-      speedDial.setNotificationCount(count);
-    } else if (tab == TabIndex.CALL_LOG) {
-      callLog.setNotificationCount(count);
-    } else if (tab == TabIndex.CONTACTS) {
-      contacts.setNotificationCount(count);
-    } else if (tab == TabIndex.VOICEMAIL) {
-      voicemail.setNotificationCount(count);
+    int menuItemId = getMenuItemIdForTab(tab);
+    BadgeDrawable badge = getOrCreateBadge(menuItemId);
+
+    if (count > 0) {
+      badge.setVisible(true);
+      badge.setNumber(count);
     } else {
-      throw new IllegalStateException("Invalid tab: " + tab);
+      badge.setVisible(false);
+      badge.clearNumber();
     }
   }
 
@@ -204,6 +175,24 @@ public final class BottomNavBar extends LinearLayout {
   @TabIndex
   public int getSelectedTab() {
     return selectedTab;
+  }
+
+  /**
+   * Maps tab index to menu item ID.
+   */
+  private int getMenuItemIdForTab(@TabIndex int tab) {
+    switch (tab) {
+      case TabIndex.SPEED_DIAL:
+        return R.id.speed_dial_tab;
+      case TabIndex.CALL_LOG:
+        return R.id.call_log_tab;
+      case TabIndex.CONTACTS:
+        return R.id.contacts_tab;
+      case TabIndex.VOICEMAIL:
+        return R.id.voicemail_tab;
+      default:
+        throw new IllegalArgumentException("Invalid tab: " + tab);
+    }
   }
 
   /** Listener for bottom nav tab's on click events. */

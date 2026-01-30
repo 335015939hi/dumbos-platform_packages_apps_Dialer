@@ -43,10 +43,10 @@ import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.Contacts.Photo;
 import android.provider.ContactsContract.Data;
 import android.provider.ContactsContract.Directory;
-import android.support.annotation.UiThread;
-import android.support.annotation.WorkerThread;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
+import androidx.annotation.UiThread;
+import androidx.annotation.WorkerThread;
+import androidx.core.graphics.drawable.RoundedBitmapDrawable;
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.text.TextUtils;
 import android.util.LruCache;
 import android.view.View;
@@ -72,6 +72,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
+import com.android.dialer.R;
 
 class ContactPhotoManagerImpl extends ContactPhotoManager implements Callback {
 
@@ -337,7 +338,7 @@ class ContactPhotoManagerImpl extends ContactPhotoManager implements Callback {
       LogUtil.d(
           "ContactPhotoManagerImpl.dumpStats",
           "L1 Stats: "
-              + bitmapHolderCache.toString()
+              + bitmapHolderCache
               + ", overwrite: fresh="
               + freshCacheOverwrite.get()
               + " stale="
@@ -889,14 +890,11 @@ class ContactPhotoManagerImpl extends ContactPhotoManager implements Callback {
       if (requestedExtent != that.requestedExtent) {
         return false;
       }
-      if (!UriUtils.areEqual(uri, that.uri)) {
-        return false;
-      }
+        return UriUtils.areEqual(uri, that.uri);
       // Don't compare equality of mDarkTheme because it is only used in the default contact
       // photo case. When the contact does have a photo, the contact photo is the same
       // regardless of mDarkTheme, so we shouldn't need to put the photo request on the queue
       // twice.
-      return true;
     }
 
     public Object getKey() {

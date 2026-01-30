@@ -24,13 +24,13 @@ import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.CommonDataKinds.StructuredPostal;
 import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.RawContacts;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.content.ContextCompat;
+import androidx.annotation.VisibleForTesting;
+import androidx.core.content.ContextCompat;
 import android.util.ArrayMap;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import com.android.contacts.common.model.dataitem.DataKind;
-import com.android.dialer.contacts.resources.R;
+import com.android.dialer.R;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -49,7 +49,7 @@ public abstract class AccountType {
 
   private static final String TAG = "AccountType";
   /** {@link Comparator} to sort by {@link DataKind#weight}. */
-  private static Comparator<DataKind> sWeightComparator =
+  private static final Comparator<DataKind> sWeightComparator =
       new Comparator<DataKind>() {
         @Override
         public int compare(DataKind object1, DataKind object2) {
@@ -84,9 +84,9 @@ public abstract class AccountType {
   public int iconRes;
   protected boolean mIsInitialized;
   /** Set of {@link DataKind} supported by this source. */
-  private ArrayList<DataKind> mKinds = new ArrayList<>();
+  private final ArrayList<DataKind> mKinds = new ArrayList<>();
   /** Lookup map of {@link #mKinds} on {@link DataKind#mimeType}. */
-  private Map<String, DataKind> mMimeKinds = new ArrayMap<>();
+  private final Map<String, DataKind> mMimeKinds = new ArrayMap<>();
 
   /**
    * Return a string resource loaded from the given package (or the current package if {@code

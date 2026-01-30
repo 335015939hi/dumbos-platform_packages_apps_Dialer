@@ -29,9 +29,9 @@ import android.os.Message;
 import android.os.Trace;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.Directory;
-import android.support.annotation.MainThread;
-import android.support.annotation.RequiresPermission;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.MainThread;
+import androidx.annotation.RequiresPermission;
+import androidx.annotation.WorkerThread;
 import android.text.TextUtils;
 import com.android.dialer.phonenumbercache.CachedNumberLookupService;
 import com.android.dialer.phonenumbercache.CachedNumberLookupService.CachedContactInfo;
@@ -43,6 +43,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import com.android.dialer.R;
 
 /**
  * Helper class to make it easier to run asynchronous caller-id lookup queries.
@@ -437,7 +438,7 @@ public class CallerInfoAsyncQuery {
         Log.d(
             this,
             "notifying listener: "
-                + cw.listener.getClass().toString()
+                + cw.listener.getClass()
                 + " for token: "
                 + token
                 + callerInfo);

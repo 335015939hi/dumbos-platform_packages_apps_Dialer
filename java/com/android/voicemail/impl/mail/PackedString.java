@@ -36,7 +36,7 @@ public class PackedString {
 
   private static final char DELIMITER_TAG = '\2';
 
-  private String string;
+  private final String string;
   private ArrayMap<String, String> exploded;
   private static final ArrayMap<String, String> EMPTY_MAP = new ArrayMap<String, String>();
 

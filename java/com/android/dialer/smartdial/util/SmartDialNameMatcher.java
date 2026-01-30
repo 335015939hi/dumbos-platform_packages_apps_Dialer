@@ -17,7 +17,7 @@
 package com.android.dialer.smartdial.util;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import com.android.dialer.smartdial.map.CompositeSmartDialMap;
 import com.android.dialer.smartdial.util.SmartDialPrefix.PhoneNumberTokens;
@@ -196,7 +196,7 @@ public class SmartDialNameMatcher {
       }
       numberAt++;
     }
-    return new SmartDialMatchPosition(0 + offset, numberAt);
+    return new SmartDialMatchPosition(offset, numberAt);
   }
 
   /**

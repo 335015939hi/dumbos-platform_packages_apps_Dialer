@@ -16,9 +16,9 @@
 
 package com.android.incallui.video.impl;
 
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 import android.telecom.CallAudioState;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -27,6 +27,7 @@ import com.android.dialer.common.LogUtil;
 import com.android.incallui.incall.protocol.InCallButtonUiDelegate;
 import com.android.incallui.video.impl.CheckableImageButton.OnCheckedChangeListener;
 import com.android.incallui.video.protocol.VideoCallScreenDelegate;
+import com.android.dialer.R;
 
 /** Manages a single button. */
 public class SpeakerButtonController implements OnCheckedChangeListener, OnClickListener {
@@ -34,7 +35,7 @@ public class SpeakerButtonController implements OnCheckedChangeListener, OnClick
   @NonNull private final InCallButtonUiDelegate inCallButtonUiDelegate;
   @NonNull private final VideoCallScreenDelegate videoCallScreenDelegate;
 
-  @NonNull private CheckableImageButton button;
+  @NonNull private final CheckableImageButton button;
 
   @DrawableRes private int icon = R.drawable.quantum_ic_volume_up_vd_theme_24;
 

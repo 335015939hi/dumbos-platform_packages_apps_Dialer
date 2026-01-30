@@ -48,13 +48,13 @@ import android.net.Uri;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Trace;
-import android.support.annotation.ColorRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresPermission;
-import android.support.annotation.StringRes;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.os.BuildCompat;
+import androidx.annotation.ColorRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresPermission;
+import androidx.annotation.StringRes;
+import androidx.annotation.VisibleForTesting;
+import androidx.core.content.res.ResourcesCompat;
 import android.telecom.Call.Details;
 import android.telecom.CallAudioState;
 import android.telecom.PhoneAccount;
@@ -100,6 +100,7 @@ import com.android.incallui.speakeasy.SpeakEasyComponent;
 import com.android.incallui.videotech.utils.SessionModificationState;
 import com.google.common.base.Optional;
 import java.util.Objects;
+import com.android.dialer.R;
 
 /** This class adds Notifications to the status bar for the in-call experience. */
 public class StatusBarNotifier
@@ -172,11 +173,18 @@ public class StatusBarNotifier
 
   /**
    * Returns PendingIntent for answering a phone call. This will typically be used from Notification
-   * context.
+   * context. Each action needs a unique request code to prevent PendingIntent collisions.
+   * Uses Activity PendingIntent instead of Broadcast for Android 12+ compatibility.
    */
   private static PendingIntent createNotificationPendingIntent(Context context, String action) {
-    final Intent intent = new Intent(action, null, context, NotificationBroadcastReceiver.class);
-    return PendingIntent.getBroadcast(context, 0, intent, 0);
+    final Intent intent = new Intent(action);
+    // Explicitly set the component to NotificationActionService
+    intent.setClass(context, NotificationActionService.class);
+    // Use action's hashCode as request code to ensure each action has a unique PendingIntent
+    int requestCode = action.hashCode();
+    // Use getService instead of getBroadcast/getActivity for reliable delivery on Android 12+
+    return PendingIntent.getService(context, requestCode, intent,
+        PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
   }
 
   /** Creates notifications according to the state we receive from {@link InCallPresenter}. */
@@ -188,6 +196,7 @@ public class StatusBarNotifier
   }
 
   @Override
+  @SuppressWarnings("MissingPermission") // Permission is granted when InCallUI is active
   public void onEnrichedCallStateChanged() {
     LogUtil.enterBlock("StatusBarNotifier.onEnrichedCallStateChanged");
     updateNotification();
@@ -357,7 +366,7 @@ public class StatusBarNotifier
     LogUtil.i("StatusBarNotifier.buildAndSendNotification", "notificationType=" + notificationType);
     switch (notificationType) {
       case NOTIFICATION_INCOMING_CALL:
-        if (BuildCompat.isAtLeastO()) {
+        if (VERSION.SDK_INT >= VERSION_CODES.O) {
           builder.setChannelId(NotificationChannelId.INCOMING_CALL);
         }
         // Set the intent as a full screen intent as well if a call is incoming
@@ -376,12 +385,12 @@ public class StatusBarNotifier
         }
         break;
       case NOTIFICATION_INCOMING_CALL_QUIET:
-        if (BuildCompat.isAtLeastO()) {
+        if (VERSION.SDK_INT >= VERSION_CODES.O) {
           builder.setChannelId(NotificationChannelId.ONGOING_CALL);
         }
         break;
       case NOTIFICATION_IN_CALL:
-        if (BuildCompat.isAtLeastO()) {
+        if (VERSION.SDK_INT >= VERSION_CODES.O) {
           publicBuilder.setColorized(true);
           builder.setColorized(true);
           builder.setChannelId(NotificationChannelId.ONGOING_CALL);
@@ -622,7 +631,7 @@ public class StatusBarNotifier
     Trace.beginSection("StatusBarNotifier.getLargeIconToDisplay");
     Resources resources = context.getResources();
     Bitmap largeIcon = null;
-    if (contactInfo.photo != null && (contactInfo.photo instanceof BitmapDrawable)) {
+    if (contactInfo.photo instanceof BitmapDrawable) {
       largeIcon = ((BitmapDrawable) contactInfo.photo).getBitmap();
     }
     if (contactInfo.photo == null) {
@@ -647,7 +656,7 @@ public class StatusBarNotifier
     }
 
     if (call.isSpam()) {
-      Drawable drawable = resources.getDrawable(R.drawable.blocked_contact, context.getTheme());
+      Drawable drawable = ResourcesCompat.getDrawable(resources, R.drawable.blocked_contact, context.getTheme());
       largeIcon = DrawableConverter.drawableToBitmap(drawable);
     }
     Trace.endSection();
@@ -762,9 +771,12 @@ public class StatusBarNotifier
 
   private String getOngoingCallNotificationMessage(boolean isWorkCall) {
     if (isWorkCall) {
-      DevicePolicyManager dpm = context.getSystemService(DevicePolicyManager.class);
-      return dpm.getResources().getString(NOTIFICATION_ONGOING_WORK_CALL_TITLE, () ->
-              context.getString(R.string.notification_ongoing_work_call));
+      if (VERSION.SDK_INT >= VERSION_CODES.TIRAMISU) {
+        DevicePolicyManager dpm = context.getSystemService(DevicePolicyManager.class);
+        return dpm.getResources().getString(NOTIFICATION_ONGOING_WORK_CALL_TITLE, () ->
+                context.getString(R.string.notification_ongoing_work_call));
+      }
+      return context.getString(R.string.notification_ongoing_work_call);
     } else {
       return context.getString(R.string.notification_ongoing_call);
     }
@@ -772,9 +784,12 @@ public class StatusBarNotifier
 
   private String getIncomingCallNotificationMessage(boolean isWorkCall) {
     if (isWorkCall) {
-      DevicePolicyManager dpm = context.getSystemService(DevicePolicyManager.class);
-      return dpm.getResources().getString(NOTIFICATION_INCOMING_WORK_CALL_TITLE, () ->
-              context.getString(R.string.notification_incoming_work_call));
+      if (VERSION.SDK_INT >= VERSION_CODES.TIRAMISU) {
+        DevicePolicyManager dpm = context.getSystemService(DevicePolicyManager.class);
+        return dpm.getResources().getString(NOTIFICATION_INCOMING_WORK_CALL_TITLE, () ->
+                context.getString(R.string.notification_incoming_work_call));
+      }
+      return context.getString(R.string.notification_incoming_work_call);
     } else {
       return context.getString(R.string.notification_incoming_call);
     }
@@ -782,9 +797,12 @@ public class StatusBarNotifier
 
   private String getWifiBrand(boolean isWorkCall) {
     if (isWorkCall) {
-      DevicePolicyManager dpm = context.getSystemService(DevicePolicyManager.class);
-      return dpm.getResources().getString(NOTIFICATION_WIFI_WORK_CALL_LABEL, () ->
-              context.getString(R.string.notification_call_wifi_work_brand));
+      if (VERSION.SDK_INT >= VERSION_CODES.TIRAMISU) {
+        DevicePolicyManager dpm = context.getSystemService(DevicePolicyManager.class);
+        return dpm.getResources().getString(NOTIFICATION_WIFI_WORK_CALL_LABEL, () ->
+                context.getString(R.string.notification_call_wifi_work_brand));
+      }
+      return context.getString(R.string.notification_call_wifi_work_brand);
     } else {
       return context.getString(R.string.notification_call_wifi_brand);
     }
@@ -1098,7 +1116,7 @@ public class StatusBarNotifier
     // and clicks the notification's expanded view.  It's also used to
     // launch the InCallActivity immediately when when there's an incoming
     // call (see the "fullScreenIntent" field below).
-    return PendingIntent.getActivity(context, requestCode, intent, 0);
+    return PendingIntent.getActivity(context, requestCode, intent, PendingIntent.FLAG_IMMUTABLE);
   }
 
   private void setStatusBarCallListener(StatusBarCallListener listener) {
@@ -1136,7 +1154,7 @@ public class StatusBarNotifier
 
   private class StatusBarCallListener implements DialerCallListener {
 
-    private DialerCall dialerCall;
+    private final DialerCall dialerCall;
 
     StatusBarCallListener(DialerCall dialerCall) {
       this.dialerCall = dialerCall;
@@ -1183,6 +1201,7 @@ public class StatusBarNotifier
      * bar notification as required.
      */
     @Override
+    @SuppressWarnings("MissingPermission") // Permission is granted when InCallUI is active
     public void onDialerCallSessionModificationStateChange() {
       if (dialerCall.getVideoTech().getSessionModificationState()
           == SessionModificationState.NO_REQUEST) {

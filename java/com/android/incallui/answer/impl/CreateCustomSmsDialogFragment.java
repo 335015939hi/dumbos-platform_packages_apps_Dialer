@@ -22,8 +22,8 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnShowListener;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatDialogFragment;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDialogFragment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -32,6 +32,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import com.android.dialer.common.FragmentUtils;
 import com.android.incallui.incalluilock.InCallUiLock;
+import com.android.dialer.R;
 
 /**
  * Shows the dialog for users to enter a custom message when rejecting a call with an SMS message.
@@ -53,7 +54,7 @@ public class CreateCustomSmsDialogFragment extends AppCompatDialogFragment {
     super.onCreateDialog(savedInstanceState);
     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
     View view = View.inflate(builder.getContext(), R.layout.fragment_custom_sms_dialog, null);
-    editText = (EditText) view.findViewById(R.id.custom_sms_input);
+    editText = view.findViewById(R.id.custom_sms_input);
     if (savedInstanceState != null) {
       editText.setText(savedInstanceState.getCharSequence(ARG_ENTERED_TEXT));
     }

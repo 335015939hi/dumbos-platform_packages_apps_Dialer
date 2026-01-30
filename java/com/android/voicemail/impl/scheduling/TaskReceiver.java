@@ -16,7 +16,7 @@
 
 package com.android.voicemail.impl.scheduling;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -34,7 +34,7 @@ import java.util.List;
  * Tasks#createIntent(Context, Class)}). The task will be queued directly in {@link TaskExecutor} if
  * it is already running, or in {@link TaskSchedulerJobService} if not.
  */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public class TaskReceiver extends BroadcastReceiver {
 
   private static final String TAG = "VvmTaskReceiver";

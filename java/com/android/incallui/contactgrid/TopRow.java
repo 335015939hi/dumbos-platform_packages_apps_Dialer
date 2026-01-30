@@ -18,7 +18,7 @@ package com.android.incallui.contactgrid;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.telephony.PhoneNumberUtils;
 import android.text.BidiFormatter;
 import android.text.Spannable;
@@ -34,6 +34,7 @@ import com.android.incallui.incall.protocol.PrimaryCallState;
 import com.android.incallui.incall.protocol.PrimaryInfo;
 import com.android.incallui.videotech.utils.SessionModificationState;
 import com.android.incallui.videotech.utils.VideoUtils;
+import com.android.dialer.R;
 
 /**
  * Gets the content of the top row. For example:
@@ -135,10 +136,7 @@ public class TopRow {
     if (primaryInfo.isLocalContact() && !isIncoming) {
       return false;
     }
-    if (TextUtils.isEmpty(primaryInfo.number())) {
-      return false;
-    }
-    return true;
+      return !TextUtils.isEmpty(primaryInfo.number());
   }
 
   private static CharSequence getLabelForIncoming(Context context, PrimaryCallState state) {

@@ -18,8 +18,8 @@ package com.android.incallui.answer.impl;
 
 import android.content.res.Configuration;
 import android.graphics.Point;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import android.view.TextureView;
 import android.view.View;
 import com.android.dialer.common.Assert;
@@ -29,6 +29,7 @@ import com.android.incallui.video.protocol.VideoCallScreen;
 import com.android.incallui.video.protocol.VideoCallScreenDelegate;
 import com.android.incallui.video.protocol.VideoCallScreenDelegateFactory;
 import com.android.incallui.videosurface.bindings.VideoSurfaceBindings;
+import com.android.dialer.R;
 
 /** Shows a video preview for an incoming call. */
 public class AnswerVideoCallScreen implements VideoCallScreen {
@@ -43,7 +44,7 @@ public class AnswerVideoCallScreen implements VideoCallScreen {
     this.fragment = Assert.isNotNull(fragment);
 
     textureView =
-        Assert.isNotNull((TextureView) view.findViewById(R.id.incoming_preview_texture_view));
+        Assert.isNotNull(view.findViewById(R.id.incoming_preview_texture_view));
     View overlayView =
         Assert.isNotNull(view.findViewById(R.id.incoming_preview_texture_view_overlay));
     view.setBackgroundColor(0xff000000);

@@ -16,14 +16,14 @@
 
 package com.android.voicemail.impl;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build.VERSION_CODES;
 import android.os.UserManager;
 import android.preference.PreferenceManager;
-import android.support.annotation.MainThread;
-import android.support.annotation.NonNull;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.TelephonyManager;
 import android.telephony.VisualVoicemailService;
@@ -36,7 +36,7 @@ import com.android.voicemail.impl.sms.LegacyModeSmsHandler;
 import com.android.voicemail.impl.sync.VvmAccountManager;
 
 /** Implements {@link VisualVoicemailService} to receive visual voicemail events */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public class OmtpService extends VisualVoicemailService {
 
   private static final String TAG = "VvmOmtpService";

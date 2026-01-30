@@ -20,7 +20,7 @@ import android.database.ContentObserver;
 import android.database.Cursor;
 import android.database.DataSetObserver;
 import android.os.Handler;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.SparseIntArray;
 
 /**
@@ -30,7 +30,7 @@ import android.util.SparseIntArray;
  *
  * <p>There are two integers stored as metadata for every list item in the adapter.
  */
-abstract class GroupingListAdapter extends RecyclerView.Adapter {
+abstract class GroupingListAdapter extends androidx.recyclerview.widget.RecyclerView.Adapter {
 
   protected ContentObserver changeObserver =
       new ContentObserver(new Handler()) {

@@ -120,12 +120,39 @@
     <!-- BroadcastReceiver for receiving Intents from Notification mechanism. -->
     <receiver
         android:directBootAware="true"
-        android:exported="false"
-        android:name="com.android.incallui.NotificationBroadcastReceiver"/>
+        android:exported="true"
+        android:name="com.android.incallui.NotificationBroadcastReceiver">
+      <intent-filter>
+        <action android:name="com.android.incallui.ACTION_ANSWER_VOICE_INCOMING_CALL"/>
+        <action android:name="com.android.incallui.ACTION_ANSWER_VIDEO_INCOMING_CALL"/>
+        <action android:name="com.android.incallui.ACTION_ANSWER_SPEAKEASY_CALL"/>
+        <action android:name="com.android.incallui.ACTION_DECLINE_INCOMING_CALL"/>
+        <action android:name="com.android.incallui.ACTION_HANG_UP_ONGOING_CALL"/>
+        <action android:name="com.android.incallui.ACTION_ACCEPT_VIDEO_UPGRADE_REQUEST"/>
+        <action android:name="com.android.incallui.ACTION_DECLINE_VIDEO_UPGRADE_REQUEST"/>
+        <action android:name="com.android.incallui.ACTION_TURN_ON_SPEAKER"/>
+        <action android:name="com.android.incallui.ACTION_TURN_OFF_SPEAKER"/>
+        <action android:name="com.android.incallui.ACTION_PULL_EXTERNAL_CALL"/>
+      </intent-filter>
+    </receiver>
 
     <receiver
-        android:exported="false"
-        android:name=".ReturnToCallActionReceiver"/>
+        android:exported="true"
+        android:name=".ReturnToCallActionReceiver">
+      <intent-filter>
+        <action android:name="returnToCallV2"/>
+        <action android:name="toggleSpeakerV2"/>
+        <action android:name="showAudioRouteSelectorV2"/>
+        <action android:name="toggleMuteV2"/>
+        <action android:name="endCallV2"/>
+      </intent-filter>
+    </receiver>
+
+    <!-- Service for handling notification actions (required for Android 12+) -->
+    <service
+        android:name="com.android.incallui.NotificationActionService"
+        android:exported="false">
+    </service>
 
   </application>
 

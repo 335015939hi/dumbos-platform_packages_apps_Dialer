@@ -17,7 +17,7 @@
 package com.android.dialer.voicemail.listui.error;
 
 import android.content.Context;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.ImageView;
@@ -27,6 +27,7 @@ import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.voicemail.listui.error.VoicemailErrorMessage.Action;
 import java.util.List;
+import com.android.dialer.R;
 
 /**
  * UI for the voicemail error message, which will be inserted to the top of the voicemail tab if any
@@ -59,12 +60,12 @@ public class VoicemailErrorAlert {
     this.messageCreator = messageCreator;
 
     view = alertManager.inflate(R.layout.voicemail_error_message_fragment);
-    header = (TextView) view.findViewById(R.id.error_card_header);
-    details = (TextView) view.findViewById(R.id.error_card_details);
-    primaryAction = (TextView) view.findViewById(R.id.primary_action);
-    secondaryAction = (TextView) view.findViewById(R.id.secondary_action);
-    primaryActionRaised = (TextView) view.findViewById(R.id.primary_action_raised);
-    secondaryActionRaised = (TextView) view.findViewById(R.id.secondary_action_raised);
+    header = view.findViewById(R.id.error_card_header);
+    details = view.findViewById(R.id.error_card_details);
+    primaryAction = view.findViewById(R.id.primary_action);
+    secondaryAction = view.findViewById(R.id.secondary_action);
+    primaryActionRaised = view.findViewById(R.id.primary_action_raised);
+    secondaryActionRaised = view.findViewById(R.id.secondary_action_raised);
   }
 
   public void updateStatus(List<VoicemailStatus> statuses, VoicemailStatusReader statusReader) {
@@ -118,24 +119,24 @@ public class VoicemailErrorAlert {
 
   private View getTosView(AlertManager alertManager, VoicemailTosMessage message) {
     View view = alertManager.inflate(R.layout.voicemail_tos_fragment);
-    TextView tosTitle = (TextView) view.findViewById(R.id.tos_message_title);
+    TextView tosTitle = view.findViewById(R.id.tos_message_title);
     tosTitle.setText(message.getTitle());
-    TextView tosDetails = (TextView) view.findViewById(R.id.tos_message_details);
+    TextView tosDetails = view.findViewById(R.id.tos_message_details);
     tosDetails.setText(message.getDescription());
     tosDetails.setMovementMethod(LinkMovementMethod.getInstance());
 
     Assert.checkArgument(message.getActions().size() == 2);
     Action primaryAction = message.getActions().get(0);
-    TextView primaryButton = (TextView) view.findViewById(R.id.voicemail_tos_button_decline);
+    TextView primaryButton = view.findViewById(R.id.voicemail_tos_button_decline);
     primaryButton.setText(primaryAction.getText());
     primaryButton.setOnClickListener(primaryAction.getListener());
     Action secondaryAction = message.getActions().get(1);
-    TextView secondaryButton = (TextView) view.findViewById(R.id.voicemail_tos_button_accept);
+    TextView secondaryButton = view.findViewById(R.id.voicemail_tos_button_accept);
     secondaryButton.setText(secondaryAction.getText());
     secondaryButton.setOnClickListener(secondaryAction.getListener());
 
     if (message.getImageResourceId() != null) {
-      ImageView voicemailTosImage = (ImageView) view.findViewById(R.id.voicemail_image);
+      ImageView voicemailTosImage = view.findViewById(R.id.voicemail_image);
       voicemailTosImage.setImageResource(message.getImageResourceId());
       voicemailTosImage.setVisibility(View.VISIBLE);
     }

@@ -29,6 +29,7 @@ import com.android.incallui.baseui.BaseFragment;
 import com.android.incallui.call.CallList;
 import com.android.incallui.call.DialerCall;
 import java.util.List;
+import com.android.dialer.R;
 
 /** Fragment that allows the user to manage a conference call. */
 public class ConferenceManagerFragment
@@ -62,7 +63,7 @@ public class ConferenceManagerFragment
       LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     final View parent = inflater.inflate(R.layout.conference_manager_fragment, container, false);
 
-    conferenceParticipantList = (ListView) parent.findViewById(R.id.participantList);
+    conferenceParticipantList = parent.findViewById(R.id.participantList);
     contactPhotoManager = ContactPhotoManager.getInstance(getActivity().getApplicationContext());
 
     return parent;

@@ -34,6 +34,7 @@ import com.google.auto.value.AutoValue;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import com.android.dialer.R;
 
 /** The setting for Assisted Dialing */
 public class AssistedDialingSettingFragment extends PreferenceFragment {

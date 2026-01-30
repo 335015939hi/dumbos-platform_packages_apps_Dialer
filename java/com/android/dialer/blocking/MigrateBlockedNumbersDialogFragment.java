@@ -25,6 +25,7 @@ import android.os.Bundle;
 import android.view.View;
 import com.android.dialer.blocking.BlockedNumbersMigrator.Listener;
 import java.util.Objects;
+import com.android.dialer.R;
 
 /**
  * Dialog fragment shown to users when they need to migrate to use {@link

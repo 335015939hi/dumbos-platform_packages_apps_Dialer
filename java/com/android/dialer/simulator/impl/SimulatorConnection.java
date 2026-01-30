@@ -16,10 +16,10 @@
 
 package com.android.dialer.simulator.impl;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v4.os.BuildCompat;
+import androidx.annotation.NonNull;
+import androidx.core.os.BuildCompat;
 import android.telecom.Connection;
 import android.telecom.Connection.RttTextStream;
 import android.telecom.ConnectionRequest;
@@ -34,7 +34,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** Represents a single phone call on the device. */
-@TargetApi(28)
+@RequiresApi(28)
 public final class SimulatorConnection extends Connection {
   private final List<Listener> listeners = new ArrayList<>();
   private final List<Event> events = new ArrayList<>();

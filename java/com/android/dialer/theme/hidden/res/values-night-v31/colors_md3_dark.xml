@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2025 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License
+  -->
+
+<resources>
+  <!-- Material Design 3 Dynamic Colors - Dark Theme (Android 12+ / API 31+) -->
+  <!-- Override MD3 color tokens to use Material You dynamic colors from wallpaper -->
+
+  <!-- Primary colors (dark mode variants) -->
+  <color name="md3_primary">@android:color/system_accent1_200</color>
+  <color name="md3_onPrimary">@android:color/system_accent1_800</color>
+  <color name="md3_primaryContainer">@android:color/system_accent1_700</color>
+  <color name="md3_onPrimaryContainer">@android:color/system_accent1_100</color>
+
+  <!-- Secondary colors (dark mode variants) -->
+  <color name="md3_secondary">@android:color/system_accent2_200</color>
+  <color name="md3_onSecondary">@android:color/system_accent2_800</color>
+  <color name="md3_secondaryContainer">@android:color/system_accent2_700</color>
+  <color name="md3_onSecondaryContainer">@android:color/system_accent2_100</color>
+
+  <!-- Tertiary colors (dark mode variants) -->
+  <color name="md3_tertiary">@android:color/system_accent3_200</color>
+  <color name="md3_onTertiary">@android:color/system_accent3_800</color>
+  <color name="md3_tertiaryContainer">@android:color/system_accent3_700</color>
+  <color name="md3_onTertiaryContainer">@android:color/system_accent3_100</color>
+
+  <!-- Background and Surface (dark mode) -->
+  <color name="md3_background">@android:color/system_neutral1_900</color>
+  <color name="md3_onBackground">@android:color/system_neutral1_100</color>
+  <color name="md3_surface">@android:color/system_neutral1_900</color>
+  <color name="md3_onSurface">@android:color/system_neutral1_100</color>
+  <color name="md3_surfaceContainer">@android:color/system_neutral1_800</color>
+  <color name="md3_surfaceVariant">@android:color/system_neutral2_800</color>
+  <color name="md3_onSurfaceVariant">@android:color/system_neutral2_200</color>
+
+  <!-- Outline (dark mode) -->
+  <color name="md3_outline">@android:color/system_neutral2_500</color>
+  <color name="md3_outlineVariant">@android:color/system_neutral2_700</color>
+
+  <!-- Custom Search Bar Background (darker variant of primaryContainer for dynamic colors) -->
+  <color name="search_bar_background">@android:color/system_accent1_800</color>
+
+  <!-- Error colors remain static (not part of dynamic color scheme) -->
+</resources>

@@ -19,8 +19,8 @@ package com.android.dialer.precall.impl;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.android.dialer.callintent.CallIntentBuilder;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
@@ -105,6 +105,8 @@ public class PreCallCoordinatorImpl implements PreCallCoordinator {
     if (currentActionIndex >= actions.size()) {
       placeCall();
       activity.finish();
+      // Disable transition animation to prevent flicker during call screen transition
+      activity.overridePendingTransition(0, 0);
       return;
     }
     LogUtil.i("PreCallCoordinatorImpl.runNextAction", "running " + actions.get(currentActionIndex));
@@ -124,6 +126,8 @@ public class PreCallCoordinatorImpl implements PreCallCoordinator {
       runNextAction();
     } else {
       activity.finish();
+      // Disable transition animation to prevent flicker
+      activity.overridePendingTransition(0, 0);
     }
   }
 
@@ -175,7 +179,7 @@ public class PreCallCoordinatorImpl implements PreCallCoordinator {
 
     uiListener.listen(
         activity,
-        Futures.transform(future, (output) -> (Object) output, MoreExecutors.directExecutor()),
+        Futures.transform(future, (output) -> output, MoreExecutors.directExecutor()),
         output -> successListener.accept((OutputT) output),
         failureListener::accept);
   }

@@ -24,8 +24,8 @@ import android.database.MergeCursor;
 import android.net.Uri;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.Directory;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.contacts.ContactsComponent;
@@ -35,6 +35,7 @@ import com.android.dialer.searchfragment.common.Projections;
 import com.android.dialer.searchfragment.common.SearchCursor;
 import com.android.dialer.smartdial.SmartDialCursorLoader;
 import com.android.dialer.util.PermissionsUtil;
+import com.android.dialer.R;
 
 /** Cursor Loader for CP2 contacts. */
 public final class SearchContactsCursorLoader extends CursorLoader {

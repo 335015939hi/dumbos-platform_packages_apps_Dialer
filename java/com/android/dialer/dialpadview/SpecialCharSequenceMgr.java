@@ -34,8 +34,8 @@ import android.graphics.Bitmap.Config;
 import android.graphics.Color;
 import android.net.Uri;
 import android.provider.Settings;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.PhoneNumberUtils;
@@ -71,6 +71,7 @@ import com.google.zxing.common.BitMatrix;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import com.android.dialer.R;
 
 /**
  * Helper class to listen for some magic character sequences that are handled specially by Dialer.
@@ -117,11 +118,7 @@ public class SpecialCharSequenceMgr {
       return true;
     }
 
-    if (MotorolaUtils.handleSpecialCharSequence(context, input)) {
-      return true;
-    }
-
-    return false;
+      return MotorolaUtils.handleSpecialCharSequence(context, input);
   }
 
   /**
@@ -433,16 +430,14 @@ public class SpecialCharSequenceMgr {
 
     final String serialNum = String.format(Locale.US, "%08d", dec2);
 
-    StringBuilder builder = new StringBuilder(22);
-    builder
-        .append(manufacturerCode, 0, 5)
-        .append(' ')
-        .append(manufacturerCode, 5, manufacturerCode.length())
-        .append(' ')
-        .append(serialNum, 0, 4)
-        .append(' ')
-        .append(serialNum, 4, serialNum.length());
-    return builder.toString();
+      String builder = manufacturerCode.substring(0, 5) +
+              ' ' +
+              manufacturerCode.substring(5, manufacturerCode.length()) +
+              ' ' +
+              serialNum.substring(0, 4) +
+              ' ' +
+              serialNum.substring(4, serialNum.length());
+    return builder;
   }
 
   /**
@@ -539,8 +534,8 @@ public class SpecialCharSequenceMgr {
     public int contactNum;
 
     // Used to identify the query request.
-    private int token;
-    private QueryHandler handler;
+    private final int token;
+    private final QueryHandler handler;
 
     // The text field we're going to update
     private EditText textField;

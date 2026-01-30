@@ -19,6 +19,7 @@ package com.android.dialer.calllogutils;
 import android.content.res.Resources;
 import android.provider.CallLog.Calls;
 import com.android.dialer.duo.Duo;
+import com.android.dialer.R;
 
 /** Helper class to perform operations related to call types. */
 public class CallTypeHelper {

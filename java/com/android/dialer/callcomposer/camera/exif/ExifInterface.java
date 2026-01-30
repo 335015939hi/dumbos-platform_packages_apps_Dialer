@@ -61,7 +61,7 @@ public class ExifInterface {
   static final int TAG_INTEROPERABILITY_IFD = defineTag(IfdId.TYPE_IFD_EXIF, (short) 0xA005);
 
   /** Tags that contain offset markers. These are included in the banned defines. */
-  private static HashSet<Short> offsetTags = new HashSet<>();
+  private static final HashSet<Short> offsetTags = new HashSet<>();
 
   static {
     offsetTags.add(getTrueTagKey(TAG_GPS_IFD));

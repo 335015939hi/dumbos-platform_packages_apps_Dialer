@@ -20,8 +20,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.provider.Settings;
 import android.provider.VoicemailContract;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.telecom.PhoneAccountHandle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -37,6 +37,7 @@ import com.android.voicemail.VoicemailClient;
 import com.android.voicemail.VoicemailComponent;
 import java.util.Arrays;
 import java.util.List;
+import com.android.dialer.R;
 
 /**
  * Represents an error determined from the current {@link

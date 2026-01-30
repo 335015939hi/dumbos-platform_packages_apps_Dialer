@@ -21,10 +21,10 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.annotation.WorkerThread;
 import android.telecom.PhoneAccountHandle;
 import com.android.dialer.app.voicemail.LegacyVoicemailNotificationReceiver;
 import com.android.dialer.common.Assert;
@@ -100,7 +100,7 @@ public class CallLogNotificationsService extends IntentService {
   public static PendingIntent createMarkAllNewVoicemailsAsOldIntent(@NonNull Context context) {
     Intent intent = new Intent(context, CallLogNotificationsService.class);
     intent.setAction(CallLogNotificationsService.ACTION_MARK_ALL_NEW_VOICEMAILS_AS_OLD);
-    return PendingIntent.getService(context, 0, intent, 0);
+    return PendingIntent.getService(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
   }
 
   public static PendingIntent createMarkSingleNewVoicemailAsOldIntent(
@@ -108,13 +108,13 @@ public class CallLogNotificationsService extends IntentService {
     Intent intent = new Intent(context, CallLogNotificationsService.class);
     intent.setAction(CallLogNotificationsService.ACTION_MARK_SINGLE_NEW_VOICEMAIL_AS_OLD);
     intent.setData(voicemailUri);
-    return PendingIntent.getService(context, 0, intent, 0);
+    return PendingIntent.getService(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
   }
 
   public static PendingIntent createCancelAllMissedCallsPendingIntent(@NonNull Context context) {
     Intent intent = new Intent(context, CallLogNotificationsService.class);
     intent.setAction(ACTION_CANCEL_ALL_MISSED_CALLS);
-    return PendingIntent.getService(context, 0, intent, 0);
+    return PendingIntent.getService(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
   }
 
   public static PendingIntent createCancelSingleMissedCallPendingIntent(
@@ -122,7 +122,7 @@ public class CallLogNotificationsService extends IntentService {
     Intent intent = new Intent(context, CallLogNotificationsService.class);
     intent.setAction(ACTION_CANCEL_SINGLE_MISSED_CALL);
     intent.setData(callUri);
-    return PendingIntent.getService(context, 0, intent, 0);
+    return PendingIntent.getService(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
   }
 
   public static PendingIntent createLegacyVoicemailDismissedPendingIntent(
@@ -130,7 +130,7 @@ public class CallLogNotificationsService extends IntentService {
     Intent intent = new Intent(context, CallLogNotificationsService.class);
     intent.setAction(ACTION_LEGACY_VOICEMAIL_DISMISSED);
     intent.putExtra(EXTRA_PHONE_ACCOUNT_HANDLE, phoneAccountHandle);
-    return PendingIntent.getService(context, 0, intent, 0);
+    return PendingIntent.getService(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
   }
 
   @Override

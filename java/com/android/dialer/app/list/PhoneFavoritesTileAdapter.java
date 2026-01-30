@@ -28,7 +28,7 @@ import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.PinnedPositions;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 import android.text.TextUtils;
 import android.util.LongSparseArray;
 import android.view.View;
@@ -37,7 +37,7 @@ import android.widget.BaseAdapter;
 import com.android.contacts.common.ContactTileLoaderFactory;
 import com.android.contacts.common.list.ContactEntry;
 import com.android.contacts.common.list.ContactTileView;
-import com.android.dialer.app.R;
+import com.android.dialer.R;
 import com.android.dialer.common.LogUtil;
 import com.android.dialer.contactphoto.ContactPhotoManager;
 import com.android.dialer.contacts.ContactsComponent;
@@ -74,10 +74,10 @@ public class PhoneFavoritesTileAdapter extends BaseAdapter implements OnDragDrop
   private int numFrequents;
   private int numStarred;
 
-  private ContactTileView.Listener listener;
-  private OnDataSetChangedForAnimationListener dataSetChangedListener;
-  private Context context;
-  private Resources resources;
+  private final ContactTileView.Listener listener;
+  private final OnDataSetChangedForAnimationListener dataSetChangedListener;
+  private final Context context;
+  private final Resources resources;
   private final Comparator<ContactEntry> contactEntryComparator =
       new Comparator<ContactEntry>() {
         @Override

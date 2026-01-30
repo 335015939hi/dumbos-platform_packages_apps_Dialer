@@ -30,8 +30,8 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Trace;
-import android.support.v13.app.FragmentCompat;
-import android.support.v4.util.LongSparseArray;
+import androidx.legacy.v13.app.FragmentCompat;
+import androidx.collection.LongSparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +47,7 @@ import android.widget.ListView;
 import com.android.contacts.common.ContactTileLoaderFactory;
 import com.android.contacts.common.list.ContactTileView;
 import com.android.contacts.common.list.OnPhoneNumberPickerActionListener;
-import com.android.dialer.app.R;
+import com.android.dialer.R;
 import com.android.dialer.callintent.CallSpecificAppData;
 import com.android.dialer.common.FragmentUtils;
 import com.android.dialer.common.LogUtil;
@@ -136,7 +136,7 @@ public class OldSpeedDialFragment extends Fragment
     Trace.beginSection(TAG + " onCreateView");
     View parentView = inflater.inflate(R.layout.speed_dial_fragment, container, false);
 
-    listView = (PhoneFavoriteListView) parentView.findViewById(R.id.contact_tile_list);
+    listView = parentView.findViewById(R.id.contact_tile_list);
     listView.setOnItemClickListener(this);
     listView.setVerticalScrollBarEnabled(false);
     listView.setVerticalScrollbarPosition(View.SCROLLBAR_POSITION_RIGHT);
@@ -145,7 +145,7 @@ public class OldSpeedDialFragment extends Fragment
     listView.setDragShadowOverlay(
         FragmentUtils.getParentUnsafe(this, HostInterface.class).getDragShadowOverlay());
 
-    emptyView = (EmptyContentView) parentView.findViewById(R.id.empty_list_view);
+    emptyView = parentView.findViewById(R.id.empty_list_view);
     emptyView.setImage(R.drawable.empty_speed_dial);
     emptyView.setActionClickedListener(this);
 

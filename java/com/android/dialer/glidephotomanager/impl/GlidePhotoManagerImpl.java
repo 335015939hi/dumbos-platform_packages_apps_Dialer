@@ -22,8 +22,8 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.Data;
-import android.support.annotation.MainThread;
-import android.support.annotation.Nullable;
+import androidx.annotation.MainThread;
+import androidx.annotation.Nullable;
 import android.telecom.TelecomManager;
 import android.text.TextUtils;
 import android.widget.ImageView;
@@ -39,6 +39,7 @@ import com.android.dialer.inject.ApplicationContext;
 import com.android.dialer.lettertile.LetterTileDrawable;
 import java.util.List;
 import javax.inject.Inject;
+import com.android.dialer.R;
 
 /** Implementation of {@link GlidePhotoManager} */
 public class GlidePhotoManagerImpl implements GlidePhotoManager {

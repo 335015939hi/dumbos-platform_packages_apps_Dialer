@@ -23,7 +23,7 @@ import android.content.IntentFilter;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import androidx.fragment.app.FragmentActivity;
 import android.telecom.CallAudioState;
 import android.telecom.TelecomManager;
 import com.android.dialer.common.LogUtil;
@@ -45,6 +45,7 @@ import com.android.incallui.incall.protocol.PrimaryCallState;
 import com.android.incallui.incall.protocol.PrimaryInfo;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import com.android.dialer.R;
 
 /**
  * Activity useful for showing the incall ui without an actual call being placed.

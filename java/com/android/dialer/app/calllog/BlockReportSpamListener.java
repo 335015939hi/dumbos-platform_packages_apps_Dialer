@@ -17,9 +17,9 @@
 package com.android.dialer.app.calllog;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import com.android.dialer.blocking.FilteredNumberAsyncQueryHandler;
 import com.android.dialer.blockreportspam.BlockReportSpamDialogs;
@@ -41,7 +41,7 @@ public class BlockReportSpamListener implements CallLogListItemViewHolder.OnClic
   private final Context context;
   private final View rootView;
   private final FragmentManager fragmentManager;
-  private final RecyclerView.Adapter adapter;
+  private final androidx.recyclerview.widget.RecyclerView.Adapter adapter;
   private final FilteredNumberAsyncQueryHandler filteredNumberAsyncQueryHandler;
   private final Spam spam;
   private final SpamSettings spamSettings;
@@ -51,7 +51,7 @@ public class BlockReportSpamListener implements CallLogListItemViewHolder.OnClic
       Context context,
       View rootView,
       FragmentManager fragmentManager,
-      RecyclerView.Adapter adapter,
+      androidx.recyclerview.widget.RecyclerView.Adapter adapter,
       FilteredNumberAsyncQueryHandler filteredNumberAsyncQueryHandler) {
     this.context = context;
     this.rootView = rootView;

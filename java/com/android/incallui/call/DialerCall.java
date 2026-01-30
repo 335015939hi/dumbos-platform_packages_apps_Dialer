@@ -18,7 +18,7 @@ package com.android.incallui.call;
 
 import android.Manifest.permission;
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.Context;
 import android.hardware.camera2.CameraCharacteristics;
 import android.net.Uri;
@@ -29,11 +29,11 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.os.SystemClock;
 import android.os.Trace;
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.os.BuildCompat;
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.core.os.BuildCompat;
 import android.telecom.Call;
 import android.telecom.Call.Details;
 import android.telecom.Call.RttCall;
@@ -80,7 +80,7 @@ import com.android.dialer.rtt.RttTranscriptUtil;
 import com.android.dialer.spam.status.SpamStatus;
 import com.android.dialer.telecom.TelecomCallUtil;
 import com.android.dialer.telecom.TelecomUtil;
-import com.android.dialer.theme.common.R;
+import com.android.dialer.R;
 import com.android.dialer.time.Clock;
 import com.android.dialer.util.PermissionsUtil;
 import com.android.incallui.audiomode.AudioModeProvider;
@@ -388,7 +388,7 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
         }
       };
 
-  private long timeAddedMs;
+  private final long timeAddedMs;
   private int peerDimensionWidth = UNKNOWN_PEER_DIMENSIONS;
   private int peerDimensionHeight = UNKNOWN_PEER_DIMENSIONS;
 
@@ -403,7 +403,7 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
     this.dialerCallDelegate = dialerCallDelegate;
     this.telecomCall = telecomCall;
     this.latencyReport = latencyReport;
-    id = ID_PREFIX + Integer.toString(idCounter++);
+    id = ID_PREFIX + idCounter++;
 
     // Must be after assigning mTelecomCall
     videoTechManager = new VideoTechManager(this);
@@ -838,9 +838,7 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
         && getExtras().getLong(Call.EXTRA_LAST_EMERGENCY_CALLBACK_TIME_MILLIS, 0) > 0) {
       long lastEmergencyCallMillis =
           getExtras().getLong(Call.EXTRA_LAST_EMERGENCY_CALLBACK_TIME_MILLIS, 0);
-      if (isInEmergencyCallbackWindow(lastEmergencyCallMillis)) {
-        return true;
-      }
+        return isInEmergencyCallbackWindow(lastEmergencyCallMillis);
     }
     return false;
   }
@@ -982,7 +980,7 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
   }
 
   /** Checks if the call supports the given set of capabilities supplied as a bit mask. */
-  @TargetApi(28)
+  @RequiresApi(28)
   public boolean can(int capabilities) {
     int supportedCapabilities = telecomCall.getDetails().getCallCapabilities();
 
@@ -1027,7 +1025,7 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
    * the same time that is logged as the start time in the Call Log (see {@link
    * android.provider.CallLog.Calls#DATE}).
    */
-  @TargetApi(VERSION_CODES.O)
+  @RequiresApi(VERSION_CODES.O)
   public long getCreationTimeMillis() {
     return telecomCall.getDetails().getCreationTimeMillis();
   }
@@ -1071,7 +1069,7 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
     return getVideoTech().isTransmittingOrReceiving() || VideoProfile.isVideo(getVideoState());
   }
 
-  @TargetApi(28)
+  @RequiresApi(28)
   public boolean isActiveRttCall() {
     if (BuildCompat.isAtLeastP()) {
       return getTelecomCall().isRttActive();
@@ -1080,7 +1078,7 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
     }
   }
 
-  @TargetApi(28)
+  @RequiresApi(28)
   @Nullable
   public RttCall getRttCall() {
     if (!isActiveRttCall()) {
@@ -1089,19 +1087,16 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
     return getTelecomCall().getRttCall();
   }
 
-  @TargetApi(28)
+  @RequiresApi(28)
   public boolean isPhoneAccountRttCapable() {
     PhoneAccount phoneAccount = getPhoneAccount();
     if (phoneAccount == null) {
       return false;
     }
-    if (!phoneAccount.hasCapabilities(PhoneAccount.CAPABILITY_RTT)) {
-      return false;
-    }
-    return true;
+      return phoneAccount.hasCapabilities(PhoneAccount.CAPABILITY_RTT);
   }
 
-  @TargetApi(28)
+  @RequiresApi(28)
   public boolean canUpgradeToRttCall() {
     if (!isPhoneAccountRttCapable()) {
       return false;
@@ -1115,18 +1110,15 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
     if (isConferenceCall()) {
       return false;
     }
-    if (CallList.getInstance().hasActiveRttCall()) {
-      return false;
-    }
-    return true;
+      return !CallList.getInstance().hasActiveRttCall();
   }
 
-  @TargetApi(28)
+  @RequiresApi(28)
   public void sendRttUpgradeRequest() {
     getTelecomCall().sendRttRequest();
   }
 
-  @TargetApi(28)
+  @RequiresApi(28)
   public void respondToRttRequest(boolean accept, int rttRequestId) {
     Logger.get(context)
         .logCallImpression(
@@ -1138,7 +1130,7 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
     getTelecomCall().respondToRttRequest(rttRequestId, accept);
   }
 
-  @TargetApi(28)
+  @RequiresApi(28)
   private void saveRttTranscript() {
     if (!BuildCompat.isAtLeastP()) {
       return;
@@ -1310,11 +1302,7 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
       return false;
     }
 
-    if (isPotentialEmergencyCallback()) {
-      return false;
-    }
-
-    return true;
+      return !isPotentialEmergencyCallback();
   }
 
   public boolean isBlocked() {
@@ -1352,11 +1340,9 @@ public class DialerCall implements VideoTechListener, StateChangedListener, Capa
       // placing the outgoing call.
       //
       // The existence of the assisted dialing extras indicates that assisted dialing took place.
-      if (getIntentExtras().getBoolean(TelephonyManagerCompat.USE_ASSISTED_DIALING, false)
-          && getAssistedDialingExtras() != null
-          && Build.VERSION.SDK_INT <= ConcreteCreator.BUILD_CODE_CEILING) {
-        return true;
-      }
+        return getIntentExtras().getBoolean(TelephonyManagerCompat.USE_ASSISTED_DIALING, false)
+                && getAssistedDialingExtras() != null
+                && VERSION.SDK_INT <= ConcreteCreator.BUILD_CODE_CEILING;
     }
 
     return false;

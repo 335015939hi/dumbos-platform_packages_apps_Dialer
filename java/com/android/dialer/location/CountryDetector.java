@@ -27,10 +27,10 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.os.UserManagerCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.core.os.UserManagerCompat;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.android.dialer.common.Assert;
@@ -112,7 +112,7 @@ public class CountryDetector {
 
     final Intent activeIntent = new Intent(context, LocationChangedReceiver.class);
     final PendingIntent pendingIntent =
-        PendingIntent.getBroadcast(context, 0, activeIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent.getBroadcast(context, 0, activeIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
     locationManager.requestLocationUpdates(
         LocationManager.PASSIVE_PROVIDER,

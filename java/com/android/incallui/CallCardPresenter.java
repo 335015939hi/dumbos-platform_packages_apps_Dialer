@@ -29,10 +29,10 @@ import android.hardware.display.DisplayManager;
 import android.os.BatteryManager;
 import android.os.Handler;
 import android.os.Trace;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.core.content.ContextCompat;
 import android.telecom.Call.Details;
 import android.telecom.StatusHints;
 import android.telecom.TelecomManager;
@@ -77,6 +77,7 @@ import com.android.incallui.incall.protocol.PrimaryInfo;
 import com.android.incallui.incall.protocol.SecondaryInfo;
 import com.android.incallui.videotech.utils.SessionModificationState;
 import java.lang.ref.WeakReference;
+import com.android.dialer.R;
 
 /**
  * Controller for the Call Card Fragment. This class listens for changes to InCallState and passes
@@ -749,10 +750,7 @@ public class CallCardPresenter
     if (nameIsNumber) {
       return true;
     }
-    if (shouldShowLocation) {
-      return true;
-    }
-    return false;
+      return shouldShowLocation;
   }
 
   private Fragment getLocationFragment() {
@@ -956,9 +954,7 @@ public class CallCardPresenter
     StatusHints statusHints = primary.getStatusHints();
     if (statusHints != null && statusHints.getIcon() != null) {
       Drawable icon = statusHints.getIcon().loadDrawable(context);
-      if (icon != null) {
         return icon;
-      }
     }
 
     return null;
@@ -1049,11 +1045,7 @@ public class CallCardPresenter
         || callState == DialerCallState.INCOMING) {
       return false;
     }
-    if (this.primary.getVideoTech().getSessionModificationState()
-        == SessionModificationState.RECEIVED_UPGRADE_TO_VIDEO_REQUEST) {
-      return false;
-    }
-    return true;
+      return this.primary.getVideoTech().getSessionModificationState() != SessionModificationState.RECEIVED_UPGRADE_TO_VIDEO_REQUEST;
   }
 
   @Override

@@ -21,10 +21,10 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.os.UserManagerCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
+import androidx.fragment.app.DialogFragment;
+import androidx.core.os.UserManagerCompat;
 import android.view.View;
 import android.widget.CheckBox;
 import com.android.dialer.common.Assert;
@@ -33,6 +33,7 @@ import com.android.dialer.common.LogUtil;
 import com.android.dialer.storage.StorageComponent;
 import com.android.incallui.call.CallList;
 import com.android.incallui.call.DialerCall;
+import com.android.dialer.R;
 
 /**
  * Dialog that may be shown when users place an outgoing call to an international number while on

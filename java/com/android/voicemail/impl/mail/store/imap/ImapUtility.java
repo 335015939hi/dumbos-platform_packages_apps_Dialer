@@ -17,6 +17,7 @@ package com.android.voicemail.impl.mail.store.imap;
 
 import com.android.voicemail.impl.mail.utils.LogUtils;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /** Utility methods for use with IMAP. */
 public class ImapUtility {
@@ -74,9 +75,7 @@ public class ImapUtility {
           }
         } else {
           // range
-          for (String rangeItem : getImapRangeValues(item)) {
-            list.add(rangeItem);
-          }
+            Collections.addAll(list, getImapRangeValues(item));
         }
       }
     }

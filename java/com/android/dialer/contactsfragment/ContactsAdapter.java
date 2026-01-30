@@ -20,9 +20,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract.Contacts;
-import android.support.annotation.IntDef;
-import android.support.v4.util.ArrayMap;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.IntDef;
+import androidx.collection.ArrayMap;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,9 +34,10 @@ import com.android.dialer.contactsfragment.ContactsFragment.OnContactSelectedLis
 import com.android.dialer.lettertile.LetterTileDrawable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import com.android.dialer.R;
 
 /** List adapter for the union of all contacts associated with every account on the device. */
-final class ContactsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+final class ContactsAdapter extends androidx.recyclerview.widget.RecyclerView.Adapter<androidx.recyclerview.widget.RecyclerView.ViewHolder> {
 
   private static final int UNKNOWN_VIEW_TYPE = 0;
   private static final int ADD_CONTACT_VIEW_TYPE = 1;
@@ -85,7 +86,7 @@ final class ContactsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
   }
 
   @Override
-  public RecyclerView.ViewHolder onCreateViewHolder(
+  public androidx.recyclerview.widget.RecyclerView.ViewHolder onCreateViewHolder(
       ViewGroup parent, @ContactsViewType int viewType) {
     switch (viewType) {
       case ADD_CONTACT_VIEW_TYPE:
@@ -102,7 +103,7 @@ final class ContactsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
   }
 
   @Override
-  public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
+  public void onBindViewHolder(androidx.recyclerview.widget.RecyclerView.ViewHolder viewHolder, int position) {
     if (viewHolder instanceof AddContactViewHolder) {
       return;
     }
@@ -129,7 +130,7 @@ final class ContactsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     String photoDescription =
         context.getString(
-            com.android.dialer.contactphoto.R.string.description_quick_contact_for, name);
+            R.string.description_quick_contact_for, name);
     contactViewHolder.getPhoto().setContentDescription(photoDescription);
 
     // Always show the view holder's header if it's the first item in the list. Otherwise, compare
@@ -152,7 +153,7 @@ final class ContactsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
   }
 
   @Override
-  public void onViewRecycled(RecyclerView.ViewHolder contactViewHolder) {
+  public void onViewRecycled(androidx.recyclerview.widget.RecyclerView.ViewHolder contactViewHolder) {
     super.onViewRecycled(contactViewHolder);
     if (contactViewHolder instanceof ContactViewHolder) {
       holderMap.remove(contactViewHolder);

@@ -15,17 +15,78 @@
  */
 package com.android.voicemail.impl.transcribe.grpc;
 
-import android.support.annotation.WorkerThread;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
+import com.android.dialer.common.LogUtil;
 import com.google.internal.communications.voicemailtranscription.v1.GetTranscriptRequest;
 import com.google.internal.communications.voicemailtranscription.v1.SendTranscriptionFeedbackRequest;
 import com.google.internal.communications.voicemailtranscription.v1.TranscribeVoicemailAsyncRequest;
 import com.google.internal.communications.voicemailtranscription.v1.TranscribeVoicemailRequest;
-import com.google.internal.communications.voicemailtranscription.v1.VoicemailTranscriptionServiceGrpc;
-import io.grpc.StatusRuntimeException;
 
-/** Wrapper around Grpc transcription server stub */
+/**
+ * Wrapper around Grpc transcription server stub.
+ *
+ * <p>DISABLED: Google's voicemail transcription service has been removed to eliminate
+ * Google Play Services dependency. This class is now a stub that returns null for all requests.
+ *
+ * <p>To re-enable transcription with an open-source backend:
+ * 1. Implement a speech-to-text service (Whisper, Vosk, etc.)
+ * 2. Implement the actual gRPC client code
+ * 3. Re-enable in TranscriptionConfigProvider
+ */
 public class TranscriptionClient {
 
+  // Stub constructor - transcription is disabled
+  TranscriptionClient() {}
+
+  /**
+   * Stub method - transcription is disabled.
+   * @return null to indicate failure
+   */
+  @WorkerThread
+  @Nullable
+  public TranscriptionResponseSync sendSyncRequest(TranscribeVoicemailRequest request) {
+    LogUtil.i("TranscriptionClient.sendSyncRequest", "Transcription is disabled - returning null");
+    return null;
+  }
+
+  /**
+   * Stub method - transcription is disabled.
+   * @return null to indicate failure
+   */
+  @WorkerThread
+  @Nullable
+  public TranscriptionResponseAsync sendUploadRequest(TranscribeVoicemailAsyncRequest request) {
+    LogUtil.i("TranscriptionClient.sendUploadRequest", "Transcription is disabled - returning null");
+    return null;
+  }
+
+  /**
+   * Stub method - transcription is disabled.
+   * @return null to indicate failure
+   */
+  @WorkerThread
+  @Nullable
+  public GetTranscriptResponseAsync sendGetTranscriptRequest(GetTranscriptRequest request) {
+    LogUtil.i("TranscriptionClient.sendGetTranscriptRequest", "Transcription is disabled - returning null");
+    return null;
+  }
+
+  /**
+   * Stub method - transcription is disabled.
+   * @return null to indicate failure
+   */
+  @WorkerThread
+  @Nullable
+  public TranscriptionFeedbackResponseAsync sendTranscriptFeedbackRequest(
+      SendTranscriptionFeedbackRequest request) {
+    LogUtil.i("TranscriptionClient.sendTranscriptFeedbackRequest", "Transcription is disabled - returning null");
+    return null;
+  }
+
+  /*
+   * Original implementation commented out - requires Google's transcription service
+   *
   private final VoicemailTranscriptionServiceGrpc.VoicemailTranscriptionServiceBlockingStub stub;
 
   TranscriptionClient(
@@ -69,4 +130,5 @@ public class TranscriptionClient {
       return new TranscriptionFeedbackResponseAsync(e.getStatus());
     }
   }
+  */
 }

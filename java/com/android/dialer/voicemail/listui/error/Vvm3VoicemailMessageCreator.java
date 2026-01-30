@@ -21,15 +21,16 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build.VERSION_CODES;
 import android.provider.VoicemailContract.Status;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import android.view.View;
 import android.view.View.OnClickListener;
 import com.android.contacts.common.util.ContactDisplayUtils;
 import com.android.dialer.logging.DialerImpression;
 import com.android.dialer.logging.Logger;
 import com.android.dialer.voicemail.listui.error.VoicemailErrorMessage.Action;
+import com.android.dialer.R;
 
 /**
  * Create error message from {@link VoicemailStatus} for VVM3 visual voicemail. VVM3 is used only by

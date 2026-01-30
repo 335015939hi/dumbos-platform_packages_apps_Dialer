@@ -23,7 +23,7 @@ import android.net.Uri;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.Contacts;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
@@ -34,12 +34,12 @@ import com.android.dialer.contactphoto.ContactPhotoManager;
 import com.android.dialer.lettertile.LetterTileDrawable;
 import com.android.dialer.searchfragment.common.Projections;
 import com.android.dialer.searchfragment.common.QueryBoldingUtil;
-import com.android.dialer.searchfragment.common.R;
+import com.android.dialer.R;
 import com.android.dialer.searchfragment.common.RowClickListener;
 import com.android.dialer.searchfragment.common.SearchCursor;
 
 /** ViewHolder for a directory contact row. */
-public final class DirectoryContactViewHolder extends RecyclerView.ViewHolder
+public final class DirectoryContactViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder
     implements View.OnClickListener {
 
   private final Context context;

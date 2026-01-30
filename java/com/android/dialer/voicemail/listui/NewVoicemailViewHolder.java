@@ -26,9 +26,9 @@ import android.database.Cursor;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.provider.VoicemailContract.Voicemails;
-import android.support.annotation.NonNull;
-import android.support.annotation.WorkerThread;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.view.View;
@@ -48,9 +48,10 @@ import com.android.dialer.voicemail.listui.menu.NewVoicemailMenu;
 import com.android.dialer.voicemail.model.VoicemailEntry;
 import com.android.dialer.widget.ContactPhotoView;
 import com.android.voicemail.VoicemailClient;
+import com.android.dialer.R;
 
-/** {@link RecyclerView.ViewHolder} for the new voicemail tab. */
-final class NewVoicemailViewHolder extends RecyclerView.ViewHolder implements OnClickListener {
+/** {@link androidx.recyclerview.widget.RecyclerView.ViewHolder} for the new voicemail tab. */
+final class NewVoicemailViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder implements OnClickListener {
 
   private final Context context;
   private final TextView primaryTextView;

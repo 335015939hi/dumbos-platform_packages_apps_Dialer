@@ -21,17 +21,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.CallLog;
 import android.provider.CallLog.Calls;
-import android.support.annotation.VisibleForTesting;
-import android.support.design.widget.Snackbar;
-import android.support.v13.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
+import androidx.annotation.VisibleForTesting;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.legacy.v13.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.ActionBar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import com.android.contacts.common.list.ViewPagerTabs;
-import com.android.dialer.app.R;
+import com.android.dialer.R;
 import com.android.dialer.calldetails.OldCallDetailsActivity;
 import com.android.dialer.common.Assert;
 import com.android.dialer.constants.ActivityRequestCodes;
@@ -87,14 +87,14 @@ public class CallLogActivity extends TransactionSafeActivity
     tabTitles[0] = getString(R.string.call_log_all_title);
     tabTitles[1] = getString(R.string.call_log_missed_title);
 
-    viewPager = (ViewPager) findViewById(R.id.call_log_pager);
+    viewPager = findViewById(R.id.call_log_pager);
 
     viewPagerAdapter = new ViewPagerAdapter(getFragmentManager());
     viewPager.setAdapter(viewPagerAdapter);
     viewPager.setOffscreenPageLimit(1);
     viewPager.setOnPageChangeListener(this);
 
-    viewPagerTabs = (ViewPagerTabs) findViewById(R.id.viewpager_header);
+    viewPagerTabs = findViewById(R.id.viewpager_header);
 
     viewPagerTabs.setViewPager(viewPager);
     viewPager.setCurrentItem(startingTab);
@@ -156,9 +156,7 @@ public class CallLogActivity extends TransactionSafeActivity
 
     if (item.getItemId() == android.R.id.home) {
       PerformanceReport.recordClick(UiAction.Type.CLOSE_CALL_HISTORY_WITH_CANCEL_BUTTON);
-      final Intent intent = new Intent("com.android.dialer.main.impl.MAIN");
-      intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-      startActivity(intent);
+      finish();
       return true;
     } else if (item.getItemId() == R.id.delete_all) {
       ClearCallLogDialog.show(getFragmentManager());

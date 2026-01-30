@@ -16,14 +16,16 @@
 
 package com.android.incallui.call;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.app.Notification;
 import android.bluetooth.BluetoothDevice;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.pm.ServiceInfo;
+import android.os.Build;
 import android.os.Looper;
-import android.support.annotation.MainThread;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.MainThread;
+import androidx.annotation.VisibleForTesting;
 import android.telecom.InCallService;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
@@ -180,7 +182,11 @@ public class TelecomAdapter implements InCallServiceListener {
   public void startForegroundNotification(int id, Notification notification) {
     Assert.isNotNull(
         inCallService, "No inCallService available for starting foreground notification");
-    inCallService.startForeground(id, notification);
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+      inCallService.startForeground(id, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_PHONE_CALL);
+    } else {
+      inCallService.startForeground(id, notification);
+    }
   }
 
   /**
@@ -196,7 +202,7 @@ public class TelecomAdapter implements InCallServiceListener {
     }
   }
 
-  @TargetApi(28)
+  @RequiresApi(28)
   public void requestBluetoothAudio(BluetoothDevice bluetoothDevice) {
     if (inCallService != null) {
       inCallService.requestBluetoothAudio(bluetoothDevice);

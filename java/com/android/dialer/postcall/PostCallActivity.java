@@ -23,9 +23,9 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import android.telephony.SmsManager;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
@@ -34,6 +34,7 @@ import com.android.dialer.enrichedcall.EnrichedCallManager;
 import com.android.dialer.util.PermissionsUtil;
 import com.android.dialer.widget.DialerToolbar;
 import com.android.dialer.widget.MessageFragment;
+import com.android.dialer.R;
 
 /** Activity used to send post call messages after a phone call. */
 public class PostCallActivity extends AppCompatActivity implements MessageFragment.Listener {
@@ -122,6 +123,7 @@ public class PostCallActivity extends AppCompatActivity implements MessageFragme
   @Override
   public void onRequestPermissionsResult(
       int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     if (permissions.length > 0 && permissions[0].equals(permission.SEND_SMS)) {
       PermissionsUtil.permissionRequested(this, permissions[0]);
     }

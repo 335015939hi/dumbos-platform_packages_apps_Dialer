@@ -22,10 +22,10 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
@@ -54,6 +54,7 @@ import com.android.dialer.util.TransactionSafeActivity;
 import com.google.common.base.Optional;
 import java.util.ArrayList;
 import java.util.List;
+import com.android.dialer.R;
 
 /**
  * Search controller for handling all the logic related to entering and exiting the search UI.
@@ -513,6 +514,8 @@ public class MainSearchController implements SearchBarListener {
   public void onCallPlacedFromSearch() {
     closeSearchOnPause = true;
     callPlacedFromSearch = true;
+    // Move activity to background to prevent flash during transition to InCallActivity
+    activity.moveTaskToBack(true);
   }
 
   @Override
@@ -524,7 +527,7 @@ public class MainSearchController implements SearchBarListener {
   public void onVoiceResults(int resultCode, Intent data) {
     if (resultCode == AppCompatActivity.RESULT_OK) {
       ArrayList<String> matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-      if (matches.size() > 0) {
+      if (matches != null && !matches.isEmpty()) {
         LogUtil.i("MainSearchController.onVoiceResults", "voice search - match found");
         openSearch(Optional.of(matches.get(0)));
       } else {

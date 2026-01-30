@@ -100,7 +100,7 @@ public class ExpirableCache<K, V> {
    */
   private final AtomicInteger generation;
   /** The underlying cache used to stored the cached values. */
-  private LruCache<K, CachedValue<V>> cache;
+  private final LruCache<K, CachedValue<V>> cache;
 
   private ExpirableCache(LruCache<K, CachedValue<V>> cache) {
     this.cache = cache;
@@ -207,7 +207,7 @@ public class ExpirableCache<K, V> {
   /**
    * Creates a new {@link CachedValue} instance to be stored in this cache.
    *
-   * <p>Implementation of {@link LruCache#create(K)} can use this method to create a new entry.
+   * <p>Implementation of {@code LruCache.create(K)} can use this method to create a new entry.
    */
   public CachedValue<V> newCachedValue(V value) {
     return new GenerationalCachedValue<V>(value, generation);

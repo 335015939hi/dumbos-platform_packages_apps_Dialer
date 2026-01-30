@@ -16,7 +16,7 @@
 
 package com.android.voicemail.impl.scheduling;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build.VERSION_CODES;
@@ -25,10 +25,10 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-import android.support.annotation.MainThread;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.MainThread;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.annotation.WorkerThread;
 import com.android.voicemail.impl.Assert;
 import com.android.voicemail.impl.NeededForTesting;
 import com.android.voicemail.impl.VvmLog;
@@ -69,7 +69,7 @@ import java.util.List;
  *   <li>A job cannot be mutated to store information such as retry count.
  * </ul>
  */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 final class TaskExecutor {
 
   /**
@@ -188,9 +188,9 @@ final class TaskExecutor {
       VvmLog.w("JobFinishedPoller.run", "Job still running");
       mainThreadHandler.postDelayed(this, TERMINATE_POLLING_INTERVAL_MILLISECONDS);
     }
-  };
+  }
 
-  /** Should attempt to run the next task when a task has finished or been added. */
+    /** Should attempt to run the next task when a task has finished or been added. */
   private boolean taskAutoRunDisabledForTesting = false;
 
   /** Handles execution of the background task in teh worker thread. */

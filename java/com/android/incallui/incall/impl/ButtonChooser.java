@@ -16,7 +16,7 @@
 
 package com.android.incallui.incall.impl;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.android.dialer.common.Assert;
 import com.android.incallui.incall.impl.MappedButtonConfig.MappingInfo;
 import com.android.incallui.incall.protocol.InCallButtonIds;
@@ -30,10 +30,10 @@ import javax.annotation.concurrent.Immutable;
  * Determines where logical buttons should be placed in the {@link InCallFragment} based on the
  * provided mapping.
  *
- * <p>The button placement returned by a call to {@link #getButtonPlacement(int, Set)} is created as
- * follows: one button is placed at each UI slot, using the provided mapping to resolve conflicts.
- * Any allowed buttons that were not chosen for their desired slot are filled in at the end of the
- * list until it becomes the proper size.
+ * <p>The button placement returned by a call to {@link #getButtonPlacement(int, Set, Set)} is
+ * created as follows: one button is placed at each UI slot, using the provided mapping to resolve
+ * conflicts. Any allowed buttons that were not chosen for their desired slot are filled in at the
+ * end of the list until it becomes the proper size.
  */
 @Immutable
 final class ButtonChooser {
@@ -124,9 +124,6 @@ final class ButtonChooser {
     if (mutuallyExclusiveButton == MappingInfo.NO_MUTUALLY_EXCLUSIVE_BUTTON_SET) {
       return false;
     }
-    if (allowedButtons.contains(mutuallyExclusiveButton)) {
-      return true;
-    }
-    return false;
+      return allowedButtons.contains(mutuallyExclusiveButton);
   }
 }

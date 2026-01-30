@@ -28,9 +28,9 @@ import android.os.Bundle;
 import android.provider.ContactsContract.CommonDataKinds.Nickname;
 import android.provider.ContactsContract.CommonDataKinds.Organization;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
-import android.support.v4.util.ArraySet;
+import androidx.annotation.IntDef;
+import androidx.annotation.Nullable;
+import androidx.collection.ArraySet;
 import android.text.TextUtils;
 import android.util.ArrayMap;
 import com.android.dialer.searchfragment.common.Projections;
@@ -262,7 +262,7 @@ final class ContactFilterCursor implements Cursor {
       Set<String> numberSubstrings = new ArraySet<>();
       numberSubstrings.add(number);
       for (int start = 0; start < number.length(); start++) {
-        numberSubstrings.add(number.substring(start, number.length()));
+        numberSubstrings.add(number.substring(start));
       }
       for (String substring : numberSubstrings) {
         tree.put(substring, position);

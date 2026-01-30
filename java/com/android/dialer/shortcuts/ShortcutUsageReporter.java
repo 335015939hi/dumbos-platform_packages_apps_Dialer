@@ -17,7 +17,7 @@
 package com.android.dialer.shortcuts;
 
 import android.Manifest;
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.ShortcutManager;
@@ -28,11 +28,11 @@ import android.os.Build;
 import android.os.Build.VERSION_CODES;
 import android.provider.ContactsContract.Contacts;
 import android.provider.ContactsContract.PhoneLookup;
-import android.support.annotation.MainThread;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.WorkerThread;
-import android.support.v4.content.ContextCompat;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
+import androidx.core.content.ContextCompat;
 import android.text.TextUtils;
 import com.android.dialer.common.Assert;
 import com.android.dialer.common.LogUtil;
@@ -48,7 +48,7 @@ import com.android.dialer.common.concurrent.AsyncTaskExecutors;
  * <p>This allows launcher applications to provide users with shortcut suggestions, even if the user
  * isn't already using shortcuts.
  */
-@TargetApi(VERSION_CODES.N_MR1) // Shortcuts introduced in N_MR1
+@RequiresApi(VERSION_CODES.N_MR1) // Shortcuts introduced in N_MR1
 public class ShortcutUsageReporter {
 
   private static final AsyncTaskExecutor EXECUTOR = AsyncTaskExecutors.createThreadPoolExecutor();

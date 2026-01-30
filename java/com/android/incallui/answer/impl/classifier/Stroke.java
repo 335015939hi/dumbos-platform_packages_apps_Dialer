@@ -26,8 +26,8 @@ class Stroke {
 
   private static final float NANOS_TO_SECONDS = 1e9f;
 
-  private ArrayList<Point> points = new ArrayList<>();
-  private long startTimeNano;
+  private final ArrayList<Point> points = new ArrayList<>();
+  private final long startTimeNano;
   private long endTimeNano;
   private float length;
   private final float dpi;

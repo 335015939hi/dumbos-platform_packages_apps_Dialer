@@ -15,7 +15,7 @@
  */
 package com.android.voicemail.impl.sync;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.InetAddresses;
@@ -27,7 +27,7 @@ import android.os.ConditionVariable;
 import android.os.Build.VERSION_CODES;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.CallSuper;
+import androidx.annotation.CallSuper;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.TelephonyManager;
 import com.android.dialer.common.Assert;
@@ -40,7 +40,7 @@ import com.android.voicemail.impl.VvmLog;
  * Base class for network request call backs for visual voicemail syncing with the Imap server. This
  * handles retries and network requests.
  */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public abstract class VvmNetworkRequestCallback extends ConnectivityManager.NetworkCallback {
 
   private static final String TAG = "VvmNetworkRequest";
@@ -133,8 +133,8 @@ public abstract class VvmNetworkRequestCallback extends ConnectivityManager.Netw
   @Override
   @CallSuper
   public void onLinkPropertiesChanged(Network network, LinkProperties lp) {
-    boolean hasIPv4 = (lp != null) &&
-            (lp.isReachable(InetAddresses.parseNumericAddress("8.8.8.8")));
+    // Check if LinkProperties has any IPv4 addresses
+    boolean hasIPv4 = (lp != null) && !lp.getLinkAddresses().isEmpty();
     if(hasIPv4) {
         mWaitV4Cv.open();
     }
@@ -152,7 +152,7 @@ public abstract class VvmNetworkRequestCallback extends ConnectivityManager.Netw
   }
 
   public void requestNetwork() {
-    if (requestSent == true) {
+    if (requestSent) {
       VvmLog.e(TAG, "requestNetwork() called twice");
       return;
     }
@@ -167,7 +167,7 @@ public abstract class VvmNetworkRequestCallback extends ConnectivityManager.Netw
         new Runnable() {
           @Override
           public void run() {
-            if (resultReceived == false) {
+            if (!resultReceived) {
               onFailed(NETWORK_REQUEST_FAILED_TIMEOUT);
             }
           }

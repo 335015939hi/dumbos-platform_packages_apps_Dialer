@@ -19,8 +19,8 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Outline;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -32,7 +32,7 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.android.dialer.contacts.resources.R;
+import com.android.dialer.R;
 
 /**
  * Lightweight implementation of ViewPager tabs. This looks similar to traditional actionBar tabs,
@@ -71,7 +71,7 @@ public class ViewPagerTabs extends HorizontalScrollView implements ViewPager.OnP
   ViewPager mPager;
   int mPrevSelected = -1;
   int mSidePadding;
-  private ViewPagerTabStrip mTabStrip;
+  private final ViewPagerTabStrip mTabStrip;
   private int[] mTabIcons;
   // For displaying the unread count next to the tab icon.
   private int[] mUnreadCounts;
@@ -144,7 +144,7 @@ public class ViewPagerTabs extends HorizontalScrollView implements ViewPager.OnP
       View iconView = layout.findViewById(R.id.icon);
       iconView.setBackgroundResource(mTabIcons[position]);
       iconView.setContentDescription(tabTitle);
-      TextView textView = (TextView) layout.findViewById(R.id.count);
+      TextView textView = layout.findViewById(R.id.count);
       if (mUnreadCounts != null && mUnreadCounts[position] > 0) {
         textView.setText(Integer.toString(mUnreadCounts[position]));
         textView.setVisibility(View.VISIBLE);

@@ -24,10 +24,10 @@ import android.os.AsyncTask;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.Contacts;
 import android.provider.Settings;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.os.BuildCompat;
-import android.support.v4.os.UserManagerCompat;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.core.os.BuildCompat;
+import androidx.core.os.UserManagerCompat;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.widget.Toast;
@@ -40,6 +40,7 @@ import com.android.dialer.notification.NotificationChannelId;
 import com.android.dialer.storage.StorageComponent;
 import com.android.dialer.util.PermissionsUtil;
 import java.util.concurrent.TimeUnit;
+import com.android.dialer.R;
 
 /** Utility to help with tasks related to filtered numbers. */
 @Deprecated
@@ -263,7 +264,7 @@ public class FilteredNumbersUtil {
                     context,
                     0,
                     FilteredNumberCompat.createManageBlockedNumbersIntent(context),
-                    PendingIntent.FLAG_UPDATE_CURRENT));
+                    PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE));
 
             DialerNotificationManager.notify(
                 context,

@@ -28,16 +28,18 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Icon;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.CallLog.Calls;
 import android.service.notification.StatusBarNotification;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.annotation.WorkerThread;
-import android.support.v4.os.BuildCompat;
-import android.support.v4.os.UserManagerCompat;
-import android.support.v4.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.annotation.WorkerThread;
+import android.os.Build.VERSION;
+import android.os.Build.VERSION_CODES;
+import androidx.core.os.UserManagerCompat;
+import androidx.core.util.Pair;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
@@ -49,7 +51,7 @@ import android.util.ArraySet;
 
 import com.android.contacts.common.ContactsUtils;
 import com.android.dialer.app.MainComponent;
-import com.android.dialer.app.R;
+import com.android.dialer.R;
 import com.android.dialer.app.calllog.CallLogNotificationsQueryHelper.NewCall;
 import com.android.dialer.app.contactinfo.ContactPhotoLoader;
 import com.android.dialer.callintent.CallInitiationType;
@@ -96,7 +98,9 @@ public class MissedCallNotifier implements Worker<Pair<Integer, String>, Void> {
   @Nullable
   @Override
   public Void doInBackground(@Nullable Pair<Integer, String> input) throws Throwable {
-    updateMissedCallNotification(input.first, input.second);
+    if (input != null) {
+      updateMissedCallNotification(input.first, input.second);
+    }
     return null;
   }
 
@@ -176,9 +180,13 @@ public class MissedCallNotifier implements Worker<Pair<Integer, String>, Void> {
           callLogNotificationsQueryHelper.getContactInfo(
               call.number, call.numberPresentation, call.countryIso);
       if (contactInfo.userType == ContactsUtils.USER_TYPE_WORK) {
-        titleText = context.getSystemService(DevicePolicyManager.class).getResources().getString(
-                NOTIFICATION_MISSED_WORK_CALL_TITLE,
-                () -> context.getString(R.string.notification_missedWorkCallTitle));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+          titleText = context.getSystemService(DevicePolicyManager.class).getResources().getString(
+                  NOTIFICATION_MISSED_WORK_CALL_TITLE,
+                  () -> context.getString(R.string.notification_missedWorkCallTitle));
+        } else {
+          titleText = context.getString(R.string.notification_missedWorkCallTitle);
+        }
       } else {
         titleText = context.getString(R.string.notification_missedCallTitle);
       }
@@ -224,7 +232,7 @@ public class MissedCallNotifier implements Worker<Pair<Integer, String>, Void> {
         .setGroupSummary(useCallList)
         .setOnlyAlertOnce(useCallList)
         .setPublicVersion(publicSummaryBuilder.build());
-    if (BuildCompat.isAtLeastO()) {
+    if (VERSION.SDK_INT >= VERSION_CODES.O) {
       groupSummary.setChannelId(NotificationChannelId.MISSED_CALL);
     }
 
@@ -422,7 +430,7 @@ public class MissedCallNotifier implements Worker<Pair<Integer, String>, Void> {
                 CallLogNotificationsService.createCancelSingleMissedCallPendingIntent(
                     context, call.callsUri))
             .setContentIntent(createCallLogPendingIntent(call.callsUri));
-    if (BuildCompat.isAtLeastO()) {
+    if (VERSION.SDK_INT >= VERSION_CODES.O) {
       builder.setChannelId(NotificationChannelId.MISSED_CALL);
     }
 
@@ -472,7 +480,9 @@ public class MissedCallNotifier implements Worker<Pair<Integer, String>, Void> {
 
     // TODO (a bug): scroll to call
     contentIntent.setData(callUri);
-    return PendingIntent.getActivity(context, 0, contentIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+    // Use unique request code based on callUri to prevent PendingIntent collisions
+    int requestCode = callUri != null ? callUri.hashCode() : 0;
+    return PendingIntent.getActivity(context, requestCode, contentIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
   }
 
   private PendingIntent createCallBackPendingIntent(String number, @NonNull Uri callUri) {
@@ -481,8 +491,9 @@ public class MissedCallNotifier implements Worker<Pair<Integer, String>, Void> {
     intent.putExtra(MissedCallNotificationReceiver.EXTRA_NOTIFICATION_PHONE_NUMBER, number);
     intent.setData(callUri);
     // Use FLAG_UPDATE_CURRENT to make sure any previous pending intent is updated with the new
-    // extra.
-    return PendingIntent.getService(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+    // extra. Use unique request code based on callUri to prevent PendingIntent collisions
+    int requestCode = callUri.hashCode();
+    return PendingIntent.getService(context, requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
   }
 
   private PendingIntent createSendSmsFromNotificationPendingIntent(
@@ -492,24 +503,33 @@ public class MissedCallNotifier implements Worker<Pair<Integer, String>, Void> {
     intent.putExtra(CallLogNotificationsActivity.EXTRA_MISSED_CALL_NUMBER, number);
     intent.setData(callUri);
     // Use FLAG_UPDATE_CURRENT to make sure any previous pending intent is updated with the new
-    // extra.
-    return PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+    // extra. Use unique request code based on action + callUri to prevent PendingIntent collisions
+    int requestCode = (CallLogNotificationsActivity.ACTION_SEND_SMS_FROM_MISSED_CALL_NOTIFICATION + callUri.toString()).hashCode();
+    return PendingIntent.getActivity(context, requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
   }
 
   /** Configures a notification to emit the blinky notification light. */
+  @SuppressWarnings("deprecation")
   private void configureLedOnNotification(Notification notification) {
-    notification.flags |= Notification.FLAG_SHOW_LIGHTS;
-    notification.defaults |= Notification.DEFAULT_LIGHTS;
+    // On O+, notification lights are configured via notification channels
+    if (VERSION.SDK_INT < VERSION_CODES.O) {
+      notification.flags |= Notification.FLAG_SHOW_LIGHTS;
+      notification.defaults |= Notification.DEFAULT_LIGHTS;
+    }
   }
 
   /** Closes open system dialogs and the notification shade. */
   private void closeSystemDialogs(Context context) {
     final Intent intent = new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)
             .addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
-    final Bundle options = BroadcastOptions.makeBasic()
-            .setDeliveryGroupPolicy(BroadcastOptions.DELIVERY_GROUP_POLICY_MOST_RECENT)
-            .setDeferralPolicy(BroadcastOptions.DEFERRAL_POLICY_UNTIL_ACTIVE)
-            .toBundle();
-    context.sendBroadcast(intent, null /* receiverPermission */, options);
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+      final Bundle options = BroadcastOptions.makeBasic()
+              .setDeliveryGroupPolicy(BroadcastOptions.DELIVERY_GROUP_POLICY_MOST_RECENT)
+              .setDeferralPolicy(BroadcastOptions.DEFERRAL_POLICY_UNTIL_ACTIVE)
+              .toBundle();
+      context.sendBroadcast(intent, null /* receiverPermission */, options);
+    } else {
+      context.sendBroadcast(intent);
+    }
   }
 }

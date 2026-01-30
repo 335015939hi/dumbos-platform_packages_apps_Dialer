@@ -15,11 +15,11 @@
  */
 package com.android.voicemail.impl.transcribe;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Build.VERSION_CODES;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Base64;
 import com.android.dialer.common.Assert;
 import com.google.internal.communications.voicemailtranscription.v1.AudioFormat;
@@ -47,7 +47,7 @@ public class TranscriptionUtils {
         : AudioFormat.AUDIO_FORMAT_UNSPECIFIED;
   }
 
-  @TargetApi(VERSION_CODES.O)
+  @RequiresApi(VERSION_CODES.O)
   static String getFingerprintFor(ByteString data, @Nullable String salt) {
     Assert.checkArgument(data != null);
     try {

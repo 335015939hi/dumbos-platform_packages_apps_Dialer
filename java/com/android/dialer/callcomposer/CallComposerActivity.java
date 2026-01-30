@@ -28,14 +28,14 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.content.FileProvider;
-import android.support.v4.util.Pair;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.support.v4.view.animation.FastOutSlowInInterpolator;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
+import androidx.core.util.Pair;
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.view.Gravity;
@@ -84,6 +84,7 @@ import com.android.dialer.widget.LockableViewPager;
 import com.android.incallui.callpending.CallPendingActivity;
 import com.google.protobuf.InvalidProtocolBufferException;
 import java.io.File;
+import com.android.dialer.R;
 
 /**
  * Implements an activity which prompts for a call with additional media for an outgoing call. The
@@ -611,7 +612,7 @@ public class CallComposerActivity extends AppCompatActivity
           TextUtils.isEmpty(contact.getNumberLabel())
               ? contact.getDisplayNumber()
               : getString(
-                  com.android.dialer.contacts.resources.R.string.call_subject_type_and_number,
+                  R.string.call_subject_type_and_number,
                   contact.getNumberLabel(),
                   contact.getDisplayNumber());
       numberView.setText(secondaryInfo);

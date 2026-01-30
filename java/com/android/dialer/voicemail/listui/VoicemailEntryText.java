@@ -23,6 +23,7 @@ import com.android.dialer.common.LogUtil;
 import com.android.dialer.time.Clock;
 import com.android.dialer.voicemail.model.VoicemailEntry;
 import java.util.concurrent.TimeUnit;
+import com.android.dialer.R;
 
 /**
  * Computes the primary text for voicemail entries.

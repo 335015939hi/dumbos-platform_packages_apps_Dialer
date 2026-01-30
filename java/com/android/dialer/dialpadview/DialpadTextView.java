@@ -16,12 +16,13 @@
 
 package com.android.dialer.dialpadview;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
-import android.widget.TextView;
+import androidx.appcompat.widget.AppCompatTextView;
 
 /**
  * This is a custom text view intended for rendering text on the dialpad. TextView has built-in
@@ -31,9 +32,9 @@ import android.widget.TextView;
  * to a larger default, for the dialpad we use this class to more precisely render characters
  * according to the precise amount of space they need.
  */
-public class DialpadTextView extends TextView {
+public class DialpadTextView extends AppCompatTextView {
 
-  private Rect textBounds = new Rect();
+  private final Rect textBounds = new Rect();
   private String textStr;
 
   public DialpadTextView(Context context, AttributeSet attrs) {
@@ -41,6 +42,7 @@ public class DialpadTextView extends TextView {
   }
 
   /** Draw the text to fit within the height/width which have been specified during measurement. */
+  @SuppressLint("MissingSuperCall") // Intentionally not calling super - custom text rendering
   @Override
   public void draw(Canvas canvas) {
     Paint paint = getPaint();

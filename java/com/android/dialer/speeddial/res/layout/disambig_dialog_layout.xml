@@ -54,7 +54,7 @@
       android:layout_height="wrap_content"
       android:layout_gravity="bottom"
       android:minHeight="64dp"
-      android:elevation="4dp"
+      android:elevation="3dp"
       android:background="?android:attr/colorBackgroundFloating">
 
     <CheckBox

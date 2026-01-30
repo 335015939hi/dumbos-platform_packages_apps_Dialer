@@ -16,7 +16,7 @@
 
 package com.android.voicemail.impl.sms;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -25,9 +25,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
-import android.support.annotation.MainThread;
-import android.support.annotation.Nullable;
-import android.support.annotation.WorkerThread;
+import androidx.annotation.MainThread;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.SmsManager;
 import android.telephony.VisualVoicemailSms;
@@ -46,7 +46,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 /** Intercepts a incoming STATUS SMS with a blocking call. */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public class StatusSmsFetcher extends BroadcastReceiver implements Closeable {
 
   private static final String TAG = "VvmStatusSmsFetcher";
@@ -54,14 +54,14 @@ public class StatusSmsFetcher extends BroadcastReceiver implements Closeable {
   private static final long STATUS_SMS_TIMEOUT_MILLIS = 60_000;
 
   private static final String PERMISSION_DIALER_ORIGIN =
-      "com.android.dialer.permission.DIALER_ORIGIN";
+      com.android.dialer.BuildConfig.APPLICATION_ID + ".permission.DIALER_ORIGIN";
 
   private static final String ACTION_REQUEST_SENT_INTENT =
       "com.android.voicemailomtp.sms.REQUEST_SENT";
 
   private static final int ACTION_REQUEST_SENT_REQUEST_CODE = 0;
 
-  private CompletableFuture<Bundle> future = new CompletableFuture<>();
+  private final CompletableFuture<Bundle> future = new CompletableFuture<>();
 
   private final Context context;
   private final PhoneAccountHandle phoneAccountHandle;

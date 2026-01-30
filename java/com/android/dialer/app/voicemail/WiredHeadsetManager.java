@@ -29,7 +29,7 @@ class WiredHeadsetManager {
   private final WiredHeadsetBroadcastReceiver receiver;
   private boolean isPluggedIn;
   private Listener listener;
-  private Context context;
+  private final Context context;
 
   WiredHeadsetManager(Context context) {
     this.context = context;

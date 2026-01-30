@@ -23,8 +23,8 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Trace;
 import android.preference.PreferenceManager;
-import android.support.v4.app.Fragment;
-import android.support.v4.os.UserManagerCompat;
+import androidx.fragment.app.Fragment;
+import androidx.core.os.UserManagerCompat;
 import android.telecom.CallAudioState;
 import android.telecom.PhoneAccountHandle;
 import android.widget.Toast;
@@ -56,6 +56,7 @@ import com.android.incallui.incall.protocol.InCallButtonUi;
 import com.android.incallui.incall.protocol.InCallButtonUiDelegate;
 import com.android.incallui.multisim.SwapSimWorker;
 import com.android.incallui.videotech.utils.VideoUtils;
+import com.android.dialer.R;
 
 /** Logic for call buttons. */
 public class CallButtonPresenter
@@ -330,7 +331,7 @@ public class CallButtonPresenter
             DialerImpression.Type.IN_CALL_SHOW_DIALPAD_BUTTON_PRESSED,
             call.getUniqueCallId(),
             call.getTimeAddedMs());
-    LogUtil.v("CallButtonPresenter", "show dialpad " + String.valueOf(checked));
+    LogUtil.v("CallButtonPresenter", "show dialpad " + checked);
     getActivity().showDialpadFragment(checked /* show */, true /* animate */);
   }
 

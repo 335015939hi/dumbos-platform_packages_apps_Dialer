@@ -19,7 +19,7 @@ package com.android.dialer.main.impl;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.LocalBroadcastManager;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.android.dialer.blockreportspam.ShowBlockReportSpamDialogReceiver;
 import com.android.dialer.calllog.config.CallLogConfigComponent;
 import com.android.dialer.common.Assert;
@@ -30,6 +30,8 @@ import com.android.dialer.interactions.PhoneNumberInteraction.InteractionErrorLi
 import com.android.dialer.main.MainActivityPeer;
 import com.android.dialer.main.impl.bottomnav.BottomNavBar.TabIndex;
 import com.android.dialer.R;
+import com.android.dialer.theme.base.Theme;
+import com.android.dialer.theme.base.ThemeComponent;
 import com.android.dialer.util.TransactionSafeActivity;
 
 /** This is the main activity for dialer. It hosts favorites, call log, search, dialpad, etc... */
@@ -73,8 +75,22 @@ public class MainActivity extends TransactionSafeActivity
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
-    setTheme(R.style.MainActivityTheme);
+    // Set theme before super.onCreate() to avoid visual transitions
+    @Theme.Type int theme = ThemeComponent.get(this).theme().getTheme();
+
+    switch (theme) {
+      case Theme.DARK:
+        setTheme(R.style.MainActivityTheme_Dark);
+        break;
+      case Theme.LIGHT:
+      case Theme.LIGHT_M2:
+      case Theme.UNKNOWN:
+      default:
+        setTheme(R.style.MainActivityTheme);
+        break;
+    }
     super.onCreate(savedInstanceState);
+
     LogUtil.enterBlock("MainActivity.onCreate");
     // If peer was set by the super, don't reset it.
     activePeer = getNewPeer();
@@ -102,6 +118,7 @@ public class MainActivity extends TransactionSafeActivity
   @Override
   protected void onResume() {
     super.onResume();
+
     activePeer.onActivityResume();
 
     LocalBroadcastManager.getInstance(this)

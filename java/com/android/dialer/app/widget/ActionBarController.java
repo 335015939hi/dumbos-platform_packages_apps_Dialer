@@ -31,8 +31,8 @@ public class ActionBarController {
   private static final String KEY_IS_FADED_OUT = "key_actionbar_is_faded_out";
   private static final String KEY_IS_EXPANDED = "key_actionbar_is_expanded";
 
-  private ActivityUi activityUi;
-  private SearchEditTextLayout searchBox;
+  private final ActivityUi activityUi;
+  private final SearchEditTextLayout searchBox;
 
   private boolean isActionBarSlidUp;
 

@@ -30,7 +30,7 @@ import android.view.accessibility.AccessibilityEvent;
 public class ContentChangedFilter extends AccessibilityDelegate {
 
   // the view we don't want TYPE_WINDOW_CONTENT_CHANGED to fire.
-  private View view;
+  private final View view;
 
   private ContentChangedFilter(View view) {
     super();

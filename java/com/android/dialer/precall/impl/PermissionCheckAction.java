@@ -22,6 +22,7 @@ import com.android.dialer.callintent.CallIntentBuilder;
 import com.android.dialer.precall.PreCallAction;
 import com.android.dialer.precall.PreCallCoordinator;
 import com.android.dialer.telecom.TelecomUtil;
+import com.android.dialer.R;
 
 /** Aborts call and show a toast if phone permissions are missing. */
 public class PermissionCheckAction implements PreCallAction {

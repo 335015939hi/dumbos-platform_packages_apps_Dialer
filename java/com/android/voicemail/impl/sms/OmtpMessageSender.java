@@ -15,11 +15,11 @@
  */
 package com.android.voicemail.impl.sms;
 
-import android.annotation.TargetApi;
+import androidx.annotation.RequiresApi;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.os.Build.VERSION_CODES;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.telecom.PhoneAccountHandle;
 import android.telephony.SmsManager;
 import android.telephony.TelephonyManager;
@@ -35,7 +35,7 @@ import com.android.voicemail.impl.VvmLog;
  *
  * <p>Provides simple APIs to send different types of mobile originated OMTP SMS to the VVM server.
  */
-@TargetApi(VERSION_CODES.O)
+@RequiresApi(VERSION_CODES.O)
 public abstract class OmtpMessageSender {
   protected static final String TAG = "OmtpMessageSender";
   protected final Context context;

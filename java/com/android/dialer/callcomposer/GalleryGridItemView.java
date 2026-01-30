@@ -28,6 +28,7 @@ import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
 import java.util.concurrent.TimeUnit;
+import com.android.dialer.R;
 
 /** Shows an item in the gallery picker grid view. Hosts an FileImageView with a checkbox. */
 public class GalleryGridItemView extends FrameLayout {
@@ -47,7 +48,7 @@ public class GalleryGridItemView extends FrameLayout {
   @Override
   protected void onFinishInflate() {
     super.onFinishInflate();
-    image = (ImageView) findViewById(R.id.image);
+    image = findViewById(R.id.image);
     checkbox = findViewById(R.id.checkbox);
     gallery = findViewById(R.id.gallery);
 

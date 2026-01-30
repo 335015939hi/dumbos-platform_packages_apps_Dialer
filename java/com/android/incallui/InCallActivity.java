@@ -27,20 +27,21 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.GradientDrawable.Orientation;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Trace;
-import android.support.annotation.ColorInt;
-import android.support.annotation.FloatRange;
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.res.ResourcesCompat;
-import android.support.v4.graphics.ColorUtils;
+import androidx.annotation.ColorInt;
+import androidx.annotation.FloatRange;
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.core.content.res.ResourcesCompat;
+import androidx.core.graphics.ColorUtils;
 import android.telecom.Call;
 import android.telecom.CallAudioState;
 import android.telecom.PhoneAccountHandle;
@@ -107,6 +108,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import com.android.dialer.R;
 
 /** Version of {@link InCallActivity} that shows the new UI */
 public class InCallActivity extends TransactionSafeFragmentActivity
@@ -164,7 +166,12 @@ public class InCallActivity extends TransactionSafeFragmentActivity
   public static Intent getIntent(
       Context context, boolean showDialpad, boolean newOutgoingCall, boolean isForFullScreen) {
     Intent intent = new Intent(Intent.ACTION_MAIN, null);
-    intent.setFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION | Intent.FLAG_ACTIVITY_NEW_TASK);
+    intent.setFlags(
+        Intent.FLAG_ACTIVITY_NO_USER_ACTION
+            | Intent.FLAG_ACTIVITY_NEW_TASK
+            | Intent.FLAG_ACTIVITY_CLEAR_TOP
+            | Intent.FLAG_ACTIVITY_SINGLE_TOP
+            | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
     intent.setClass(context, InCallActivity.class);
     if (showDialpad) {
       intent.putExtra(IntentExtraNames.SHOW_DIALPAD, true);
@@ -613,6 +620,7 @@ public class InCallActivity extends TransactionSafeFragmentActivity
 
   @Override
   protected void onNewIntent(Intent intent) {
+    super.onNewIntent(intent);
     LogUtil.enterBlock("InCallActivity.onNewIntent");
 
     // If the screen is off, we need to make sure it gets turned on for incoming calls.
@@ -1147,7 +1155,7 @@ public class InCallActivity extends TransactionSafeFragmentActivity
     View dialogCheckBoxView =
         View.inflate(builder.getContext(), R.layout.video_call_lte_to_wifi_failed, null /* root */);
     CheckBox wifiHandoverFailureCheckbox =
-        (CheckBox) dialogCheckBoxView.findViewById(R.id.video_call_lte_to_wifi_failed_checkbox);
+            dialogCheckBoxView.findViewById(R.id.video_call_lte_to_wifi_failed_checkbox);
     wifiHandoverFailureCheckbox.setChecked(false);
 
     InCallUiLock lock = InCallPresenter.getInstance().acquireInCallUiLock("WifiFailedDialog");
@@ -1437,7 +1445,7 @@ public class InCallActivity extends TransactionSafeFragmentActivity
       return new ShouldShowUiResult(false, null);
     }
 
-    if (call.isActiveRttCall()) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && call.isActiveRttCall()) {
       LogUtil.i("InCallActivity.getShouldShowRttUi", "found rtt call");
       return new ShouldShowUiResult(true, call);
     }
@@ -1486,10 +1494,11 @@ public class InCallActivity extends TransactionSafeFragmentActivity
     }
 
     // Show a new answer screen.
+    boolean isActiveRttCall = Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && call.isActiveRttCall();
     AnswerScreen answerScreen =
         AnswerBindings.createAnswerScreen(
             call.getId(),
-            call.isActiveRttCall(),
+            isActiveRttCall,
             call.isVideoCall(),
             isVideoUpgradeRequest,
             call.getVideoTech().isSelfManagedCamera(),
@@ -1696,7 +1705,11 @@ public class InCallActivity extends TransactionSafeFragmentActivity
 
   @Override
   public RttCallScreenDelegate newRttCallScreenDelegate(RttCallScreen videoCallScreen) {
-    return new RttCallPresenter();
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+      return new RttCallPresenter();
+    }
+    // RTT is only available on Android P (API 28) and above
+    throw new UnsupportedOperationException("RTT requires API 28 or higher");
   }
 
   private static class ShouldShowUiResult {

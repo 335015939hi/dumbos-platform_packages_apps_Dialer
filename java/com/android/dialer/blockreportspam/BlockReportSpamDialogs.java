@@ -21,13 +21,14 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
+import androidx.appcompat.app.AlertDialog;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 import com.android.dialer.blocking.FilteredNumberCompat;
+import com.android.dialer.R;
 
 /** Creates dialog fragments to block a number and/or report it as spam/not spam. */
 public final class BlockReportSpamDialogs {
@@ -153,12 +154,12 @@ public final class BlockReportSpamDialogs {
       super.onCreateDialog(savedInstanceState);
       View dialogView = View.inflate(getActivity(), R.layout.block_report_spam_dialog, null);
       final CheckBox isSpamCheckbox =
-          (CheckBox) dialogView.findViewById(R.id.report_number_as_spam_action);
+              dialogView.findViewById(R.id.report_number_as_spam_action);
       // Listen for changes on the checkbox and update if orientation changes
       isSpamCheckbox.setChecked(spamChecked);
       isSpamCheckbox.setOnCheckedChangeListener((buttonView, isChecked) -> spamChecked = isChecked);
 
-      TextView details = (TextView) dialogView.findViewById(R.id.block_details);
+      TextView details = dialogView.findViewById(R.id.block_details);
       details.setText(getBlockMessage(getContext()));
 
       AlertDialog.Builder alertDialogBuilder = createDialogBuilder(getActivity(), this);

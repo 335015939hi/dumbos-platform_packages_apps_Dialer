@@ -19,7 +19,7 @@ package com.android.dialer.common;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /** Utility class for package management. */
 public class PackageUtils {
@@ -44,10 +44,8 @@ public class PackageUtils {
     Assert.isNotNull(packageName);
     Assert.isNotNull(context);
     if (isPackageInstalled(packageName, context)) {
-      if (context.getPackageManager().getApplicationEnabledSetting(packageName)
-          != PackageManager.COMPONENT_ENABLED_STATE_DISABLED) {
-        return true;
-      }
+        return context.getPackageManager().getApplicationEnabledSetting(packageName)
+                != PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
     }
     return false;
   }

@@ -24,13 +24,14 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.provider.CallLog.Calls;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 import android.util.AttributeSet;
 import android.view.View;
 import com.android.dialer.theme.base.Theme;
 import com.android.dialer.theme.base.ThemeComponent;
 import java.util.ArrayList;
 import java.util.List;
+import com.android.dialer.R;
 
 /**
  * View that draws one or more symbols for different types of calls (missed calls, outgoing etc).
@@ -46,7 +47,7 @@ public class CallTypeIconsView extends View {
 
   private static Resources resources;
   private static Resources largeResouces;
-  private List<Integer> callTypes = new ArrayList<>(3);
+  private final List<Integer> callTypes = new ArrayList<>(3);
   private boolean showVideo;
   private boolean showHd;
   private boolean showWifi;

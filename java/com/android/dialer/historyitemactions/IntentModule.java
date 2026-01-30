@@ -18,8 +18,8 @@ package com.android.dialer.historyitemactions;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.StringRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.StringRes;
 import com.android.dialer.callintent.CallIntentBuilder;
 import com.android.dialer.logging.DialerImpression;
 import com.android.dialer.logging.Logger;
@@ -27,6 +27,7 @@ import com.android.dialer.precall.PreCall;
 import com.android.dialer.util.DialerUtils;
 import com.android.dialer.util.IntentUtil;
 import com.google.common.collect.ImmutableList;
+import com.android.dialer.R;
 
 /**
  * {@link HistoryItemActionModule} useful for making easy to build modules based on starting an

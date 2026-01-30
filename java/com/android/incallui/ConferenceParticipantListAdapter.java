@@ -18,7 +18,7 @@ package com.android.incallui;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.v4.util.ArrayMap;
+import androidx.collection.ArrayMap;
 import android.telephony.PhoneNumberUtils;
 import android.text.BidiFormatter;
 import android.text.TextDirectionHeuristics;
@@ -49,6 +49,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import com.android.dialer.R;
 
 /** Adapter for a ListView containing conference call participant information. */
 public class ConferenceParticipantListAdapter extends BaseAdapter {
@@ -60,7 +61,7 @@ public class ConferenceParticipantListAdapter extends BaseAdapter {
   /** Contact photo manager to retrieve cached contact photo information. */
   private final ContactPhotoManager contactPhotoManager;
   /** Listener used to handle tap of the "disconnect' button for a participant. */
-  private View.OnClickListener disconnectListener =
+  private final View.OnClickListener disconnectListener =
       new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -73,7 +74,7 @@ public class ConferenceParticipantListAdapter extends BaseAdapter {
         }
       };
   /** Listener used to handle tap of the "separate' button for a participant. */
-  private View.OnClickListener separateListener =
+  private final View.OnClickListener separateListener =
       new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -85,7 +86,7 @@ public class ConferenceParticipantListAdapter extends BaseAdapter {
         }
       };
   /** The conference participants to show in the ListView. */
-  private List<ParticipantInfo> conferenceParticipants = new ArrayList<>();
+  private final List<ParticipantInfo> conferenceParticipants = new ArrayList<>();
   /** {@code True} if the conference parent supports separating calls from the conference. */
   private boolean parentCanSeparate;
 
@@ -285,10 +286,10 @@ public class ConferenceParticipantListAdapter extends BaseAdapter {
       boolean thisRowCanDisconnect,
       int callState) {
 
-    final ImageView photoView = (ImageView) view.findViewById(R.id.callerPhoto);
-    final TextView statusTextView = (TextView) view.findViewById(R.id.conferenceCallerStatus);
-    final TextView nameTextView = (TextView) view.findViewById(R.id.conferenceCallerName);
-    final TextView numberTextView = (TextView) view.findViewById(R.id.conferenceCallerNumber);
+    final ImageView photoView = view.findViewById(R.id.callerPhoto);
+    final TextView statusTextView = view.findViewById(R.id.conferenceCallerStatus);
+    final TextView nameTextView = view.findViewById(R.id.conferenceCallerName);
+    final TextView numberTextView = view.findViewById(R.id.conferenceCallerNumber);
     final View endButton = view.findViewById(R.id.conferenceCallerDisconnect);
     final View separateButton = view.findViewById(R.id.conferenceCallerSeparate);
 

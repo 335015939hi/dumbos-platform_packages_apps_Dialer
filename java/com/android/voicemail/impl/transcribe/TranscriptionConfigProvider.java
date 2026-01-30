@@ -16,12 +16,29 @@
 package com.android.voicemail.impl.transcribe;
 
 import android.content.Context;
-import android.os.Build;
+// import android.os.Build;
 import com.android.dialer.configprovider.ConfigProviderComponent;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
-/** Provides configuration values needed to connect to the transcription server. */
+/**
+ * Provides configuration values needed to connect to the transcription server.
+ *
+ * <p>TODO: Replace Google's voicemail transcription service with an open-source alternative.
+ * The transcription feature has been disabled to remove the Google Play Services dependency.
+ * Potential open-source alternatives:
+ * - OpenAI Whisper (can run locally on-device or via API)
+ * - Mozilla DeepSpeech (local, open-source speech recognition)
+ * - Vosk (offline speech recognition, supports Android)
+ * - Coqui STT (open-source, formerly Mozilla DeepSpeech)
+ *
+ * <p>To re-enable transcription with an open-source backend:
+ * 1. Implement a new TranscriptionClient that uses the chosen speech-to-text service
+ * 2. Update isVoicemailTranscriptionAvailable() to return true
+ * 3. Update getServerAddress() to point to your transcription service
+ */
 public class TranscriptionConfigProvider {
+  @SuppressWarnings("unused")
   private final Context context;
 
   public TranscriptionConfigProvider(Context context) {
@@ -29,26 +46,26 @@ public class TranscriptionConfigProvider {
   }
 
   public boolean isVoicemailTranscriptionAvailable() {
-    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
-        && ConfigProviderComponent.get(context)
-            .getConfigProvider()
-            .getBoolean("voicemail_transcription_available", false);
+    // TODO: Re-enable when open-source transcription backend is implemented
+    // GMS-based transcription has been disabled to remove Google Play Services dependency.
+    // Original implementation:
+    // return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
+    //     && ConfigProviderComponent.get(context)
+    //         .getConfigProvider()
+    //         .getBoolean("voicemail_transcription_available", false);
+    return false;
   }
 
   public String getServerAddress() {
-    // Private voicemail transcription service
-    return ConfigProviderComponent.get(context)
-        .getConfigProvider()
-        .getString(
-            "voicemail_transcription_server_address", "voicemailtranscription-pa.googleapis.com");
+    // TODO: Update to open-source transcription server address when implemented
+    // Original Google service: "voicemailtranscription-pa.googleapis.com"
+    return "";
   }
 
   public String getApiKey() {
-    // Android API key restricted to com.google.android.dialer
-    return ConfigProviderComponent.get(context)
-        .getConfigProvider()
-        .getString(
-            "voicemail_transcription_client_api_key", "AIzaSyAXdDnif6B7sBYxU8hzw9qAp3pRPVHs060");
+    // TODO: Update API key for open-source transcription service when implemented
+    // Original Google API key has been removed
+    return "";
   }
 
   public String getAuthToken() {
@@ -111,6 +128,7 @@ public class TranscriptionConfigProvider {
   @Override
   public String toString() {
     return String.format(
+        Locale.US,
         "{ address: %s, api key: %s, auth token: %s, plaintext: %b, sync: %b, retries: %d, polls:"
             + " %d, poll ms: %d }",
         getServerAddress(),

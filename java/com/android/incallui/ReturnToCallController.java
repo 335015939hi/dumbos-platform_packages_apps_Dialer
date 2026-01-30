@@ -22,8 +22,9 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
+import androidx.appcompat.content.res.AppCompatResources;
 import android.telecom.CallAudioState;
 import android.text.TextUtils;
 import com.android.bubble.Bubble;
@@ -49,6 +50,7 @@ import com.android.incallui.speakerbuttonlogic.SpeakerButtonInfo;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
+import com.android.dialer.R;
 
 /**
  * Listens for events relevant to the return-to-call bubble and updates the bubble's state as
@@ -64,7 +66,7 @@ public class ReturnToCallController implements InCallUiListener, Listener, Audio
 
   private final Context context;
 
-  @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+  @VisibleForTesting
   Bubble bubble;
 
   private static Boolean canShowBubblesForTesting = null;
@@ -321,7 +323,7 @@ public class ReturnToCallController implements InCallUiListener, Listener, Audio
     actions.add(
         Action.builder()
             .setIconDrawable(
-                context.getDrawable(R.drawable.quantum_ic_exit_to_app_flip_vd_theme_24))
+                AppCompatResources.getDrawable(context, R.drawable.quantum_ic_exit_to_app_flip_vd_theme_24))
             .setIntent(fullScreen)
             .setName(context.getText(R.string.bubble_return_to_call))
             .setCheckable(false)
@@ -329,7 +331,7 @@ public class ReturnToCallController implements InCallUiListener, Listener, Audio
     // Mute/unmute
     actions.add(
         Action.builder()
-            .setIconDrawable(context.getDrawable(R.drawable.quantum_ic_mic_off_vd_theme_24))
+            .setIconDrawable(AppCompatResources.getDrawable(context, R.drawable.quantum_ic_mic_off_vd_theme_24))
             .setChecked(audioState.isMuted())
             .setIntent(toggleMute)
             .setName(context.getText(R.string.incall_label_mute))
@@ -337,11 +339,11 @@ public class ReturnToCallController implements InCallUiListener, Listener, Audio
     // Speaker/audio selector
     actions.add(
         Action.builder()
-            .setIconDrawable(context.getDrawable(speakerButtonInfo.icon))
+            .setIconDrawable(AppCompatResources.getDrawable(context, speakerButtonInfo.icon))
             .setSecondaryIconDrawable(
                 speakerButtonInfo.nonBluetoothMode
                     ? null
-                    : context.getDrawable(R.drawable.quantum_ic_arrow_drop_down_vd_theme_24))
+                    : AppCompatResources.getDrawable(context, R.drawable.quantum_ic_arrow_drop_down_vd_theme_24))
             .setName(context.getText(speakerButtonInfo.label))
             .setCheckable(speakerButtonInfo.nonBluetoothMode)
             .setChecked(speakerButtonInfo.isChecked)
@@ -350,7 +352,7 @@ public class ReturnToCallController implements InCallUiListener, Listener, Audio
     // End call
     actions.add(
         Action.builder()
-            .setIconDrawable(context.getDrawable(R.drawable.quantum_ic_call_end_vd_theme_24))
+            .setIconDrawable(AppCompatResources.getDrawable(context, R.drawable.quantum_ic_call_end_vd_theme_24))
             .setIntent(endCall)
             .setName(context.getText(R.string.incall_label_end_call))
             .setCheckable(false)
@@ -360,9 +362,13 @@ public class ReturnToCallController implements InCallUiListener, Listener, Audio
 
   @NonNull
   private PendingIntent createActionIntent(String action) {
-    Intent intent = new Intent(context, ReturnToCallActionReceiver.class);
-    intent.setAction(action);
-    return PendingIntent.getBroadcast(context, 0, intent, 0);
+    Intent intent = new Intent(action);
+    // Set package to ensure the broadcast stays within our app
+    intent.setPackage(context.getPackageName());
+    // Use action's hashCode as request code to ensure each action has a unique PendingIntent
+    int requestCode = action.hashCode();
+    return PendingIntent.getBroadcast(context, requestCode, intent,
+        PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
   }
 
   @NonNull

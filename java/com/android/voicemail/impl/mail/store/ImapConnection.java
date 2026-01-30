@@ -46,7 +46,7 @@ public class ImapConnection {
   private ImapStore imapStore;
   private MailTransport transport;
   private ImapResponseParser parser;
-  private Set<String> capabilities = new ArraySet<>();
+  private final Set<String> capabilities = new ArraySet<>();
 
   static final String IMAP_REDACTED_LOG = "[IMAP command redacted]";
 
@@ -179,7 +179,7 @@ public class ImapConnection {
   }
 
   /** Logs into the IMAP server */
-  private void doLogin() throws IOException, MessagingException, AuthenticationFailedException {
+  private void doLogin() throws IOException, MessagingException {
     try {
       if (capabilities.contains(ImapConstants.CAPABILITY_AUTH_DIGEST_MD5)) {
         doDigestMd5Auth();

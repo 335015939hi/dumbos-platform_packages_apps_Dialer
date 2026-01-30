@@ -28,6 +28,7 @@ import com.android.dialer.callcomposer.camera.CameraManager;
 import com.android.dialer.callcomposer.camera.HardwareCameraPreview;
 import com.android.dialer.callcomposer.camera.SoftwareCameraPreview;
 import com.android.dialer.common.LogUtil;
+import com.android.dialer.R;
 
 /** Used to display the view of the camera. */
 public class CameraMediaChooserView extends FrameLayout {
@@ -88,7 +89,7 @@ public class CameraMediaChooserView extends FrameLayout {
             @Override
             public void run() {
               final HardwareCameraPreview cameraPreview =
-                  (HardwareCameraPreview) findViewById(R.id.camera_preview);
+                      findViewById(R.id.camera_preview);
               if (cameraPreview == null) {
                 return;
               }

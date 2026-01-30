@@ -28,7 +28,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import com.android.dialer.animation.AnimUtils;
-import com.android.dialer.app.R;
+import com.android.dialer.R;
 import com.android.dialer.util.DialerUtils;
 
 public class SearchEditTextLayout extends FrameLayout {
@@ -88,7 +88,7 @@ public class SearchEditTextLayout extends FrameLayout {
 
     collapsed = findViewById(R.id.search_box_collapsed);
     expanded = findViewById(R.id.search_box_expanded);
-    searchView = (EditText) expanded.findViewById(R.id.search_view);
+    searchView = expanded.findViewById(R.id.search_view);
 
     searchIcon = findViewById(R.id.search_magnifying_glass);
     collapsedSearchBox = findViewById(R.id.search_box_start_search);
