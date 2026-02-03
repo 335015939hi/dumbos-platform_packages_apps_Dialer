@@ -121,6 +121,13 @@ public class CallRecorderServiceV2 extends Service {
     String fileName = generateFilename(phoneNumber, outputFormat);
     final Uri uri = getContentResolver().insert(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
             CallRecording.generateMediaInsertValues(fileName, creationTime));
+
+    if (uri == null) {
+      Log.e(TAG, "failed to get uri from MediaStore");
+      mCallRecorder.close();
+      return false;
+    }
+
     try {
       switch (outputFormat) {
         case AAC_MPEG_4: // fall-through
@@ -141,14 +148,14 @@ public class CallRecorderServiceV2 extends Service {
     } catch (IllegalStateException | IllegalArgumentException e) {
       Log.e(TAG, "Could not start recording", e);
       getContentResolver().delete(uri, null, null);
-      stopCallRecorder();
+      stopAndReleaseCallRecorder();
       return false;
     }
   }
 
   private synchronized CallRecording stopRecordingInternal() {
     Log.d(TAG, "stopRecordingInternal");
-    stopCallRecorder();
+    stopAndReleaseCallRecorder();
 
     final CallRecording recording = mCurrentRecording;
     if (recording != null) {
@@ -162,7 +169,7 @@ public class CallRecorderServiceV2 extends Service {
     return recording;
   }
 
-  private void stopCallRecorder() {
+  private void stopAndReleaseCallRecorder() {
     try (BaseCallRecorder recorder = mCallRecorder) {
       if (recorder != null) {
         recorder.stopRecordingBlocking();
@@ -176,6 +183,6 @@ public class CallRecorderServiceV2 extends Service {
   public void onDestroy() {
     super.onDestroy();
     Log.d(TAG, "onDestroy");
-    stopCallRecorder();
+    stopAndReleaseCallRecorder();
   }
 }
