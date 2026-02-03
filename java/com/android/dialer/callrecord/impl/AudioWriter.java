@@ -9,6 +9,8 @@ import java.io.FileDescriptor;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.nio.channels.Channels;
+import java.nio.channels.WritableByteChannel;
 
 /**
  * Writes audio data, usually from android.media.MediaCodec, to storage
@@ -22,9 +24,11 @@ public abstract class AudioWriter implements AutoCloseable {
 
   public static class OutputStreamAudioWriter extends AudioWriter {
     protected final BufferedOutputStream mOutputStream;
+    protected final WritableByteChannel mChannel;
 
     public OutputStreamAudioWriter(FileDescriptor fd) {
       mOutputStream = new BufferedOutputStream(new FileOutputStream(fd));
+      mChannel = Channels.newChannel(mOutputStream);
     }
 
     @Override
@@ -33,14 +37,12 @@ public abstract class AudioWriter implements AutoCloseable {
 
     @Override
     public void write(ByteBuffer buffer, MediaCodec.BufferInfo bufferInfo) throws IOException {
-      while (buffer.hasRemaining()) {
-        mOutputStream.write(buffer.get());
-      }
+      mChannel.write(buffer);
     }
 
     @Override
     public void close() throws Exception {
-      mOutputStream.close();
+      mChannel.close();
     }
   }
 
