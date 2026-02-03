@@ -45,7 +45,7 @@ public class CallRecorderServiceV2 extends Service {
 
     @Override
     public boolean isRecording() throws RemoteException {
-      return mCallRecorder != null && mCallRecorder.isRecording();
+      return isRecordingInternal();
     }
 
     @Override
@@ -100,9 +100,14 @@ public class CallRecorderServiceV2 extends Service {
     return "CallRecord_" + timestamp + "_" + number + outputFormat.extension;
   }
 
+  private boolean isRecordingInternal() {
+    final BaseCallRecorder callRecorder = mCallRecorder;
+    return callRecorder != null && callRecorder.isRecording();
+  }
+
   private synchronized boolean startRecordingInternal(String phoneNumber, long creationTime) {
     Log.i(TAG, "startRecordingInternal");
-    if (mCallRecorder != null && mCallRecorder.isRecording()) {
+    if (isRecordingInternal()) {
       Log.i(TAG, "Start called with recording in progress, stopping current recording");
       stopRecordingInternal();
     }
