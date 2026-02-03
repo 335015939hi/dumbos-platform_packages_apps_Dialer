@@ -140,6 +140,8 @@ public abstract class BaseCallRecorder implements Closeable {
           runInitialRecordJob();
         } catch (Throwable t) {
           Log.e(TAG, "error when running initial record job", t);
+          mIsRecording = false;
+          mAudioBufferPool.close();
           throw t;
         }
         return null;
@@ -149,6 +151,8 @@ public abstract class BaseCallRecorder implements Closeable {
         runConsumerJob();
       } catch (Throwable t) {
         Log.e(TAG, "error when running consumer job", t);
+        mIsRecording = false;
+        mAudioBufferPool.close();
         throw t;
       }
       return null;
@@ -156,20 +160,19 @@ public abstract class BaseCallRecorder implements Closeable {
   }
 
   private void runInitialRecordJob() throws Exception {
-    mWritePfd = mContentResolver.openFileDescriptor(mUri, "w");
-    if (mWritePfd == null) {
-      throw new IOException("pfd for " + mUri + " failed to open");
-    }
-
     try {
+      mWritePfd = mContentResolver.openFileDescriptor(mUri, "w");
+      if (mWritePfd == null) {
+        throw new IOException("pfd for " + mUri + " failed to open");
+      }
+
       onRecordingStart(mWritePfd);
+      Log.d(TAG, "start recording");
+      mAudioRecord.startRecording();
     } catch (Throwable t) {
       closeWritePfd();
       throw t;
     }
-
-    Log.d(TAG, "start recording");
-    mAudioRecord.startRecording();
     mIsRecording = true;
 
     final long startTimeMs = SystemClock.elapsedRealtime();
