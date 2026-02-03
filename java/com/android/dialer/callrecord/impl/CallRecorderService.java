@@ -148,6 +148,11 @@ public class CallRecorderService extends Service {
     String fileName = generateFilename(phoneNumber, outputFormat);
     Uri uri = getContentResolver().insert(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
             CallRecording.generateMediaInsertValues(fileName, creationTime));
+    if (uri == null) {
+      Log.e(TAG, "failed to get uri from MediaStore");
+      releaseMediaRecorder();
+      return false;
+    }
 
     try {
       try (ParcelFileDescriptor pfd = getContentResolver().openFileDescriptor(uri, "w")) {
