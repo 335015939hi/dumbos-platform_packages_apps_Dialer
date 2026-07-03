@@ -1,12 +1,17 @@
 package com.android.dialer.callrecord;
 
-import com.android.dialer.callrecord.CallRecording;
+import com.android.dialer.callrecord.ICallRecorderServiceCallback;
 
 /**
  * Service for recording phone calls.  Only one recording may be active at a time
  * (i.e. every call to startRecording should be followed by a call to stopRecording).
  */
 interface ICallRecorderService {
+  /**
+   * Registers callbacks for recorder events that happen after a command returns.
+   */
+  void setCallback(ICallRecorderServiceCallback callback);
+
   /**
    * Start a recording.
    *
@@ -15,23 +20,10 @@ interface ICallRecorderService {
   boolean startRecording(String phoneNumber, long creationTime);
 
   /**
-   * stops the current recording
+   * Requests that the current recording stop.
    *
-   * @return call recording data including the output filename
+   * Completion, including finalized call recording data, is reported through
+   * ICallRecorderServiceCallback so same process service teardown cannot block the UI thread.
    */
-  CallRecording stopRecording();
-
-  /**
-   * Recording status
-   *
-   * @return true if there is an active recording
-   */
-  boolean isRecording();
-
-  /**
-   * Get recording currently in progress
-   *
-   * @return call recording object
-   */
-  CallRecording getActiveRecording();
+  void stopRecording();
 }

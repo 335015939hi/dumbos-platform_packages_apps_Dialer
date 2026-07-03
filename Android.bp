@@ -150,6 +150,11 @@ filegroup {
         "java/com/android/dialer/binary/google/AndroidManifest.xml",
         "java/com/android/incallui/calllocation/impl/AndroidManifest.xml",
         "java/com/android/incallui/maps/impl/AndroidManifest.xml",
+        "tests/AndroidManifest.xml",
+        "tests/DialerForTestingManifest.xml",
+        "tests/integration/AndroidManifest.xml",
+        "tests/integration/helper/AndroidManifest.xml",
+        "tests/outofprocess/AndroidManifest.xml",
     ],
 }
 
@@ -243,11 +248,14 @@ RES_DIRS = [
     "java/com/android/voicemail/impl/res",
 ]
 
-android_app {
-    name: "Dialer",
+java_defaults {
+    name: "Dialer_app_defaults",
     use_resource_processor: false,
+    // Multiprocess DataStore loads libdatastore_shared_counter.so from the APK.
+    use_embedded_native_libs: true,
     srcs: [
         "java/com/android/**/*.java",
+        "java/com/android/**/*.kt",
         "java/com/android/**/*.proto",
         "java/com/android/**/*.aidl",
     ],
@@ -303,13 +311,20 @@ android_app {
         "android-support-v7-cardview",
         "android-support-v7-recyclerview",
         "android-support-dynamic-animation",
+        "androidx.datastore_datastore",
+        // Direct dependency is needed so Soong packages datastore-core's JNI zip.
+        "androidx.datastore_datastore-core",
         "com.android.vcard",
         "dialer-common-m2-target-deps",
         "dialer-glide-target-deps",
         "error_prone_annotations",
         "jsr305",
+        "kotlinx_coroutines",
+        "kotlinx_coroutines_android",
+        "kotlinx_coroutines_guava",
         "libbackup",
         "libphonenumber",
+        "libprotobuf-java-lite",
         "volley",
         "zxing-core-1.7",
     ],
@@ -326,6 +341,14 @@ android_app {
     ],
     // Forcibly uses the same jdk version used in dialer-rootcomponentprocessor.
     java_version: "1.8",
+    sdk_version: "system_current",
+    certificate: "shared",
+    uses_libs: ["org.apache.http.legacy"],
+}
+
+android_app {
+    name: "Dialer",
+    defaults: ["Dialer_app_defaults"],
     optimize: {
         proguard_flags_files: ["**/proguard.flags"],
         // LOCAL_PROGUARD_ENABLED := custom
@@ -333,14 +356,41 @@ android_app {
         enabled: true,
         optimize: true,
     },
-    sdk_version: "system_current",
-    certificate: "shared",
     privileged: true,
     product_specific: true,
     required: [
         "privapp_whitelist_com.android.dialer",
     ],
-    uses_libs: ["org.apache.http.legacy"],
+}
+
+android_test_helper_app {
+    name: "DialerForTesting",
+    defaults: ["Dialer_app_defaults"],
+    // Test-only target receivers for DialerOutOfProcessTests and DialerIntegrationTests.
+    // Do not add this path to Dialer_app_defaults.
+    srcs: [
+        "tests/outofprocess/targetsrc/**/*.java",
+        "tests/outofprocess/targetsrc/**/*.kt",
+        "tests/integration/targetsrc/**/*.java",
+        "tests/integration/targetsrc/**/*.kt",
+    ],
+    exclude_srcs: [
+        "java/com/android/dialer/callrecord/impl/RecordingBackendOverrideGate.java",
+    ],
+    additional_manifests: ["tests/DialerForTestingManifest.xml"],
+    optimize: {
+        enabled: false,
+    },
+    test_suites: ["device-tests"],
+}
+
+android_test_helper_app {
+    name: "DialerIntegrationConnectionService",
+    srcs: ["tests/integration/helper/src/**/*.java"],
+    manifest: "tests/integration/helper/AndroidManifest.xml",
+    sdk_version: "system_current",
+    certificate: "shared",
+    test_suites: ["device-tests"],
 }
 
 java_library_host {
